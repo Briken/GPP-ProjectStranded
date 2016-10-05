@@ -10,7 +10,6 @@ public class MovementScript : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        Screen.orientation = ScreenOrientation.LandscapeLeft;
 
 #if UNITY_EDITOR
         {
