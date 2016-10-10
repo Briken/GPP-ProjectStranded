@@ -4,6 +4,11 @@ using UnityEngine.UI;
 
 public class MovementScript : MonoBehaviour {
 
+
+    public float maxSteering = 50.0f;
+    public float maxSpeed = 50;
+    public float currentSpeed = 10;
+    protected Rigidbody rBody;
     Vector3 fleePoint;
     public Text debug;
     public Text squareloc;
@@ -12,6 +17,7 @@ public class MovementScript : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        rBody = GetComponent<Rigidbody>();
 
 #if UNITY_EDITOR
         {
@@ -44,6 +50,7 @@ public class MovementScript : MonoBehaviour {
             debug.text = "fire1 pressed";
             
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit hit = new RaycastHit();
 
             if (Physics.Raycast(ray, out hit))
@@ -54,6 +61,11 @@ public class MovementScript : MonoBehaviour {
                     debug.text = "STOP TOUCHING MEEEEEEE";
                 }
             }
+            //else
+            //{
+            //    Vector2 currentVelocity = rBody.velocity;
+            //    currentVelocity += MoveFromTouch(target, currentVelocity);
+            //}
         }
 
 
@@ -79,10 +91,38 @@ public class MovementScript : MonoBehaviour {
         }
      }
 
-    void MoveFromTouch(Vector3 targetPoint, Vector3 velocity)
+    Vector2 MoveFromTouch(Vector2 targetPoint, Vector2 velocity)
     {
-        
+        Vector2 desiredVel = targetPoint - new Vector2(transform.position.x, transform.position.y);
+        desiredVel.Normalize();
+
+        Vector3 target = targetPoint;
+        Vector3 distance = (target - transform.position);
+        currentSpeed = distance.magnitude;
+        if (currentSpeed > maxSpeed)
+        {
+            currentSpeed = maxSpeed;
+        }
+        desiredVel *= currentSpeed;
+
+        Vector2 steeringVel = desiredVel - velocity;
+
+        steeringVel *= (1.0f / rBody.mass);
+        steeringVel = LimitSteering(steeringVel);
+
+        return steeringVel;
+     }
+
+    protected Vector2 LimitSteering(Vector2 SteeringVelocity)
+    {
+        if (SteeringVelocity.sqrMagnitude > maxSteering*maxSteering)
+        {
+            SteeringVelocity.Normalize();
+            SteeringVelocity *= maxSteering;
+        }
+        return SteeringVelocity;
     }
+
 
     void OnGUI()
     {
