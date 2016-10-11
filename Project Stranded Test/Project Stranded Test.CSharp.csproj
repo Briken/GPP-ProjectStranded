@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\MovementScript.cs" />
+    <Compile Include="Assets\NetworkingCode.cs" />
     <Compile Include="Assets\Scripts\UI\UICanvasSwitching.cs" />
     <Compile Include="Assets\Scripts\UI\UIFunctionsScript.cs" />
     <Compile Include="Assets\Scripts\UI\UISpiderButton.cs" />

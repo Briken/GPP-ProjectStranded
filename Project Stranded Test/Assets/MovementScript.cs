@@ -61,34 +61,35 @@ public class MovementScript : MonoBehaviour {
                     debug.text = "STOP TOUCHING MEEEEEEE";
                 }
             }
-            //else
-            //{
-            //    Vector2 currentVelocity = rBody.velocity;
-            //    currentVelocity += MoveFromTouch(target, currentVelocity);
-            //}
-        }
-
-
-        foreach (Touch move in Input.touches)
-        {
-            int id = move.fingerId;
-
-            Vector3 screenPos = new Vector3(Input.GetTouch(id).position.x,Input.GetTouch(id).position.y, 0);
-            Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
-            squareloc.text = worldPos.ToString();
-
-            Ray ray = Camera.main.ScreenPointToRay(worldPos);
-            RaycastHit hit = new RaycastHit();
-
-            if (Physics.Raycast(ray, out hit))
+            else
             {
-                debug.text = "rayhit";
-                if (hit.collider.gameObject.tag == "Player")
-                {
-                    debug.text = "STOP TOUCHING MEEEEEEE";
-                }
+                Vector2 currentVelocity = rBody.velocity;
+                currentVelocity += MoveFromTouch(target, currentVelocity);
+                debug.text = "moving";
             }
         }
+
+
+     //   foreach (Touch move in Input.touches)
+     //   {
+     //       int id = move.fingerId;
+
+     //       Vector3 screenPos = new Vector3(Input.GetTouch(id).position.x,Input.GetTouch(id).position.y, 0);
+     //       Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
+     //       squareloc.text = worldPos.ToString();
+
+     //       Ray ray = Camera.main.ScreenPointToRay(worldPos);
+     //       RaycastHit hit = new RaycastHit();
+
+     //       if (Physics.Raycast(ray, out hit))
+     //       {
+     //           debug.text = "rayhit";
+     //           if (hit.collider.gameObject.tag == "Player")
+     //           {
+     //               debug.text = "STOP TOUCHING MEEEEEEE";
+     //           }
+     //       }
+     //   }
      }
 
     Vector2 MoveFromTouch(Vector2 targetPoint, Vector2 velocity)
@@ -104,6 +105,8 @@ public class MovementScript : MonoBehaviour {
             currentSpeed = maxSpeed;
         }
         desiredVel *= currentSpeed;
+
+        currentSpeed = 50.0f;
 
         Vector2 steeringVel = desiredVel - velocity;
 
