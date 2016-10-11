@@ -67,11 +67,6 @@ public class NetworkingCode : MonoBehaviour {
     void OnConnectedToServer()
     {
         Debug.Log("Server Joined");
-        SpawnPlayer();
-    }
-
-    void SpawnPlayer()
-    {
-
+        
     }
 }
