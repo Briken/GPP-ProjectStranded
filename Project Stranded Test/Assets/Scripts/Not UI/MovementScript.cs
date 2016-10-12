@@ -2,7 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class MovementScript : MonoBehaviour {
+public class MovementScript : MonoBehaviour
+{
 
 
     public float maxSteering = 50.0f;
@@ -12,10 +13,10 @@ public class MovementScript : MonoBehaviour {
     Vector3 fleePoint;
     public Text debug;
     public Text squareloc;
-    bool dog = false;
+    bool moving = false;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         rBody = GetComponent<Rigidbody>();
 
@@ -31,68 +32,46 @@ public class MovementScript : MonoBehaviour {
         }
 #endif
 
-        
-            
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
         squareloc.text = transform.position.ToString();
-        if (dog == false)
-        {
-            debug.text = "dancey dance";
-            dog = true;
-        }
 
-        
         if (Input.GetButton("Fire1"))
         {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                RaycastHit hit = new RaycastHit();
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit hit = new RaycastHit();
 
-                if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit))
+            {
+                debug.text = "rayhit";
+                if (hit.collider.gameObject.tag == "Player" && moving == false)
                 {
-                    debug.text = "rayhit";
-                    if (hit.collider.gameObject.tag == "Player")
-                    {
-                        currentSpeed = 0;
-                        debug.text = "STOP TOUCHING MEEEEEEE";
-                        rBody.velocity = new Vector3(0,0,0);
-                    }
+                    currentSpeed = 0;
+                    debug.text = "STOP TOUCHING MEEEEEEE";
+                    rBody.velocity = new Vector3(0, 0, 0);
                 }
-                else
+                else if (hit.collider.gameObject.tag == "Player" && moving == true)
                 {
-                    Vector2 currentVelocity = rBody.velocity;
-                    currentVelocity += MoveFromTouch(target, currentVelocity);   //using arrive function
-                    rBody.velocity = currentVelocity;
+                    rBody.velocity = new Vector3(0, 0, 0);
+                    moving = false;
+                }
             }
-            
+            else
+            {
+                Vector2 currentVelocity = rBody.velocity;
+                currentVelocity += MoveFromTouch(target, currentVelocity);   //using arrive function
+                rBody.velocity = currentVelocity;
+                Debug.DrawLine(currentVelocity, target, Color.green);
+                moving = true;
+            }
         }
-
-
-     //   foreach (Touch move in Input.touches)
-     //   {
-     //       int id = move.fingerId;
-
-     //       Vector3 screenPos = new Vector3(Input.GetTouch(id).position.x,Input.GetTouch(id).position.y, 0);
-     //       Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
-     //       squareloc.text = worldPos.ToString();
-
-     //       Ray ray = Camera.main.ScreenPointToRay(worldPos);
-     //       RaycastHit hit = new RaycastHit();
-
-     //       if (Physics.Raycast(ray, out hit))
-     //       {
-     //           debug.text = "rayhit";
-     //           if (hit.collider.gameObject.tag == "Player")
-     //           {
-     //               debug.text = "STOP TOUCHING MEEEEEEE";
-     //           }
-     //       }
-     //   }
-     }
+    }
 
     Vector2 MoveFromTouch(Vector2 targetPoint, Vector2 velocity)
     {
@@ -114,17 +93,17 @@ public class MovementScript : MonoBehaviour {
         steeringVel = LimitSteering(steeringVel);
 
         return steeringVel;
-     }
+    }
 
     protected Vector2 LimitSteering(Vector2 SteeringVelocity)
     {
-        if (SteeringVelocity.sqrMagnitude > maxSteering*maxSteering)
+        if (SteeringVelocity.sqrMagnitude > maxSteering * maxSteering)
         {
             SteeringVelocity.Normalize();
             SteeringVelocity *= maxSteering;
         }
 
-        
+
 
         return SteeringVelocity;
     }
