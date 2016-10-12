@@ -79,11 +79,11 @@
     <Reference Include="UnityEditor.iOS.Extensions.Common">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
-    <Reference Include="websocket-sharp">
-      <HintPath>Assets\Plugins\WebSocket\websocket-sharp.dll</HintPath>
-    </Reference>
     <Reference Include="Photon3Unity3D">
       <HintPath>Assets\Plugins\Photon3Unity3D.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>Assets\Plugins\WebSocket\websocket-sharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -93,8 +93,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\MovementScript.cs" />
-    <Compile Include="Assets\NetworkingCode.cs" />
     <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\CustomTypes.cs" />
     <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Enums.cs" />
     <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Extensions.cs" />
@@ -166,12 +164,14 @@
     <Compile Include="Assets\PhotonChatApi\ChatState.cs" />
     <Compile Include="Assets\PhotonChatApi\ChatUserStatus.cs" />
     <Compile Include="Assets\PhotonChatApi\IChatClientListener.cs" />
+    <Compile Include="Assets\Scripts\Not UI\MovementScript.cs" />
+    <Compile Include="Assets\Scripts\Not UI\NetworkingCode.cs" />
+    <Compile Include="Assets\Scripts\Not UI\Spin.cs" />
+    <Compile Include="Assets\Scripts\Not UI\minitest.cs" />
     <Compile Include="Assets\Scripts\UI\UICanvasSwitching.cs" />
     <Compile Include="Assets\Scripts\UI\UIFunctionsScript.cs" />
     <Compile Include="Assets\Scripts\UI\UISpiderButton.cs" />
     <Compile Include="Assets\Scripts\UI\UIToggleImageState.cs" />
-    <Compile Include="Assets\Spin.cs" />
-    <Compile Include="Assets\minitest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Photon Unity Networking\changelog.txt" />

@@ -7,7 +7,7 @@ public class MovementScript : MonoBehaviour {
 
     public float maxSteering = 50.0f;
     public float maxSpeed = 50;
-    public float currentSpeed = 10;
+    float currentSpeed = 10;
     protected Rigidbody rBody;
     Vector3 fleePoint;
     public Text debug;
@@ -31,13 +31,14 @@ public class MovementScript : MonoBehaviour {
         }
 #endif
 
-        squareloc.text = transform.position.ToString();
+        
             
     }
 
     // Update is called once per frame
     void Update()
     {
+        squareloc.text = transform.position.ToString();
         if (dog == false)
         {
             debug.text = "dancey dance";
@@ -45,28 +46,29 @@ public class MovementScript : MonoBehaviour {
         }
 
         
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
-            debug.text = "fire1 pressed";
-            
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit hit = new RaycastHit();
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                RaycastHit hit = new RaycastHit();
 
-            if (Physics.Raycast(ray, out hit))
-            {
-                debug.text = "rayhit";
-                if (hit.collider.gameObject.tag == "Player")
+                if (Physics.Raycast(ray, out hit))
                 {
-                    debug.text = "STOP TOUCHING MEEEEEEE";
+                    debug.text = "rayhit";
+                    if (hit.collider.gameObject.tag == "Player")
+                    {
+                        currentSpeed = 0;
+                        debug.text = "STOP TOUCHING MEEEEEEE";
+                        rBody.velocity = new Vector3(0,0,0);
+                    }
                 }
+                else
+                {
+                    Vector2 currentVelocity = rBody.velocity;
+                    currentVelocity += MoveFromTouch(target, currentVelocity);   //using arrive function
+                    rBody.velocity = currentVelocity;
             }
-            else
-            {
-                Vector2 currentVelocity = rBody.velocity;
-                currentVelocity += MoveFromTouch(target, currentVelocity);
-                debug.text = "moving";
-            }
+            
         }
 
 
@@ -97,16 +99,14 @@ public class MovementScript : MonoBehaviour {
         Vector2 desiredVel = targetPoint - new Vector2(transform.position.x, transform.position.y);
         desiredVel.Normalize();
 
+
+
         Vector3 target = targetPoint;
         Vector3 distance = (target - transform.position);
-        currentSpeed = distance.magnitude;
-        if (currentSpeed > maxSpeed)
-        {
-            currentSpeed = maxSpeed;
-        }
+        //currentSpeed = distance.magnitude
+        currentSpeed = maxSpeed;
         desiredVel *= currentSpeed;
 
-        currentSpeed = 50.0f;
 
         Vector2 steeringVel = desiredVel - velocity;
 
@@ -123,6 +123,9 @@ public class MovementScript : MonoBehaviour {
             SteeringVelocity.Normalize();
             SteeringVelocity *= maxSteering;
         }
+
+        
+
         return SteeringVelocity;
     }
 
