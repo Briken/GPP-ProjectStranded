@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class MovementScript : MonoBehaviour
 {
 
-
+    UISpiderButton menu;
     public float maxSteering = 50.0f;
     public float maxSpeed = 50;
     float currentSpeed = 10;
@@ -18,6 +18,7 @@ public class MovementScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        menu = GetComponent<UISpiderButton>();
         rBody = GetComponent<Rigidbody>();
 
 #if UNITY_EDITOR
@@ -53,7 +54,8 @@ public class MovementScript : MonoBehaviour
                 if (hit.collider.gameObject.tag == "Player" && moving == false)
                 {
                     currentSpeed = 0;
-                    debug.text = "STOP TOUCHING MEEEEEEE";
+                    //debug.text = "STOP TOUCHING MEEEEEEE";
+                    menu.ToggleSpiderButtons();
                     rBody.velocity = new Vector3(0, 0, 0);
                 }
                 else if (hit.collider.gameObject.tag == "Player" && moving == true)
