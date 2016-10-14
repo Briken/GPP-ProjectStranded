@@ -1,18 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// To-do:
+// - Initially deactivate the buttons after getting their position
+
 public class UISpiderButton : MonoBehaviour {
 
     public GameObject[] spiderButtons;
     bool isActive = false;
 
     // Use this for initialization
-    void Start()
-    {
-        foreach (GameObject spiderButton in spiderButtons)
-        {
-            spiderButton.SetActive(false);
-        }
+    void Start(){
+
     }
 	
 	// Update is called once per frame
@@ -27,7 +26,16 @@ public class UISpiderButton : MonoBehaviour {
         {
             foreach (GameObject spiderButton in spiderButtons)
             {
-                spiderButton.SetActive(false);
+                if (spiderButton.GetComponent(typeof(UILerpMovement)) != null)
+                {
+                    spiderButton.GetComponent<UILerpMovement>().ReverseLerp();
+                }
+
+                if (spiderButton.transform.position == spiderButton.GetComponent<UILerpMovement>().objectLocationToTarget.transform.position)
+                {
+                    spiderButton.SetActive(false);
+                }
+                
                 isActive = false;
             }
         }
@@ -36,6 +44,12 @@ public class UISpiderButton : MonoBehaviour {
             foreach (GameObject spiderButton in spiderButtons)
             {
                 spiderButton.SetActive(true);
+
+                if (spiderButton.GetComponent(typeof(UILerpMovement)) != null)
+                {
+                    spiderButton.GetComponent<UILerpMovement>().ActivateLerp();
+                }
+
                 isActive = true;
             }
         }

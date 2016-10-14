@@ -11,8 +11,8 @@ public class UIToggleImageState : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -24,13 +24,30 @@ public class UIToggleImageState : MonoBehaviour {
     {
         if (isActive)
         {
+            // Check if the object has a SpriteRenderer component or an Image component and change appropriately
+            if (gameObject.GetComponent(typeof(SpriteRenderer)) != null)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = imageInactive;
+            }
+            else
+            {
+                gameObject.GetComponent<Image>().sprite = imageInactive;
+            }
+
             isActive = false;
-            gameObject.GetComponent<Image>().sprite = imageInactive;
         }
         else
         {
+            if (gameObject.GetComponent(typeof(SpriteRenderer)) != null)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = imageActive;
+            }
+            else
+            {
+                gameObject.GetComponent<Image>().sprite = imageActive;
+            }
+
             isActive = true;
-            gameObject.GetComponent<Image>().sprite = imageActive;
         }
     }
 }
