@@ -6,6 +6,7 @@ public class MovementScript : MonoBehaviour
 {
 
     UISpiderButton menu;
+   
     public float maxSteering = 50.0f;
     public float maxSpeed = 50;
     float currentSpeed = 10;
@@ -55,7 +56,7 @@ public class MovementScript : MonoBehaviour
                 {
                     currentSpeed = 0;
                     //debug.text = "STOP TOUCHING MEEEEEEE";
-                    menu.ToggleSpiderButtons();
+                    //menu.ToggleSpiderButtons();
                     rBody.velocity = new Vector3(0, 0, 0);
                 }
                 else if (hit.collider.gameObject.tag == "Player" && moving == true)
@@ -71,6 +72,27 @@ public class MovementScript : MonoBehaviour
                 rBody.velocity = currentVelocity;
                 Debug.DrawLine(currentVelocity, target, Color.green);
                 moving = true;
+            }
+        }
+
+
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit hit = new RaycastHit();
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                debug.text = "rayhit";
+                if (hit.collider.gameObject.tag == "Player" && moving == false)
+                {
+                    currentSpeed = 0;
+                    //debug.text = "STOP TOUCHING MEEEEEEE";
+                    menu.ToggleSpiderButtons();
+                    rBody.velocity = new Vector3(0, 0, 0);
+                }
             }
         }
     }
