@@ -6,6 +6,7 @@ using Photon;
 public class PhotonNetCode : Photon.PunBehaviour {
 
     public Text debug;
+    public GameObject player;
 
 	// Use this for initialization
 	void Start ()
@@ -39,6 +40,6 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     void OnJoinedRoom()
     {
-        GameObject monster = PhotonNetwork.Instantiate("Square", Vector3.zero, Quaternion.identity, 0);
+        GameObject newPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
     }
 }
