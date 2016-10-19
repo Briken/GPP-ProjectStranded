@@ -168,7 +168,6 @@
     <Compile Include="Assets\Scripts\Not UI\NetworkingCode.cs" />
     <Compile Include="Assets\Scripts\Not UI\PhotonNetCode.cs" />
     <Compile Include="Assets\Scripts\Not UI\Spin.cs" />
-    <Compile Include="Assets\Scripts\Not UI\TeamScript.cs" />
     <Compile Include="Assets\Scripts\Not UI\minitest.cs" />
     <Compile Include="Assets\Scripts\UI\UICanvasSwitching.cs" />
     <Compile Include="Assets\Scripts\UI\UIFunctionsScript.cs" />

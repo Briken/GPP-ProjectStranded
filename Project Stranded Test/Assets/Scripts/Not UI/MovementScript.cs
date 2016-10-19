@@ -12,27 +12,25 @@ public class MovementScript : MonoBehaviour
     float currentSpeed = 10;
     protected Rigidbody rBody;
     Vector3 fleePoint;
-   // public Text debug;
-   // public Text squareloc;
+    public Text debug;
+    public Text squareloc;
     bool moving = false;
-    PhotonView pv;
 
     // Use this for initialization
     void Start()
     {
-        pv = PhotonView.Get(this);
         menu = GetComponent<UISpiderButton>();
         rBody = GetComponent<Rigidbody>();
 
 #if UNITY_EDITOR
         {
-     //       debug.text = "Unity Editor";
+            debug.text = "Unity Editor";
         }
 #endif
 
 #if UNITY_ANDROID
         {
-       //     debug.text = "I'm Running on Android";
+            debug.text = "I'm Running on Android";
         }
 #endif
 
@@ -43,59 +41,57 @@ public class MovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //squareloc.text = transform.position.ToString();
-        if (pv.isMine)
-        {
-            if (Input.GetButton("Fire1"))
-            {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                RaycastHit hit = new RaycastHit();
+        squareloc.text = transform.position.ToString();
 
-                if (Physics.Raycast(ray, out hit))
+        if (Input.GetButton("Fire1"))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit hit = new RaycastHit();
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                debug.text = "rayhit";
+                if (hit.collider.gameObject.tag == "Player" && moving == false)
                 {
-                    //      debug.text = "rayhit";
-                    if (hit.collider.gameObject.tag == "Player" && moving == false)
-                    {
-                        currentSpeed = 0;
-                        //debug.text = "STOP TOUCHING MEEEEEEE";
-                        //menu.ToggleSpiderButtons();
-                        rBody.velocity = new Vector3(0, 0, 0);
-                    }
-                    else if (hit.collider.gameObject.tag == "Player" && moving == true)
-                    {
-                        rBody.velocity = new Vector3(0, 0, 0);
-                        moving = false;
-                    }
+                    currentSpeed = 0;
+                    //debug.text = "STOP TOUCHING MEEEEEEE";
+                    //menu.ToggleSpiderButtons();
+                    rBody.velocity = new Vector3(0, 0, 0);
                 }
-                else
+                else if (hit.collider.gameObject.tag == "Player" && moving == true)
                 {
-                    Vector2 currentVelocity = rBody.velocity;
-                    currentVelocity += MoveFromTouch(target, currentVelocity);   //using arrive function
-                    rBody.velocity = currentVelocity;
-                    Debug.DrawLine(currentVelocity, target, Color.green);
-                    moving = true;
+                    rBody.velocity = new Vector3(0, 0, 0);
+                    moving = false;
                 }
             }
-
-
-
-            if (Input.GetButtonDown("Fire1"))
+            else
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                RaycastHit hit = new RaycastHit();
+                Vector2 currentVelocity = rBody.velocity;
+                currentVelocity += MoveFromTouch(target, currentVelocity);   //using arrive function
+                rBody.velocity = currentVelocity;
+                Debug.DrawLine(currentVelocity, target, Color.green);
+                moving = true;
+            }
+        }
 
-                if (Physics.Raycast(ray, out hit))
+
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit hit = new RaycastHit();
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                debug.text = "rayhit";
+                if (hit.collider.gameObject.tag == "Player" && moving == false)
                 {
-                    //    debug.text = "rayhit";
-                    if (hit.collider.gameObject.tag == "Player" && moving == false)
-                    {
-                        currentSpeed = 0;
-                        //debug.text = "STOP TOUCHING MEEEEEEE";
-                        menu.ToggleSpiderButtons();
-                        rBody.velocity = new Vector3(0, 0, 0);
-                    }
+                    currentSpeed = 0;
+                    //debug.text = "STOP TOUCHING MEEEEEEE";
+                    menu.ToggleSpiderButtons();
+                    rBody.velocity = new Vector3(0, 0, 0);
                 }
             }
         }
@@ -160,4 +156,3 @@ public class MovementScript : MonoBehaviour
     }
 
 }
-        
