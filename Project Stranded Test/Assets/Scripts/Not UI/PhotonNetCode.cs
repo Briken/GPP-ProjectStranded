@@ -5,20 +5,22 @@ using Photon;
 
 public class PhotonNetCode : Photon.PunBehaviour {
 
-    public Text debug;
+    TeamScript team;
+    public GameObject player;
+    bool team1 = true;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
+        team = GetComponent<TeamScript>();
         PhotonNetwork.logLevel = PhotonLogLevel.Full;
         PhotonNetwork.ConnectUsingSettings("0.1");
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         Debug.Log(PhotonNetwork.connectionStateDetailed.ToString());
-        //debug.text = PhotonNetwork.connectionStateDetailed.ToString();
     }
 
     void OnGui()
@@ -33,12 +35,29 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     void OnPhotonRandomJoinFailed()
     {
-        debug.text = "Can't join random room";
         PhotonNetwork.CreateRoom(null);
     }
 
     void OnJoinedRoom()
     {
-        GameObject monster = PhotonNetwork.Instantiate("Square", Vector3.zero, Quaternion.identity, 0);
+        player = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
+        team.TeamAdd(player, team1);
+        Debug.Log(team1);
+        team1 = toggle(team1);
+        Debug.Log(team1);
+    }
+    
+    bool toggle(bool t)
+    {
+        if (t == true)
+        {
+            t = false;
+            return t;    
+        }
+        else
+        {
+            t = true;
+            return t;
+        }
     }
 }
