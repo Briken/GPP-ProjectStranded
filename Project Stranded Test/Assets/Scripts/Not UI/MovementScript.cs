@@ -16,6 +16,7 @@ public class MovementScript : MonoBehaviour
   //  public Text debug;
   //  public Text squareloc;
     bool moving = false;
+    public GameObject cam;
 
     PhotonView pv;
 
@@ -24,7 +25,16 @@ public class MovementScript : MonoBehaviour
     {
         menu = GetComponent<UISpiderButton>();
         rBody = GetComponent<Rigidbody>();
-        pv = PhotonView.Get(this);
+        pv = PhotonView.Get(this.gameObject);
+
+        if (pv.isMine)
+        {
+            //GameObject camera = new GameObject();
+            //camera = cam;
+            //gameObject.SetActive(cam);
+            Debug.Log(cam.name);
+            Camera.main.gameObject.transform.SetParent(this.transform);
+        }
 
 #if UNITY_EDITOR
         {
@@ -62,11 +72,11 @@ public class MovementScript : MonoBehaviour
                         currentSpeed = 0;
                         //debug.text = "STOP TOUCHING MEEEEEEE";
                         //menu.ToggleSpiderButtons();
-                        rBody.velocity = new Vector3(0, 0, 0);
+                        rBody.velocity = new Vector3(0, 0, 3);
                     }
                     else if (hit.collider.gameObject.tag == "Player" && moving == true)
                     {
-                        rBody.velocity = new Vector3(0, 0, 0);
+                        rBody.velocity = new Vector3(0, 0, 3);
                         moving = false;
                     }
                 }
