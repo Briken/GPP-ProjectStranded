@@ -7,7 +7,12 @@ public class MovementScript : MonoBehaviour
 {
 
     UISpiderButton menu;
-   
+
+    public GameObject teamMgr;
+    GameObject tempMgr;
+    public int team;
+    public int playerNum;
+
     public float maxSteering = 50.0f;
     public float maxSpeed = 50;
     float currentSpeed = 10;
@@ -26,12 +31,27 @@ public class MovementScript : MonoBehaviour
         menu = GetComponent<UISpiderButton>();
         rBody = GetComponent<Rigidbody>();
         pv = PhotonView.Get(this.gameObject);
+        tempMgr = GameObject.Find("TeamManager");
+
+        if (tempMgr == null)
+        {
+            Instantiate(teamMgr);
+            playerNum = teamMgr.GetComponent<TeamScript>().getPlayerNum(this.gameObject);
+            team = teamMgr.GetComponent<TeamScript>().AddPlayer(playerNum);
+            Debug.Log("Player " + playerNum + " is on " + team);
+        }
+
+        if (tempMgr != null)
+        {
+            teamMgr = tempMgr;
+            playerNum = teamMgr.GetComponent<TeamScript>().getPlayerNum(this.gameObject);
+            team = teamMgr.GetComponent<TeamScript>().AddPlayer(playerNum);
+            Debug.Log("Player " + playerNum + " is on " + team);
+        }
 
         if (pv.isMine)
         {
-            //GameObject camera = new GameObject();
-            //camera = cam;
-            //gameObject.SetActive(cam);
+
             Debug.Log(cam.name);
             Camera.main.gameObject.transform.SetParent(this.transform);
         }
