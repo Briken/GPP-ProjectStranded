@@ -35,23 +35,26 @@ public class TeamScript : MonoBehaviour {
     }
     
 
-    public int AddPlayer(int player)
+    public int AddPlayer(int player, GameObject me)
     {
         if (player == 0)
         { 
             playerCount++;
+            team1[player] = me;
             return 1;
         }
 
         if (player % 2 == 0)
         {
             playerCount++;
+            team1[player] = me;
             return 1;
         }
 
         else //if (playerCount % 2 != 0)
         {
             playerCount++;
+            team2[player] = me;
             return 2;
         }
     }

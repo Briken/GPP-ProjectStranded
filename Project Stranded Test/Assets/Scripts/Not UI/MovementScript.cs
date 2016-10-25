@@ -37,7 +37,7 @@ public class MovementScript : MonoBehaviour
         {
             Instantiate(teamMgr);
             playerNum = teamMgr.GetComponent<TeamScript>().getPlayerNum(this.gameObject);
-            team = teamMgr.GetComponent<TeamScript>().AddPlayer(playerNum);
+            team = teamMgr.GetComponent<TeamScript>().AddPlayer(playerNum, this.gameObject);
             Debug.Log("Player " + playerNum + " is on " + team);
         }
 
@@ -45,7 +45,7 @@ public class MovementScript : MonoBehaviour
         {
             teamMgr = tempMgr;
             playerNum = teamMgr.GetComponent<TeamScript>().getPlayerNum(this.gameObject);
-            team = teamMgr.GetComponent<TeamScript>().AddPlayer(playerNum);
+            team = teamMgr.GetComponent<TeamScript>().AddPlayer(playerNum, this.gameObject);
             Debug.Log("Player " + playerNum + " is on " + team);
         }
 
