@@ -1,25 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class TeamScript : MonoBehaviour {
 
     public int playerCount;
 
-    public GameObject[] totalPlayers;
-    public GameObject[] team1;
-    public GameObject[] team2;
+    bool teamsFilled = false;
+
+    public GameObject[] totalPlayers = new GameObject[8];
+    public List<GameObject> team1 = new List<GameObject>();
+    public List<GameObject> team2 = new List<GameObject>();
 
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+	void Update ()
+    {
+        if (totalPlayers[7] != null && teamsFilled == false)
+        {
+            SetTeamLists();
+        }
+	} 
+
 
     public int getPlayerNum(GameObject player)
     {
@@ -40,22 +48,39 @@ public class TeamScript : MonoBehaviour {
         if (player == 0)
         { 
             playerCount++;
-            team1[player] = me;
+            
             return 1;
         }
 
         if (player % 2 == 0)
         {
             playerCount++;
-            team1[player] = me;
+            
             return 1;
         }
 
         else //if (playerCount % 2 != 0)
         {
             playerCount++;
-            team2[player] = me;
+            
             return 2;
         }
+    }
+
+    void SetTeamLists()
+    {
+        foreach(GameObject p in totalPlayers)
+        {
+            if (p.GetComponent<MovementScript>().team == 1)
+            {
+                team1.Add(p);
+            }
+
+            if (p.GetComponent<MovementScript>().team == 2)
+            {
+                team2.Add(p);
+            }
+        }
+        teamsFilled = true;
     }
 }

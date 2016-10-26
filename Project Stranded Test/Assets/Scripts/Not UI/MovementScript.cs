@@ -54,6 +54,10 @@ public class MovementScript : MonoBehaviour
 
             Debug.Log(cam.name);
             Camera.main.gameObject.transform.SetParent(this.transform);
+            if (team == 1)
+            {
+                
+            }
         }
 
 #if UNITY_EDITOR
@@ -75,11 +79,14 @@ public class MovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         //squareloc.text = transform.position.ToString();
         if (pv.isMine)
         {
             if (Input.GetButton("Fire1"))
             {
+                
+
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit hit = new RaycastHit();
@@ -92,11 +99,11 @@ public class MovementScript : MonoBehaviour
                         currentSpeed = 0;
                         //debug.text = "STOP TOUCHING MEEEEEEE";
                         //menu.ToggleSpiderButtons();
-                        rBody.velocity = new Vector3(0, 0, 3);
+                        rBody.velocity = new Vector3(0, 0, 0);
                     }
                     else if (hit.collider.gameObject.tag == "Player" && moving == true)
                     {
-                        rBody.velocity = new Vector3(0, 0, 3);
+                        rBody.velocity = new Vector3(0, 0, 0);
                         moving = false;
                     }
                 }
@@ -108,12 +115,15 @@ public class MovementScript : MonoBehaviour
                     Debug.DrawLine(currentVelocity, target, Color.green);
                     moving = true;
                 }
+                Vector3 pos = transform.position;
+                pos.z = 0;
+                transform.position = pos;
             }
 
 
 
             if (Input.GetButtonDown("Fire1"))
-            {
+            { 
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit hit = new RaycastHit();
@@ -129,6 +139,9 @@ public class MovementScript : MonoBehaviour
                         rBody.velocity = new Vector3(0, 0, 0);
                     }
                 }
+                Vector3 pos = transform.position;
+                pos.z = 0;
+                transform.position = pos;
             }
         }
     }
