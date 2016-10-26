@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using Photon;
 
 
-public class MovementScript : MonoBehaviour
+public class MovementScript : Photon.PunBehaviour
 {
-
     UISpiderButton menu;
 
     public GameObject teamMgr;
@@ -27,7 +27,7 @@ public class MovementScript : MonoBehaviour
 
     // Use this for initialization
     void Start()
-    {
+    {  
         menu = GetComponent<UISpiderButton>();
         rBody = GetComponent<Rigidbody>();
         pv = PhotonView.Get(this.gameObject);

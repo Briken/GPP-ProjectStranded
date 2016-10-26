@@ -82,6 +82,7 @@ public class ResourceScript : MonoBehaviour {
             //Debug.Log(playerResource.resource.ToString());
             
         }
+        Destroy(this.gameObject);
     }
 
     

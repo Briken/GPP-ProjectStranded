@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Photon;
 
-public class ResourceDepot : MonoBehaviour
+public class ResourceDepot : Photon.PunBehaviour
 {
 
 
