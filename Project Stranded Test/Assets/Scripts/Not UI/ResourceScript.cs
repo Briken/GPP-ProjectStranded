@@ -10,7 +10,7 @@ public class ResourceScript : MonoBehaviour {
 
     public List<GameObject> nearby = new List<GameObject>();
 
-    GameObject[] players;
+    public GameObject[] players;
 
     public float resourceDistance = 10.0f;
 
@@ -30,7 +30,10 @@ public class ResourceScript : MonoBehaviour {
             nearby.Clear();
             foreach (GameObject p in players)
             {   
-
+                if (p == null)
+                {
+                    continue;
+                }
                 float distance = GetDistance(p.transform.position);
                 if (distance <= resourceDistance)
                 {

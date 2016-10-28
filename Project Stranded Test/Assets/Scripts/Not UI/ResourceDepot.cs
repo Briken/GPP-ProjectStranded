@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ResourceDepot : Photon.PunBehaviour
 {
 
-   
+    PhotonStream photonSteam;
     public int team1Score, team2Score;
     public Text scores;
 
@@ -22,21 +22,38 @@ public class ResourceDepot : Photon.PunBehaviour
 
     }
 
-    public void AddTeamResource(GameObject player)
+    [PunRPC]
+    public void AddTeamResource(int pteam, int resource)
     {
-        if (player.GetComponent<MovementScript>().team == 1) //if the player is on team1
+         if (pteam == 1) //if the player is on team1
         {
-            team1Score += player.GetComponent<PlayerResource>().resource; //increase team1s score by the players score
-            player.GetComponent<PlayerResource>().resource = 0;  //set the players score to 0
+            team1Score += resource; //increase team1s score by the players score
+            
+            scores.text = ("Team1: " + team1Score + "\n" + "Team2: " + team2Score);
+            //photonSteam = new PhotonStream(true, );
+            //photonSteam.Serialize(ref team1Score);
+            //photonSteam.
+        }
+
+        if (pteam == 2) //if the player is on team2
+        {
+            team2Score += resource; //increase team2s score by the players score
             scores.text = ("Team1: " + team1Score + "\n" + "Team2: " + team2Score);
         }
 
-        if (player.GetComponent<MovementScript>().team == 2) //if the player is on team2
+    }
+    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
         {
-            team2Score += player.GetComponent<PlayerResource>().resource; //increase team2s score by the players score
-            player.GetComponent<PlayerResource>().resource = 0; //set the players score to 0
-            scores.text = ("Team1: " + team1Score + "\n" + "Team2: " + team2Score);
+            stream.SendNext(team1Score);
+            stream.SendNext(team2Score);
         }
-
+        else
+        {
+            this.team1Score = (int)stream.ReceiveNext();
+            this.team2Score = (int)stream.ReceiveNext();
+        }
+        Debug.Log("Called OnPhotonSerializeView");
     }
 }

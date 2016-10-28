@@ -199,8 +199,14 @@ public class MovementScript : Photon.PunBehaviour
         }
     }
 
+    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        Debug.Log("dis shit being called yo");
+    }
+
     public void Quit()
     {
+     
         Application.Quit();
     }
 

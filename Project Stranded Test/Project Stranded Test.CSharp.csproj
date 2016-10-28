@@ -162,6 +162,7 @@
     <Compile Include="Assets\PhotonChatApi\ChatUserStatus.cs" />
     <Compile Include="Assets\PhotonChatApi\IChatClientListener.cs" />
     <Compile Include="Assets\Scripts\Not UI\MovementScript.cs" />
+    <Compile Include="Assets\Scripts\Not UI\NetworkMovement.cs" />
     <Compile Include="Assets\Scripts\Not UI\NetworkingCode.cs" />
     <Compile Include="Assets\Scripts\Not UI\PhotonNetCode.cs" />
     <Compile Include="Assets\Scripts\Not UI\PlayerResource.cs" />
