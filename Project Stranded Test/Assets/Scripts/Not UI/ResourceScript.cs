@@ -8,14 +8,15 @@ public class ResourceScript : MonoBehaviour {
 
     PlayerResource playerResource;
 
-    List<GameObject> nearby = new List<GameObject>();
+    public List<GameObject> nearby = new List<GameObject>();
 
     GameObject[] players;
 
     public float resourceDistance = 10.0f;
 
-    public int large, medium, small;
-
+    public int large = 10;
+    public int medium = 5;
+    public int small = 1;
 	// Use this for initialization
 	void Start () {
         players = new GameObject[7];
@@ -26,13 +27,15 @@ public class ResourceScript : MonoBehaviour {
 	{
         if (players[0] != null)
         {
+            nearby.Clear();
             foreach (GameObject p in players)
-            {
+            {   
+
                 float distance = GetDistance(p.transform.position);
                 if (distance <= resourceDistance)
                 {
                     nearby.Add(p);
-         //           Debug.Log(p.name);
+                    Debug.Log(nearby);
                 }
             }
         }
@@ -40,6 +43,7 @@ public class ResourceScript : MonoBehaviour {
         {
             foreach (GameObject n in nearby)
             {
+                Debug.Log("fire flaming suck lance");
                 AddResource(n);
             }
         }
@@ -54,7 +58,7 @@ public class ResourceScript : MonoBehaviour {
         {
             foreach (GameObject n in nearby)
             {
-           //     Debug.Log("made it into the loop");
+                Debug.Log("small nearby loop");
                 AddResource(n);
             }
         }
@@ -67,12 +71,14 @@ public class ResourceScript : MonoBehaviour {
         playerResource = player.GetComponent<PlayerResource>();
         if (this.tag == "Large")
         {
-            playerResource.resource += large; 
+            playerResource.resource += large;
+            Destroy(this.gameObject);
         }
 
         if (this.tag == "Medium")
         {
             playerResource.resource += medium;
+            Destroy(this.gameObject);
         }
 
         if (this.tag == "Small" && debug == false)
@@ -80,9 +86,9 @@ public class ResourceScript : MonoBehaviour {
             debug = true;
             playerResource.resource += small;
             //Debug.Log(playerResource.resource.ToString());
-            
+            Destroy(this.gameObject);
         }
-        Destroy(this.gameObject);
+        
     }
 
     
