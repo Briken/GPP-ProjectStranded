@@ -20,6 +20,8 @@ public class NetworkMovement : Photon.MonoBehaviour {
             transform.rotation = Quaternion.Lerp(transform.rotation, this.correctPRot, Time.deltaTime*5);
         }
     }
+
+
     public void OnSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.isWriting)

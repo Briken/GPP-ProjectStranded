@@ -13,6 +13,8 @@ public class MovementScript : Photon.PunBehaviour
     public int team;
     public int playerNum;
 
+
+
     public float maxSteering = 50.0f;
     public float maxSpeed = 50;
     float currentSpeed = 10;
@@ -24,6 +26,9 @@ public class MovementScript : Photon.PunBehaviour
     public GameObject cam;
 
     PhotonView pv;
+
+    private Vector3 correctPPos;
+    private Quaternion correctPRot;
 
     // Use this for initialization
     void Start()
@@ -54,10 +59,10 @@ public class MovementScript : Photon.PunBehaviour
 
             Debug.Log(cam.name);
             Camera.main.gameObject.transform.SetParent(this.transform);
-            if (team == 1)
-            {
+            //if (team == 1)
+            //{
                 
-            }
+            //}
         }
 
 #if UNITY_EDITOR
@@ -79,7 +84,13 @@ public class MovementScript : Photon.PunBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!photonView.isMine)
+        {
+            transform.position = Vector3.Lerp(transform.position, this.correctPPos, Time.deltaTime * 5);
+            transform.rotation = Quaternion.Lerp(transform.rotation, this.correctPRot, Time.deltaTime * 5);
+        }
+
+
         //squareloc.text = transform.position.ToString();
         if (pv.isMine)
         {
@@ -202,6 +213,20 @@ public class MovementScript : Photon.PunBehaviour
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         Debug.Log("dis shit being called yo");
+    }
+
+    public void OnSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            stream.SendNext(transform.position);
+            stream.SendNext(transform.rotation);
+        }
+        else
+        {
+            this.transform.position = (Vector3)stream.ReceiveNext();
+            this.transform.rotation = (Quaternion)stream.ReceiveNext();
+        }
     }
 
     public void Quit()
