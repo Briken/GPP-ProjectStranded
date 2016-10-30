@@ -14,19 +14,19 @@ public class TeamScript : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-        if (totalPlayers[7] != null && teamsFilled == false)
+        if (totalPlayers[1] != null && teamsFilled == false)
         {
             SetTeamLists();
         }
-	} 
+    }
 
 
     public int getPlayerNum(GameObject player)
@@ -41,36 +41,37 @@ public class TeamScript : MonoBehaviour {
         }
         return 0;
     }
-    
+
 
     public int AddPlayer(int player, GameObject me)
     {
         if (player == 0)
-        { 
+        {
             playerCount++;
-            
+
             return 1;
         }
 
         if (player % 2 == 0)
         {
             playerCount++;
-            
+
             return 1;
         }
 
         else //if (playerCount % 2 != 0)
         {
             playerCount++;
-            
+
             return 2;
         }
     }
 
     void SetTeamLists()
     {
-        foreach(GameObject p in totalPlayers)
+        foreach (GameObject p in totalPlayers)
         {
+            if (p == null) { continue; }
             if (p.GetComponent<MovementScript>().team == 1)
             {
                 team1.Add(p);

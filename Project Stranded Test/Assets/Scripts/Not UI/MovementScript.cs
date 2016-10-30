@@ -9,60 +9,52 @@ public class MovementScript : Photon.PunBehaviour
     UISpiderButton menu;
 
     public GameObject teamMgr;
-    GameObject tempMgr;
+    public GameObject cam;
     public int team;
     public int playerNum;
-
-
-
     public float maxSteering = 50.0f;
     public float maxSpeed = 50;
-    float currentSpeed = 10;
-    protected Rigidbody rBody;
-    Vector3 fleePoint;
-  //  public Text debug;
-  //  public Text squareloc;
-    bool moving = false;
-    public GameObject cam;
-
-    PhotonView pv;
+    public bool isFrozen = false;
 
     private Vector3 correctPPos;
     private Quaternion correctPRot;
 
+    PhotonView pv;
+    GameObject tempMgr;
+    Vector3 fleePoint;
+    float currentSpeed = 10;
+    bool moving = false;
+    
+
+    protected Rigidbody rBody;
     // Use this for initialization
     void Start()
-    {  
+    {
+
         menu = GetComponent<UISpiderButton>();
         rBody = GetComponent<Rigidbody>();
         pv = PhotonView.Get(this.gameObject);
         tempMgr = GameObject.Find("TeamManager");
 
-        if (tempMgr == null)
-        {
-            Instantiate(teamMgr);
-            playerNum = teamMgr.GetComponent<TeamScript>().getPlayerNum(this.gameObject);
-            team = teamMgr.GetComponent<TeamScript>().AddPlayer(playerNum, this.gameObject);
-            Debug.Log("Player " + playerNum + " is on " + team);
-        }
 
-        if (tempMgr != null)
-        {
-            teamMgr = tempMgr;
-            playerNum = teamMgr.GetComponent<TeamScript>().getPlayerNum(this.gameObject);
-            team = teamMgr.GetComponent<TeamScript>().AddPlayer(playerNum, this.gameObject);
-            Debug.Log("Player " + playerNum + " is on " + team);
-        }
+
 
         if (pv.isMine)
         {
 
             Debug.Log(cam.name);
             Camera.main.gameObject.transform.SetParent(this.transform);
-            //if (team == 1)
-            //{
-                
-            //}
+            //if (PhotonNetwork.player.GetTeam() == PunTeams.Team.blue) { team = 1; }
+            //if (PhotonNetwork.player.GetTeam() == PunTeams.Team.red) { team = 2; }
+            playerNum = PhotonNetwork.player.ID;
+            if (playerNum % 2 == 0) { team = 1; }
+            if (playerNum % 2 != 0) { team = 2; }
+        }
+        else
+        {
+            playerNum = this.photonView.ownerId;
+            if (playerNum % 2 == 0) { team = 1; }
+            if (playerNum % 2 != 0) { team = 2; }
         }
 
 #if UNITY_EDITOR
@@ -96,39 +88,27 @@ public class MovementScript : Photon.PunBehaviour
         {
             if (Input.GetButton("Fire1"))
             {
-                
-
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit hit = new RaycastHit();
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    //      debug.text = "rayhit";
-                    if (hit.collider.gameObject.tag == "Player" && moving == false)
+
+                    if (hit.collider.gameObject.tag == "Player" && moving == true)
                     {
-                        currentSpeed = 0;
-                        //debug.text = "STOP TOUCHING MEEEEEEE";
-                        //menu.ToggleSpiderButtons();
-                        rBody.velocity = new Vector3(0, 0, 0);
-                    }
-                    else if (hit.collider.gameObject.tag == "Player" && moving == true)
-                    {
+                        Debug.Log(hit.collider.gameObject.GetComponent<MovementScript>().team.ToString() + "is this players team");
                         rBody.velocity = new Vector3(0, 0, 0);
                         moving = false;
                     }
                 }
-                else
+                else if (isFrozen == false)
                 {
                     Vector2 currentVelocity = rBody.velocity;
                     currentVelocity += MoveFromTouch(target, currentVelocity);   //using arrive function
                     rBody.velocity = currentVelocity;
-                    Debug.DrawLine(currentVelocity, target, Color.green);
                     moving = true;
                 }
-                Vector3 pos = transform.position;
-                pos.z = 0;
-                transform.position = pos;
             }
 
 
@@ -142,10 +122,9 @@ public class MovementScript : Photon.PunBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {
                     //    debug.text = "rayhit";
-                    if (hit.collider.gameObject.tag == "Player" && moving == false)
+                    if (hit.collider.gameObject.tag == "Player" && moving == false && hit.collider.gameObject == this.gameObject)
                     {
                         currentSpeed = 0;
-                        //debug.text = "STOP TOUCHING MEEEEEEE";
                         menu.ToggleSpiderButtons();
                         rBody.velocity = new Vector3(0, 0, 0);
                     }
@@ -155,8 +134,12 @@ public class MovementScript : Photon.PunBehaviour
                 transform.position = pos;
             }
         }
+        if (isFrozen)
+        {
+            rBody.velocity = new Vector3(0, 0, 0);
+        }
     }
-
+     
     Vector2 MoveFromTouch(Vector2 targetPoint, Vector2 velocity)
     {
         Vector2 desiredVel = targetPoint - new Vector2(transform.position.x, transform.position.y);
@@ -221,11 +204,40 @@ public class MovementScript : Photon.PunBehaviour
         {
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
+            stream.SendNext(rBody.velocity);
+            stream.SendNext(isFrozen);
         }
         else
         {
+            isFrozen = (bool)stream.ReceiveNext();
+
             this.transform.position = (Vector3)stream.ReceiveNext();
             this.transform.rotation = (Quaternion)stream.ReceiveNext();
+            this.rBody.velocity = (Vector3)stream.ReceiveNext();
+
+        }
+    }
+
+    [PunRPC]
+    public void SetPlayerFrozen(int target)
+    {
+        Debug.Log("target is: " + target);
+        if (pv.isMine)
+        {
+            if (target == playerNum)
+            {
+                
+                this.isFrozen = true;
+                if (isFrozen)
+                {
+                    Debug.Log("this is frozen");
+                }
+                StartCoroutine (FreezeTime(4.0f));
+                if (!isFrozen)
+                {
+                    Debug.Log("this is not frozen");
+                }
+            }
         }
     }
 
@@ -233,6 +245,14 @@ public class MovementScript : Photon.PunBehaviour
     {
      
         Application.Quit();
+    }
+
+    IEnumerator FreezeTime(float waitTime)
+    {
+        Debug.Log(Time.time.ToString());
+        yield return new WaitForSeconds(waitTime);
+        this.isFrozen = false;
+        
     }
 
 }

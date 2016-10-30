@@ -42,6 +42,7 @@ public class ResourceDepot : Photon.PunBehaviour
         }
 
     }
+
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.isWriting)

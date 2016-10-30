@@ -7,6 +7,7 @@ using Photon;
 public class PhotonNetCode : Photon.PunBehaviour {
 
     public GameObject player;
+    public int playerNum;
     //public GameObject mainCamera;
     
 
@@ -42,12 +43,30 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     void OnJoinedRoom()
     {
-        foreach (GameObject cam in GameObject.FindGameObjectsWithTag("MainCamera"))
-        {
-            //Debug.Log(cam);
-          //  cam.SetActive(false);
-        }
-        GameObject newPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
         
+        if (playerNum ==0)
+        {
+            GameObject newPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
+            PhotonNetwork.player.SetTeam(PunTeams.Team.blue);
+            newPlayer.GetComponent<MovementScript>().team = 1;
+            newPlayer.GetComponent<MovementScript>().playerNum = playerNum;
+            playerNum++;
+        }
+        else if (playerNum % 2 == 0)
+        {
+            GameObject newPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
+            PhotonNetwork.player.SetTeam(PunTeams.Team.blue);
+            newPlayer.GetComponent<MovementScript>().team = 1;
+            newPlayer.GetComponent<MovementScript>().playerNum = playerNum;
+            playerNum++;
+        }
+        else if (playerNum%2 != 0)
+        {
+            GameObject newPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
+            PhotonNetwork.player.SetTeam(PunTeams.Team.red);
+            newPlayer.GetComponent<MovementScript>().team = 2;
+            newPlayer.GetComponent<MovementScript>().playerNum = playerNum;
+            playerNum++;
+        }
     }
 }
