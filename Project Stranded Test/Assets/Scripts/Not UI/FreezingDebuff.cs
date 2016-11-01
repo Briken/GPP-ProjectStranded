@@ -20,14 +20,14 @@ public class FreezingDebuff : Photon.PunBehaviour {
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                Debug.Log("muthafucka you pressed fire");
+                
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit hit = new RaycastHit();
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    Debug.Log("Oh shit you hit something");
+                    
                     if (hit.collider.gameObject.tag == "Player" && hit.collider.gameObject != this.gameObject)
                     {
                         targetMove = hit.collider.gameObject.GetComponent<MovementScript>();
