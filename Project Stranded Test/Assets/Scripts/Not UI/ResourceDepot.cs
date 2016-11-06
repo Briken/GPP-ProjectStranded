@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class ResourceDepot : Photon.PunBehaviour
 {
 
-    PhotonStream photonSteam;
+    PhotonStream photonStream;
     public int team1Score, team2Score;
     public Text scores;
+    public int maxResources = 200;
 
     // Use this for initialization
     void Start()
@@ -19,7 +20,14 @@ public class ResourceDepot : Photon.PunBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (team1Score >= maxResources)
+        {
+            Application.LoadLevel("TEAM1WIN");
+        }
+        if (team2Score>=maxResources)
+        {
+            Application.LoadLevel("TEAM2WIN");
+        }
     }
 
     [PunRPC]

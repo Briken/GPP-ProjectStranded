@@ -151,6 +151,8 @@
     <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SmoothSyncMovement.cs" />
     <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SupportLogger.cs" />
     <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
+    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\UI\ButtonInsideScrollList.cs" />
+    <Compile Include="Assets\Photon Unity Networking\UtilityScripts\UI\TextButtonTransition.cs" />
     <Compile Include="Assets\PhotonChatApi\ChatChannel.cs" />
     <Compile Include="Assets\PhotonChatApi\ChatClient.cs" />
     <Compile Include="Assets\PhotonChatApi\ChatDisconnectCause.cs" />
@@ -162,6 +164,7 @@
     <Compile Include="Assets\PhotonChatApi\ChatUserStatus.cs" />
     <Compile Include="Assets\PhotonChatApi\IChatClientListener.cs" />
     <Compile Include="Assets\Scripts\Not UI\FreezingDebuff.cs" />
+    <Compile Include="Assets\Scripts\Not UI\GameTimer.cs" />
     <Compile Include="Assets\Scripts\Not UI\MovementScript.cs" />
     <Compile Include="Assets\Scripts\Not UI\NetworkMovement.cs" />
     <Compile Include="Assets\Scripts\Not UI\NetworkingCode.cs" />
@@ -175,6 +178,7 @@
     <Compile Include="Assets\Scripts\UI\UICanvasSwitching.cs" />
     <Compile Include="Assets\Scripts\UI\UIFunctionsScript.cs" />
     <Compile Include="Assets\Scripts\UI\UILerpMovement.cs" />
+    <Compile Include="Assets\Scripts\UI\UIPointOfInterest.cs" />
     <Compile Include="Assets\Scripts\UI\UISpiderButton.cs" />
     <Compile Include="Assets\Scripts\UI\UIToggleImageState.cs" />
   </ItemGroup>

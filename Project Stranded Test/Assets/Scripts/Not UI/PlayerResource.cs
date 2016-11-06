@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerResource : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class PlayerResource : MonoBehaviour
 
     public int resource;
 
+    public Text uiResource;
 
     public GameObject[] largeResources;
     public GameObject[] medResources;
@@ -16,6 +18,7 @@ public class PlayerResource : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
         pv = PhotonView.Get(this.gameObject);
         largeResources = GameObject.FindGameObjectsWithTag("Large");
         medResources = GameObject.FindGameObjectsWithTag("Medium");
@@ -60,6 +63,7 @@ public class PlayerResource : MonoBehaviour
                 }
             }
         }
+    
     }
 
     

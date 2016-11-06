@@ -14,7 +14,8 @@ public class PhotonNetCode : Photon.PunBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-      //  mainCamera = GameObject.Find("Main Camera");
+        //  mainCamera = GameObject.Find("Main Camera");
+        PhotonNetwork.sendRate = 20; 
         PhotonNetwork.logLevel = PhotonLogLevel.Full;
         PhotonNetwork.ConnectUsingSettings("0.1");
 	}
