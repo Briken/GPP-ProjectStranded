@@ -172,6 +172,7 @@
     <Compile Include="Assets\Scripts\Not UI\PlayerResource.cs" />
     <Compile Include="Assets\Scripts\Not UI\ResourceDepot.cs" />
     <Compile Include="Assets\Scripts\Not UI\ResourceScript.cs" />
+    <Compile Include="Assets\Scripts\Not UI\ResourceSpawnScript.cs" />
     <Compile Include="Assets\Scripts\Not UI\Spin.cs" />
     <Compile Include="Assets\Scripts\Not UI\TeamScript.cs" />
     <Compile Include="Assets\Scripts\Not UI\minitest.cs" />

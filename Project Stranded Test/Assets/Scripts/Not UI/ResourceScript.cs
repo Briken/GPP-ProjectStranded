@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Photon;
 
-public class ResourceScript : MonoBehaviour {
+public class ResourceScript : PunBehaviour {
 
     bool debug = false;
 
@@ -89,7 +90,7 @@ public class ResourceScript : MonoBehaviour {
             debug = true;
             playerResource.resource += small;
             //Debug.Log(playerResource.resource.ToString());
-            Destroy(this.gameObject);
+            photonView.RPC("DestroyThis", PhotonTargets.All);
         }
         
     }
@@ -105,5 +106,11 @@ public class ResourceScript : MonoBehaviour {
     public void SetPlayers()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
+    }
+
+    [PunRPC]
+    public void DestroyThis()
+    {
+        Destroy(this.gameObject);
     }
 }
