@@ -12,6 +12,10 @@ public class ResourceSpawnScript : PunBehaviour {
     public GameObject[] smallResources;
     public GameObject[] largeResources;
 
+    int mcount;
+    int scount;
+    int lcount;
+
     GameObject[] spawnPoints;
 
     public int spawnTime = 15;
@@ -28,17 +32,23 @@ public class ResourceSpawnScript : PunBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+         
 	    for (int x = 0; x < mediumResources.GetLength(0); x++)
         {
-            if (mediumResources[x] == null)
+            if (mediumResources[x] == null && mcount < mediumResources.GetLength(0))
             {
-                Debug.Log("made it into the medium resource null loop");
+                mcount++;
                 StartCoroutine(Spawn(medResourcePrefab, x));
             }
             else
             {
                 if (mediumResources[x] !=null)
                 {
+                    if (mcount == mediumResources.GetLength(0))
+                    {
+                        mcount = 0;
+                    }
+                    Debug.Log("made it into the medium resource not null");
                     Debug.Log(mediumResources);
                     continue;
                 }
@@ -47,7 +57,7 @@ public class ResourceSpawnScript : PunBehaviour {
 
         for (int x = 0; x < smallResources.GetLength(0); x++)
         {
-            if (smallResources[x] == null)
+            if (smallResources[x] == null && scount < smallResources.GetLength(0))
             {
                 StartCoroutine(Spawn(smallResourcePrefab, x));
             }
@@ -55,6 +65,10 @@ public class ResourceSpawnScript : PunBehaviour {
             {
                 if (smallResources[x] != null)
                 {
+                    if (scount == smallResources.GetLength(0))
+                    {
+                        scount = 0;
+                    }
                     continue;
                 }
             }
@@ -62,7 +76,7 @@ public class ResourceSpawnScript : PunBehaviour {
 
         for (int x = 0; x < largeResources.GetLength(0); x++)
         {
-            if (largeResources[x] == null)
+            if (largeResources[x] == null && lcount < largeResources.GetLength(0))
             {
                 StartCoroutine(Spawn(largeResourcePrefab, x));
             }
@@ -70,6 +84,10 @@ public class ResourceSpawnScript : PunBehaviour {
             {
                 if (largeResources[x] != null)
                 {
+                    if (lcount == largeResources.GetLength(0))
+                    {
+                        lcount = 0;
+                    }
                     continue;
                 }
             }
