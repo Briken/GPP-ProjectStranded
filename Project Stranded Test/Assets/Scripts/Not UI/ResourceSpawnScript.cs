@@ -30,7 +30,7 @@ public class ResourceSpawnScript : PunBehaviour {
     {
 	    for (int x = 0; x < mediumResources.GetLength(0); x++)
         {
-            if (mediumResources[x] = null)
+            if (mediumResources[x] == null)
             {
                 Debug.Log("made it into the medium resource null loop");
                 StartCoroutine(Spawn(medResourcePrefab, x));
@@ -47,7 +47,7 @@ public class ResourceSpawnScript : PunBehaviour {
 
         for (int x = 0; x < smallResources.GetLength(0); x++)
         {
-            if (smallResources[x] = null)
+            if (smallResources[x] == null)
             {
                 StartCoroutine(Spawn(smallResourcePrefab, x));
             }
@@ -62,7 +62,7 @@ public class ResourceSpawnScript : PunBehaviour {
 
         for (int x = 0; x < largeResources.GetLength(0); x++)
         {
-            if (largeResources[x] = null)
+            if (largeResources[x] == null)
             {
                 StartCoroutine(Spawn(largeResourcePrefab, x));
             }
