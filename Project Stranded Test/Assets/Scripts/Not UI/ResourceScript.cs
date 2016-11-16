@@ -26,6 +26,7 @@ public class ResourceScript : PunBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+        players = GameObject.FindGameObjectsWithTag("Player");
         if (players[0] != null)
         {
             nearby.Clear();

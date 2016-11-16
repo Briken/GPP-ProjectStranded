@@ -16,6 +16,10 @@ public class ResourceSpawnScript : PunBehaviour {
     int scount;
     int lcount;
 
+    bool sRoutine;
+    bool mRoutine;
+    bool lRoutine;
+
     GameObject[] spawnPoints;
 
     public int spawnTime = 15;
@@ -23,6 +27,7 @@ public class ResourceSpawnScript : PunBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        Debug.Log("this network manager's user id is " + this.photonView.ownerId.ToString());
         mediumResources = new GameObject[2];
         smallResources = new GameObject[3];
         largeResources = new GameObject[1];
@@ -32,86 +37,80 @@ public class ResourceSpawnScript : PunBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-         
-	    for (int x = 0; x < mediumResources.GetLength(0); x++)
+        if (this.photonView.ownerId == 0)
         {
-            if (mediumResources[x] == null && mcount < mediumResources.GetLength(0))
+            for (int x = 0; x < mediumResources.GetLength(0); x++)
             {
-                mcount++;
-                StartCoroutine(Spawn(medResourcePrefab, x));
-            }
-            else
-            {
-                if (mediumResources[x] !=null)
+                if (mediumResources[x] == null && !mRoutine)
                 {
-                    if (mcount == mediumResources.GetLength(0))
+                    mRoutine = true;
+
+                    StartCoroutine(Spawn(medResourcePrefab, x));
+                }
+                else
+                {
+                    if (mediumResources[x] != null)
                     {
-                        mcount = 0;
+                        continue;
                     }
-                    Debug.Log("made it into the medium resource not null");
-                    Debug.Log(mediumResources);
-                    continue;
+                }
+            }
+
+            for (int x = 0; x < smallResources.GetLength(0); x++)
+            {
+                if (smallResources[x] == null && !sRoutine)
+                {
+                    sRoutine = true;
+                    StartCoroutine(Spawn(smallResourcePrefab, x));
+                }
+                else
+                {
+                    if (smallResources[x] != null)
+                    {
+                        continue;
+                    }
+                }
+            }
+
+            for (int x = 0; x < largeResources.GetLength(0); x++)
+            {
+                if (largeResources[x] == null && !lRoutine)
+                {
+                    lRoutine = true;
+                    StartCoroutine(Spawn(largeResourcePrefab, x));
+                }
+                else
+                {
+                    if (largeResources[x] != null)
+                    {
+                        continue;
+                    }
                 }
             }
         }
-
-        for (int x = 0; x < smallResources.GetLength(0); x++)
-        {
-            if (smallResources[x] == null && scount < smallResources.GetLength(0))
-            {
-                StartCoroutine(Spawn(smallResourcePrefab, x));
-            }
-            else
-            {
-                if (smallResources[x] != null)
-                {
-                    if (scount == smallResources.GetLength(0))
-                    {
-                        scount = 0;
-                    }
-                    continue;
-                }
-            }
-        }
-
-        for (int x = 0; x < largeResources.GetLength(0); x++)
-        {
-            if (largeResources[x] == null && lcount < largeResources.GetLength(0))
-            {
-                StartCoroutine(Spawn(largeResourcePrefab, x));
-            }
-            else
-            {
-                if (largeResources[x] != null)
-                {
-                    if (lcount == largeResources.GetLength(0))
-                    {
-                        lcount = 0;
-                    }
-                    continue;
-                }
-            }
-        }
-
     }
 
     IEnumerator Spawn(GameObject resource, int arrayPos)
     {
-        Debug.Log("made it into the coroutine");
+        
         yield return new WaitForSeconds(spawnTime);
         int spawnPoint = (int)Random.Range(0, spawnPoints.GetLength(0));
         GameObject newResource = PhotonNetwork.Instantiate(resource.name, spawnPoints[spawnPoint].transform.position, Quaternion.identity, 0);
+
         if (newResource.tag == "Small")
         {
             smallResources[arrayPos] = newResource;
+            sRoutine = false;
         }
         if (newResource.tag == "Medium")
         {
             mediumResources[arrayPos] = newResource;
+            mRoutine = false;
         }
         if (newResource.tag == "Large")
         {
             largeResources[arrayPos] = newResource;
+            lRoutine = false;
         }
     }
 }
