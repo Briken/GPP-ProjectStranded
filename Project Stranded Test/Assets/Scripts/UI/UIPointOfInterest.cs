@@ -100,8 +100,8 @@ public class UIPointOfInterest : MonoBehaviour {
         }
         else
         {
-            indicatorPositionX = Mathf.Clamp(correctedScreenSpacePosition.x, -(Screen.width / 2) + iconPaddingAmount, (Screen.width / 2) - iconPaddingAmount);
             indicatorPositionY = Mathf.Clamp(correctedScreenSpacePosition.y + heightAdjustmentAmount, -(Screen.height / 2) + iconPaddingAmount, (Screen.height / 2) - iconPaddingAmount);
+            indicatorPositionX = Mathf.Clamp(indicatorPositionY / lineGradient, -(Screen.width / 2) + iconPaddingAmount, (Screen.width / 2) - iconPaddingAmount);
         }
 
         Vector3 indicatorLocation = new Vector3(indicatorPositionX, indicatorPositionY, 0);
