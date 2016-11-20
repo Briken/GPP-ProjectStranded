@@ -7,7 +7,7 @@ using Photon;
 public class GameTimer : Photon.PunBehaviour {
 
 
-    
+    public GameObject resourceDepot;
     public float timer;
     public Text UITimer;
     // Use this for initialization
@@ -16,6 +16,7 @@ public class GameTimer : Photon.PunBehaviour {
     public GameObject roomOwner;
     void Start ()
     {
+        resourceDepot = GameObject.Find("ResourceDepot");
         timer = 300.0f;
         foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
         {
@@ -65,7 +66,14 @@ public class GameTimer : Photon.PunBehaviour {
 
     public void timeEnds()
     {
-        
+        if (resourceDepot.GetComponent<ResourceDepot>().team1Score < resourceDepot.GetComponent<ResourceDepot>().team2Score)
+        {
+            Application.LoadLevel("Team2Wins");
+        }
+        if (resourceDepot.GetComponent<ResourceDepot>().team1Score > resourceDepot.GetComponent<ResourceDepot>().team2Score)
+        {
+            Application.LoadLevel("Team1Wins");
+        }
     }
 
     [PunRPC]

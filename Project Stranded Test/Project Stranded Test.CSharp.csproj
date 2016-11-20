@@ -163,8 +163,10 @@
     <Compile Include="Assets\PhotonChatApi\ChatState.cs" />
     <Compile Include="Assets\PhotonChatApi\ChatUserStatus.cs" />
     <Compile Include="Assets\PhotonChatApi\IChatClientListener.cs" />
+    <Compile Include="Assets\Scripts\Not UI\CommScript.cs" />
     <Compile Include="Assets\Scripts\Not UI\FreezingDebuff.cs" />
     <Compile Include="Assets\Scripts\Not UI\GameTimer.cs" />
+    <Compile Include="Assets\Scripts\Not UI\KillScript.cs" />
     <Compile Include="Assets\Scripts\Not UI\MovementScript.cs" />
     <Compile Include="Assets\Scripts\Not UI\NetworkMovement.cs" />
     <Compile Include="Assets\Scripts\Not UI\NetworkingCode.cs" />

@@ -22,11 +22,11 @@ public class ResourceDepot : Photon.PunBehaviour
     {
         if (team1Score >= maxResources)
         {
-            Application.LoadLevel("TEAM1WIN");
+            Application.LoadLevel("Team1Wins");
         }
         if (team2Score>=maxResources)
         {
-            Application.LoadLevel("TEAM2WIN");
+            Application.LoadLevel("Team2Wins");
         }
     }
 
