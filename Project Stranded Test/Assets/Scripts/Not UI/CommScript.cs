@@ -8,6 +8,9 @@ public class CommScript : PunBehaviour {
     public GameObject exclamationPrefab;
     public GameObject questionPrefab;
 
+    bool canComm = true;
+    public float silenceTime = 5.0f;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -16,7 +19,7 @@ public class CommScript : PunBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && canComm)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -28,17 +31,29 @@ public class CommScript : PunBehaviour {
                 if (hit.collider.gameObject.tag == "Ellipsis")
                 {
                     PhotonNetwork.Instantiate(ellipsisPrefab.name, hit.collider.gameObject.transform.position, Quaternion.identity, 0);
+                    canComm = false;
+                    StartCoroutine(CommCooldown(silenceTime));
                 }
 
                 if (hit.collider.gameObject.tag == "Exclamation")
                 {
                     PhotonNetwork.Instantiate(exclamationPrefab.name, hit.collider.gameObject.transform.position, Quaternion.identity, 0);
+                    canComm = false;
+                    StartCoroutine(CommCooldown(silenceTime));
                 }
                 if (hit.collider.gameObject.tag == "Question Mark")
                 {
                     PhotonNetwork.Instantiate(questionPrefab.name, hit.collider.gameObject.transform.position, Quaternion.identity, 0);
+                    canComm = false;
+                    StartCoroutine(CommCooldown(silenceTime));
                 }
             }
         }
+    }
+
+    IEnumerator CommCooldown(float coolTime)
+    {
+        yield return new WaitForSeconds(coolTime);
+        canComm = true;
     }
 }
