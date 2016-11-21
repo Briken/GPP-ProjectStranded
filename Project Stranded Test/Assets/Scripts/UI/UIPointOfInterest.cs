@@ -2,7 +2,6 @@
 using UnityEngine.UI;
 using System.Collections;
 
-// TO DO: Need to take into consideration the width and height of the sprite for determining when to change the sprite
 // TO DO: Handle overlapping indicators
 // TO DO: Fix the maths for determining position of the indicator
 
@@ -23,11 +22,12 @@ public class UIPointOfInterest : MonoBehaviour {
 
     float lineGradient;
 
-
 	// Use this for initialization
 	void Start ()
     {
         Debug.Log("The screen size is: " + Screen.width.ToString() + " x " + Screen.height.ToString());
+
+        gameCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
         cameraObject = gameCamera.GetComponent<Camera>();
 
@@ -107,5 +107,10 @@ public class UIPointOfInterest : MonoBehaviour {
         Vector3 indicatorLocation = new Vector3(indicatorPositionX, indicatorPositionY, 0);
 
         return indicatorLocation; 
+    }
+
+    void OnDestroy()
+    {
+        Destroy(indicatorIcon);
     }
 }
