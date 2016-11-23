@@ -25,12 +25,6 @@ public class DebrisSpawner : MonoBehaviour {
         {
             debrisObjectAmount = debrisSpawnPoints.Length;
         }
-
-        foreach (GameObject debrisSpawnPoint in debrisSpawnPoints)
-        {
-            // Throw that spawn point sprite in the trash
-            Destroy(debrisSpawnPoint.GetComponent<SpriteRenderer>());
-        }
       
         while (!spawningComplete)
         {
@@ -40,7 +34,7 @@ public class DebrisSpawner : MonoBehaviour {
             {
                 float randomScaleAmount = Random.Range(minScaleAmount, maxScaleAmount);
 
-                GameObject spawnedDebris = (GameObject)Instantiate(debrisGameObjects[Random.Range(0, debrisGameObjects.Length - 1)], debrisSpawnPoints[randomDebrisSpawnObject].transform.localPosition, Random.rotation);
+                GameObject spawnedDebris = (GameObject)Instantiate(debrisGameObjects[Random.Range(0, debrisGameObjects.Length - 1)], debrisSpawnPoints[randomDebrisSpawnObject].transform.position, Random.rotation);
                 spawnedDebris.transform.localScale = new Vector3(randomScaleAmount, randomScaleAmount, randomScaleAmount);
 
                 debrisSpawnPoints[randomDebrisSpawnObject].GetComponent<DebrisSpawnPoint>().hasBeenUsed = true;
