@@ -28,9 +28,9 @@ public class ResourceSpawnScript : PunBehaviour {
 	void Start ()
     {
         Debug.Log("this network manager's user id is " + this.photonView.ownerId.ToString());
-        mediumResources = new GameObject[2];
-        smallResources = new GameObject[3];
-        largeResources = new GameObject[1];
+        mediumResources = new GameObject[3];
+        smallResources = new GameObject[1];
+        largeResources = new GameObject[2];
         spawnPoints = GameObject.FindGameObjectsWithTag("Spawn");
 	}
 	
