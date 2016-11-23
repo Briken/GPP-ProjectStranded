@@ -8,6 +8,8 @@ public class MovementScript : Photon.PunBehaviour
 {
     UISpiderButton menu;
 
+    public UIInformationBar info;
+
     public GameObject teamMgr;
     public GameObject cam;
     public int team;
@@ -30,7 +32,7 @@ public class MovementScript : Photon.PunBehaviour
     // Use this for initialization
     void Start()
     {
-
+        info = GameObject.Find("Information Bar").GetComponent<UIInformationBar>();
         menu = GetComponent<UISpiderButton>();
         rBody = GetComponent<Rigidbody>();
         pv = PhotonView.Get(this.gameObject);
@@ -108,6 +110,10 @@ public class MovementScript : Photon.PunBehaviour
                     currentVelocity += MoveFromTouch(target, currentVelocity);   //using arrive function
                     rBody.velocity = currentVelocity;
                     moving = true;
+                }
+                if (isFrozen)
+                {
+                    info.DisplayInformationForSetTime("You Are Frozen", 4.0f);
                 }
             }
 
