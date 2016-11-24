@@ -113,7 +113,7 @@ public class MovementScript : Photon.PunBehaviour
                 }
                 if (isFrozen)
                 {
-                    info.DisplayInformationForSetTime("You Are Frozen", 4.0f);
+                    info.DisplayInformationForSetTime("You have been frozen by another player!", 4.0f);
                 }
             }
 

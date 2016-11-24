@@ -6,6 +6,7 @@ public class FreezingDebuff : Photon.PunBehaviour {
     
     public MovementScript targetMove;
     public ResourceScript checkPlayers;
+    public GameObject particleEffectPrefab;
 
 	// Use this for initialization
 	void Start ()
@@ -34,6 +35,8 @@ public class FreezingDebuff : Photon.PunBehaviour {
                         int targetNum = targetMove.playerNum;
                         Debug.Log("target is player: " + targetNum.ToString());
                         targetMove.photonView.RPC("SetPlayerFrozen", PhotonTargets.All, targetMove.playerNum);
+
+                        GameObject particleEffectObject = (GameObject)Instantiate(particleEffectPrefab, hit.collider.gameObject.transform.position, Random.rotation);
                     }
                 }
             }
