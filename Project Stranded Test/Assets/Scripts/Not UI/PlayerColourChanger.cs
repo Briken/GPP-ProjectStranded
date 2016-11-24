@@ -13,7 +13,7 @@ public class PlayerColourChanger : MonoBehaviour {
 
         for(int i = 0; i < playerCharacters.Length; i++)
         {
-            playerCharacters[i].GetComponent<MeshRenderer>().material = playerMaterials[i];
+            playerCharacters[i].GetComponent<SkinnedMeshRenderer>().material = playerMaterials[i];
         }
 
 	}
