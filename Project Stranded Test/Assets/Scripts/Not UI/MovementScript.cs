@@ -10,6 +10,8 @@ public class MovementScript : Photon.PunBehaviour
 
     public UIInformationBar info;
 
+    bool isSpedUp = false;
+
     public GameObject teamMgr;
     public GameObject cam;
     public int team;
@@ -17,6 +19,8 @@ public class MovementScript : Photon.PunBehaviour
     public float maxSteering = 50.0f;
     public float maxSpeed = 50;
     public bool isFrozen = false;
+    public float speedDuration = 4.0f;
+    public float freezeDuration = 4.0f;
 
     private Vector3 correctPPos;
     private Quaternion correctPRot;
@@ -156,7 +160,14 @@ public class MovementScript : Photon.PunBehaviour
         Vector3 target = targetPoint;
         Vector3 distance = (target - transform.position);
         //currentSpeed = distance.magnitude
-        currentSpeed = maxSpeed;
+        if (isSpedUp)
+        {
+            currentSpeed = maxSpeed * 2;
+        }
+        if (!isSpedUp)
+        {
+            currentSpeed = maxSpeed;
+        }
         desiredVel *= currentSpeed;
 
 
@@ -212,10 +223,12 @@ public class MovementScript : Photon.PunBehaviour
             stream.SendNext(transform.rotation);
             stream.SendNext(rBody.velocity);
             stream.SendNext(isFrozen);
+            stream.SendNext(isSpedUp);
         }
         else
         {
             isFrozen = (bool)stream.ReceiveNext();
+            isSpedUp = (bool)stream.ReceiveNext();
 
             this.transform.position = (Vector3)stream.ReceiveNext();
             this.transform.rotation = (Quaternion)stream.ReceiveNext();
@@ -232,33 +245,38 @@ public class MovementScript : Photon.PunBehaviour
         {
             if (target == playerNum)
             {
-                
                 this.isFrozen = true;
-                if (isFrozen)
-                {
-                    Debug.Log("this is frozen");
-                }
-                StartCoroutine (FreezeTime(4.0f));
-                if (!isFrozen)
-                {
-                    Debug.Log("this is not frozen");
-                }
+                StartCoroutine (FreezeTime(freezeDuration));
             }
         }
     }
 
+    [PunRPC]
+    public void SetSpeedBuff(int target)
+    {
+        if (target == playerNum)
+        {
+            this.isSpedUp = true;
+            StartCoroutine(SpeedTime(speedDuration));
+        }
+    }
     public void Quit()
     {
      
         Application.Quit();
     }
 
-    IEnumerator FreezeTime(float waitTime)
+    IEnumerator FreezeTime(float time)
     {
         Debug.Log(Time.time.ToString());
-        yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(time);
         this.isFrozen = false;
         
+    }
+    IEnumerator SpeedTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        this.isSpedUp = true;
     }
 
 }

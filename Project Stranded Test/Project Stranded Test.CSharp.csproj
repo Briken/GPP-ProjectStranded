@@ -163,6 +163,7 @@
     <Compile Include="Assets\PhotonChatApi\ChatState.cs" />
     <Compile Include="Assets\PhotonChatApi\ChatUserStatus.cs" />
     <Compile Include="Assets\PhotonChatApi\IChatClientListener.cs" />
+    <Compile Include="Assets\Scripts\Not UI\BuffSystem.cs" />
     <Compile Include="Assets\Scripts\Not UI\CommScript.cs" />
     <Compile Include="Assets\Scripts\Not UI\DebrisRotation.cs" />
     <Compile Include="Assets\Scripts\Not UI\DebrisSpawnPoint.cs" />
@@ -174,12 +175,16 @@
     <Compile Include="Assets\Scripts\Not UI\MovementScript.cs" />
     <Compile Include="Assets\Scripts\Not UI\NetworkMovement.cs" />
     <Compile Include="Assets\Scripts\Not UI\NetworkingCode.cs" />
+    <Compile Include="Assets\Scripts\Not UI\ParticleDestroyEffect.cs" />
     <Compile Include="Assets\Scripts\Not UI\PhotonNetCode.cs" />
+    <Compile Include="Assets\Scripts\Not UI\PlayerColourChanger.cs" />
     <Compile Include="Assets\Scripts\Not UI\PlayerResource.cs" />
     <Compile Include="Assets\Scripts\Not UI\ResourceDepot.cs" />
     <Compile Include="Assets\Scripts\Not UI\ResourceRightingScript.cs" />
     <Compile Include="Assets\Scripts\Not UI\ResourceScript.cs" />
     <Compile Include="Assets\Scripts\Not UI\ResourceSpawnScript.cs" />
+    <Compile Include="Assets\Scripts\Not UI\SpawnPointIconRemover.cs" />
+    <Compile Include="Assets\Scripts\Not UI\SpeedBuff.cs" />
     <Compile Include="Assets\Scripts\Not UI\Spin.cs" />
     <Compile Include="Assets\Scripts\Not UI\TeamScript.cs" />
     <Compile Include="Assets\Scripts\Not UI\minitest.cs" />
