@@ -15,6 +15,8 @@ public class PlayerResource : MonoBehaviour
     public GameObject[] smallResources;
     PhotonView pv;
 
+    GameObject informationBar;
+
     // Use this for initialization
     void Start()
     {
@@ -24,6 +26,7 @@ public class PlayerResource : MonoBehaviour
         medResources = GameObject.FindGameObjectsWithTag("Medium");
         smallResources = GameObject.FindGameObjectsWithTag("Small");
 
+        informationBar = GameObject.FindGameObjectWithTag("Information Bar");
 
         foreach (GameObject r in largeResources)
         {
@@ -58,6 +61,13 @@ public class PlayerResource : MonoBehaviour
                         int passTeam = this.gameObject.GetComponent<MovementScript>().team;
                         //hit.collider.gameObject.GetComponent<ResourceDepot>().AddTeamResource(this.gameObject);
                         hit.collider.gameObject.GetComponent<ResourceDepot>().photonView.RPC("AddTeamResource", PhotonTargets.All, passTeam, resource);
+
+                        // Let the player know how much they have deposited if they have anything to deposit
+                        if (resource > 0)
+                        {
+                            informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You deposited " + resource.ToString() + " fuel for your team! (Team " + passTeam.ToString() + ")", 3.0f);
+                        }
+
                         resource = 0;
                     }
                 }

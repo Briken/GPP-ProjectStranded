@@ -7,7 +7,7 @@ public class UIInformationBar : MonoBehaviour {
     public GameObject informationBarText;
 
     bool isActive = false;
-    float activeTimer = 0;
+    float activeTimer = 0.0f;
 
 	// Use this for initialization
 	void Start ()
