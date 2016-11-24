@@ -74,15 +74,19 @@ public class ResourceScript : PunBehaviour {
         
         //Debug.Log(player.name);
         playerResource = player.GetComponent<PlayerResource>();
+        GameObject informationBar = GameObject.FindGameObjectWithTag("Information Bar");
+
         if (this.tag == "Large")
         {
             playerResource.resource += large;
+            informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You picked up " + large.ToString() + " fuel!", 4.0f);
             Destroy(this.gameObject);
         }
 
         if (this.tag == "Medium")
         {
             playerResource.resource += medium;
+            informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You picked up " + medium.ToString() + " fuel!", 4.0f);
             Destroy(this.gameObject);
         }
 
@@ -90,6 +94,7 @@ public class ResourceScript : PunBehaviour {
         {
             debug = true;
             playerResource.resource += small;
+            informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You picked up " + small.ToString() + " fuel!", 4.0f);
             //Debug.Log(playerResource.resource.ToString());
             photonView.RPC("DestroyThis", PhotonTargets.All);
         }

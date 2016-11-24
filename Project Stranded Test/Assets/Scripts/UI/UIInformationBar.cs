@@ -35,7 +35,10 @@ public class UIInformationBar : MonoBehaviour {
     {
         informationBarText.GetComponent<Text>().text = message;
         activeTimer = time;
-        
+
+        // Workaround so the information box doesn't disappear if only the text has been updated
+        gameObject.GetComponent<UILerpMovement>().debugStuckTimer += time;
+
         if (!isActive)
         {
             gameObject.GetComponent<UILerpMovement>().ActivateLerp();

@@ -19,6 +19,10 @@ public class UILerpMovement : MonoBehaviour {
     float distanceCovered;
     float fracJourney;
 
+    public bool debugStuckWorkaroundActive = false;
+    public float debugStuckTimer = 2.0f;
+    float debugStuckInitialTimer;
+
     public bool deactivateAfterInitialValues;
     // Use this for initialization
     void Start ()
@@ -28,6 +32,7 @@ public class UILerpMovement : MonoBehaviour {
         float distance = activeLocationAdjustment.magnitude;
         inactiveLocation = objectLocationToTarget.gameObject.transform.position;
         activeScale = gameObject.transform.localScale;
+        debugStuckInitialTimer = debugStuckTimer;
 
         if (deactivateAfterInitialValues)
         {
@@ -78,6 +83,22 @@ public class UILerpMovement : MonoBehaviour {
         }
 
         Debug.DrawLine(objectLocationToTarget.transform.position + activeLocationAdjustment, objectLocationToTarget.transform.position, Color.red, 1, false);
+
+        // Seems to be a strange behaviour where the object gets stuck in lerp-limbo, this should fix it by forcing its position
+        if (debugStuckWorkaroundActive)
+        {
+            if (debugStuckTimer < 0)
+            {
+                gameObject.transform.position = objectLocationToTarget.gameObject.transform.position;
+                shouldLerpObject = false;
+                shouldLerpObjectReversed = false;
+            }
+            else
+            {
+                debugStuckTimer -= Time.deltaTime;
+            }
+        }
+
     }
 
     public void ActivateLerp()
@@ -85,26 +106,27 @@ public class UILerpMovement : MonoBehaviour {
         inactiveLocation = objectLocationToTarget.gameObject.transform.position;
         startTime = Time.time;
         
-
         shouldLerpObject = true;
         gameObject.transform.position = inactiveLocation;
         gameObject.transform.localScale = inactiveScale;
 
-        Debug.Log("FORWARD LERP");
+        if (debugStuckWorkaroundActive)
+        {
+            debugStuckTimer = debugStuckInitialTimer;
+        }
     }
 
     public void ReverseLerp()
     {
         inactiveLocation = objectLocationToTarget.gameObject.transform.position;
         startTime = Time.time;
+        debugStuckTimer = debugStuckInitialTimer;
 
         shouldLerpObjectReversed = true;
 
-        Debug.Log("REVERSE LERP");
-    }
-
-    void ResetValues()
-    {
-
+        if (debugStuckWorkaroundActive)
+        {
+            debugStuckTimer = debugStuckInitialTimer;
+        }
     }
 }
