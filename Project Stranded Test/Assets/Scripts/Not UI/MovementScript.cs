@@ -276,7 +276,7 @@ public class MovementScript : Photon.PunBehaviour
     IEnumerator SpeedTime(float time)
     {
         yield return new WaitForSeconds(time);
-        this.isSpedUp = true;
+        this.isSpedUp = false;
     }
 
 }
