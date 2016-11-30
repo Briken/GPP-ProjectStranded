@@ -169,6 +169,7 @@
     <Compile Include="Assets\Scripts\Not UI\DebrisSpawnPoint.cs" />
     <Compile Include="Assets\Scripts\Not UI\DebrisSpawner.cs" />
     <Compile Include="Assets\Scripts\Not UI\DebugInfo.cs" />
+    <Compile Include="Assets\Scripts\Not UI\DestroyAfterTime.cs" />
     <Compile Include="Assets\Scripts\Not UI\FreezingDebuff.cs" />
     <Compile Include="Assets\Scripts\Not UI\GameTimer.cs" />
     <Compile Include="Assets\Scripts\Not UI\KillScript.cs" />

@@ -30,22 +30,25 @@ public class CommScript : PunBehaviour {
 
                 if (hit.collider.gameObject.tag == "Ellipsis")
                 {
-                    PhotonNetwork.Instantiate(ellipsisPrefab.name, hit.collider.gameObject.transform.position, Quaternion.identity, 0);
+                    GameObject elips = PhotonNetwork.Instantiate(ellipsisPrefab.name, hit.collider.gameObject.transform.position, Quaternion.identity, 0);
                     canComm = false;
                     StartCoroutine(CommCooldown(silenceTime));
+                    elips.transform.SetParent(this.transform);
                 }
 
                 if (hit.collider.gameObject.tag == "Exclamation")
                 {
-                    PhotonNetwork.Instantiate(exclamationPrefab.name, hit.collider.gameObject.transform.position, Quaternion.identity, 0);
+                    GameObject excl = PhotonNetwork.Instantiate(exclamationPrefab.name, hit.collider.gameObject.transform.position, Quaternion.identity, 0);
                     canComm = false;
                     StartCoroutine(CommCooldown(silenceTime));
+                    excl.transform.SetParent(this.transform);
                 }
                 if (hit.collider.gameObject.tag == "Question Mark")
                 {
-                    PhotonNetwork.Instantiate(questionPrefab.name, hit.collider.gameObject.transform.position, Quaternion.identity, 0);
+                    GameObject ques = PhotonNetwork.Instantiate(questionPrefab.name, hit.collider.gameObject.transform.position, Quaternion.identity, 0);
                     canComm = false;
                     StartCoroutine(CommCooldown(silenceTime));
+                    ques.transform.SetParent(this.transform);
                 }
             }
         }

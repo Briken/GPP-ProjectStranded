@@ -7,6 +7,8 @@ public class ResourceScript : PunBehaviour {
 
     bool debug = false;
 
+    public GameObject particleEffectPrefab; 
+
     PlayerResource playerResource;
 
     public List<GameObject> nearby = new List<GameObject>();
@@ -80,14 +82,14 @@ public class ResourceScript : PunBehaviour {
         {
             playerResource.resource += large;
             informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You picked up " + large.ToString() + " fuel!", 4.0f);
-            Destroy(this.gameObject);
+            photonView.RPC("DestroyThis", PhotonTargets.All);
         }
 
         if (this.tag == "Medium")
         {
             playerResource.resource += medium;
             informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You picked up " + medium.ToString() + " fuel!", 4.0f);
-            Destroy(this.gameObject);
+            photonView.RPC("DestroyThis", PhotonTargets.All);
         }
 
         if (this.tag == "Small" && debug == false)
@@ -117,6 +119,7 @@ public class ResourceScript : PunBehaviour {
     [PunRPC]
     public void DestroyThis()
     {
+        GameObject particleEffectObject = (GameObject)Instantiate(particleEffectPrefab, gameObject.transform.position, Random.rotation);
         Destroy(this.gameObject);
     }
 }

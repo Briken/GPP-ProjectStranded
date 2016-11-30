@@ -15,8 +15,8 @@ public class ParticleDestroyEffect : MonoBehaviour {
 	
 	}
 
-    void OnDestroy()
-    {
-        GameObject particleEffectObject = (GameObject)Instantiate(particleEffectPrefab, gameObject.transform.position, Random.rotation);
-    }
+    //void OnDestroy()
+    //{
+    //    GameObject particleEffectObject = (GameObject)Instantiate(particleEffectPrefab, gameObject.transform.position, Random.rotation);
+    //}
 }

@@ -11,6 +11,7 @@ public class MovementScript : Photon.PunBehaviour
     public UIInformationBar info;
 
     bool isSpedUp = false;
+    public float speedMultiplier;
 
     public GameObject teamMgr;
     public GameObject cam;
@@ -162,7 +163,7 @@ public class MovementScript : Photon.PunBehaviour
         //currentSpeed = distance.magnitude
         if (isSpedUp)
         {
-            currentSpeed = maxSpeed * 2;
+            currentSpeed = maxSpeed * speedMultiplier;
         }
         if (!isSpedUp)
         {

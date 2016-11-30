@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using Photon;
@@ -17,7 +18,7 @@ public class GameTimer : Photon.PunBehaviour {
     void Start ()
     {
         resourceDepot = GameObject.Find("ResourceDepot");
-        timer = 300.0f;
+        timer = 20.0f;
         foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
         {
             if (n.GetComponent<MovementScript>().playerNum == 1)
@@ -57,10 +58,11 @@ public class GameTimer : Photon.PunBehaviour {
             Debug.Log(timer.ToString());
         }
         //photonView.RPC("SetTimer", PhotonTargets.All);
-        //if (gameTime <= 0)
-        //{
-        //    timeEnds();
-        //}
+        if (timer <= 0)
+        {
+            Debug.Log("time is less that or equal to 0");
+            timeEnds();
+        }
     }
 
 
@@ -68,11 +70,18 @@ public class GameTimer : Photon.PunBehaviour {
     {
         if (resourceDepot.GetComponent<ResourceDepot>().team1Score < resourceDepot.GetComponent<ResourceDepot>().team2Score)
         {
-            Application.LoadLevel("Team2Wins");
+            //Application.LoadLevel("Team2Wins");
+            SceneManager.LoadScene("Team2Wins");
+            
         }
         if (resourceDepot.GetComponent<ResourceDepot>().team1Score > resourceDepot.GetComponent<ResourceDepot>().team2Score)
         {
-            Application.LoadLevel("Team1Wins");
+            //Application.LoadLevel("Team1Wins");
+            SceneManager.LoadScene("Team1Wins");
+        }
+        if (resourceDepot.GetComponent<ResourceDepot>().team1Score == resourceDepot.GetComponent<ResourceDepot>().team2Score)
+        {
+            SceneManager.LoadScene("Team1Wins");
         }
     }
 
