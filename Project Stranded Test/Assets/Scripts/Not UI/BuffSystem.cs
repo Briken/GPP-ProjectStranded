@@ -10,10 +10,13 @@ public class BuffSystem : MonoBehaviour {
     FreezingDebuff freeze;
     SpeedBuff speedB;
     bool spent = false;
+    int isRandom = 0;
 
+    public UIPowerUp powerChange;
     // Use this for initialization
     void Start ()
     {
+        powerChange = GameObject.Find("PowerUp-Slip").GetComponent<UIPowerUp>();
         freeze = GetComponent<FreezingDebuff>();
         speedB = GetComponent<SpeedBuff>();
         isRunning = false;
@@ -28,6 +31,8 @@ public class BuffSystem : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        isRandom = (int)Random.Range(0, 1);
+
         if (!isRunning)
         {
             isRunning = true;
@@ -39,12 +44,28 @@ public class BuffSystem : MonoBehaviour {
         if (buff == 0 && !spent)
         {
             freeze.enabled = true;
+            if (isRandom == 1)
+            {
+                powerChange.RevealPowerUp(5);
+            }
+            if (isRandom == 0)
+            {
+                powerChange.RevealPowerUp(isRandom);
+            }
             spent = true;
         }
         
         if (buff == 1 && !spent)
         {
             speedB.enabled = true;
+            if (isRandom == 1)
+            {
+                powerChange.RevealPowerUp(buff);
+            }
+            if (isRandom == 0)
+            {
+                powerChange.RevealPowerUp(isRandom);
+            }
             spent = true;
         }
 

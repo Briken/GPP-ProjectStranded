@@ -18,7 +18,7 @@ public class GameTimer : Photon.PunBehaviour {
     void Start ()
     {
         resourceDepot = GameObject.Find("ResourceDepot");
-        timer = 20.0f;
+        timer = 300.0f;
         foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
         {
             if (n.GetComponent<MovementScript>().playerNum == 1)
