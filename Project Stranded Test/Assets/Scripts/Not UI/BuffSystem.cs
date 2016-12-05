@@ -31,7 +31,7 @@ public class BuffSystem : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        isRandom = (int)Random.Range(0, 1);
+        isRandom = (int)Random.Range(0, 100);
 
         if (!isRunning)
         {
@@ -44,11 +44,11 @@ public class BuffSystem : MonoBehaviour {
         if (buff == 0 && !spent)
         {
             freeze.enabled = true;
-            if (isRandom == 1)
+            if (isRandom > 50)
             {
                 powerChange.RevealPowerUp(5);
             }
-            if (isRandom == 0)
+            if (isRandom < 51)
             {
                 powerChange.RevealPowerUp(isRandom);
             }
