@@ -6,6 +6,9 @@ public class UIMainGameHandler : MonoBehaviour {
 
     public GameObject timeRemainingText;
     public GameObject fuelCarriedText;
+    public GameObject fuelCarriedBar;
+    public float barMaxValue = 20.0f;
+    public float barValue = 0.0f;
 
     GameObject mainPlayer;
     float gameTimeRemaining;
@@ -45,6 +48,17 @@ public class UIMainGameHandler : MonoBehaviour {
         if (mainPlayer != null)
         {
             fuelCarriedText.GetComponent<Text>().text = "FUEL: " + mainPlayer.GetComponent<PlayerResource>().resource.ToString();
+
+            if (barValue > mainPlayer.GetComponent<PlayerResource>().resource / barMaxValue)
+            {
+                barValue = Mathf.Clamp(barValue - (0.4f * Time.deltaTime), 0.0f, 1.0f);
+            }
+            else if (barValue <= mainPlayer.GetComponent<PlayerResource>().resource / barMaxValue)
+            {
+                barValue = Mathf.Clamp(barValue + (0.15f * Time.deltaTime), 0.0f, 1.0f);
+            }
+
+            fuelCarriedBar.GetComponent<Slider>().value = barValue;
         }
     }
 }
