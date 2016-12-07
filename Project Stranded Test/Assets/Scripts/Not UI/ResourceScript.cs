@@ -23,8 +23,6 @@ public class ResourceScript : PunBehaviour {
 	// Use this for initialization
 	void Start () {
         players = new GameObject[7];
-
-        
 	}
 
 	// Update is called once per frame
