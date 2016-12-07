@@ -10,7 +10,7 @@ public class MovementScript : Photon.PunBehaviour
 
     public UIInformationBar info;
 
-    bool isSpedUp = false;
+    public bool isSpedUp = false;
     public float speedMultiplier;
 
     public GameObject teamMgr;
@@ -31,6 +31,9 @@ public class MovementScript : Photon.PunBehaviour
     Vector3 fleePoint;
     float currentSpeed = 10;
     bool moving = false;
+
+    public GameObject frozenMeshes;
+    public GameObject speedBoostParticles;
     
 
     protected Rigidbody rBody;
@@ -88,7 +91,6 @@ public class MovementScript : Photon.PunBehaviour
             transform.position = Vector3.Lerp(transform.position, this.correctPPos, Time.deltaTime * 5);
             transform.rotation = Quaternion.Lerp(transform.rotation, this.correctPRot, Time.deltaTime * 5);
         }
-
 
         //squareloc.text = transform.position.ToString();
         if (pv.isMine)
@@ -149,6 +151,9 @@ public class MovementScript : Photon.PunBehaviour
         {
             rBody.velocity = new Vector3(0, 0, 0);
         }
+
+        // Show the frozen ice meshes if the player is frozen
+        frozenMeshes.gameObject.SetActive(isFrozen);
     }
      
     Vector2 MoveFromTouch(Vector2 targetPoint, Vector2 velocity)
@@ -164,10 +169,15 @@ public class MovementScript : Photon.PunBehaviour
         if (isSpedUp)
         {
             currentSpeed = maxSpeed * speedMultiplier;
+            if (!speedBoostParticles.gameObject.GetComponent<ParticleSystem>().isPlaying)
+            {
+                speedBoostParticles.gameObject.GetComponent<ParticleSystem>().Play();
+            }
         }
         if (!isSpedUp)
         {
             currentSpeed = maxSpeed;
+            speedBoostParticles.gameObject.GetComponent<ParticleSystem>().Stop();
         }
         desiredVel *= currentSpeed;
 

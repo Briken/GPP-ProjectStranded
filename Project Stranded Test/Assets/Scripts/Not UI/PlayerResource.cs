@@ -14,6 +14,7 @@ public class PlayerResource : MonoBehaviour
     public GameObject[] medResources;
     public GameObject[] smallResources;
     PhotonView pv;
+    GameObject depositParticleObject;
 
     GameObject informationBar;
 
@@ -27,6 +28,7 @@ public class PlayerResource : MonoBehaviour
         smallResources = GameObject.FindGameObjectsWithTag("Small");
 
         informationBar = GameObject.FindGameObjectWithTag("Information Bar");
+        depositParticleObject = GameObject.FindGameObjectWithTag("Deposit Particle System");
 
         foreach (GameObject r in largeResources)
         {
@@ -65,7 +67,8 @@ public class PlayerResource : MonoBehaviour
                         // Let the player know how much they have deposited if they have anything to deposit
                         if (resource > 0)
                         {
-                            informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You deposited " + resource.ToString() + " fuel for your team! (Team " + passTeam.ToString() + ")", 3.0f);
+                            informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You deposited " + resource.ToString() + " fuel for your team!", 3.0f);
+                            depositParticleObject.GetComponent<ParticleSystem>().Play();
                         }
 
                         resource = 0;

@@ -5,13 +5,22 @@ using System.Collections;
 public class UIMainGameHandler : MonoBehaviour {
 
     public GameObject timeRemainingText;
+    public GameObject playerTeamText;
     public GameObject fuelCarriedText;
+    public GameObject fuelCarriedBar;
+    public float barMaxValue = 20.0f;
+    public float barValue = 0.0f;
 
     GameObject mainPlayer;
     float gameTimeRemaining;
 
     bool noMain = true;
 
+    [Header("Power-up Indicators")]
+    public GameObject powerUpIndicatorSpeedBoost;
+    public GameObject powerUpIndicatorFreeze;
+    Color powerUpIndicatorInactiveColour = new Color (1.0f, 1.0f, 1.0f, 0.2f);
+    Color powerUpIndicatorActiveColour = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     // Use this for initialization
     void Start()
     {
@@ -45,6 +54,40 @@ public class UIMainGameHandler : MonoBehaviour {
         if (mainPlayer != null)
         {
             fuelCarriedText.GetComponent<Text>().text = "FUEL: " + mainPlayer.GetComponent<PlayerResource>().resource.ToString();
+
+            // Fuel bar handling:
+            if (barValue > mainPlayer.GetComponent<PlayerResource>().resource / barMaxValue)
+            {
+                barValue = Mathf.Clamp(barValue - (0.4f * Time.deltaTime), 0.0f, 1.0f);
+            }
+            else if (barValue <= mainPlayer.GetComponent<PlayerResource>().resource / barMaxValue)
+            {
+                barValue = Mathf.Clamp(barValue + (0.15f * Time.deltaTime), 0.0f, 1.0f);
+            }
+
+            fuelCarriedBar.GetComponent<Slider>().value = barValue;
+
+            // Power-up activity display
+            if (mainPlayer.GetComponent<MovementScript>().isFrozen)
+            {
+                powerUpIndicatorFreeze.GetComponent<Image>().color = powerUpIndicatorActiveColour;
+            }
+            else
+            {
+                powerUpIndicatorFreeze.GetComponent<Image>().color = powerUpIndicatorInactiveColour;
+            }
+
+            if (mainPlayer.GetComponent<MovementScript>().isSpedUp)
+            {
+                powerUpIndicatorSpeedBoost.GetComponent<Image>().color = powerUpIndicatorActiveColour;
+            }
+            else
+            {
+                powerUpIndicatorSpeedBoost.GetComponent<Image>().color = powerUpIndicatorInactiveColour;
+            }
+
+            // Display player's team
+            playerTeamText.gameObject.GetComponent<Text>().text = "COLLECTING FOR TEAM " + mainPlayer.GetComponent<MovementScript>().team.ToString();
         }
     }
 }

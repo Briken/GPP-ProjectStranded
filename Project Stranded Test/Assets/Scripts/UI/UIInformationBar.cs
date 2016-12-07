@@ -8,11 +8,16 @@ public class UIInformationBar : MonoBehaviour {
 
     bool isActive = false;
     float activeTimer = 0.0f;
+    Color defaultBarColour;
 
 	// Use this for initialization
 	void Start ()
     {
-        gameObject.GetComponent<UILerpMovement>().ReverseLerp();
+        // gameObject.GetComponent<UILerpMovement>().ReverseLerp();
+
+        defaultBarColour = gameObject.GetComponent<Image>().color;
+        gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+        informationBarText.GetComponent<Text>().text = "";
     }
 	
 	// Update is called once per frame
@@ -20,12 +25,15 @@ public class UIInformationBar : MonoBehaviour {
     {
         if (activeTimer > 0)
         {
+            gameObject.GetComponent<Image>().color = defaultBarColour;
             activeTimer -= Time.deltaTime;
         }
 
         if (isActive && (activeTimer < 0))
         {
-            gameObject.GetComponent<UILerpMovement>().ReverseLerp();
+            // gameObject.GetComponent<UILerpMovement>().ReverseLerp();
+            gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            informationBarText.GetComponent<Text>().text = "";
             isActive = false;
         }
 	}
@@ -41,7 +49,7 @@ public class UIInformationBar : MonoBehaviour {
 
         if (!isActive)
         {
-            gameObject.GetComponent<UILerpMovement>().ActivateLerp();
+            // gameObject.GetComponent<UILerpMovement>().ActivateLerp();
             isActive = true;
         }   
     }
@@ -51,11 +59,11 @@ public class UIInformationBar : MonoBehaviour {
     {
         informationBarText.GetComponent<Text>().text = message;
 
-        gameObject.GetComponent<UILerpMovement>().ActivateLerp();
+        // gameObject.GetComponent<UILerpMovement>().ActivateLerp();
     }
 
     public void HideInformation()
     {
-        gameObject.GetComponent<UILerpMovement>().ReverseLerp();
+        // gameObject.GetComponent<UILerpMovement>().ReverseLerp();
     }
 }
