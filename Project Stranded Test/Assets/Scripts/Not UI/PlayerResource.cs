@@ -67,7 +67,7 @@ public class PlayerResource : MonoBehaviour
                         // Let the player know how much they have deposited if they have anything to deposit
                         if (resource > 0)
                         {
-                            informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You deposited " + resource.ToString() + " fuel for your team! (Team " + passTeam.ToString() + ")", 3.0f);
+                            informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You deposited " + resource.ToString() + " fuel for your team!", 3.0f);
                             depositParticleObject.GetComponent<ParticleSystem>().Play();
                         }
 

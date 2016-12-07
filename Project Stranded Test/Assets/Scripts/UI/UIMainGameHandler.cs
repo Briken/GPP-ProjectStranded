@@ -5,6 +5,7 @@ using System.Collections;
 public class UIMainGameHandler : MonoBehaviour {
 
     public GameObject timeRemainingText;
+    public GameObject playerTeamText;
     public GameObject fuelCarriedText;
     public GameObject fuelCarriedBar;
     public float barMaxValue = 20.0f;
@@ -54,6 +55,7 @@ public class UIMainGameHandler : MonoBehaviour {
         {
             fuelCarriedText.GetComponent<Text>().text = "FUEL: " + mainPlayer.GetComponent<PlayerResource>().resource.ToString();
 
+            // Fuel bar handling:
             if (barValue > mainPlayer.GetComponent<PlayerResource>().resource / barMaxValue)
             {
                 barValue = Mathf.Clamp(barValue - (0.4f * Time.deltaTime), 0.0f, 1.0f);
@@ -65,6 +67,7 @@ public class UIMainGameHandler : MonoBehaviour {
 
             fuelCarriedBar.GetComponent<Slider>().value = barValue;
 
+            // Power-up activity display
             if (mainPlayer.GetComponent<MovementScript>().isFrozen)
             {
                 powerUpIndicatorFreeze.GetComponent<Image>().color = powerUpIndicatorActiveColour;
@@ -82,6 +85,9 @@ public class UIMainGameHandler : MonoBehaviour {
             {
                 powerUpIndicatorSpeedBoost.GetComponent<Image>().color = powerUpIndicatorInactiveColour;
             }
+
+            // Display player's team
+            playerTeamText.gameObject.GetComponent<Text>().text = "COLLECTING FOR TEAM " + mainPlayer.GetComponent<MovementScript>().team.ToString();
         }
     }
 }
