@@ -36,4 +36,9 @@ public class UIFunctionsScript : MonoBehaviour {
     {
         textObject.gameObject.GetComponent<Text>().text = newTextObjectTextString;
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
