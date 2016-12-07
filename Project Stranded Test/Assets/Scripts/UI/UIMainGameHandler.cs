@@ -15,6 +15,11 @@ public class UIMainGameHandler : MonoBehaviour {
 
     bool noMain = true;
 
+    [Header("Power-up Indicators")]
+    public GameObject powerUpIndicatorSpeedBoost;
+    public GameObject powerUpIndicatorFreeze;
+    Color powerUpIndicatorInactiveColour = new Color (1.0f, 1.0f, 1.0f, 0.2f);
+    Color powerUpIndicatorActiveColour = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     // Use this for initialization
     void Start()
     {
@@ -59,6 +64,24 @@ public class UIMainGameHandler : MonoBehaviour {
             }
 
             fuelCarriedBar.GetComponent<Slider>().value = barValue;
+
+            if (mainPlayer.GetComponent<MovementScript>().isFrozen)
+            {
+                powerUpIndicatorFreeze.GetComponent<Image>().color = powerUpIndicatorActiveColour;
+            }
+            else
+            {
+                powerUpIndicatorFreeze.GetComponent<Image>().color = powerUpIndicatorInactiveColour;
+            }
+
+            if (mainPlayer.GetComponent<MovementScript>().isSpedUp)
+            {
+                powerUpIndicatorSpeedBoost.GetComponent<Image>().color = powerUpIndicatorActiveColour;
+            }
+            else
+            {
+                powerUpIndicatorSpeedBoost.GetComponent<Image>().color = powerUpIndicatorInactiveColour;
+            }
         }
     }
 }
