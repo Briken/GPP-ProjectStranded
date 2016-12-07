@@ -10,7 +10,7 @@ public class MovementScript : Photon.PunBehaviour
 
     public UIInformationBar info;
 
-    bool isSpedUp = false;
+    public bool isSpedUp = false;
     public float speedMultiplier;
 
     public GameObject teamMgr;
@@ -33,6 +33,7 @@ public class MovementScript : Photon.PunBehaviour
     bool moving = false;
 
     public GameObject frozenMeshes;
+    public GameObject speedBoostParticles;
     
 
     protected Rigidbody rBody;
@@ -168,10 +169,15 @@ public class MovementScript : Photon.PunBehaviour
         if (isSpedUp)
         {
             currentSpeed = maxSpeed * speedMultiplier;
+            if (!speedBoostParticles.gameObject.GetComponent<ParticleSystem>().isPlaying)
+            {
+                speedBoostParticles.gameObject.GetComponent<ParticleSystem>().Play();
+            }
         }
         if (!isSpedUp)
         {
             currentSpeed = maxSpeed;
+            speedBoostParticles.gameObject.GetComponent<ParticleSystem>().Stop();
         }
         desiredVel *= currentSpeed;
 
