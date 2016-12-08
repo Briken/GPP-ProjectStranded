@@ -8,12 +8,15 @@ public class CommScript : PunBehaviour {
     public GameObject exclamationPrefab;
     public GameObject questionPrefab;
 
+    UISpiderButton menu;
+
     bool canComm = true;
     public float silenceTime = 5.0f;
 
 	// Use this for initialization
-	void Start () {
-	
+	void Start ()
+    {
+        menu = GetComponent<UISpiderButton>();
 	}
 	
 	// Update is called once per frame
@@ -34,6 +37,7 @@ public class CommScript : PunBehaviour {
                     canComm = false;
                     StartCoroutine(CommCooldown(silenceTime));
                     elips.transform.SetParent(this.transform);
+                    menu.ToggleSpiderButtons();
                 }
 
                 if (hit.collider.gameObject.tag == "Exclamation")
@@ -42,6 +46,7 @@ public class CommScript : PunBehaviour {
                     canComm = false;
                     StartCoroutine(CommCooldown(silenceTime));
                     excl.transform.SetParent(this.transform);
+                    menu.ToggleSpiderButtons();
                 }
                 if (hit.collider.gameObject.tag == "Question Mark")
                 {
@@ -49,6 +54,7 @@ public class CommScript : PunBehaviour {
                     canComm = false;
                     StartCoroutine(CommCooldown(silenceTime));
                     ques.transform.SetParent(this.transform);
+                    menu.ToggleSpiderButtons();
                 }
             }
         }

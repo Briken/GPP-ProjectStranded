@@ -50,7 +50,7 @@ public class BuffSystem : MonoBehaviour {
             }
             if (isRandom < 51)
             {
-                powerChange.RevealPowerUp(isRandom);
+                powerChange.RevealPowerUp(0);
             }
             spent = true;
         }
@@ -58,13 +58,13 @@ public class BuffSystem : MonoBehaviour {
         if (buff == 1 && !spent)
         {
             speedB.enabled = true;
-            if (isRandom == 1)
+            if (isRandom > 50)
             {
                 powerChange.RevealPowerUp(buff);
             }
-            if (isRandom == 0)
+            if (isRandom < 51)
             {
-                powerChange.RevealPowerUp(isRandom);
+                powerChange.RevealPowerUp(0);
             }
             spent = true;
         }
