@@ -32,7 +32,8 @@ public class GameTimer : Photon.PunBehaviour {
         //mainTime = timeCheck.GetComponent<GameTimer>();
         //gameTime = mainTime.timer;
         Debug.Log("time left: " + timer.ToString());
-        photonView.RPC("SetTimer", PhotonTargets.All, timer);
+
+     //   photonView.RPC("SetTimer", PhotonTargets.All, timer);
 	}
 	
 	// Update is called once per frame
@@ -44,15 +45,16 @@ public class GameTimer : Photon.PunBehaviour {
         }
         if (roomOwner == null)
         {
-            foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
-            {
-                if (n.GetComponent<MovementScript>().playerNum == 1)
-                {
-                    roomOwner = n;
-                }
-            }
+            roomOwner = GameObject.Find("NetworkManager");
+            //foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
+            //{
+            //    if (n.GetComponent<MovementScript>().playerNum == 1)
+            //    {
+            //        roomOwner = n;
+            //    }
+            //}
         }
-        if (this.gameObject != roomOwner)
+        if (this.gameObject != roomOwner && roomOwner !=null)
         {
             timer = roomOwner.GetComponent<GameTimer>().timer;
             Debug.Log(timer.ToString());
@@ -88,7 +90,7 @@ public class GameTimer : Photon.PunBehaviour {
     [PunRPC]
     float SetTimer(float masterTime)
     {
-        if (this.gameObject.GetComponent<MovementScript>().playerNum == 1)
+        if (PhotonNetwork.player.ID == 0)
         {
             masterTime = timer;
         }

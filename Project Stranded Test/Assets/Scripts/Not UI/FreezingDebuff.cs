@@ -33,7 +33,8 @@ public class FreezingDebuff : Photon.PunBehaviour {
                         targetMove = hit.collider.gameObject.GetComponent<MovementScript>();
                         int targetNum = targetMove.playerNum;
                         Debug.Log("target is player: " + targetNum.ToString());
-                        targetMove.photonView.RPC("SetPlayerFrozen", PhotonTargets.All, targetMove.playerNum);
+                        targetMove.photonView.RPC("SetPlayerFrozen", PhotonTargets.All, targetNum);
+                        targetMove.SetPlayerFrozen(targetNum);
                         this.enabled = false;
                     }
                 }

@@ -34,6 +34,7 @@ public class MovementScript : Photon.PunBehaviour
 
     public GameObject frozenMeshes;
     public GameObject speedBoostParticles;
+    bool freezemeshactive;
     
 
     protected Rigidbody rBody;
@@ -91,7 +92,17 @@ public class MovementScript : Photon.PunBehaviour
             transform.position = Vector3.Lerp(transform.position, this.correctPPos, Time.deltaTime * 5);
             transform.rotation = Quaternion.Lerp(transform.rotation, this.correctPRot, Time.deltaTime * 5);
         }
-
+        if (isSpedUp)
+        {
+            if (!speedBoostParticles.gameObject.GetComponent<ParticleSystem>().isPlaying)
+            {
+                speedBoostParticles.gameObject.GetComponent<ParticleSystem>().Play();
+            }
+        }
+        if (!isSpedUp)
+        {
+            speedBoostParticles.gameObject.GetComponent<ParticleSystem>().Stop();
+        }
         //squareloc.text = transform.position.ToString();
         if (pv.isMine)
         {
@@ -113,17 +124,26 @@ public class MovementScript : Photon.PunBehaviour
                 }
                 else if (isFrozen == false)
                 {
+                    frozenMeshes.SetActive(false);
                     Vector2 currentVelocity = rBody.velocity;
                     currentVelocity += MoveFromTouch(target, currentVelocity);   //using arrive function
                     rBody.velocity = currentVelocity;
                     moving = true;
                 }
-                if (isFrozen)
+
+            }
+            if (isFrozen)
+            {
+                rBody.velocity = new Vector3(0, 0, 0);
+                info.DisplayInformationForSetTime("You have been frozen by another player!", 4.0f);
+                // Show the frozen ice meshes if the player is frozen
+                if (!freezemeshactive)
                 {
-                    info.DisplayInformationForSetTime("You have been frozen by another player!", 4.0f);
+                    GameObject freezelook = PhotonNetwork.Instantiate(frozenMeshes.name, this.transform.position, Quaternion.identity, 0);
+                    freezelook.transform.SetParent(this.transform);
+                    freezemeshactive = true;
                 }
             }
-
 
 
             if (Input.GetButtonDown("Fire1"))
@@ -146,14 +166,7 @@ public class MovementScript : Photon.PunBehaviour
                 pos.z = 0;
                 transform.position = pos;
             }
-        }
-        if (isFrozen)
-        {
-            rBody.velocity = new Vector3(0, 0, 0);
-        }
-
-        // Show the frozen ice meshes if the player is frozen
-        frozenMeshes.gameObject.SetActive(isFrozen);
+        }   
     }
      
     Vector2 MoveFromTouch(Vector2 targetPoint, Vector2 velocity)
@@ -169,15 +182,10 @@ public class MovementScript : Photon.PunBehaviour
         if (isSpedUp)
         {
             currentSpeed = maxSpeed * speedMultiplier;
-            if (!speedBoostParticles.gameObject.GetComponent<ParticleSystem>().isPlaying)
-            {
-                speedBoostParticles.gameObject.GetComponent<ParticleSystem>().Play();
-            }
         }
         if (!isSpedUp)
         {
             currentSpeed = maxSpeed;
-            speedBoostParticles.gameObject.GetComponent<ParticleSystem>().Stop();
         }
         desiredVel *= currentSpeed;
 
@@ -248,17 +256,26 @@ public class MovementScript : Photon.PunBehaviour
         }
     }
 
+    public void SetPlayerFrozenNonRPC(int target)
+    {
+        if (target == playerNum)
+        {
+            this.isFrozen = true;
+            StartCoroutine(FreezeTime(freezeDuration));
+
+        }
+
+    }
+
     [PunRPC]
     public void SetPlayerFrozen(int target)
     {
         Debug.Log("target is: " + target);
-        if (pv.isMine)
+        if (target == playerNum)
         {
-            if (target == playerNum)
-            {
-                this.isFrozen = true;
-                StartCoroutine (FreezeTime(freezeDuration));
-            }
+            this.isFrozen = true;
+            StartCoroutine(FreezeTime(freezeDuration));
+
         }
     }
 
@@ -282,7 +299,7 @@ public class MovementScript : Photon.PunBehaviour
         Debug.Log(Time.time.ToString());
         yield return new WaitForSeconds(time);
         this.isFrozen = false;
-        
+        freezemeshactive = false;
     }
     IEnumerator SpeedTime(float time)
     {
