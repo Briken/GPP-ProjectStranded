@@ -53,20 +53,7 @@ public class UIMainGameHandler : MonoBehaviour {
         timeRemainingText.GetComponent<Text>().text = "TIME: " + gameTimeString;
         if (mainPlayer != null)
         {
-            fuelCarriedText.GetComponent<Text>().text = "FUEL: " + mainPlayer.GetComponent<PlayerResource>().resource.ToString();
-
-            // Fuel bar handling:
-            if (barValue > mainPlayer.GetComponent<PlayerResource>().resource / barMaxValue)
-            {
-                barValue = Mathf.Clamp(barValue - (0.4f * Time.deltaTime), 0.0f, 1.0f);
-            }
-            else if (barValue <= mainPlayer.GetComponent<PlayerResource>().resource / barMaxValue)
-            {
-                barValue = Mathf.Clamp(barValue + (0.15f * Time.deltaTime), 0.0f, 1.0f);
-            }
-
-            fuelCarriedBar.GetComponent<Slider>().value = barValue;
-
+            
             // Power-up activity display
             if (mainPlayer.GetComponent<MovementScript>().isFrozen)
             {
