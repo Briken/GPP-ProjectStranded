@@ -47,30 +47,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     void OnJoinedRoom()
     {
-        timer.enabled = true;
-        if (playerNum ==0)
-        {
+            timer.enabled = true;
             GameObject newPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
-            PhotonNetwork.player.SetTeam(PunTeams.Team.blue);
-            newPlayer.GetComponent<MovementScript>().team = 1;
-            newPlayer.GetComponent<MovementScript>().playerNum = playerNum;
-            playerNum++;
-        }
-        else if (playerNum % 2 == 0)
-        {
-            GameObject newPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
-            PhotonNetwork.player.SetTeam(PunTeams.Team.blue);
-            newPlayer.GetComponent<MovementScript>().team = 1;
-            newPlayer.GetComponent<MovementScript>().playerNum = playerNum;
-            playerNum++;
-        }
-        else if (playerNum%2 != 0)
-        {
-            GameObject newPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
-            PhotonNetwork.player.SetTeam(PunTeams.Team.red);
-            newPlayer.GetComponent<MovementScript>().team = 2;
-            newPlayer.GetComponent<MovementScript>().playerNum = playerNum;
-            playerNum++;
-        }
     }
 }

@@ -60,9 +60,9 @@ public class PlayerResource : MonoBehaviour
                     //      debug.text = "rayhit";
                     if (hit.collider.gameObject.tag == "ResourceDepot")
                     {
-                        int passTeam = this.gameObject.GetComponent<MovementScript>().team;
+
                         //hit.collider.gameObject.GetComponent<ResourceDepot>().AddTeamResource(this.gameObject);
-                        hit.collider.gameObject.GetComponent<ResourceDepot>().photonView.RPC("AddTeamResource", PhotonTargets.All, passTeam, resource);
+
 
                         // Let the player know how much they have deposited if they have anything to deposit
                         if (resource > 0)
