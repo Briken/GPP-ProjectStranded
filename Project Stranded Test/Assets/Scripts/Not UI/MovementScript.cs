@@ -10,15 +10,17 @@ public class MovementScript : Photon.PunBehaviour
 
     public UIInformationBar info;
 
-  
 
-    public GameObject teamMgr;
+    public GameObject[] ships;
+    public GameObject myShip;
+   
     public GameObject cam;
 
     public int playerNum;
     public float maxSteering = 50.0f;
     public float maxSpeed = 50;
 
+    bool hasClaimed = false;
     
     private Vector3 correctPPos;    
     private Quaternion correctPRot;
@@ -40,8 +42,17 @@ public class MovementScript : Photon.PunBehaviour
         pv = PhotonView.Get(this.gameObject);
         tempMgr = GameObject.Find("TeamManager");
 
+        ships = GameObject.FindGameObjectsWithTag("Ship");
 
-
+        foreach(GameObject n in ships)
+        {
+            if (n.GetComponent<ShipScript>().claimed != true && hasClaimed == false)
+            {
+                n.GetComponent<ShipScript>().claimed = true;
+                hasClaimed = true;
+                n.GetComponent<ShipScript>().shipNum = playerNum;
+            }
+        }
 
         if (pv.isMine)
         {

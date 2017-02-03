@@ -70,21 +70,7 @@ public class GameTimer : Photon.PunBehaviour {
 
     public void timeEnds()
     {
-        if (resourceDepot.GetComponent<ResourceDepot>().team1Score < resourceDepot.GetComponent<ResourceDepot>().team2Score)
-        {
-            //Application.LoadLevel("Team2Wins");
-            SceneManager.LoadScene("Team2Wins");
-            
-        }
-        if (resourceDepot.GetComponent<ResourceDepot>().team1Score > resourceDepot.GetComponent<ResourceDepot>().team2Score)
-        {
-            //Application.LoadLevel("Team1Wins");
-            SceneManager.LoadScene("Team1Wins");
-        }
-        if (resourceDepot.GetComponent<ResourceDepot>().team1Score == resourceDepot.GetComponent<ResourceDepot>().team2Score)
-        {
-            SceneManager.LoadScene("Team1Wins");
-        }
+        
     }
 
     [PunRPC]
