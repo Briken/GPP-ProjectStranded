@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/movetest.unity
+- path: Assets/Photon Unity Networking/Resources/GameScene.unity
   isLoaded: 1
   isActive: 1

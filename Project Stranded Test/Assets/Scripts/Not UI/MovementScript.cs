@@ -10,32 +10,25 @@ public class MovementScript : Photon.PunBehaviour
 
     public UIInformationBar info;
 
-    public bool isSpedUp = false;
-    public float speedMultiplier;
+  
 
     public GameObject teamMgr;
     public GameObject cam;
-    public int team;
+
     public int playerNum;
     public float maxSteering = 50.0f;
     public float maxSpeed = 50;
-    public bool isFrozen = false;
-    public float speedDuration = 4.0f;
-    public float freezeDuration = 4.0f;
 
-    private Vector3 correctPPos;
+    
+    private Vector3 correctPPos;    
     private Quaternion correctPRot;
 
     PhotonView pv;
     GameObject tempMgr;
-    Vector3 fleePoint;
+    
     float currentSpeed = 10;
     bool moving = false;
 
-    public GameObject frozenMeshes;
-    public GameObject speedBoostParticles;
-    bool freezemeshactive;
-    
 
     protected Rigidbody rBody;
     // Use this for initialization
@@ -55,17 +48,7 @@ public class MovementScript : Photon.PunBehaviour
 
             Debug.Log(cam.name);
             Camera.main.gameObject.transform.SetParent(this.transform);
-            //if (PhotonNetwork.player.GetTeam() == PunTeams.Team.blue) { team = 1; }
-            //if (PhotonNetwork.player.GetTeam() == PunTeams.Team.red) { team = 2; }
             playerNum = PhotonNetwork.player.ID;
-            if (playerNum % 2 == 0) { team = 1; }
-            if (playerNum % 2 != 0) { team = 2; }
-        }
-        else
-        {
-            playerNum = this.photonView.ownerId;
-            if (playerNum % 2 == 0) { team = 1; }
-            if (playerNum % 2 != 0) { team = 2; }
         }
 
 #if UNITY_EDITOR
@@ -92,17 +75,6 @@ public class MovementScript : Photon.PunBehaviour
             transform.position = Vector3.Lerp(transform.position, this.correctPPos, Time.deltaTime * 5);
             transform.rotation = Quaternion.Lerp(transform.rotation, this.correctPRot, Time.deltaTime * 5);
         }
-        if (isSpedUp)
-        {
-            if (!speedBoostParticles.gameObject.GetComponent<ParticleSystem>().isPlaying)
-            {
-                speedBoostParticles.gameObject.GetComponent<ParticleSystem>().Play();
-            }
-        }
-        if (!isSpedUp)
-        {
-            speedBoostParticles.gameObject.GetComponent<ParticleSystem>().Stop();
-        }
         //squareloc.text = transform.position.ToString();
         if (pv.isMine)
         {
@@ -114,35 +86,12 @@ public class MovementScript : Photon.PunBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-
-                    if (hit.collider.gameObject.tag == "Player" && moving == true)
-                    {
-                        Debug.Log(hit.collider.gameObject.GetComponent<MovementScript>().team.ToString() + "is this players team");
-                        rBody.velocity = new Vector3(0, 0, 0);
-                        moving = false;
-                    }
-                }
-                else if (isFrozen == false)
-                {
-                    frozenMeshes.SetActive(false);
                     Vector2 currentVelocity = rBody.velocity;
                     currentVelocity += MoveFromTouch(target, currentVelocity);   //using arrive function
                     rBody.velocity = currentVelocity;
                     moving = true;
                 }
 
-            }
-            if (isFrozen)
-            {
-                rBody.velocity = new Vector3(0, 0, 0);
-                info.DisplayInformationForSetTime("You have been frozen by another player!", 4.0f);
-                // Show the frozen ice meshes if the player is frozen
-                if (!freezemeshactive)
-                {
-                    GameObject freezelook = PhotonNetwork.Instantiate(frozenMeshes.name, this.transform.position, Quaternion.identity, 0);
-                    freezelook.transform.SetParent(this.transform);
-                    freezemeshactive = true;
-                }
             }
 
 
@@ -179,14 +128,7 @@ public class MovementScript : Photon.PunBehaviour
         Vector3 target = targetPoint;
         Vector3 distance = (target - transform.position);
         //currentSpeed = distance.magnitude
-        if (isSpedUp)
-        {
-            currentSpeed = maxSpeed * speedMultiplier;
-        }
-        if (!isSpedUp)
-        {
-            currentSpeed = maxSpeed;
-        }
+        
         desiredVel *= currentSpeed;
 
 
@@ -211,24 +153,6 @@ public class MovementScript : Photon.PunBehaviour
         return SteeringVelocity;
     }
 
-
-    void OnGUI()
-    {
-
-        foreach (Touch touch in Input.touches)
-        {
-            string message = "";
-            message += "ID: " + touch.fingerId + "\n";
-            message += "Phase: " + touch.phase.ToString() + "\n";
-            message += "TapCount: " + touch.tapCount + "\n";
-            message += "Pos X: " + touch.position.x + "\n";
-            message += "Pos Y: " + touch.position.y + "\n";
-
-            int num = touch.fingerId;
-            GUI.Label(new Rect(0 + 130 * num, 0, 200, 180), message);
-        }
-    }
-
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         Debug.Log("dis shit being called yo");
@@ -241,14 +165,9 @@ public class MovementScript : Photon.PunBehaviour
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
             stream.SendNext(rBody.velocity);
-            stream.SendNext(isFrozen);
-            stream.SendNext(isSpedUp);
         }
         else
         {
-            isFrozen = (bool)stream.ReceiveNext();
-            isSpedUp = (bool)stream.ReceiveNext();
-
             this.transform.position = (Vector3)stream.ReceiveNext();
             this.transform.rotation = (Quaternion)stream.ReceiveNext();
             this.rBody.velocity = (Vector3)stream.ReceiveNext();
@@ -256,55 +175,10 @@ public class MovementScript : Photon.PunBehaviour
         }
     }
 
-    public void SetPlayerFrozenNonRPC(int target)
-    {
-        if (target == playerNum)
-        {
-            this.isFrozen = true;
-            StartCoroutine(FreezeTime(freezeDuration));
-
-        }
-
-    }
-
-    [PunRPC]
-    public void SetPlayerFrozen(int target)
-    {
-        Debug.Log("target is: " + target);
-        if (target == playerNum)
-        {
-            this.isFrozen = true;
-            StartCoroutine(FreezeTime(freezeDuration));
-
-        }
-    }
-
-    [PunRPC]
-    public void SetSpeedBuff(int target)
-    {
-        if (target == playerNum)
-        {
-            this.isSpedUp = true;
-            StartCoroutine(SpeedTime(speedDuration));
-        }
-    }
+    
     public void Quit()
     {
      
         Application.Quit();
     }
-
-    IEnumerator FreezeTime(float time)
-    {
-        Debug.Log(Time.time.ToString());
-        yield return new WaitForSeconds(time);
-        this.isFrozen = false;
-        freezemeshactive = false;
-    }
-    IEnumerator SpeedTime(float time)
-    {
-        yield return new WaitForSeconds(time);
-        this.isSpedUp = false;
-    }
-
 }
