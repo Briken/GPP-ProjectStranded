@@ -27,7 +27,9 @@ public class MovementScript : Photon.PunBehaviour
 
     PhotonView pv;
     GameObject tempMgr;
-    
+
+    Color[] colours;
+
     float currentSpeed = 10;
     bool moving = false;
 
@@ -36,6 +38,8 @@ public class MovementScript : Photon.PunBehaviour
     // Use this for initialization
     void Start()
     {
+        colours = new Color[5];
+        SetColours();
         info = GameObject.Find("Information Bar").GetComponent<UIInformationBar>();
         menu = GetComponent<UISpiderButton>();
         rBody = GetComponent<Rigidbody>();
@@ -51,6 +55,7 @@ public class MovementScript : Photon.PunBehaviour
                 n.GetComponent<ShipScript>().claimed = true;
                 hasClaimed = true;
                 n.GetComponent<ShipScript>().shipNum = playerNum;
+                n.GetComponent<SpriteRenderer>().color = colours[playerNum];
             }
         }
 
@@ -186,7 +191,17 @@ public class MovementScript : Photon.PunBehaviour
         }
     }
 
-    
+    void SetColours()
+    {
+        
+        colours[0] = Color.red;
+        colours[1] = Color.blue;
+        colours[2] = Color.green;
+        colours[3] = Color.yellow;
+        colours[4] = Color.white;
+    }
+
+
     public void Quit()
     {
      
