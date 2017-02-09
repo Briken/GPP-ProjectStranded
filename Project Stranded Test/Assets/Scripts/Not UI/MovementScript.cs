@@ -96,17 +96,19 @@ public class MovementScript : Photon.PunBehaviour
         {
             if (Input.GetButton("Fire1"))
             {
+                Debug.Log("Button Pressed");
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit hit = new RaycastHit();
 
-                if (Physics.Raycast(ray, out hit))
-                {
-                    Vector2 currentVelocity = rBody.velocity;
-                    currentVelocity += MoveFromTouch(target, currentVelocity);   //using arrive function
-                    rBody.velocity = currentVelocity;
-                    moving = true;
-                }
+                //if (Physics.Raycast(ray, out hit))
+                //{
+                //    Debug.Log("Raycast Hit, movement to begin now");
+                //    Vector2 currentVelocity = rBody.velocity;
+                //    currentVelocity += MoveFromTouch(target, currentVelocity);   //using arrive function
+                //    rBody.velocity = currentVelocity;
+                //    moving = true;
+                //}
 
             }
 
@@ -127,9 +129,10 @@ public class MovementScript : Photon.PunBehaviour
                         rBody.velocity = new Vector3(0, 0, 0);
                     }
                 }
-                Vector3 pos = transform.position;
-                pos.z = 0;
-                transform.position = pos;
+                Vector2 currentVelocity = rBody.velocity;
+                currentVelocity += MoveFromTouch(target, currentVelocity);   //using arrive function
+                rBody.velocity = currentVelocity;
+                moving = true;
             }
         }   
     }
