@@ -7,6 +7,7 @@ public class ResourceScript : PunBehaviour {
 
     bool debug = false;
 
+    public float waitTimer = 10.0f;
     public GameObject particleEffectPrefab; 
 
     PlayerResource playerResource;
@@ -17,11 +18,25 @@ public class ResourceScript : PunBehaviour {
 
     public float resourceDistance = 10.0f;
 
+    int requirement;
     public int large = 10;
     public int medium = 5;
     public int small = 1;
 	// Use this for initialization
 	void Start () {
+        if (tag == "Small")
+        {
+            requirement = small;
+        }
+        if (tag == "Medium")
+        {
+            requirement = medium;
+        }
+        if (tag == "Large")
+        {
+            requirement = large;
+        }
+                
         players = new GameObject[7];
 	}
 
@@ -46,29 +61,28 @@ public class ResourceScript : PunBehaviour {
                 }
             }
         }
-        if (nearby.Count >= large && this.gameObject.tag == "Large")
+        
+        if (nearby.Count == requirement)
         {
             foreach (GameObject n in nearby)
             {
-                Debug.Log("fire flaming suck lance");
-                AddResource(n);
+                StartCoroutine(ResourceTime(waitTimer, n));
             }
         }
-        if (nearby.Count >= medium && this.gameObject.tag == "Medium")
-        {
-            foreach (GameObject n in nearby)
-            {
-                AddResource(n);
-            }
-        }
-        if (nearby.Count >= small && this.gameObject.tag == "Small")
-        {
-            foreach (GameObject n in nearby)
-            {
-                Debug.Log("small nearby loop");
-                AddResource(n);
-            }
-        }
+        //if (nearby.Count == small && this.gameObject.tag == "Small")
+        //{
+        //    foreach (GameObject n in nearby)
+        //    {
+        //        AddResource(n);
+        //    }
+        //}
+        //if (nearby.Count == large && this.gameObject.tag == "Large")
+        //{
+        //    foreach (GameObject n in nearby)
+        //    {
+        //        AddResource(n);
+        //    }
+        //}
     }
 
     public void AddResource(GameObject player)
@@ -77,29 +91,10 @@ public class ResourceScript : PunBehaviour {
         //Debug.Log(player.name);
         playerResource = player.GetComponent<PlayerResource>();
         GameObject informationBar = GameObject.FindGameObjectWithTag("Information Bar");
-
-        if (this.tag == "Large")
-        {
-            playerResource.resource += large;
-            informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You picked up " + large.ToString() + " fuel!", 4.0f);
-            photonView.RPC("DestroyThis", PhotonTargets.All);
-        }
-
-        if (this.tag == "Medium")
-        {
-            playerResource.resource += medium;
-            informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You picked up " + medium.ToString() + " fuel!", 4.0f);
-            photonView.RPC("DestroyThis", PhotonTargets.All);
-        }
-
-        if (this.tag == "Small" && debug == false)
-        {
-            debug = true;
-            playerResource.resource += small;
-            informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You picked up " + small.ToString() + " fuel!", 4.0f);
-            //Debug.Log(playerResource.resource.ToString());
-            photonView.RPC("DestroyThis", PhotonTargets.All);
-        }
+        
+        playerResource.resource += requirement;
+        informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You picked up " + large.ToString() + " fuel!", 4.0f);
+        photonView.RPC("DestroyThis", PhotonTargets.All);
         
     }
 
@@ -114,6 +109,16 @@ public class ResourceScript : PunBehaviour {
     public void SetPlayers()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
+    }
+
+    IEnumerator ResourceTime(float waitTime, GameObject player)
+    {
+        player.GetComponent<VotingSystem>().CallVote();
+        yield return new WaitForSeconds(waitTime);
+        if (nearby.Count == requirement)
+        {
+            AddResource(player);
+        }
     }
 
     [PunRPC]
