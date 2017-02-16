@@ -13,6 +13,8 @@ public class PhotonNetCode : Photon.PunBehaviour {
     public bool radBound = false;
     TypedLobby typedLobby;
     int currentPlayers;
+    string roomName;
+    RoomData data;
 
     //public GameObject mainCamera;
     
@@ -20,6 +22,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        data = GameObject.FindGameObjectWithTag("GameData").GetComponent<RoomData>();
         PhotonNetwork.sendRate = 20; 
         PhotonNetwork.logLevel = PhotonLogLevel.Full;
         PhotonNetwork.ConnectUsingSettings("0.1");
@@ -46,9 +49,10 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     public override void OnJoinedLobby()
     {
-        if (radBound)
+        if (data.roomName != null)
         {
-            PhotonNetwork.JoinOrCreateRoom("RadBoundTestGame", roomDetails, typedLobby);
+            roomName = data.roomName;
+            PhotonNetwork.JoinOrCreateRoom(roomName, roomDetails, typedLobby);
         }
         else
         {

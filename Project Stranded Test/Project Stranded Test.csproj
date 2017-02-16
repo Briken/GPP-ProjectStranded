@@ -187,6 +187,7 @@
     <Compile Include="Assets\Scripts\Not UI\ResourceRightingScript.cs" />
     <Compile Include="Assets\Scripts\Not UI\ResourceScript.cs" />
     <Compile Include="Assets\Scripts\Not UI\ResourceSpawnScript.cs" />
+    <Compile Include="Assets\Scripts\Not UI\RoomData.cs" />
     <Compile Include="Assets\Scripts\Not UI\ShipScript.cs" />
     <Compile Include="Assets\Scripts\Not UI\SpawnPointIconRemover.cs" />
     <Compile Include="Assets\Scripts\Not UI\Spin.cs" />
