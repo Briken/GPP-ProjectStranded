@@ -36,7 +36,7 @@ public class CommScript : PunBehaviour {
                 if (hit.collider.gameObject.tag == "Ellipsis")
                 {
                     GameObject elips = PhotonNetwork.Instantiate(pulse.name, hit.collider.gameObject.transform.position, Quaternion.identity, 0);
-                    elips.GetComponent<SpriteRenderer>().color = Color.blue;
+                    elips.GetComponent<SpriteRenderer>().color = Color.green;
                     canComm = false;
                     StartCoroutine(CommCooldown(silenceTime));
                     elips.transform.SetParent(this.transform);
@@ -55,7 +55,7 @@ public class CommScript : PunBehaviour {
                 if (hit.collider.gameObject.tag == "Question Mark")
                 {
                     GameObject ques = PhotonNetwork.Instantiate(pulse.name, hit.collider.gameObject.transform.position, Quaternion.identity, 0);
-                    ques.GetComponent<SpriteRenderer>().color = Color.green;
+                    ques.GetComponent<SpriteRenderer>().color = Color.blue;
                     canComm = false;
                     StartCoroutine(CommCooldown(silenceTime));
                     ques.transform.SetParent(this.transform);
