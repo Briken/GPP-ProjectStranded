@@ -33,6 +33,8 @@ public class MovementScript : Photon.PunBehaviour
     float currentSpeed = 10;
     bool moving = false;
 
+    
+
 
     protected Rigidbody rBody;
     // Use this for initialization
@@ -114,7 +116,8 @@ public class MovementScript : Photon.PunBehaviour
 
 
             if (Input.GetButtonDown("Fire1"))
-            { 
+            {
+                Vector2 currentVelocity = rBody.velocity;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit hit = new RaycastHit();
@@ -122,19 +125,33 @@ public class MovementScript : Photon.PunBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {
                     //    debug.text = "rayhit";
-                    if (hit.collider.gameObject.tag == "Player" && moving == false && hit.collider.gameObject == this.gameObject)
+                    if (hit.collider.gameObject == this.gameObject)
                     {
                         currentSpeed = 0;
                         menu.ToggleSpiderButtons();
-                        rBody.velocity = new Vector3(0, 0, 0);
+                        currentVelocity = rBody.velocity;
+                        currentVelocity += MoveFromTouch(currentVelocity, currentVelocity);   //using arrive function
+                        rBody.velocity = currentVelocity;
+                        moving = false;
+                    }
+                    else
+                    {
+                        currentSpeed = 10;
+                        currentVelocity = rBody.velocity;
+                        currentVelocity += MoveFromTouch(target, currentVelocity);   //using arrive function
+                        rBody.velocity = currentVelocity;
+                        moving = true;
                     }
                 }
-                Vector2 currentVelocity = rBody.velocity;
-                currentVelocity += MoveFromTouch(target, currentVelocity);   //using arrive function
-                rBody.velocity = currentVelocity;
-                moving = true;
+                else
+                {
+                    currentSpeed = 10;
+                    currentVelocity += MoveFromTouch(target, currentVelocity);   //using arrive function
+                    rBody.velocity = currentVelocity;
+                    moving = true;
+                }
             }
-        }   
+        }
     }
      
     Vector2 MoveFromTouch(Vector2 targetPoint, Vector2 velocity)
@@ -172,10 +189,6 @@ public class MovementScript : Photon.PunBehaviour
         return SteeringVelocity;
     }
 
-    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        Debug.Log("dis shit being called yo");
-    }
 
     public void OnSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {

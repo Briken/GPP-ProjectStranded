@@ -6,6 +6,8 @@ using Photon;
 
 public class PhotonNetCode : Photon.PunBehaviour {
 
+    public GameObject gData;
+    public int lobbyMax;
     GameTimer timer;
     public GameObject player;
     public int playerNum;
@@ -22,13 +24,22 @@ public class PhotonNetCode : Photon.PunBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        data = GameObject.FindGameObjectWithTag("GameData").GetComponent<RoomData>();
+        if (GameObject.FindGameObjectWithTag("GameData") == null)
+        {
+            Instantiate(gData);
+            data = GameObject.FindGameObjectWithTag("GameData").GetComponent<RoomData>();
+        }
+        else
+        {
+            data = GameObject.FindGameObjectWithTag("GameData").GetComponent<RoomData>();
+        }
+
         PhotonNetwork.sendRate = 20; 
         PhotonNetwork.logLevel = PhotonLogLevel.Full;
         PhotonNetwork.ConnectUsingSettings("0.1");
         roomDetails = new RoomOptions();
         roomDetails.IsVisible = false;
-        roomDetails.MaxPlayers = 5;
+        roomDetails.MaxPlayers = (byte)lobbyMax;
         typedLobby = new TypedLobby();
 
         GameObject netmanager = this.gameObject;

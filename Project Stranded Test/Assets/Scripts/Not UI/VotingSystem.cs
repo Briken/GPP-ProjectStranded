@@ -16,6 +16,9 @@ public class VotingSystem : MonoBehaviour {
 
     public void CallVote()
     {
-
+        // set active the ui element
+        // on button press incrememnt the vote count dependant on the button presser
+        // rpc to ensure all buttons are synced
+        //send the highest vote cvount away from the other players
     }
 }
