@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAppearance : MonoBehaviour {
 
     public GameObject playerHead;
     public GameObject playerBody;
+    public InputField playerUsername;
 
     public Sprite[] playerHeadSprites;
     public Sprite[] playerBodySprites;
@@ -92,5 +94,9 @@ public class PlayerAppearance : MonoBehaviour {
     {
         PlayerPrefs.SetInt("Player Body", playerBodyNumber);
         PlayerPrefs.SetInt("Player Head", playerHeadNumber);
+        PlayerPrefs.SetString("Username", playerUsername.text);
+
+        // Manually reloads the username after saving
+        GameObject.FindGameObjectWithTag("GameData").GetComponent<RoomData>().ManualUsernameLoad();
     }
 }

@@ -19,8 +19,19 @@ public class RoomData : MonoBehaviour {
 	void Start ()
     {
         roomName = null;
-        DontDestroyOnLoad(this);	
-	}
+        DontDestroyOnLoad(this);
+
+        // Set username to a default name if data hasn't been saved yet
+        if (PlayerPrefs.GetString("Username") == "")
+        {
+            userName = "New Player";
+        }
+        else
+        {
+            userName = PlayerPrefs.GetString("Username");
+        }
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -50,7 +61,17 @@ public class RoomData : MonoBehaviour {
     public void SetUsername()
     {
         userName = userInput.text;
+
+        // Save the player's username
+        PlayerPrefs.SetString("Username", userName);
     }
+
+    // Used for manually reloading the username after being saved in the My Character screen
+    public void ManualUsernameLoad()
+    {
+        userName = PlayerPrefs.GetString("Username");
+    }
+
     void RecordNames()
     {
         foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))

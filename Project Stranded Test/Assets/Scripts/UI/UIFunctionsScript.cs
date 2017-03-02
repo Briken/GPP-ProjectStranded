@@ -41,4 +41,9 @@ public class UIFunctionsScript : MonoBehaviour {
     {
         Application.Quit();
     }
+
+    public void ClearSavedData()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }
