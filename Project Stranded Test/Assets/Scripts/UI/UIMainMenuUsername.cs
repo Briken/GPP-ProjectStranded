@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIMainMenuUsername : MonoBehaviour {
 
     public GameObject usernameText;
+    public string[] defaultUsernames;
 
 	// Use this for initialization
 	void Start ()
@@ -13,12 +14,13 @@ public class UIMainMenuUsername : MonoBehaviour {
         // Use default username if player hasn't saved a username yet
         if (PlayerPrefs.GetString("Username") == "")
         {
-            usernameText.gameObject.GetComponent<Text>().text = "New Player";
+            PlayerPrefs.SetString("Username", defaultUsernames[Random.Range(0, defaultUsernames.Length-1)]);
+
+            Debug.Log(defaultUsernames.Length.ToString());
         }
-        else
-        {
-            usernameText.gameObject.GetComponent<Text>().text = PlayerPrefs.GetString("Username");
-        }
+
+        usernameText.gameObject.GetComponent<Text>().text = PlayerPrefs.GetString("Username");
+
 
 	}
 	

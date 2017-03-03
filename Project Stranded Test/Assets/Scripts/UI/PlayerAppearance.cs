@@ -94,8 +94,13 @@ public class PlayerAppearance : MonoBehaviour {
     {
         PlayerPrefs.SetInt("Player Body", playerBodyNumber);
         PlayerPrefs.SetInt("Player Head", playerHeadNumber);
-        PlayerPrefs.SetString("Username", playerUsername.text);
 
+        // Prevents the player from saving with no name
+        if (playerUsername.text != "")
+        {
+            PlayerPrefs.SetString("Username", playerUsername.text);
+        }
+        
         // Manually reloads the username after saving
         GameObject.FindGameObjectWithTag("GameData").GetComponent<RoomData>().ManualUsernameLoad();
     }
