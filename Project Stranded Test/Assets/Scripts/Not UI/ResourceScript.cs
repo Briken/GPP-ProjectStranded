@@ -115,6 +115,7 @@ public class ResourceScript : PunBehaviour {
     {
         player.GetComponent<VotingSystem>().CallVote();
         yield return new WaitForSeconds(waitTime);
+        player.GetComponent<VotingSystem>().voteCount.SetActive(false);
         if (nearby.Count == requirement)
         {
             AddResource(player);

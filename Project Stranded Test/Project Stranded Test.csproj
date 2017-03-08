@@ -172,6 +172,7 @@
     <Compile Include="Assets\PhotonChatApi\ChatState.cs" />
     <Compile Include="Assets\PhotonChatApi\ChatUserStatus.cs" />
     <Compile Include="Assets\PhotonChatApi\IChatClientListener.cs" />
+    <Compile Include="Assets\Scripts\GameDataSpawner.cs" />
     <Compile Include="Assets\Scripts\Not UI\CommScript.cs" />
     <Compile Include="Assets\Scripts\Not UI\DebugInfo.cs" />
     <Compile Include="Assets\Scripts\Not UI\DestroyAfterTime.cs" />
@@ -193,8 +194,10 @@
     <Compile Include="Assets\Scripts\Not UI\SpawnPointIconRemover.cs" />
     <Compile Include="Assets\Scripts\Not UI\Spin.cs" />
     <Compile Include="Assets\Scripts\Not UI\UserName.cs" />
+    <Compile Include="Assets\Scripts\Not UI\VoteTally.cs" />
     <Compile Include="Assets\Scripts\Not UI\VotingSystem.cs" />
     <Compile Include="Assets\Scripts\Not UI\minitest.cs" />
+    <Compile Include="Assets\Scripts\UI\FindRoomData.cs" />
     <Compile Include="Assets\Scripts\UI\PlayerAppearance.cs" />
     <Compile Include="Assets\Scripts\UI\UIBarScript.cs" />
     <Compile Include="Assets\Scripts\UI\UICanvasSwitching.cs" />
@@ -202,8 +205,10 @@
     <Compile Include="Assets\Scripts\UI\UIInformationBar.cs" />
     <Compile Include="Assets\Scripts\UI\UILerpMovement.cs" />
     <Compile Include="Assets\Scripts\UI\UIMainGameHandler.cs" />
+    <Compile Include="Assets\Scripts\UI\UIMainMenuUsername.cs" />
     <Compile Include="Assets\Scripts\UI\UIPointOfInterest.cs" />
     <Compile Include="Assets\Scripts\UI\UIPowerUp.cs" />
+    <Compile Include="Assets\Scripts\UI\UIRoundVictoryText.cs" />
     <Compile Include="Assets\Scripts\UI\UISpiderButton.cs" />
     <Compile Include="Assets\Scripts\UI\UIToggleImageState.cs" />
   </ItemGroup>
