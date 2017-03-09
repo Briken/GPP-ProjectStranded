@@ -4,20 +4,20 @@ using UnityEngine;
 using Photon;
 
 public class VoteTally : PunBehaviour {
-    int player1Total;
-    int player1Current;
+    public int player1Total;
+    public int player1Current;
 
-    int player2Total;
-    int player2Current;
+    public int player2Total;
+    public int player2Current;
 
-    int player3Total;
-    int player3Current;
+    public int player3Total;
+    public int player3Current;
 
-    int player4Total;
-    int player4Current;
+    public int player4Total;
+    public int player4Current;
 
-    int player5Total;
-    int player5Current;
+    public int player5Total;
+    public int player5Current;
 
     // Use this for initialization
     void Start () {

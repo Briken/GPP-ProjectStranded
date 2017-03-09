@@ -7,6 +7,8 @@ public class ResourceScript : PunBehaviour {
 
     bool debug = false;
 
+    public float pushFrc = 30.0f;
+
     public float waitTimer = 10.0f;
     public GameObject particleEffectPrefab; 
 
@@ -116,6 +118,17 @@ public class ResourceScript : PunBehaviour {
         player.GetComponent<VotingSystem>().CallVote();
         yield return new WaitForSeconds(waitTime);
         player.GetComponent<VotingSystem>().voteCount.SetActive(false);
+        int boot = player.GetComponent<VotingSystem>().CheckVote();
+        foreach (GameObject n in nearby)
+        {
+            if (boot == GetComponent<MovementScript>().playerNum)
+            {
+                Vector2 moveDir = transform.position - this.transform.position;
+                Rigidbody p = GetComponent<Rigidbody>();
+                p.AddForce(moveDir * pushFrc);
+            }
+        }
+        yield return new WaitForSeconds(2);
         if (nearby.Count == requirement)
         {
             AddResource(player);
