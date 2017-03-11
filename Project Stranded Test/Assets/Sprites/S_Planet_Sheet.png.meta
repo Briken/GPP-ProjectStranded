@@ -1,0 +1,300 @@
+fileFormatVersion: 2
+guid: 2a59a4ba991f8f4469b7470c01cda6f2
+timeCreated: 1489197816
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: S_Large_Planet_01
+    21300002: S_Large_Planet_02
+    21300004: S_Large_Sun_01
+    21300006: S_Large_Star_01
+    21300008: S_Medium_Star_01
+    21300010: S_Small_Star_01
+    21300012: S_Medium_Meteor_01
+    21300014: S_Medium_Planet_01
+    21300016: S_Medium_Planet_02
+    21300018: S_Medium_Planet_03
+    21300020: S_Medium_Sun_01
+    21300022: S_Large_Meteor_01
+    21300024: S_Small_Planet_01
+    21300026: S_Small_Planet_02
+    21300028: S_Small_Planet_03
+    21300030: S_Small_Sun_01
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: S_Large_Planet_01
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 2192
+        width: 1153
+        height: 1032
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Large_Planet_02
+      rect:
+        serializedVersion: 2
+        x: 1438
+        y: 2187
+        width: 1276
+        height: 1042
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Large_Sun_01
+      rect:
+        serializedVersion: 2
+        x: 6137
+        y: 1829
+        width: 1489
+        height: 1488
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Large_Star_01
+      rect:
+        serializedVersion: 2
+        x: 7880
+        y: 2430
+        width: 198
+        height: 714
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Medium_Star_01
+      rect:
+        serializedVersion: 2
+        x: 8158
+        y: 2599
+        width: 199
+        height: 342
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Small_Star_01
+      rect:
+        serializedVersion: 2
+        x: 8441
+        y: 2708
+        width: 99
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Medium_Meteor_01
+      rect:
+        serializedVersion: 2
+        x: 8779
+        y: 2306
+        width: 1053
+        height: 878
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Medium_Planet_01
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 1065
+        width: 1000
+        height: 898
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Medium_Planet_02
+      rect:
+        serializedVersion: 2
+        x: 1671
+        y: 1060
+        width: 914
+        height: 898
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Medium_Planet_03
+      rect:
+        serializedVersion: 2
+        x: 2834
+        y: 1075
+        width: 1003
+        height: 908
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Medium_Sun_01
+      rect:
+        serializedVersion: 2
+        x: 6415
+        y: 812
+        width: 953
+        height: 952
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Large_Meteor_01
+      rect:
+        serializedVersion: 2
+        x: 7885
+        y: 57
+        width: 2130
+        height: 2102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Small_Planet_01
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 290
+        width: 565
+        height: 501
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Small_Planet_02
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 370
+        width: 615
+        height: 372
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Small_Planet_03
+      rect:
+        serializedVersion: 2
+        x: 2158
+        y: 380
+        width: 476
+        height: 386
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Small_Sun_01
+      rect:
+        serializedVersion: 2
+        x: 6519
+        y: 27
+        width: 725
+        height: 725
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
