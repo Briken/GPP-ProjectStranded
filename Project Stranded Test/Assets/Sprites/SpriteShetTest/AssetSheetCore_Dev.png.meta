@@ -1,0 +1,286 @@
+fileFormatVersion: 2
+guid: 0b3003b35b42a1442a8a09934563b53c
+timeCreated: 1489171340
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: S_Meaty_01
+    21300002: S_Planet_01
+    21300004: S_Planet_02
+    21300006: S_Planet_03
+    21300008: LyallTest
+    21300010: S_Meaty_02
+    21300012: Fuel_Container_01
+    21300014: S_Player_01
+    21300016: AssetSheetCore_Dev_8
+    21300018: Fuel_Container_02
+    21300020: Fuel_Container_03
+    21300022: Fuel_Container_04
+    21300024: Fuel_Container_05
+    21300026: Fuel_Container_06
+    21300028: Fuel_Container_07
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 4096
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: S_Meaty_01
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 4891
+        width: 1051
+        height: 879
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Planet_01
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 5141
+        width: 1107
+        height: 993
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Planet_02
+      rect:
+        serializedVersion: 2
+        x: 3439
+        y: 5520
+        width: 565
+        height: 501
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Planet_03
+      rect:
+        serializedVersion: 2
+        x: 4164
+        y: 4724
+        width: 1317
+        height: 1071
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LyallTest
+      rect:
+        serializedVersion: 2
+        x: 5614
+        y: 2729
+        width: 1965
+        height: 3417
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Meaty_02
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 2621
+        width: 2132
+        height: 2105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fuel_Container_01
+      rect:
+        serializedVersion: 2
+        x: 2518
+        y: 2798
+        width: 1307
+        height: 1634
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: S_Player_01
+      rect:
+        serializedVersion: 2
+        x: 4037
+        y: 2985
+        width: 1277
+        height: 1370
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AssetSheetCore_Dev_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1147
+        width: 572
+        height: 580
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fuel_Container_02
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 204
+        width: 1405
+        height: 1302
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fuel_Container_03
+      rect:
+        serializedVersion: 2
+        x: 2273
+        y: 0
+        width: 1631
+        height: 1629
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fuel_Container_04
+      rect:
+        serializedVersion: 2
+        x: 4086
+        y: 91
+        width: 1304
+        height: 1827
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fuel_Container_05
+      rect:
+        serializedVersion: 2
+        x: 5624
+        y: 0
+        width: 1307
+        height: 1629
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fuel_Container_06
+      rect:
+        serializedVersion: 2
+        x: 7206
+        y: 0
+        width: 1307
+        height: 1633
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Fuel_Container_07
+      rect:
+        serializedVersion: 2
+        x: 8763
+        y: 125
+        width: 1300
+        height: 1404
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
