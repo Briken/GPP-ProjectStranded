@@ -1,0 +1,1852 @@
+Mono path[0] = 'C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/test_Data/Managed'
+Mono path[1] = 'C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/test_Data/Mono'
+Mono config path = 'C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/test_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/test_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55266
+Multi-casting "[IP] 192.168.0.9 [Port] 55266 [Flags] 3 [Guid] 3864551431 [EditorId] 1274379734 [Version] 1048832 [Id] WindowsPlayer(DESKTOP-09VON77) [Debug] 1" to [225.0.0.222:54997]...
+Waiting for connection from host on [0.0.0.0:55266]...
+PlayerConnection accepted from [192.168.0.9] handle:0x330
+Started listening to [0.0.0.0:55266]
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,defer=y,address=0.0.0.0:56431
+PlayerConnection already initialized - listening to [0.0.0.0:55266]
+Initialize engine version: 5.5.2f1 (3829d7f588f3)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 970 (ID=0x13c2)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+    Driver:   21.21.13.7653
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Photon3Unity3D.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Photon3Unity3D.dll into Unity Child Domain
+- Completed reload, in  0.030 seconds
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3360x1080 at -1440,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.248397 ms
+Mono path[0] = 'C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/test_Data/Managed'
+Mono path[1] = 'C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/test_Data/Mono'
+Mono config path = 'C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/test_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/test_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55071
+Multi-casting "[IP] 192.168.0.9 [Port] 55071 [Flags] 3 [Guid] 2844994622 [EditorId] 1274379734 [Version] 1048832 [Id] WindowsPlayer(DESKTOP-09VON77) [Debug] 1" to [225.0.0.222:54997]...
+Waiting for connection from host on [0.0.0.0:55071]...
+PlayerConnection accepted from [192.168.0.9] handle:0x330
+Started listening to [0.0.0.0:55071]
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,defer=y,address=0.0.0.0:56622
+PlayerConnection already initialized - listening to [0.0.0.0:55071]
+Initialize engine version: 5.5.2f1 (3829d7f588f3)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 970 (ID=0x13c2)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+    Driver:   21.21.13.7653
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Photon3Unity3D.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Photon3Unity3D.dll into Unity Child Domain
+- Completed reload, in  0.034 seconds
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3360x1080 at -1440,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.558521 ms
+Mono path[0] = 'C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/test_Data/Managed'
+Mono path[1] = 'C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/test_Data/Mono'
+Mono config path = 'C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/test_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/test_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55200
+Multi-casting "[IP] 192.168.0.9 [Port] 55200 [Flags] 3 [Guid] 46198926 [EditorId] 1274379734 [Version] 1048832 [Id] WindowsPlayer(DESKTOP-09VON77) [Debug] 1" to [225.0.0.222:54997]...
+Waiting for connection from host on [0.0.0.0:55200]...
+PlayerConnection accepted from [192.168.0.9] handle:0x348
+Started listening to [0.0.0.0:55200]
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,defer=y,address=0.0.0.0:56926
+PlayerConnection already initialized - listening to [0.0.0.0:55200]
+Initialize engine version: 5.5.2f1 (3829d7f588f3)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 970 (ID=0x13c2)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+    Driver:   21.21.13.7653
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Photon3Unity3D.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Photon3Unity3D.dll into Unity Child Domain
+- Completed reload, in  0.033 seconds
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3360x1080 at -1440,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.823590 ms
+Mono path[0] = 'C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/test_Data/Managed'
+Mono path[1] = 'C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/test_Data/Mono'
+Mono config path = 'C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/test_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/test_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55076
+Multi-casting "[IP] 192.168.0.9 [Port] 55076 [Flags] 3 [Guid] 1239612351 [EditorId] 1274379734 [Version] 1048832 [Id] WindowsPlayer(DESKTOP-09VON77) [Debug] 1" to [225.0.0.222:54997]...
+Waiting for connection from host on [0.0.0.0:55076]...
+PlayerConnection accepted from [192.168.0.9] handle:0x330
+Started listening to [0.0.0.0:55076]
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,defer=y,address=0.0.0.0:56351
+PlayerConnection already initialized - listening to [0.0.0.0:55076]
+Initialize engine version: 5.5.2f1 (3829d7f588f3)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 970 (ID=0x13c2)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+    Driver:   21.21.13.7653
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Photon3Unity3D.dll (this message is harmless)
+Loading C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\Photon3Unity3D.dll into Unity Child Domain
+- Completed reload, in  0.032 seconds
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\test_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3360x1080 at -1440,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.198953 ms
+The referenced script on this Behaviour (Game Object 'M_Resource') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'L_Resource') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (3)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'ResourceDepot') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (3)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-Meaty (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (7)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'TeamManager') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (9)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (8)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-Planet') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-Meaty (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'M_Template') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-Meaty') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (5)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (6)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-BackgroundColour') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-Planet') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-Planet (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (4)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.920734 ms
+System memory in use before: 67.9 MB.
+System memory in use after: 67.9 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1088.
+Total: 0.979525 ms (FindLiveObjects: 0.102692 ms CreateObjectMapping: 0.069924 ms MarkObjects: 0.737569 ms  DeleteObjects: 0.039789 ms)
+
+The screen size is: 800 x 600
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UIPointOfInterest:Start() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\UI\UIPointOfInterest.cs:28)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/UI/UIPointOfInterest.cs Line: 28)
+
+this network manager's user id is 0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+ResourceSpawnScript:Start() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:30)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/ResourceSpawnScript.cs Line: 30)
+
+SwitchToProtocol: Udp PhotonNetwork.connected: False
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+PhotonNetwork:SwitchToProtocol(ConnectionProtocol) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:1170)
+PhotonNetwork:ConnectUsingSettings(String) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:1217)
+PhotonNetCode:Start() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\PhotonNetCode.cs:39)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonNetwork.cs Line: 1170)
+
+time left: 300
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+GameTimer:Start() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\GameTimer.cs:34)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/GameTimer.cs Line: 34)
+
+OnStatusChanged: Connect current State: ConnectingToNameServer
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnStatusChanged(StatusCode) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1920)
+ExitGames.Client.Photon.PeerBase:InitCallback()
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1920)
+
+Connected to NameServer.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnStatusChanged(StatusCode) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1928)
+ExitGames.Client.Photon.PeerBase:InitCallback()
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1928)
+
+OnStatusChanged: EncryptionEstablished current State: ConnectingToNameServer
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnStatusChanged(StatusCode) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1920)
+ExitGames.Client.Photon.<>c__DisplayClass148_0:<EnqueueStatusCallback>b__0()
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1920)
+
+OperationResponse 230: ReturnCode: 0.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnOperationResponse(OperationResponse) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1514)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1514)
+
+Received your UserID from server. Updating local value to: 2b79000c-03fa-44b2-ae6a-b8bcc1a991dc
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:DebugReturn(DebugLevel, String) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1491)
+NetworkingPeer:OnOperationResponse(OperationResponse) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1621)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1491)
+
+OnStatusChanged: Disconnect current State: DisconnectingFromNameServer
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnStatusChanged(StatusCode) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1920)
+ExitGames.Client.Photon.<>c__DisplayClass148_0:<EnqueueStatusCallback>b__0()
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1920)
+
+OnStatusChanged: Connect current State: ConnectingToMasterserver
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnStatusChanged(StatusCode) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1920)
+ExitGames.Client.Photon.PeerBase:InitCallback()
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1920)
+
+Connected to masterserver.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnStatusChanged(StatusCode) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1949)
+ExitGames.Client.Photon.PeerBase:InitCallback()
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1949)
+
+OnStatusChanged: EncryptionEstablished current State: Authenticating
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnStatusChanged(StatusCode) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1920)
+ExitGames.Client.Photon.<>c__DisplayClass148_0:<EnqueueStatusCallback>b__0()
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1920)
+
+OnEvent: Event 226.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnEvent(EventData) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2187)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 2187)
+
+OperationResponse 230: ReturnCode: 0.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnOperationResponse(OperationResponse) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1514)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1514)
+
+OperationResponse 229: ReturnCode: 0.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnOperationResponse(OperationResponse) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1514)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1514)
+
+OnEvent: Event 230.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnEvent(EventData) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2187)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 2187)
+
+OperationResponse 226: ReturnCode: 0.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnOperationResponse(OperationResponse) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1514)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1514)
+
+OnStatusChanged: Disconnect current State: DisconnectingFromMasterserver
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnStatusChanged(StatusCode) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1920)
+ExitGames.Client.Photon.<>c__DisplayClass148_0:<EnqueueStatusCallback>b__0()
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1920)
+
+OnStatusChanged: Connect current State: ConnectingToGameserver
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnStatusChanged(StatusCode) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1920)
+ExitGames.Client.Photon.PeerBase:InitCallback()
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1920)
+
+Connected to gameserver.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnStatusChanged(StatusCode) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1940)
+ExitGames.Client.Photon.PeerBase:InitCallback()
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1940)
+
+OnStatusChanged: EncryptionEstablished current State: ConnectedToGameserver
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnStatusChanged(StatusCode) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1920)
+ExitGames.Client.Photon.<>c__DisplayClass148_0:<EnqueueStatusCallback>b__0()
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1920)
+
+OperationResponse 230: ReturnCode: 0.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnOperationResponse(OperationResponse) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1514)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1514)
+
+OperationResponse 226: ReturnCode: 0.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnOperationResponse(OperationResponse) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1514)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1514)
+
+OnEvent: Event 255.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnEvent(EventData) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2187)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 2187)
+
+Registered PhotonView: 1001
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:RegisterPhotonView(PhotonView) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3414)
+PhotonView:Awake() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs:265)
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+PhotonNetCode:OnJoinedRoom() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\PhotonNetCode.cs:89)
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+NetworkingPeer:SendMonoMessage(PhotonNetworkingMessage, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2609)
+NetworkingPeer:OnEvent(EventData) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2350)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 3414)
+
+Main Camera
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Start() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:67)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 67)
+
+player1time being used
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+GameTimer:Start() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\GameTimer.cs:26)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/GameTimer.cs Line: 26)
+
+time left: 300
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+GameTimer:Start() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\GameTimer.cs:34)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/GameTimer.cs Line: 34)
+
+The referenced script on this Behaviour (Game Object '<null>') is missing!
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+
+[C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp line 1754] 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineObjectBindings.gen.cs Line: 51)
+
+The referenced script on this Behaviour (Game Object 'M_Resource') is missing!
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+
+[C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp line 1754] 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineObjectBindings.gen.cs Line: 51)
+
+The referenced script on this Behaviour (Game Object 'M_Resource') is missing!
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+
+[C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp line 1754] 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineObjectBindings.gen.cs Line: 51)
+
+Registered PhotonView: 1002
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:RegisterPhotonView(PhotonView) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3414)
+PhotonView:Awake() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs:265)
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 3414)
+
+Registered PhotonView: 1003
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:RegisterPhotonView(PhotonView) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3414)
+PhotonView:Awake() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs:265)
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 3414)
+
+The referenced script on this Behaviour (Game Object '<null>') is missing!
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+
+[C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp line 1754] 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineObjectBindings.gen.cs Line: 51)
+
+The referenced script on this Behaviour (Game Object 'L_Resource') is missing!
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+
+[C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp line 1754] 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineObjectBindings.gen.cs Line: 51)
+
+The referenced script on this Behaviour (Game Object 'L_Resource') is missing!
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+
+[C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp line 1754] 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineObjectBindings.gen.cs Line: 51)
+
+Registered PhotonView: 1004
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:RegisterPhotonView(PhotonView) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3414)
+PhotonView:Awake() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs:265)
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 3414)
+
+The screen size is: 800 x 600
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UIPointOfInterest:Start() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\UI\UIPointOfInterest.cs:28)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/UI/UIPointOfInterest.cs Line: 28)
+
+The screen size is: 800 x 600
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UIPointOfInterest:Start() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\UI\UIPointOfInterest.cs:28)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/UI/UIPointOfInterest.cs Line: 28)
+
+The screen size is: 800 x 600
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UIPointOfInterest:Start() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\UI\UIPointOfInterest.cs:28)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/UI/UIPointOfInterest.cs Line: 28)
+
+The referenced script on this Behaviour (Game Object 'M_Resource') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'L_Resource') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (3)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'ResourceDepot') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (3)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-Meaty (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (7)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'TeamManager') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (9)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (8)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-Planet') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-Meaty (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'M_Template') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-Meaty') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (5)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (6)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-BackgroundColour') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-Planet') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-Planet (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (1)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (2)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+The referenced script on this Behaviour (Game Object 'Env-TempStars (4)') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1754)
+
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.252503 ms
+System memory in use before: 67.9 MB.
+System memory in use after: 67.9 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1088.
+Total: 0.763315 ms (FindLiveObjects: 0.087185 ms CreateObjectMapping: 0.047981 ms MarkObjects: 0.602402 ms  DeleteObjects: 0.019602 ms)
+
+The screen size is: 800 x 600
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UIPointOfInterest:Start() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\UI\UIPointOfInterest.cs:28)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/UI/UIPointOfInterest.cs Line: 28)
+
+this network manager's user id is 0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+ResourceSpawnScript:Start() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:30)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/ResourceSpawnScript.cs Line: 30)
+
+SwitchToProtocol: Udp PhotonNetwork.connected: False
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+PhotonNetwork:SwitchToProtocol(ConnectionProtocol) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:1170)
+PhotonNetwork:ConnectUsingSettings(String) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:1217)
+PhotonNetCode:Start() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\PhotonNetCode.cs:39)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonNetwork.cs Line: 1170)
+
+time left: 300
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+GameTimer:Start() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\GameTimer.cs:34)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/GameTimer.cs Line: 34)
+
+OnStatusChanged: Connect current State: ConnectingToNameServer
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnStatusChanged(StatusCode) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1920)
+ExitGames.Client.Photon.PeerBase:InitCallback()
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1920)
+
+Connected to NameServer.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnStatusChanged(StatusCode) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1928)
+ExitGames.Client.Photon.PeerBase:InitCallback()
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1928)
+
+OnStatusChanged: EncryptionEstablished current State: ConnectingToNameServer
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnStatusChanged(StatusCode) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1920)
+ExitGames.Client.Photon.<>c__DisplayClass148_0:<EnqueueStatusCallback>b__0()
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1920)
+
+OperationResponse 230: ReturnCode: 0.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnOperationResponse(OperationResponse) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1514)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1514)
+
+Received your UserID from server. Updating local value to: 7f94f095-d3e1-4df1-a29b-6de295a3f995
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:DebugReturn(DebugLevel, String) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1491)
+NetworkingPeer:OnOperationResponse(OperationResponse) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1621)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1491)
+
+OnStatusChanged: Disconnect current State: DisconnectingFromNameServer
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnStatusChanged(StatusCode) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1920)
+ExitGames.Client.Photon.<>c__DisplayClass148_0:<EnqueueStatusCallback>b__0()
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1920)
+
+OnStatusChanged: Connect current State: ConnectingToMasterserver
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnStatusChanged(StatusCode) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1920)
+ExitGames.Client.Photon.PeerBase:InitCallback()
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1920)
+
+Connected to masterserver.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnStatusChanged(StatusCode) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1949)
+ExitGames.Client.Photon.PeerBase:InitCallback()
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1949)
+
+OnStatusChanged: EncryptionEstablished current State: Authenticating
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnStatusChanged(StatusCode) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1920)
+ExitGames.Client.Photon.<>c__DisplayClass148_0:<EnqueueStatusCallback>b__0()
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1920)
+
+OnEvent: Event 226.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnEvent(EventData) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2187)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 2187)
+
+OperationResponse 230: ReturnCode: 0.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnOperationResponse(OperationResponse) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1514)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1514)
+
+OperationResponse 229: ReturnCode: 0.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnOperationResponse(OperationResponse) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1514)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1514)
+
+OnEvent: Event 230.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnEvent(EventData) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2187)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 2187)
+
+Operation failed: OperationResponse 226: ReturnCode: 32765 (Game full). Parameters: {} Server: MasterServer
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogError(Object)
+NetworkingPeer:OnOperationResponse(OperationResponse) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1532)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1532)
+
+JoinRoom failed (room maybe closed by now). Client stays on masterserver: OperationResponse 226: ReturnCode: 32765 (Game full). Parameters: {}. State: JoinedLobby
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnOperationResponse(OperationResponse) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:1791)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 1791)
+
+The referenced script on this Behaviour (Game Object '<null>') is missing!
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+
+[C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp line 1754] 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineObjectBindings.gen.cs Line: 51)
+
+The referenced script on this Behaviour (Game Object 'M_Resource') is missing!
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+
+[C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp line 1754] 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineObjectBindings.gen.cs Line: 51)
+
+The referenced script on this Behaviour (Game Object 'M_Resource') is missing!
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+
+[C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp line 1754] 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineObjectBindings.gen.cs Line: 51)
+
+Registered PhotonView: 1005
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:RegisterPhotonView(PhotonView) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3414)
+PhotonView:Awake() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs:265)
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 3414)
+
+The referenced script on this Behaviour (Game Object '<null>') is missing!
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+
+[C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp line 1754] 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineObjectBindings.gen.cs Line: 51)
+
+The referenced script on this Behaviour (Game Object 'L_Resource') is missing!
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+
+[C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp line 1754] 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineObjectBindings.gen.cs Line: 51)
+
+The referenced script on this Behaviour (Game Object 'L_Resource') is missing!
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+
+[C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp line 1754] 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineObjectBindings.gen.cs Line: 51)
+
+Registered PhotonView: 1006
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:RegisterPhotonView(PhotonView) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3414)
+PhotonView:Awake() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs:265)
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 3414)
+
+The screen size is: 800 x 600
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UIPointOfInterest:Start() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\UI\UIPointOfInterest.cs:28)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/UI/UIPointOfInterest.cs Line: 28)
+
+The screen size is: 800 x 600
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UIPointOfInterest:Start() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\UI\UIPointOfInterest.cs:28)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/UI/UIPointOfInterest.cs Line: 28)
+
+Button Pressed
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:101)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 101)
+
+Button Pressed
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:101)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 101)
+
+Button Pressed
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:101)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 101)
+
+Button Pressed
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:101)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 101)
+
+Button Pressed
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:101)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 101)
+
+Button Pressed
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:101)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 101)
+
+Button Pressed
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:101)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 101)
+
+Button Pressed
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:101)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 101)
+
+Button Pressed
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:101)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 101)
+
+Button Pressed
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:101)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 101)
+
+Button Pressed
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:101)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 101)
+
+Button Pressed
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:101)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 101)
+
+Button Pressed
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:101)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 101)
+
+Should Lerp: FALSE
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UILerpMovement:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\UI\UILerpMovement.cs:62)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/UI/UILerpMovement.cs Line: 62)
+
+Should Lerp: FALSE
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UILerpMovement:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\UI\UILerpMovement.cs:62)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/UI/UILerpMovement.cs Line: 62)
+
+Should Lerp: FALSE
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UILerpMovement:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\UI\UILerpMovement.cs:62)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/UI/UILerpMovement.cs Line: 62)
+
+Button Pressed
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:101)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 101)
+
+Button Pressed
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:101)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 101)
+
+Button Pressed
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:101)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 101)
+
+Button Pressed
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:101)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 101)
+
+Button Pressed
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:101)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 101)
+
+Button Pressed
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+MovementScript:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\MovementScript.cs:101)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/MovementScript.cs Line: 101)
+
+Should Lerp Reversed: FALSE
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UILerpMovement:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\UI\UILerpMovement.cs:81)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/UI/UILerpMovement.cs Line: 81)
+
+Should Lerp Reversed: FALSE
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UILerpMovement:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\UI\UILerpMovement.cs:81)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/UI/UILerpMovement.cs Line: 81)
+
+Should Lerp Reversed: FALSE
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UILerpMovement:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\UI\UILerpMovement.cs:81)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/UI/UILerpMovement.cs Line: 81)
+
+OnEvent: Event 226.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnEvent(EventData) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2187)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 2187)
+
+Failed to Instantiate prefab: M_Resource. Client should be in a room. Current connectionStateDetailed: JoinedLobby
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogError(Object)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2425)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonNetwork.cs Line: 2425)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at ResourceSpawnScript+<Spawn>c__Iterator0.MoveNext () [0x000a8] in C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:100 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00028] in C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17 
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/ResourceSpawnScript.cs Line: 100)
+
+Failed to Instantiate prefab: S_Resource. Client should be in a room. Current connectionStateDetailed: JoinedLobby
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogError(Object)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2425)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonNetwork.cs Line: 2425)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at ResourceSpawnScript+<Spawn>c__Iterator0.MoveNext () [0x000a8] in C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:100 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00028] in C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17 
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/ResourceSpawnScript.cs Line: 100)
+
+Failed to Instantiate prefab: L_Resource. Client should be in a room. Current connectionStateDetailed: JoinedLobby
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogError(Object)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2425)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/PhotonNetwork.cs Line: 2425)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at ResourceSpawnScript+<Spawn>c__Iterator0.MoveNext () [0x000a8] in C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:100 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00028] in C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17 
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/Not UI/ResourceSpawnScript.cs Line: 100)
+
+The referenced script on this Behaviour (Game Object '<null>') is missing!
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+
+[C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp line 1754] 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineObjectBindings.gen.cs Line: 51)
+
+The referenced script on this Behaviour (Game Object 'M_Resource') is missing!
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+
+[C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp line 1754] 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineObjectBindings.gen.cs Line: 51)
+
+The referenced script on this Behaviour (Game Object 'M_Resource') is missing!
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+
+[C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp line 1754] 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineObjectBindings.gen.cs Line: 51)
+
+Registered PhotonView: 1007
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:RegisterPhotonView(PhotonView) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3414)
+PhotonView:Awake() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonView.cs:265)
+UnityEngine.Object:INTERNAL_CALL_Internal_InstantiateSingle(Object, Vector3&, Quaternion&)
+UnityEngine.Object:Internal_InstantiateSingle(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineObjectBindings.gen.cs:51)
+UnityEngine.Object:Instantiate(Object, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:157)
+UnityEngine.Object:Instantiate(GameObject, Vector3, Quaternion) (at C:\buildslave\unity\build\Runtime\Export\UnityEngineObject.cs:207)
+NetworkingPeer:DoInstantiate(Hashtable, PhotonPlayer, GameObject) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:3076)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32, Object[]) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2464)
+PhotonNetwork:Instantiate(String, Vector3, Quaternion, Int32) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs:2408)
+<Spawn>c__Iterator0:MoveNext() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\Not UI\ResourceSpawnScript.cs:98)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr) (at C:\buildslave\unity\build\Runtime\Export\Coroutines.cs:17)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 3414)
+
+The screen size is: 800 x 600
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UIPointOfInterest:Start() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Scripts\UI\UIPointOfInterest.cs:28)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Scripts/UI/UIPointOfInterest.cs Line: 28)
+
+OnEvent: Event 226.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnEvent(EventData) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2187)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 2187)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 2160 -> priority: 1 
+Waiting for finish
+OnEvent: Event 229.
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetworkingPeer:OnEvent(EventData) (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\NetworkingPeer.cs:2187)
+ExitGames.Client.Photon.PeerBase:DeserializeMessageAndCallback(Byte[])
+ExitGames.Client.Photon.EnetPeer:DispatchIncomingCommands()
+ExitGames.Client.Photon.PhotonPeer:DispatchIncomingCommands()
+PhotonHandler:Update() (at C:\Users\David Hesketh\Documents\GitHub\GPP-ProjectStranded\Project Stranded Test\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonHandler.cs:157)
+ 
+(Filename: C:/Users/David Hesketh/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Photon Unity Networking/Plugins/PhotonNetwork/NetworkingPeer.cs Line: 2187)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 1c50 -> priority: 1 
+Waiting for finish
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 520 -> priority: 1 
+Waiting for finish
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 1d10 -> priority: 1 
+Waiting for finish
