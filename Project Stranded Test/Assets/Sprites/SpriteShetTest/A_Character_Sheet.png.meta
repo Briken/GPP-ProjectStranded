@@ -1,32 +1,41 @@
 fileFormatVersion: 2
 guid: 5371f8e48aeb28346b898b0f24612768
-timeCreated: 1489507374
+timeCreated: 1489589590
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: A_Character_Sheet_0
-    21300002: A_Character_Sheet_1
-    21300004: A_Character_Sheet_2
-    21300006: A_Character_Sheet_3
-    21300008: A_Character_Sheet_4
-    21300010: A_Character_Sheet_10
-    21300012: A_Character_Sheet_11
-    21300014: A_Character_Sheet_12
-    21300016: A_Character_Sheet_13
-    21300018: A_Character_Sheet_14
-    21300020: A_Character_Sheet_15
-    21300022: A_Character_Sheet_5
-    21300024: A_Character_Sheet_6
-    21300026: A_Character_Sheet_7
-    21300028: A_Character_Sheet_8
-    21300030: A_Character_Sheet_9
-    21300032: A_Character_Sheet_16
-    21300034: A_Character_Sheet_17
-    21300036: A_Character_Sheet_18
-    21300038: A_Character_Sheet_19
-    21300040: A_Character_Sheet_20
-    21300042: A_Character_Sheet_21
-    21300044: A_Character_Sheet_22
+    21300000: A_Player_Head_01
+    21300002: A_Player_Head_02
+    21300004: A_Player_Head_03
+    21300006: A_Player_Head_04
+    21300008: A_Player_Head_05
+    21300010: A_Player_Head_11
+    21300012: A_Player_Head_12
+    21300014: A_Player_Ship_Glass_01
+    21300016: A_Player_Ship_Fuelbar_01
+    21300018: A_Player_Hand_01
+    21300020: A_Player_Hand_02
+    21300022: A_Player_Head_06
+    21300024: A_Player_Head_07
+    21300026: A_Player_Head_08
+    21300028: A_Player_Head_09
+    21300030: A_Player_Head_10
+    21300032: A_Player_Hand_03
+    21300034: A_Player_Arm_01
+    21300036: A_Player_Arm_02
+    21300038: A_Player_Arm_03
+    21300040: A_Player_Arm_04
+    21300042: A_Player_Arm_05
+    21300044: A_Player_Ship_Arm_01
+    21300046: A_Player_Lever_01
+    21300048: A_Player_Arm_06
+    21300050: A_Player_Arm_07
+    21300052: A_Player_Ship_Body_01
+    21300054: A_Player_Ship_Back_01
+    21300056: A_Player_Body_01
+    21300058: A_Player_Body_02
+    21300060: A_Player_Body_03
+    21300062: A_Player_Body_04
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -109,207 +118,350 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: A_Character_Sheet_0
+      name: A_Player_Head_01
       rect:
         serializedVersion: 2
-        x: 236
-        y: 145
-        width: 1963
-        height: 3422
+        x: 155
+        y: 1880
+        width: 411
+        height: 408
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_Character_Sheet_1
+      name: A_Player_Head_02
       rect:
         serializedVersion: 2
-        x: 2532
-        y: 1871
-        width: 1306
-        height: 1635
+        x: 587
+        y: 1880
+        width: 411
+        height: 408
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_Character_Sheet_2
+      name: A_Player_Head_03
       rect:
         serializedVersion: 2
-        x: 4345
-        y: 2779
-        width: 578
-        height: 575
+        x: 1016
+        y: 1880
+        width: 417
+        height: 484
+      alignment: 9
+      pivot: {x: 0.4871501, y: 0.4145273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Player_Head_04
+      rect:
+        serializedVersion: 2
+        x: 1441
+        y: 1880
+        width: 407
+        height: 408
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_Character_Sheet_3
+      name: A_Player_Head_05
       rect:
         serializedVersion: 2
-        x: 3985
-        y: 1871
-        width: 1306
-        height: 843
+        x: 1862
+        y: 1889
+        width: 408
+        height: 408
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_Character_Sheet_4
+      name: A_Player_Head_06
       rect:
         serializedVersion: 2
-        x: 2497
-        y: 167
-        width: 1272
-        height: 1371
+        x: 2282
+        y: 1882
+        width: 410
+        height: 408
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_Character_Sheet_10
+      name: A_Player_Head_07
       rect:
         serializedVersion: 2
-        x: 5317
-        y: 413
-        width: 233
-        height: 333
+        x: 2709
+        y: 1880
+        width: 424
+        height: 408
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_Character_Sheet_11
+      name: A_Player_Head_08
       rect:
         serializedVersion: 2
-        x: 5567
-        y: 413
-        width: 231
-        height: 333
+        x: 166
+        y: 1331
+        width: 419
+        height: 489
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_Character_Sheet_12
+      name: A_Player_Head_09
       rect:
         serializedVersion: 2
-        x: 5819
-        y: 413
-        width: 233
-        height: 333
+        x: 625
+        y: 1338
+        width: 426
+        height: 422
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_Character_Sheet_13
+      name: A_Player_Head_10
       rect:
         serializedVersion: 2
-        x: 6069
-        y: 413
-        width: 234
-        height: 333
+        x: 1093
+        y: 1338
+        width: 424
+        height: 416
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_Character_Sheet_14
+      name: A_Player_Head_11
       rect:
         serializedVersion: 2
-        x: 6316
-        y: 413
-        width: 233
-        height: 333
+        x: 1561
+        y: 1315
+        width: 417
+        height: 489
+      alignment: 9
+      pivot: {x: 0.48715013, y: 0.41452733}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Player_Head_12
+      rect:
+        serializedVersion: 2
+        x: 2032
+        y: 1314
+        width: 413
+        height: 489
+      alignment: 9
+      pivot: {x: 100000, y: 0.4145273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Player_Ship_Glass_01
+      rect:
+        serializedVersion: 2
+        x: 3262
+        y: 1060
+        width: 835
+        height: 741
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_Character_Sheet_15
+      name: A_Player_Ship_Fuelbar_01
       rect:
         serializedVersion: 2
-        x: 6562
-        y: 413
-        width: 233
-        height: 333
+        x: 4202
+        y: 1616
+        width: 264
+        height: 204
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_Character_Sheet_7
+      name: A_Player_Hand_01
       rect:
         serializedVersion: 2
-        x: 4798
-        y: 413
-        width: 233
-        height: 333
+        x: 753
+        y: 1051
+        width: 111
+        height: 88
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_Character_Sheet_8
+      name: A_Player_Hand_02
       rect:
         serializedVersion: 2
-        x: 5057
-        y: 413
-        width: 234
-        height: 333
+        x: 950
+        y: 1051
+        width: 110
+        height: 85
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_Character_Sheet_9
+      name: A_Player_Hand_03
       rect:
         serializedVersion: 2
-        x: 5313
-        y: 417
-        width: 239
-        height: 330
+        x: 1148
+        y: 1051
+        width: 112
+        height: 88
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_Character_Sheet_17
+      name: A_Player_Arm_01
       rect:
         serializedVersion: 2
-        x: 5779
-        y: 2585
-        width: 770
-        height: 726
+        x: 1425
+        y: 1027
+        width: 241
+        height: 133
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_Character_Sheet_18
+      name: A_Player_Arm_02
       rect:
         serializedVersion: 2
-        x: 6389
-        y: 1474
-        width: 744
+        x: 1731
+        y: 1025
+        width: 241
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Player_Arm_03
+      rect:
+        serializedVersion: 2
+        x: 2040
+        y: 1025
+        width: 248
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Player_Arm_04
+      rect:
+        serializedVersion: 2
+        x: 2397
+        y: 1019
+        width: 243
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Player_Arm_05
+      rect:
+        serializedVersion: 2
+        x: 2710
+        y: 1019
+        width: 248
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Player_Ship_Arm_01
+      rect:
+        serializedVersion: 2
+        x: 4147
+        y: 1120
+        width: 447
+        height: 353
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Player_Lever_01
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 734
+        width: 103
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Player_Arm_06
+      rect:
+        serializedVersion: 2
+        x: 2051
+        y: 836
+        width: 246
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Player_Arm_07
+      rect:
+        serializedVersion: 2
+        x: 2397
+        y: 835
+        width: 246
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Player_Ship_Body_01
+      rect:
+        serializedVersion: 2
+        x: 3252
+        y: 203
+        width: 888
         height: 717
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -317,52 +469,65 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_Character_Sheet_19
+      name: A_Player_Ship_Back_01
       rect:
         serializedVersion: 2
-        x: 5778
-        y: 1304
-        width: 412
-        height: 471
+        x: 4226
+        y: 403
+        width: 340
+        height: 498
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_Character_Sheet_20
+      name: A_Player_Body_01
       rect:
         serializedVersion: 2
-        x: 4268
-        y: 414
-        width: 248
-        height: 333
+        x: 184
+        y: 180
+        width: 428
+        height: 353
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_Character_Sheet_5
+      name: A_Player_Body_02
       rect:
         serializedVersion: 2
-        x: 4534
-        y: 416
-        width: 251
-        height: 334
+        x: 688
+        y: 180
+        width: 427
+        height: 353
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: A_Character_Sheet_6
+      name: A_Player_Body_03
       rect:
         serializedVersion: 2
-        x: 4725
-        y: 348
-        width: 15
-        height: 12
+        x: 1185
+        y: 180
+        width: 426
+        height: 353
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Player_Body_04
+      rect:
+        serializedVersion: 2
+        x: 1672
+        y: 180
+        width: 432
+        height: 353
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
