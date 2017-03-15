@@ -10,7 +10,6 @@ public class MovementScript : Photon.PunBehaviour
 
     public UIInformationBar info;
 
-
     public GameObject[] ships;
     public GameObject myShip;
    
@@ -33,8 +32,8 @@ public class MovementScript : Photon.PunBehaviour
     float currentSpeed = 10;
     bool moving = false;
 
-    
-
+    public GameObject playerBody;
+    public GameObject movementParticleSystem;
 
     protected Rigidbody rBody;
     // Use this for initialization
@@ -112,6 +111,18 @@ public class MovementScript : Photon.PunBehaviour
                 //    moving = true;
                 //}
 
+                // Adjust player sprite depending on what vertical direction they are moving in
+                if (Input.mousePosition.x > Screen.width/2)
+                {
+                    playerBody.gameObject.transform.localScale = new Vector3(-1.0f, playerBody.gameObject.gameObject.transform.localScale.y, playerBody.gameObject.gameObject.transform.localScale.z);
+                }
+
+                if (Input.mousePosition.x < Screen.width / 2)
+                {
+                    playerBody.gameObject.transform.localScale = new Vector3(1.0f, playerBody.gameObject.gameObject.transform.localScale.y, playerBody.gameObject.gameObject.transform.localScale.z);
+                }
+
+                // movementParticleSystem.transform.LookAt(target);
             }
 
 
