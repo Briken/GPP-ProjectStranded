@@ -1,9 +1,25 @@
 fileFormatVersion: 2
 guid: 4fe940c0b9aa592418dc9b9f93ae596b
-timeCreated: 1489588838
+timeCreated: 1489591747
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: A_Ship_Top_01
+    21300002: A_FuelContainer_01
+    21300004: A_FuelContainer_Clock_01
+    21300006: A_Ship_Body_01
+    21300008: A_FuelContainer_Half_01
+    21300010: A_Player_Static_01
+    21300012: A_Number_00
+    21300014: A_Number_01
+    21300016: A_Number_02
+    21300018: A_Number_03
+    21300020: A_Number_04
+    21300022: A_Number_05
+    21300024: A_Number_06
+    21300026: A_Number_07
+    21300028: A_Number_08
+    21300030: A_Number_09
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,7 +50,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -58,9 +74,225 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: A_Ship_Top_01
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 2932
+        width: 1019
+        height: 721
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_FuelContainer_01
+      rect:
+        serializedVersion: 2
+        x: 2533
+        y: 1871
+        width: 1305
+        height: 1636
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_FuelContainer_Clock_01
+      rect:
+        serializedVersion: 2
+        x: 4345
+        y: 2776
+        width: 579
+        height: 577
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Ship_Body_01
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 43
+        width: 1964
+        height: 2840
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_FuelContainer_Half_01
+      rect:
+        serializedVersion: 2
+        x: 3986
+        y: 1872
+        width: 1311
+        height: 842
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Player_Static_01
+      rect:
+        serializedVersion: 2
+        x: 2492
+        y: 166
+        width: 1279
+        height: 1377
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Number_00
+      rect:
+        serializedVersion: 2
+        x: 4278
+        y: 415
+        width: 239
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Number_01
+      rect:
+        serializedVersion: 2
+        x: 4566
+        y: 415
+        width: 246
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Number_02
+      rect:
+        serializedVersion: 2
+        x: 4862
+        y: 415
+        width: 233
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Number_03
+      rect:
+        serializedVersion: 2
+        x: 5151
+        y: 415
+        width: 229
+        height: 333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Number_04
+      rect:
+        serializedVersion: 2
+        x: 5439
+        y: 415
+        width: 233
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Number_05
+      rect:
+        serializedVersion: 2
+        x: 5715
+        y: 415
+        width: 234
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Number_06
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 415
+        width: 233
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Number_07
+      rect:
+        serializedVersion: 2
+        x: 6286
+        y: 415
+        width: 234
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Number_08
+      rect:
+        serializedVersion: 2
+        x: 6553
+        y: 415
+        width: 239
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: A_Number_09
+      rect:
+        serializedVersion: 2
+        x: 6829
+        y: 415
+        width: 232
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
