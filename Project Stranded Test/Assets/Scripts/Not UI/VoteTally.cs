@@ -28,35 +28,64 @@ public class VoteTally : PunBehaviour {
 	void Update () {
 		
 	}
-    [PunRPC]
+
     public void IncrementP1()
+    {
+        photonView.RPC("IncrementP1RPC", PhotonTargets.All);
+    }
+
+
+    public void IncrementP2()
+    {
+        photonView.RPC("IncrementP2RPC", PhotonTargets.All);
+    }
+
+   
+    public void IncrementP3()
+    {
+        photonView.RPC("IncrementP3RPC", PhotonTargets.All);
+    }
+
+  
+    public void IncrementP4()
+    {
+        photonView.RPC("IncrementP4RPC", PhotonTargets.All);
+    }
+    
+    public void IncrementP5()
+    {
+        photonView.RPC("IncrementP5RPC", PhotonTargets.All);
+    }
+
+    [PunRPC]
+    public void IncrementP1RPC()
     {
         player1Total++;
         player1Current++;
     }
 
     [PunRPC]
-    public void IncrementP2()
+    public void IncrementP2RPC()
     {
         player2Total++;
         player2Current++;
     }
 
     [PunRPC]
-    public void IncrementP3()
+    public void IncrementP3RPC()
     {
         player3Total++;
         player3Current++;
     }
 
     [PunRPC]
-    public void IncrementP4()
+    public void IncrementP4RPC()
     {
         player4Total++;
         player4Current++;
     }
     [PunRPC]
-    public void IncrementP5()
+    public void IncrementP5RPC()
     {
         player5Total++;
         player5Current++;

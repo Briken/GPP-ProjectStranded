@@ -201,19 +201,19 @@ public class MovementScript : Photon.PunBehaviour
     }
 
 
-    public void OnSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.isWriting)
         {
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
-            stream.SendNext(rBody.velocity);
+            //stream.SendNext(rBody.velocity);
         }
         else
         {
             this.transform.position = (Vector3)stream.ReceiveNext();
             this.transform.rotation = (Quaternion)stream.ReceiveNext();
-            this.rBody.velocity = (Vector3)stream.ReceiveNext();
+           // this.rBody.velocity = (Vector3)stream.ReceiveNext();
 
         }
     }

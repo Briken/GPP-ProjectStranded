@@ -129,10 +129,10 @@ public class ResourceScript : PunBehaviour {
         int boot = player.GetComponent<VotingSystem>().CheckVote();
         foreach (GameObject n in nearby)
         {
-            if (boot == GetComponent<MovementScript>().playerNum)
+            if (boot == n.GetComponent<MovementScript>().playerNum)
             {
                 Vector2 moveDir = transform.position - this.transform.position;
-                Rigidbody p = GetComponent<Rigidbody>();
+                Rigidbody p = n.GetComponent<Rigidbody>();
                 p.AddForce(moveDir * pushFrc);
             }
         }
