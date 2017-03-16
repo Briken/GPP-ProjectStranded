@@ -6,6 +6,8 @@ using Photon;
 
 public class PhotonNetCode : Photon.PunBehaviour {
 
+    public GameObject voteCards;
+    bool isActive = false;
     public GameObject gData;
     public int lobbyMax;
     GameTimer timer;
@@ -49,6 +51,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        
         //Debug.Log(PhotonNetwork.connectionStateDetailed.ToString());
         //debug.text = PhotonNetwork.connectionStateDetailed.ToString();
     }
@@ -78,15 +81,19 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     void OnJoinedRoom()
     {
-        timer.enabled = true;
-
-        while (currentPlayers < roomDetails.MaxPlayers)
+        if (PhotonNetwork.playerList.Length == roomDetails.MaxPlayers)
         {
-            currentPlayers = PhotonNetwork.playerList.GetLength(0);
+           GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
         }
-        if (currentPlayers == roomDetails.MaxPlayers)
+        timer.enabled = true;
+       
+    }
+
+    void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
+    {
+        if (PhotonNetwork.playerList.Length == roomDetails.MaxPlayers)
         {
-            GameObject newPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
+           GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
         }
     }
 

@@ -76,7 +76,10 @@ public class RoomData : MonoBehaviour {
     {
         foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
         {
-            userNames[GetComponent<MovementScript>().playerNum - 1] = GetComponent<UserName>().myName;
+            if (GetComponent<UserName>() != null)
+            {
+                userNames[GetComponent<MovementScript>().playerNum - 1] = GetComponent<UserName>().myName;
+            }
         }
     }
 

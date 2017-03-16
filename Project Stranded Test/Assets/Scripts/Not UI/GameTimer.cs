@@ -57,7 +57,7 @@ public class GameTimer : Photon.PunBehaviour {
         if (this.gameObject != roomOwner && roomOwner !=null)
         {
             timer = roomOwner.GetComponent<GameTimer>().timer;
-            Debug.Log(timer.ToString());
+          //  Debug.Log(timer.ToString());
         }
         //photonView.RPC("SetTimer", PhotonTargets.All);
         if (timer <= 0)

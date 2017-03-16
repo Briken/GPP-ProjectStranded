@@ -68,6 +68,14 @@ public class ResourceScript : PunBehaviour {
         {
             foreach (GameObject n in nearby)
             {
+                AddResource(n);
+                //StartCoroutine(ResourceTime(waitTimer, n));
+            }
+        }
+        if (nearby.Count > requirement)
+        {
+            foreach (GameObject n in nearby)
+            {
                 StartCoroutine(ResourceTime(waitTimer, n));
             }
         }
@@ -117,7 +125,7 @@ public class ResourceScript : PunBehaviour {
     {
         player.GetComponent<VotingSystem>().CallVote();
         yield return new WaitForSeconds(waitTime);
-        player.GetComponent<VotingSystem>().voteCount.SetActive(false);
+        player.GetComponent<VotingSystem>().voteCard.SetActive(false);
         int boot = player.GetComponent<VotingSystem>().CheckVote();
         foreach (GameObject n in nearby)
         {
@@ -132,6 +140,10 @@ public class ResourceScript : PunBehaviour {
         if (nearby.Count == requirement)
         {
             AddResource(player);
+        }
+        else if (nearby.Count > requirement)
+        {
+            StartCoroutine(ResourceTime(waitTime, player));
         }
     }
 
