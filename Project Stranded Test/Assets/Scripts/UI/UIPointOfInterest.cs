@@ -56,11 +56,15 @@ public class UIPointOfInterest : MonoBehaviour {
         }
 
         // Rotate towards the target object
-        Quaternion indicatorIconRotation = Quaternion.LookRotation(gameObject.transform.position - indicatorIcon.gameObject.transform.position, Vector3.back);
+        // Quaternion indicatorIconRotation = Quaternion.LookRotation(gameObject.transform.position - indicatorIcon.gameObject.transform.position, Vector3.back);
 
         // Change the rotation initially then clamp out the X and Y values (this might be a nasty way of appeasing the Quaternion gods?)
-        indicatorIcon.gameObject.transform.rotation = indicatorIconRotation;
-        indicatorIcon.gameObject.transform.rotation = Quaternion.Euler(0, 0, indicatorIcon.gameObject.transform.rotation.eulerAngles.z);
+
+        // indicatorIcon.gameObject.transform.rotation = indicatorIconRotation;
+        // indicatorIcon.gameObject.transform.rotation = Quaternion.Euler(0, 0, indicatorIcon.gameObject.transform.rotation.eulerAngles.z);
+
+        indicatorIcon.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+
 
         indicatorIcon.gameObject.transform.position = cameraObject.ScreenToWorldPoint(new Vector3(DetermineIndicatorLocation().x + (Screen.width / 2), DetermineIndicatorLocation().y + (Screen.height / 2), 0));
     }
