@@ -33,6 +33,7 @@ public class MovementScript : Photon.PunBehaviour
     bool moving = false;
 
     public GameObject playerBody;
+    public GameObject[] playerColouredParts;
     public GameObject movementParticleSystem;
 
     protected Rigidbody rBody;
@@ -49,7 +50,15 @@ public class MovementScript : Photon.PunBehaviour
 
         ships = GameObject.FindGameObjectsWithTag("Ship");
 
-        foreach(GameObject n in ships)
+        if (pv.isMine)
+        {
+
+            Debug.Log(cam.name);
+            Camera.main.gameObject.transform.SetParent(this.transform);
+            playerNum = PhotonNetwork.player.ID;
+        }
+
+        foreach (GameObject n in ships)
         {
             if (n.GetComponent<ShipScript>().claimed != true && hasClaimed == false)
             {
@@ -60,13 +69,11 @@ public class MovementScript : Photon.PunBehaviour
             }
         }
 
-        if (pv.isMine)
+        foreach (GameObject playerColouredPart in playerColouredParts)
         {
-
-            Debug.Log(cam.name);
-            Camera.main.gameObject.transform.SetParent(this.transform);
-            playerNum = PhotonNetwork.player.ID;
+            playerColouredPart.GetComponent<SpriteRenderer>().color = colours[playerNum];
         }
+
 
 #if UNITY_EDITOR
         {
