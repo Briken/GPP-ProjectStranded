@@ -8,10 +8,16 @@ public class RoomData : MonoBehaviour {
 
     public InputField roomTitle;
     public InputField userInput;
+    public GameObject outVote;
     public string roomName;
     public string userName;
     string[] userNames;
-
+    public int player1Score;
+    public int player2Score;
+    public int player3Score;
+    public int player4Score;
+    public int player5Score;
+    int roundCount;
 
     bool filled = false;
 
@@ -82,6 +88,37 @@ public class RoomData : MonoBehaviour {
             }
         }
     }
+    public void RecordScores(int playerNum, int score)
+    {
+        if (playerNum == 1)
+        {
+            player1Score += score;
+        }
 
+        if (playerNum == 2)
+        {
+            player2Score += score;
+        }
+
+        if (playerNum == 3)
+        {
+            player3Score += score;
+        }
+
+        if (playerNum == 4)
+        {
+            player4Score += score;
+        }
+
+        if (playerNum == 5)
+        {
+            player5Score += score;
+        }
+        roundCount++;
+        if (roundCount == 5)
+        {
+            SceneManager.LoadScene("EndScene");
+        }
+    }
     
 }

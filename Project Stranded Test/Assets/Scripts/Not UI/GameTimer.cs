@@ -15,8 +15,11 @@ public class GameTimer : Photon.PunBehaviour {
     List<GameObject> timeCheck;
     GameTimer mainTime;
     public GameObject roomOwner;
+    public GameObject gameData;
+
     void Start ()
     {
+        gameData = GameObject.Find("GameData");
         resourceDepot = GameObject.Find("ResourceDepot");
         timer = 300.0f;
         foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
@@ -70,7 +73,11 @@ public class GameTimer : Photon.PunBehaviour {
 
     public void timeEnds()
     {
-        
+        SceneManager.LoadScene("MainScene-Recovered");
+        foreach (GameObject n in GameObject.FindGameObjectsWithTag("Ship"))
+        {
+            gameData.GetComponent<RoomData>().RecordScores(n.GetComponent<ShipScript>().shipNum, n.GetComponent<ShipScript>().totalFuel);
+        }
     }
 
     [PunRPC]

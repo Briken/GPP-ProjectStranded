@@ -14,6 +14,8 @@ public class ResourceScript : PunBehaviour {
 
     PlayerResource playerResource;
 
+    public GameObject votedOut;
+
     public List<GameObject> nearby = new List<GameObject>();
 
     public GameObject[] players;
@@ -26,6 +28,7 @@ public class ResourceScript : PunBehaviour {
     public int small = 1;
 	// Use this for initialization
 	void Start () {
+        votedOut = GameObject.Find("GameData").GetComponent<RoomData>().outVote;
         if (tag == "Small")
         {
             requirement = small;
@@ -131,19 +134,18 @@ public class ResourceScript : PunBehaviour {
         {
             if (boot == n.GetComponent<MovementScript>().playerNum)
             {
-                Vector2 moveDir = transform.position - this.transform.position;
-                Rigidbody p = n.GetComponent<Rigidbody>();
-                p.AddForce(moveDir * pushFrc);
+                votedOut.SetActive(true);
+                yield return new WaitForSeconds(5);
+                votedOut.SetActive(false);
             }
-        }
-        yield return new WaitForSeconds(2);
-        if (nearby.Count == requirement)
-        {
-            AddResource(player);
-        }
-        else if (nearby.Count > requirement)
-        {
-            StartCoroutine(ResourceTime(waitTime, player));
+            if (nearby.Count == requirement && boot != n.GetComponent<MovementScript>().playerNum)
+            {
+                AddResource(player);
+            }
+            else if (nearby.Count > requirement)
+            {
+                StartCoroutine(ResourceTime(waitTime, player));
+            }
         }
     }
 
