@@ -58,7 +58,8 @@ public class PlayerResource : MonoBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {
                     //      debug.text = "rayhit";
-                    if (hit.collider.gameObject.tag == "ResourceDepot")
+                    if (hit.collider.gameObject.tag == "Ship" && hit.collider.gameObject.GetComponent<ShipScript>().shipNum ==
+                        this.GetComponent<MovementScript>().playerNum)
                     {
 
                         //hit.collider.gameObject.GetComponent<ResourceDepot>().AddTeamResource(this.gameObject);
@@ -67,7 +68,8 @@ public class PlayerResource : MonoBehaviour
                         // Let the player know how much they have deposited if they have anything to deposit
                         if (resource > 0)
                         {
-                            informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You deposited " + resource.ToString() + " fuel for your team!", 3.0f);
+
+                            informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You deposited " + resource.ToString(), 3.0f);
                             depositParticleObject.GetComponent<ParticleSystem>().Play();
                         }
 
