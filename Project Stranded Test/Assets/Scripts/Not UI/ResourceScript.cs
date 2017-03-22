@@ -7,8 +7,6 @@ public class ResourceScript : PunBehaviour {
 
     bool debug = false;
 
-    public float pushFrc = 30.0f;
-
     public float waitTimer = 10.0f;
     public GameObject particleEffectPrefab; 
 
@@ -28,7 +26,7 @@ public class ResourceScript : PunBehaviour {
     public int small = 1;
 	// Use this for initialization
 	void Start () {
-        votedOut = GameObject.Find("GameData").GetComponent<RoomData>().outVote;
+        votedOut = GameObject.Find("NetworkManager").GetComponent<PhotonNetCode>().voteLoss;
         if (tag == "Small")
         {
             requirement = small;

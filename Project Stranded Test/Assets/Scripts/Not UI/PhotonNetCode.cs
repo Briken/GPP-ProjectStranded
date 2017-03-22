@@ -7,6 +7,8 @@ using Photon;
 public class PhotonNetCode : Photon.PunBehaviour {
 
     public GameObject voteCards;
+    public GameObject voteLoss;
+
     bool isActive = false;
     public GameObject gData;
     public int lobbyMax;
