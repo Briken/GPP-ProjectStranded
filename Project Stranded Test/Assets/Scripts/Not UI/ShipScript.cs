@@ -32,12 +32,18 @@ public class ShipScript : MonoBehaviour
 
 	}
 
-    public void OnCollisionEnter2D(Collision2D playerCol)
+    //public void OnCollisionEnter2D(Collision2D playerCol)
+    //{
+    //    if (playerCol.gameObject.GetComponent<MovementScript>().playerNum == shipNum)
+    //    {
+    //        currentFuel += player.gameObject.GetComponent<PlayerResource>().resource;
+    //        totalFuel += currentFuel;
+    //    }
+    //}
+
+    public void DepositFuel()
     {
-        if (playerCol.gameObject.GetComponent<MovementScript>().playerNum == shipNum)
-        {
-            currentFuel += player.gameObject.GetComponent<PlayerResource>().resource;
-            totalFuel += currentFuel;
-        }
+        currentFuel += player.gameObject.GetComponent<PlayerResource>().resource;
+        totalFuel += currentFuel;
     }
 }

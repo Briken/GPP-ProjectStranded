@@ -21,7 +21,7 @@ public class PlayerResource : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+        DontDestroyOnLoad(this);
         pv = PhotonView.Get(this.gameObject);
         largeResources = GameObject.FindGameObjectsWithTag("Large");
         medResources = GameObject.FindGameObjectsWithTag("Medium");
@@ -68,12 +68,11 @@ public class PlayerResource : MonoBehaviour
                         // Let the player know how much they have deposited if they have anything to deposit
                         if (resource > 0)
                         {
-
+                            hit.collider.gameObject.GetComponent<ShipScript>().DepositFuel();
                             informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You deposited " + resource.ToString(), 3.0f);
                             depositParticleObject.GetComponent<ParticleSystem>().Play();
+                            resource = 0;
                         }
-
-                        resource = 0;
                     }
                 }
             }

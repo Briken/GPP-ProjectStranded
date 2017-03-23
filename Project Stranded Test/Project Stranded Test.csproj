@@ -199,6 +199,7 @@
     <Compile Include="Assets\Scripts\Not UI\minitest.cs" />
     <Compile Include="Assets\Scripts\UI\FindRoomData.cs" />
     <Compile Include="Assets\Scripts\UI\PlayerAppearance.cs" />
+    <Compile Include="Assets\Scripts\UI\ResourceNumberSwitcher.cs" />
     <Compile Include="Assets\Scripts\UI\UIBarScript.cs" />
     <Compile Include="Assets\Scripts\UI\UICanvasSwitching.cs" />
     <Compile Include="Assets\Scripts\UI\UIFunctionsScript.cs" />

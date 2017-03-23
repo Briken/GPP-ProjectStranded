@@ -64,6 +64,7 @@ public class MovementScript : Photon.PunBehaviour
             {
                 n.GetComponent<ShipScript>().claimed = true;
                 hasClaimed = true;
+                n.GetComponent<ShipScript>().player = this.gameObject;
                 n.GetComponent<ShipScript>().shipNum = playerNum;
                 n.GetComponent<SpriteRenderer>().color = colours[playerNum];
             }
@@ -143,7 +144,7 @@ public class MovementScript : Photon.PunBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {
                     //    debug.text = "rayhit";
-                    if (hit.collider.gameObject == this.gameObject)
+                    if (hit.collider.gameObject.GetComponent<MovementScript>().playerNum == playerNum)
                     {
                         currentSpeed = 0;
                         menu.ToggleSpiderButtons();

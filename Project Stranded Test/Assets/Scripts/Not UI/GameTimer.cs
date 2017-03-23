@@ -21,7 +21,7 @@ public class GameTimer : Photon.PunBehaviour {
     {
         gameData = GameObject.Find("GameData");
         resourceDepot = GameObject.Find("ResourceDepot");
-        timer = 300.0f;
+        timer = 300;
         foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
         {
             if (n.GetComponent<MovementScript>().playerNum == 1)
@@ -77,6 +77,7 @@ public class GameTimer : Photon.PunBehaviour {
         foreach (GameObject n in GameObject.FindGameObjectsWithTag("Ship"))
         {
             gameData.GetComponent<RoomData>().RecordScores(n.GetComponent<ShipScript>().shipNum, n.GetComponent<ShipScript>().totalFuel);
+            timer = 300;
         }
     }
 

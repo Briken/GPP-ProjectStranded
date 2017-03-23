@@ -24,20 +24,26 @@ public class ResourceScript : PunBehaviour {
     public int large = 10;
     public int medium = 5;
     public int small = 1;
+
+    public int amount;
+    
 	// Use this for initialization
 	void Start () {
         votedOut = GameObject.Find("NetworkManager").GetComponent<PhotonNetCode>().voteLoss;
         if (tag == "Small")
         {
             requirement = small;
+            amount = 3;
         }
         if (tag == "Medium")
         {
             requirement = medium;
+            amount = 6;
         }
         if (tag == "Large")
         {
             requirement = large;
+            amount = 12;
         }
                 
         players = new GameObject[7];
@@ -67,11 +73,7 @@ public class ResourceScript : PunBehaviour {
         
         if (nearby.Count == requirement)
         {
-            foreach (GameObject n in nearby)
-            {
-                AddResource(n);
-                //StartCoroutine(ResourceTime(waitTimer, n));
-            }
+            StartCoroutine(Wait());
         }
         if (nearby.Count > requirement)
         {
@@ -103,8 +105,8 @@ public class ResourceScript : PunBehaviour {
         playerResource = player.GetComponent<PlayerResource>();
         GameObject informationBar = GameObject.FindGameObjectWithTag("Information Bar");
         
-        playerResource.resource += requirement;
-        informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You picked up " + large.ToString() + " fuel!", 4.0f);
+        playerResource.resource += amount;
+        //informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You picked up " + large.ToString() + " fuel!", 4.0f);
         photonView.RPC("DestroyThis", PhotonTargets.All);
         
     }
@@ -146,7 +148,18 @@ public class ResourceScript : PunBehaviour {
             }
         }
     }
-
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(waitTimer);
+        if (nearby.Count == requirement)
+        {
+            foreach (GameObject n in nearby)
+            {
+                AddResource(n);
+                //StartCoroutine(ResourceTime(waitTimer, n));
+            }
+        }
+    }
     [PunRPC]
     public void DestroyThis()
     {
