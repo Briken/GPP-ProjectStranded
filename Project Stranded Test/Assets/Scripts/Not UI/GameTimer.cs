@@ -63,7 +63,7 @@ public class GameTimer : Photon.PunBehaviour {
           //  Debug.Log(timer.ToString());
         }
         //photonView.RPC("SetTimer", PhotonTargets.All);
-        if (timer <= 0)
+        if (timer == 0)
         {
             Debug.Log("time is less that or equal to 0");
             timeEnds();
