@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon;
 
-public class VoteTally : PunBehaviour {
+public class VoteTally : Photon.PunBehaviour {
     public int player1Total;
     public int player1Current;
 
