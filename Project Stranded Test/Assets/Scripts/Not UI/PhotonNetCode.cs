@@ -92,7 +92,9 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     void OnJoinedRoom()
     {
-        spawnPoint = ships[PhotonNetwork.playerList.Length - 1];
+        //Debug.Log(PhotonNetwork.playerList.Length.ToString());
+        //spawnPoint = ships[PhotonNetwork.playerList.Length];
+        pNum = PhotonNetwork.playerList.Length;
         if (PhotonNetwork.playerList.Length == roomDetails.MaxPlayers)
         {
          
@@ -132,13 +134,13 @@ public class PhotonNetCode : Photon.PunBehaviour {
        // GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
 
             GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, spawnPoint.transform.position, spawnPoint.transform.rotation, 0);
-        for (int i = 0; i < ships.Length; i++)
-        {
-            if (spawnPoint == ships[i])
-            {
-                controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, i);
-            }
-        }
+        //for (int i = 0; i < ships.Length; i++)
+        //{
+        //    if (spawnPoint == ships[i])
+        //    {
+                controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, pNum);
+        //    }
+        //}
         //controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, controlledPlayer.GetComponent<MovementScript>().photonView.ownerId);
        // timer.enabled = true;
     }
