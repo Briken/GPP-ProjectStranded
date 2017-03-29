@@ -90,4 +90,6 @@ public class VoteTally : Photon.PunBehaviour {
         player5Total++;
         player5Current++;
     }
+
+
 }
