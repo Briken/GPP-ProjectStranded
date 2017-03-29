@@ -90,7 +90,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
         {
            GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
             SetPlayerNums();
-          //  timer.enabled = true;
+            timer.enabled = true;
             SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         }
         
@@ -123,7 +123,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
     {
         GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
         SetPlayerNums();
-        //timer.enabled = true;
+        timer.enabled = true;
     }
 
     void SetPlayerNums()

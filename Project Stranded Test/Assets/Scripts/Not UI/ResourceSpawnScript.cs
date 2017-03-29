@@ -37,53 +37,62 @@ public class ResourceSpawnScript : PunBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        
         if (this.photonView.ownerId == 0)
         {
-            for (int x = 0; x < mediumResources.GetLength(0); x++)
+            if (GameObject.FindGameObjectsWithTag("Medium") == null)
             {
-                if (mediumResources[x] == null && !mRoutine)
+                for (int x = 0; x < mediumResources.GetLength(0); x++)
                 {
-                    mRoutine = true;
-
-                    StartCoroutine(Spawn(medResourcePrefab, x));
-                }
-                else
-                {
-                    if (mediumResources[x] != null)
+                    if (mediumResources[x] == null && !mRoutine)
                     {
-                        continue;
+                        mRoutine = true;
+
+                        StartCoroutine(Spawn(medResourcePrefab, x));
+                    }
+                    else
+                    {
+                        if (mediumResources[x] != null)
+                        {
+                            continue;
+                        }
                     }
                 }
             }
 
-            for (int x = 0; x < smallResources.GetLength(0); x++)
+            if (GameObject.FindGameObjectsWithTag("Small") == null)
             {
-                if (smallResources[x] == null && !sRoutine)
+                for (int x = 0; x < smallResources.GetLength(0); x++)
                 {
-                    sRoutine = true;
-                    StartCoroutine(Spawn(smallResourcePrefab, x));
-                }
-                else
-                {
-                    if (smallResources[x] != null)
+                    if (smallResources[x] == null && !sRoutine)
                     {
-                        continue;
+                        sRoutine = true;
+                        StartCoroutine(Spawn(smallResourcePrefab, x));
+                    }
+                    else
+                    {
+                        if (smallResources[x] != null)
+                        {
+                            continue;
+                        }
                     }
                 }
             }
-
-            for (int x = 0; x < largeResources.GetLength(0); x++)
+            if (GameObject.FindGameObjectsWithTag("Large") == null)
             {
-                if (largeResources[x] == null && !lRoutine)
+                for (int x = 0; x < largeResources.GetLength(0); x++)
                 {
-                    lRoutine = true;
-                    StartCoroutine(Spawn(largeResourcePrefab, x));
-                }
-                else
-                {
-                    if (largeResources[x] != null)
+                    if (largeResources[x] == null && !lRoutine)
                     {
-                        continue;
+                        lRoutine = true;
+                        StartCoroutine(Spawn(largeResourcePrefab, x));
+                    }
+                    else
+                    {
+                        if (largeResources[x] != null)
+                        {
+                            continue;
+                        }
                     }
                 }
             }

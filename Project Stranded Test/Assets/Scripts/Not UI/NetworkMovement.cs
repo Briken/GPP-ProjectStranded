@@ -28,11 +28,13 @@ public class NetworkMovement : Photon.MonoBehaviour {
         {
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
+            stream.SendNext(transform.localScale);
         }
         else
         {
             this.transform.position = (Vector3) stream.ReceiveNext();
             this.transform.rotation = (Quaternion)stream.ReceiveNext();
+            this.transform.localScale = (Vector3)stream.ReceiveNext();
         }
     }
 }
