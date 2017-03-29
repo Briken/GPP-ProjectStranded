@@ -23,6 +23,8 @@ public class PhotonNetCode : Photon.PunBehaviour {
     string roomName;
     RoomData data;
 
+    public GameObject[] ships;
+
     
     //public GameObject mainCamera;
     
@@ -49,6 +51,8 @@ public class PhotonNetCode : Photon.PunBehaviour {
         roomDetails.MaxPlayers = (byte)lobbyMax;
         typedLobby = new TypedLobby();
 
+        ships = GameObject.FindGameObjectsWithTag("Ship");
+        
         GameObject netmanager = this.gameObject;
         //timer = netmanager.GetComponent<GameTimer>();
 	}
@@ -121,8 +125,13 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     void SpawnPlayer()
     {
-        GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
-        controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, photonView.ownerId);
+       // GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
+        for (int i = 0; i <= PhotonNetwork.playerList.Length; i++)
+        {
+            GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, ships[i].transform.position, ships[i].transform.rotation, 0);
+            controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, i);
+        }
+        //controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, controlledPlayer.GetComponent<MovementScript>().photonView.ownerId);
        // timer.enabled = true;
     }
 
