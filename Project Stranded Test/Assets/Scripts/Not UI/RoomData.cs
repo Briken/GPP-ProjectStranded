@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Photon;
 
-public class RoomData : MonoBehaviour {
+public class RoomData : Photon.PunBehaviour {
 
     public InputField roomTitle;
     public InputField userInput;
@@ -17,8 +18,18 @@ public class RoomData : MonoBehaviour {
     public int player3Score;
     public int player4Score;
     public int player5Score;
-    int roundCount;
+    public int roundCount;
 
+    public bool p1Win;
+    public bool p2Win;
+    public bool p3Win;
+    public bool p4Win;
+    public bool p5Win;
+
+    public GameObject lossScreen;
+    public GameObject winScreen;
+
+    bool counted = false;
     bool filled = false;
 
 	// Use this for initialization
@@ -26,7 +37,11 @@ public class RoomData : MonoBehaviour {
     {
         roomName = null;
         DontDestroyOnLoad(this);
-
+        if (SceneManager.GetActiveScene().name == "MainScene-Recovered")
+        {
+            winScreen = GameObject.Find("Main Game UI Handler").GetComponent<UIMainGameHandler>().winScreen;
+            lossScreen = GameObject.Find("Main Game UI Handler").GetComponent<UIMainGameHandler>().lossScreen;
+        }
         // Set username to a default name if data hasn't been saved yet
         if (PlayerPrefs.GetString("Username") == "")
         {
@@ -48,7 +63,7 @@ public class RoomData : MonoBehaviour {
             RecordNames();
             filled = true;
         }
-
+        
         if (SceneManager.GetActiveScene().name == "EndScene")
         {
             for (int n = 0; n < GameObject.FindGameObjectsWithTag("Username").Length; n++)
@@ -56,9 +71,17 @@ public class RoomData : MonoBehaviour {
                 GameObject.FindGameObjectsWithTag("Username")[n].GetComponent<Text>().text = userNames[n];
             }
         }
-
+        SceneManager.sceneLoaded += SceneManager_sceneLoaded;
     }
 
+    private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        if (SceneManager.GetActiveScene().name == "MainScene-Recovered")
+        {
+            winScreen = GameObject.Find("Main Game UI Handler").GetComponent<UIMainGameHandler>().winScreen;
+            lossScreen = GameObject.Find("Main Game UI Handler").GetComponent<UIMainGameHandler>().lossScreen;
+        }
+    }
     public void SetRoomName()
     {
         roomName = roomTitle.text;
@@ -82,43 +105,167 @@ public class RoomData : MonoBehaviour {
     {
         foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
         {
-            if (GetComponent<UserName>() != null)
+            if (n.GetComponent<UserName>() != null)
             {
-                userNames[GetComponent<MovementScript>().playerNum - 1] = GetComponent<UserName>().myName;
+                userNames[n.GetComponent<MovementScript>().playerNum] = GetComponent<UserName>().myName;
             }
         }
+        
     }
     public void RecordScores(int playerNum, int score)
     {
-        if (playerNum == 1)
+        if (playerNum == 0)
         {
             player1Score += score;
         }
 
-        if (playerNum == 2)
+        if (playerNum == 1)
         {
             player2Score += score;
         }
 
-        if (playerNum == 3)
+        if (playerNum == 2)
         {
             player3Score += score;
         }
 
-        if (playerNum == 4)
+        if (playerNum == 3)
         {
             player4Score += score;
         }
 
-        if (playerNum == 5)
+        if (playerNum == 4)
         {
             player5Score += score;
         }
-        roundCount++;
+        if (counted == false)
+        {
+            counted = true;
+            roundCount++;
+        }
+
+        if (player1Score > player2Score && player1Score > player3Score && player1Score > player4Score && player1Score > player5Score)
+        {
+            p1Win = true;
+        }
+        if (player2Score > player1Score && player2Score > player3Score && player2Score > player4Score && player2Score > player5Score)
+        {
+            p2Win = true;
+        }
+        if (player3Score > player1Score && player3Score > player2Score && player3Score > player4Score && player3Score > player5Score)
+        {
+            p3Win = true;
+        }
+        if (player4Score > player1Score && player4Score > player3Score && player4Score > player2Score && player4Score > player5Score)
+        {
+            p4Win = true;
+        }
+        if (player5Score > player1Score && player5Score > player3Score && player5Score > player4Score && player5Score > player2Score)
+        {
+            p5Win = true;
+        }
+    }
+
+    public void LoadNextRound()
+    {
+        
+        StartCoroutine(LoadLevel());
+
+    }
+    IEnumerator LoadLevel()
+    {
+        if (p1Win || p2Win || p3Win || p4Win || p5Win)
+        {
+            if (p1Win)
+            {
+                foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
+                {
+                    if (n.GetComponent<MovementScript>().pv.isMine && n.GetComponent<MovementScript>().playerNum == 0)
+                    {
+                        winScreen.SetActive(true);
+                    }
+                    else
+                    {
+                        lossScreen.SetActive(true);
+                    }
+                }
+            }
+            if (p2Win)
+            {
+                foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
+                {
+                    if (n.GetPhotonView().isMine && n.GetComponent<MovementScript>().playerNum == 1)
+                    {
+                        winScreen.SetActive(true);
+                    }
+                    else
+                    {
+                        lossScreen.SetActive(true);
+                    }
+                }
+            }
+            if (p3Win)
+            {
+                foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
+                {
+                    if (n.GetPhotonView().isMine && n.GetComponent<MovementScript>().playerNum == 2)
+                    {
+                        winScreen.SetActive(true);
+                    }
+                    else
+                    {
+                        lossScreen.SetActive(true);
+                    }
+                }
+            }
+            if (p4Win)
+            {
+                foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
+                {
+                    if (n.GetPhotonView().isMine && n.GetComponent<MovementScript>().playerNum == 3)
+                    {
+                        winScreen.SetActive(true);
+                    }
+                    else
+                    {
+                        lossScreen.SetActive(true);
+                    }
+                }
+            }
+            if (p5Win)
+            {
+                foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
+                {
+                    if (n.GetPhotonView().isMine && n.GetComponent<MovementScript>().playerNum == 4)
+                    {
+                        winScreen.SetActive(true);
+                    }
+                    else
+                    {
+                        lossScreen.SetActive(true);
+                    }
+                }
+            }
+        }
+        else
+        {
+            lossScreen.SetActive(true);
+        }
+        yield return new WaitForSeconds(7);
+        p1Win = false;
+        p2Win = false;
+        p3Win = false;
+        p4Win = false;
+        p5Win = false;
         if (roundCount == 5)
         {
             SceneManager.LoadScene("EndScene");
         }
+        else
+        {
+            SceneManager.LoadScene("MainScene-Recovered");
+            counted = false;
+        }
+
     }
-    
 }

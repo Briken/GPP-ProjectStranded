@@ -183,6 +183,7 @@
     <Compile Include="Assets\Scripts\Not UI\NetworkMovement.cs" />
     <Compile Include="Assets\Scripts\Not UI\NetworkingCode.cs" />
     <Compile Include="Assets\Scripts\Not UI\ParticleDestroyEffect.cs" />
+    <Compile Include="Assets\Scripts\Not UI\PersistentScript.cs" />
     <Compile Include="Assets\Scripts\Not UI\PhotonNetCode.cs" />
     <Compile Include="Assets\Scripts\Not UI\PlayerColourChanger.cs" />
     <Compile Include="Assets\Scripts\Not UI\PlayerResource.cs" />
@@ -200,6 +201,7 @@
     <Compile Include="Assets\Scripts\UI\FindRoomData.cs" />
     <Compile Include="Assets\Scripts\UI\PlayerAppearance.cs" />
     <Compile Include="Assets\Scripts\UI\ResourceNumberSwitcher.cs" />
+    <Compile Include="Assets\Scripts\UI\SpawnUI.cs" />
     <Compile Include="Assets\Scripts\UI\UIBarScript.cs" />
     <Compile Include="Assets\Scripts\UI\UICanvasSwitching.cs" />
     <Compile Include="Assets\Scripts\UI\UIFunctionsScript.cs" />

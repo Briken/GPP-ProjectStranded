@@ -16,9 +16,9 @@ public class DebugInfo : PunBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        delta += Time.deltaTime;
-        delta /= 2.0f;
-        fps = 1.0f / delta;
-        fpsCount.text = "FPS: " + fps.ToString() + "\n" + "Ping: " + PhotonNetwork.networkingPeer.RoundTripTime.ToString() + "  ms";
+        //delta += Time.deltaTime;
+        //delta /= 2.0f;
+        //fps = 1.0f / delta;
+        //fpsCount.text = "FPS: " + fps.ToString() + "\n" + "Ping: " + PhotonNetwork.networkingPeer.RoundTripTime.ToString() + "  ms";
     }
 }

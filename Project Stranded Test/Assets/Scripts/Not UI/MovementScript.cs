@@ -24,7 +24,7 @@ public class MovementScript : Photon.PunBehaviour
     private Vector3 correctPPos;    
     private Quaternion correctPRot;
 
-    PhotonView pv;
+    public PhotonView pv;
     GameObject tempMgr;
 
     Color[] colours;
@@ -55,7 +55,7 @@ public class MovementScript : Photon.PunBehaviour
 
             Debug.Log(cam.name);
             Camera.main.gameObject.transform.SetParent(this.transform);
-            playerNum = PhotonNetwork.player.ID;
+
         }
 
         foreach (GameObject n in ships)
@@ -71,7 +71,7 @@ public class MovementScript : Photon.PunBehaviour
         }
 
         foreach (GameObject playerColouredPart in playerColouredParts)
-        {
+        { 
             playerColouredPart.GetComponent<SpriteRenderer>().color = colours[playerNum];
         }
 
@@ -144,10 +144,10 @@ public class MovementScript : Photon.PunBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {
                     //    debug.text = "rayhit";
-                    if (hit.collider.gameObject.GetComponent<MovementScript>().playerNum == playerNum)
+                    if (/*hit.collider.gameObject.GetComponent<MovementScript>().playerNum == playerNum*/ hit.collider.gameObject == this.gameObject)
                     {
                         currentSpeed = 0;
-                        menu.ToggleSpiderButtons();
+                       // menu.ToggleSpiderButtons();
                         currentVelocity = rBody.velocity;
                         currentVelocity += MoveFromTouch(currentVelocity, currentVelocity);   //using arrive function
                         rBody.velocity = currentVelocity;

@@ -8,9 +8,11 @@ using Photon;
 public class GameTimer : Photon.PunBehaviour {
 
 
+    
     public GameObject resourceDepot;
     public float timer;
     public Text UITimer;
+    bool called;
     // Use this for initialization
     List<GameObject> timeCheck;
     GameTimer mainTime;
@@ -19,9 +21,9 @@ public class GameTimer : Photon.PunBehaviour {
 
     void Start ()
     {
-        gameData = GameObject.Find("GameData");
+        gameData = GameObject.FindGameObjectWithTag("GameData");
         resourceDepot = GameObject.Find("ResourceDepot");
-        timer = 300;
+        timer = 30;
         foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
         {
             if (n.GetComponent<MovementScript>().playerNum == 1)
@@ -63,9 +65,10 @@ public class GameTimer : Photon.PunBehaviour {
           //  Debug.Log(timer.ToString());
         }
         //photonView.RPC("SetTimer", PhotonTargets.All);
-        if (timer == 0)
+        if (timer <= 0 && called == false)
         {
             Debug.Log("time is less that or equal to 0");
+            called = true;
             timeEnds();
         }
     }
@@ -73,12 +76,13 @@ public class GameTimer : Photon.PunBehaviour {
 
     public void timeEnds()
     {
-        SceneManager.LoadScene("MainScene-Recovered");
+        
         foreach (GameObject n in GameObject.FindGameObjectsWithTag("Ship"))
         {
             gameData.GetComponent<RoomData>().RecordScores(n.GetComponent<ShipScript>().shipNum, n.GetComponent<ShipScript>().totalFuel);
-            timer = 300;
         }
+        timer = 300;
+        gameData.GetComponent<RoomData>().LoadNextRound();
     }
 
     [PunRPC]
@@ -110,4 +114,6 @@ public class GameTimer : Photon.PunBehaviour {
             this.timer = (float)stream.ReceiveNext();
         }
     }
+
+    
 }

@@ -21,7 +21,7 @@ public class PlayerResource : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
         pv = PhotonView.Get(this.gameObject);
         largeResources = GameObject.FindGameObjectsWithTag("Large");
         medResources = GameObject.FindGameObjectsWithTag("Medium");

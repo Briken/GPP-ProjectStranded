@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Photon;
 
 public class PhotonNetCode : Photon.PunBehaviour {
@@ -22,12 +23,14 @@ public class PhotonNetCode : Photon.PunBehaviour {
     string roomName;
     RoomData data;
 
+    
     //public GameObject mainCamera;
     
 
 	// Use this for initialization
 	void Start ()
     {
+        
         if (GameObject.FindGameObjectWithTag("GameData") == null)
         {
             Instantiate(gData);
@@ -47,7 +50,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
         typedLobby = new TypedLobby();
 
         GameObject netmanager = this.gameObject;
-        timer = netmanager.GetComponent<GameTimer>();
+        //timer = netmanager.GetComponent<GameTimer>();
 	}
 	
 	// Update is called once per frame
@@ -86,21 +89,50 @@ public class PhotonNetCode : Photon.PunBehaviour {
         if (PhotonNetwork.playerList.Length == roomDetails.MaxPlayers)
         {
            GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
+            SetPlayerNums();
+          //  timer.enabled = true;
+            SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         }
-        timer.enabled = true;
+        
        
+    }
+
+    private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        if (SceneManager.GetActiveScene().name == "MainScene-Recovered")
+        {
+            SpawnPlayer();
+        }
     }
 
     void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
     {
         if (PhotonNetwork.playerList.Length == roomDetails.MaxPlayers)
         {
-           GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
+            SpawnPlayer();
         }
+        
     }
 
     void CreateRoom()
     {
         
     }
+
+    void SpawnPlayer()
+    {
+        GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
+        SetPlayerNums();
+        //timer.enabled = true;
+    }
+
+    void SetPlayerNums()
+    {
+        for (int i = 0; i < PhotonNetwork.room.playerCount; i++)
+        {
+            GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<MovementScript>().playerNum = i;
+        }
+    }
+
+    
 }

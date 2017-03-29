@@ -53,7 +53,8 @@ public class ResourceScript : PunBehaviour {
 	void Update ()
 	{
         players = GameObject.FindGameObjectsWithTag("Player");
-        if (players[0] != null)
+        
+        if (players != null)
         {
             nearby.Clear();
             foreach (GameObject p in players)

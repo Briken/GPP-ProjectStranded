@@ -24,18 +24,18 @@ public class ResourceNumberSwitcher : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (initialNumber - attachedResourceScript.nearby.Count == 0)
-        {
-            spriteNumber.GetComponent<SpriteRenderer>().sprite = timeSprite;
-        }
-        else if (initialNumber - attachedResourceScript.nearby.Count < 0)
-        {
-            spriteNumber.GetComponent<SpriteRenderer>().sprite = voteSprite;
-        }
-        else
-        {
-            spriteNumber.GetComponent<SpriteRenderer>().sprite = numberSprites[initialNumber - attachedResourceScript.nearby.Count];
-        }
+
+        //{
+        //    spriteNumber.GetComponent<SpriteRenderer>().sprite = timeSprite;
+        //}
+        //else if (initialNumber - attachedResourceScript.nearby.Count < 0)
+        //{
+        //    spriteNumber.GetComponent<SpriteRenderer>().sprite = voteSprite;
+        //}
+        //else
+        //{
+        //    spriteNumber.GetComponent<SpriteRenderer>().sprite = numberSprites[initialNumber - attachedResourceScript.nearby.Count];
+        //}
         
 	}
 }

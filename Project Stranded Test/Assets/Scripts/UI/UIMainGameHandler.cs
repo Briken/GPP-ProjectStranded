@@ -11,6 +11,9 @@ public class UIMainGameHandler : MonoBehaviour {
     public float barMaxValue = 20.0f;
     public float barValue = 0.0f;
 
+    public GameObject winScreen;
+    public GameObject lossScreen;
+
     GameObject mainPlayer;
     float gameTimeRemaining;
 
