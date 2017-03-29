@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon;
 
-public class ShipScript : MonoBehaviour
+public class ShipScript : Photon.PunBehaviour
 {
     public int shipNum;
     public GameObject player;
@@ -41,6 +42,7 @@ public class ShipScript : MonoBehaviour
     //    }
     //}
 
+    [PunRPC]
     public void DepositFuel()
     {
         currentFuel += player.gameObject.GetComponent<PlayerResource>().resource;
