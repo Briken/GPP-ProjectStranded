@@ -122,7 +122,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
     void SpawnPlayer()
     {
         GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
-        SetPlayerNums();
+        controlledPlayer.GetComponent<MovementScript>().playerNum = controlledPlayer.GetComponent<PhotonView>().ownerId;
         timer.enabled = true;
     }
 
