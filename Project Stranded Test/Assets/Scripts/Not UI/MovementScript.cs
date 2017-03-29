@@ -26,7 +26,7 @@ public class MovementScript : Photon.PunBehaviour
 
     public PhotonView pv;
     GameObject tempMgr;
-
+    Vector3 shipPos;
     Color[] colours;
 
     float currentSpeed = 10;
@@ -40,6 +40,7 @@ public class MovementScript : Photon.PunBehaviour
     // Use this for initialization
     void Start()
     {
+        shipPos = transform.position;
         colours = new Color[5];
         SetColours();
         info = GameObject.Find("Information Bar").GetComponent<UIInformationBar>();
@@ -61,13 +62,21 @@ public class MovementScript : Photon.PunBehaviour
 
         foreach (GameObject n in ships)
         {
-            if (n.GetComponent<ShipScript>().claimed != true && hasClaimed == false)
+            //if (n.GetComponent<ShipScript>().claimed != true && hasClaimed == false)
+            //{
+            //    n.GetComponent<ShipScript>().claimed = true;
+            //    hasClaimed = true;
+            //    n.GetComponent<ShipScript>().player = this.gameObject;
+            //    n.GetComponent<ShipScript>().shipNum = playerNum;
+            //    n.GetComponent<SpriteRenderer>().color = colours[playerNum];
+            //}
+            if (n.transform.position == shipPos)
             {
                 n.GetComponent<ShipScript>().claimed = true;
-                hasClaimed = true;
-                n.GetComponent<ShipScript>().player = this.gameObject;
-                n.GetComponent<ShipScript>().shipNum = playerNum;
-                n.GetComponent<SpriteRenderer>().color = colours[playerNum];
+                   hasClaimed = true;
+                   n.GetComponent<ShipScript>().player = this.gameObject;
+                   n.GetComponent<ShipScript>().shipNum = playerNum;
+                   n.GetComponent<SpriteRenderer>().color = colours[playerNum];
             }
         }
 
