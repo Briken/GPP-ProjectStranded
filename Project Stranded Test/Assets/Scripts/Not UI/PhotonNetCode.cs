@@ -10,7 +10,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
     public GameObject voteCards;
     public GameObject voteLoss;
 
-    GameObject spawnPoint
+    GameObject spawnPoint;
     bool isActive = false;
     public GameObject gData;
     public int lobbyMax;
