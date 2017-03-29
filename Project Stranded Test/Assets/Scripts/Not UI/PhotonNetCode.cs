@@ -13,7 +13,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
     bool isActive = false;
     public GameObject gData;
     public int lobbyMax;
-    GameTimer timer;
+    //GameTimer timer;
     public GameObject player;
     public int playerNum;
     RoomOptions roomDetails;
@@ -90,7 +90,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
         {
            GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
             controlledPlayer.GetComponent<MovementScript>().playerNum = controlledPlayer.GetComponent<PhotonView>().ownerId;
-            timer.enabled = true;
+      //      timer.enabled = true;
             SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         }
         
