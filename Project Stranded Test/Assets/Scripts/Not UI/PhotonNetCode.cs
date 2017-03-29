@@ -9,6 +9,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     public GameObject voteCards;
     public GameObject voteLoss;
+    
 
     GameObject spawnPoint;
     bool isActive = false;
@@ -93,8 +94,9 @@ public class PhotonNetCode : Photon.PunBehaviour {
     void OnJoinedRoom()
     {
         //Debug.Log(PhotonNetwork.playerList.Length.ToString());
-        //spawnPoint = ships[PhotonNetwork.playerList.Length];
+        
         pNum = PhotonNetwork.playerList.Length;
+        spawnPoint = ships[pNum - 1];
         if (PhotonNetwork.playerList.Length == roomDetails.MaxPlayers)
         {
          
@@ -116,7 +118,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
     {
-        GameObject spawnPoint = ships[PhotonNetwork.playerList.Length - 1];
+        
         if (PhotonNetwork.playerList.Length == roomDetails.MaxPlayers)
         {
             SpawnPlayer();
