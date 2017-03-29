@@ -10,6 +10,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
     public GameObject voteCards;
     public GameObject voteLoss;
 
+    GameObject spawnPoint
     bool isActive = false;
     public GameObject gData;
     public int lobbyMax;
@@ -22,6 +23,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
     int currentPlayers;
     string roomName;
     RoomData data;
+    int pNum;
 
     public GameObject[] ships;
 
@@ -90,9 +92,10 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     void OnJoinedRoom()
     {
+        spawnPoint = ships[PhotonNetwork.playerList.Length - 1];
         if (PhotonNetwork.playerList.Length == roomDetails.MaxPlayers)
         {
-           GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
+         
             SpawnPlayer();
       //      timer.enabled = true;
             SceneManager.sceneLoaded += SceneManager_sceneLoaded;
@@ -111,6 +114,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
     {
+        GameObject spawnPoint = ships[PhotonNetwork.playerList.Length - 1];
         if (PhotonNetwork.playerList.Length == roomDetails.MaxPlayers)
         {
             SpawnPlayer();
@@ -126,10 +130,14 @@ public class PhotonNetCode : Photon.PunBehaviour {
     void SpawnPlayer()
     {
        // GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
-        for (int i = 0; i <= PhotonNetwork.playerList.Length; i++)
+
+            GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, spawnPoint.transform.position, spawnPoint.transform.rotation, 0);
+        for (int i = 0; i < ships.Length; i++)
         {
-            GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, ships[i].transform.position, ships[i].transform.rotation, 0);
-            controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, i);
+            if (spawnPoint == ships[i])
+            {
+                controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, i);
+            }
         }
         //controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, controlledPlayer.GetComponent<MovementScript>().photonView.ownerId);
        // timer.enabled = true;
