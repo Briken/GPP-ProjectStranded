@@ -55,6 +55,7 @@ public class MovementScript : Photon.PunBehaviour
 
             Debug.Log(cam.name);
             Camera.main.gameObject.transform.SetParent(this.transform);
+            Camera.main.gameObject.transform.position = this.transform.position;
 
         }
 
