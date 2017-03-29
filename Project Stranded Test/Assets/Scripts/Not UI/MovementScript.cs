@@ -236,6 +236,11 @@ public class MovementScript : Photon.PunBehaviour
         colours[4] = Color.white;
     }
 
+    [PunRPC]
+    public void SetNum(int pNum)
+    {
+        playerNum = pNum;
+    }
 
     public void Quit()
     {

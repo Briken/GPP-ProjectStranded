@@ -89,8 +89,8 @@ public class PhotonNetCode : Photon.PunBehaviour {
         if (PhotonNetwork.playerList.Length == roomDetails.MaxPlayers)
         {
            GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
-            controlledPlayer.GetComponent<MovementScript>().playerNum = controlledPlayer.GetComponent<PhotonView>().ownerId;
-            timer.enabled = true;
+            controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, controlledPlayer.GetComponent<PhotonView>().ownerId);
+           // timer.enabled = true;
             SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         }
         
@@ -123,7 +123,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
     {
         GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
         controlledPlayer.GetComponent<MovementScript>().playerNum = controlledPlayer.GetComponent<PhotonView>().ownerId;
-        timer.enabled = true;
+        //timer.enabled = true;
     }
 
     void SetPlayerNums()
