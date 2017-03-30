@@ -11,7 +11,7 @@ public class ResourceScript : PunBehaviour {
     public GameObject particleEffectPrefab; 
 
     PlayerResource playerResource;
-
+    bool called = false;
     public GameObject votedOut;
 
     public List<GameObject> nearby = new List<GameObject>();
@@ -72,12 +72,14 @@ public class ResourceScript : PunBehaviour {
             }
         }
         
-        if (nearby.Count == requirement)
+        if (nearby.Count == requirement && called == false)
         {
+            called = true;
             StartCoroutine(Wait());
         }
-        if (nearby.Count > requirement)
+        if (nearby.Count > requirement && called == false)
         {
+            called = true;
             foreach (GameObject n in nearby)
             {
                 StartCoroutine(ResourceTime(waitTimer, n));
@@ -169,7 +171,7 @@ public class ResourceScript : PunBehaviour {
     [PunRPC]
     public void DestroyThis()
     {
-        GameObject particleEffectObject = (GameObject)Instantiate(particleEffectPrefab, gameObject.transform.position, Random.rotation);
+       
         Destroy(this.gameObject);
     }
 }
