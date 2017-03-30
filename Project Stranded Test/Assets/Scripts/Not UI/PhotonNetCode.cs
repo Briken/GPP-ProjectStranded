@@ -11,6 +11,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
     public GameObject voteLoss;
 
     public GameObject lobbyWait;
+    GameObject controlledPlayer;
 
     GameObject spawnPoint;
     bool isActive = false;
@@ -136,13 +137,13 @@ public class PhotonNetCode : Photon.PunBehaviour {
     {
        // GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
 
-            GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, spawnPoint.transform.position, spawnPoint.transform.rotation, 0);
+            controlledPlayer = PhotonNetwork.Instantiate(player.name, spawnPoint.transform.position, spawnPoint.transform.rotation, 0);
         //for (int i = 0; i < ships.Length; i++)
         //{
         //    if (spawnPoint == ships[i])
         //    {
                 controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, pNum);
-        lobbyWait.SetActive(false);
+                lobbyWait.SetActive(false);
         //    }
         //}
         //controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, controlledPlayer.GetComponent<MovementScript>().photonView.ownerId);
