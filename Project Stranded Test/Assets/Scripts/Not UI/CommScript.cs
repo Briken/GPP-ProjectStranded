@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Photon;
+using UnityEngine.UI;
 
 public class CommScript : PunBehaviour {
 
@@ -77,6 +78,8 @@ public class CommScript : PunBehaviour {
         if (canComm == true && thisPlayer != null)
         {
             PhotonNetwork.Instantiate(pulse.name, thisPlayer.transform.position, Quaternion.identity, 0);
+            canComm = false;
+            gameObject.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.2f);
             StartCoroutine(CommCooldown(silenceTime));
         }
     }
@@ -85,5 +88,6 @@ public class CommScript : PunBehaviour {
     {
         yield return new WaitForSeconds(coolTime);
         canComm = true;
+        gameObject.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
 }
