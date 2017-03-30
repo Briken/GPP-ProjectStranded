@@ -11,7 +11,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
     public GameObject voteLoss;
 
     public GameObject lobbyWait;
-    GameObject controlledPlayer;
+    
 
     GameObject spawnPoint;
     bool isActive = false;
@@ -114,6 +114,8 @@ public class PhotonNetCode : Photon.PunBehaviour {
     {
         if (SceneManager.GetActiveScene().name == "MainScene-Recovered")
         {
+            ships = GameObject.FindGameObjectsWithTag("Ship");
+            spawnPoint = ships[pNum - 1];
             SpawnPlayer();
         }
     }
@@ -135,9 +137,9 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     void SpawnPlayer()
     {
-       // GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
+        // GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
 
-            controlledPlayer = PhotonNetwork.Instantiate(player.name, spawnPoint.transform.position, spawnPoint.transform.rotation, 0);
+        GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, spawnPoint.transform.position, spawnPoint.transform.rotation, 0);
         //for (int i = 0; i < ships.Length; i++)
         //{
         //    if (spawnPoint == ships[i])
