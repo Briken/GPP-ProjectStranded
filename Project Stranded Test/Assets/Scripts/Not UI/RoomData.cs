@@ -269,6 +269,11 @@ public class RoomData : Photon.PunBehaviour {
         }
         else
         {
+            foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                Destroy(n);
+            }
+            Destroy(GameObject.FindGameObjectWithTag("NetManager"));
             SceneManager.LoadScene("MainScene-Recovered");
             counted = false;
         }
