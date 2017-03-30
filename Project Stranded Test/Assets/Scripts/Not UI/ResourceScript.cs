@@ -133,11 +133,10 @@ public class ResourceScript : PunBehaviour {
         int boot = player.GetComponent<VotingSystem>().CheckVote();
         foreach (GameObject n in nearby)
         {
-            if (boot == n.GetComponent<MovementScript>().playerNum)
+            if (boot == n.GetComponent<MovementScript>().playerNum && photonView.isMine)
             {
                 votedOut.SetActive(true);
                 yield return new WaitForSeconds(5);
-                votedOut.SetActive(false);
             }
             if (nearby.Count == requirement && boot != n.GetComponent<MovementScript>().playerNum)
             {
@@ -160,6 +159,12 @@ public class ResourceScript : PunBehaviour {
                 //StartCoroutine(ResourceTime(waitTimer, n));
             }
         }
+    }
+
+    IEnumerator VotedOut()
+    {
+        yield return new WaitForSeconds(6);
+        votedOut.SetActive(false);
     }
     [PunRPC]
     public void DestroyThis()

@@ -9,7 +9,8 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     public GameObject voteCards;
     public GameObject voteLoss;
-    
+
+    public GameObject lobbyWait;
 
     GameObject spawnPoint;
     bool isActive = false;
@@ -141,6 +142,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
         //    if (spawnPoint == ships[i])
         //    {
                 controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, pNum);
+        lobbyWait.SetActive(false);
         //    }
         //}
         //controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, controlledPlayer.GetComponent<MovementScript>().photonView.ownerId);
