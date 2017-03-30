@@ -113,8 +113,8 @@ public class UIPointOfInterest : MonoBehaviour {
         return indicatorLocation; 
     }
 
-    void OnDestroy()
-    {
-        Destroy(indicatorIcon);
-    }
+    //void OnDestroy()
+    //{
+    //    Destroy(indicatorIcon);
+    //}
 }
