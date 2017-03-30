@@ -37,7 +37,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        DontDestroyOnLoad(this);
+        
         lobbyWait.SetActive(true);
         if (GameObject.FindGameObjectWithTag("GameData") == null)
         {
