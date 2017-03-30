@@ -7,7 +7,7 @@ using Photon;
 
 public class RoomData : Photon.PunBehaviour {
 
-    public int pNum;
+    public int pNum = 77;
     public InputField roomTitle;
     public InputField userInput;
     public GameObject outVote;
@@ -20,7 +20,7 @@ public class RoomData : Photon.PunBehaviour {
     public int player4Score;
     public int player5Score;
     public int roundCount;
-
+    public GameObject netObj;
     public bool p1Win;
     public bool p2Win;
     public bool p3Win;
@@ -36,6 +36,7 @@ public class RoomData : Photon.PunBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         roomName = null;
         DontDestroyOnLoad(this);
         if (SceneManager.GetActiveScene().name == "MainScene-Recovered")
@@ -81,6 +82,10 @@ public class RoomData : Photon.PunBehaviour {
         {
             winScreen = GameObject.Find("Main Game UI Handler").GetComponent<UIMainGameHandler>().winScreen;
             lossScreen = GameObject.Find("Main Game UI Handler").GetComponent<UIMainGameHandler>().lossScreen;
+            if (GameObject.Find("NetworkManager") == null)
+            {
+                Instantiate(netObj);
+            }
         }
     }
     public void SetRoomName()

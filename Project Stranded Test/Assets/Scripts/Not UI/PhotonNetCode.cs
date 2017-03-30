@@ -37,6 +37,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        DontDestroyOnLoad(this);
         lobbyWait.SetActive(true);
         if (GameObject.FindGameObjectWithTag("GameData") == null)
         {
@@ -98,7 +99,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
         //Debug.Log(PhotonNetwork.playerList.Length.ToString());
         if (data.GetComponent<RoomData>().pNum != 77)
         {
-            pNum = data.GetComponent<RoomData>().pNum;
+                pNum = data.GetComponent<RoomData>().pNum;
         }
         pNum = PhotonNetwork.playerList.Length;
         spawnPoint = ships[pNum - 1];

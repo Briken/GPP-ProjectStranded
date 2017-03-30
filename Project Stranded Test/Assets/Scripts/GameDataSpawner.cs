@@ -7,6 +7,7 @@ using UnityEngine;
 public class GameDataSpawner : MonoBehaviour {
 
     public GameObject gameDataPrefab;
+    public GameObject netPrefab;
 
 	// Use this for initialization
 	void Start ()
@@ -14,6 +15,7 @@ public class GameDataSpawner : MonoBehaviour {
         if (GameObject.FindGameObjectWithTag("GameData") == null)
         {
             Instantiate(gameDataPrefab);
+            gameDataPrefab.GetComponent<RoomData>().netObj = netPrefab;
         }	
 	}
 	
