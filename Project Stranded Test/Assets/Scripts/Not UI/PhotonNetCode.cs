@@ -37,7 +37,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        
+        lobbyWait.SetActive(true);
         if (GameObject.FindGameObjectWithTag("GameData") == null)
         {
             Instantiate(gData);
@@ -140,16 +140,11 @@ public class PhotonNetCode : Photon.PunBehaviour {
         // GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
 
         GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, spawnPoint.transform.position, spawnPoint.transform.rotation, 0);
-        //for (int i = 0; i < ships.Length; i++)
-        //{
-        //    if (spawnPoint == ships[i])
-        //    {
-                controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, pNum);
-                lobbyWait.SetActive(false);
-        //    }
-        //}
-        //controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, controlledPlayer.GetComponent<MovementScript>().photonView.ownerId);
-       // timer.enabled = true;
+
+        controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, pNum);
+        lobbyWait.SetActive(false);
+
+
     }
 
     void SetPlayerNums()
