@@ -141,14 +141,16 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     void SpawnPlayer()
     {
+        GameObject uiHandler = GameObject.FindGameObjectWithTag("UIHandler");
+        voteCards = uiHandler.GetComponent<UIMainGameHandler>().voteCards;
+        voteLoss = uiHandler.GetComponent<UIMainGameHandler>().voteLoss;
+        lobbyWait = uiHandler.GetComponent<UIMainGameHandler>().lobbyWait;
+
+
         // GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
-
-        GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, spawnPoint.transform.position, spawnPoint.transform.rotation, 0);
-
-        controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, pNum);
         lobbyWait.SetActive(false);
-
-
+        GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, spawnPoint.transform.position, spawnPoint.transform.rotation, 0);
+        controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, pNum);
     }
 
     void SetPlayerNums()

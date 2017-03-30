@@ -17,6 +17,11 @@ public class UIMainGameHandler : MonoBehaviour {
     GameObject mainPlayer;
     float gameTimeRemaining;
 
+    public GameObject voteCards;
+    public GameObject voteLoss;
+
+    public GameObject lobbyWait;
+
     bool noMain = true;
 
     [Header("Power-up Indicators")]
