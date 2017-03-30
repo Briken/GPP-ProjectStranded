@@ -70,7 +70,7 @@ public class RoomData : Photon.PunBehaviour {
         {
             for (int n = 0; n < GameObject.FindGameObjectsWithTag("Username").Length; n++)
             {
-                GameObject.FindGameObjectsWithTag("Username")[n].GetComponent<Text>().text = userNames[n];
+                userNames[n] = GameObject.FindGameObjectsWithTag("Username")[n].GetComponent<Text>().text;
             }
         }
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
