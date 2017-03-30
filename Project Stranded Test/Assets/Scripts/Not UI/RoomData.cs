@@ -7,6 +7,7 @@ using Photon;
 
 public class RoomData : Photon.PunBehaviour {
 
+    public int pNum;
     public InputField roomTitle;
     public InputField userInput;
     public GameObject outVote;
