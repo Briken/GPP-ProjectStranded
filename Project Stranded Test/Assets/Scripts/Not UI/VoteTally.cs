@@ -4,6 +4,8 @@ using UnityEngine;
 using Photon;
 
 public class VoteTally : Photon.PunBehaviour {
+
+
     public int player1Total;
     public int player1Current;
 
@@ -91,5 +93,9 @@ public class VoteTally : Photon.PunBehaviour {
         player5Current++;
     }
 
+    public void OnSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+
+    }
 
 }
