@@ -270,7 +270,7 @@ public class RoomData : Photon.PunBehaviour {
         else
         {
 
-            PhotonNetwork.Disconnect();
+            PhotonNetwork.LeaveRoom();
             SceneManager.LoadScene("MainScene-Recovered");
             counted = false;
         }
