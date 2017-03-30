@@ -23,7 +23,7 @@ public class GameTimer : Photon.PunBehaviour {
     {
         gameData = GameObject.FindGameObjectWithTag("GameData");
         resourceDepot = GameObject.Find("ResourceDepot");
-        timer = 30;
+        timer = 300;
       
         //mainTime = timeCheck.GetComponent<GameTimer>();
         //gameTime = mainTime.timer;
