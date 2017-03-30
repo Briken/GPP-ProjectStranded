@@ -9,8 +9,6 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     public GameObject voteCards;
     public GameObject voteLoss;
-
-    public GameObject lobbyWait;
     
 
     GameObject spawnPoint;
@@ -38,7 +36,6 @@ public class PhotonNetCode : Photon.PunBehaviour {
 	void Start ()
     {
         
-        lobbyWait.SetActive(true);
         if (GameObject.FindGameObjectWithTag("GameData") == null)
         {
             Instantiate(gData);
@@ -97,10 +94,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
     void OnJoinedRoom()
     {
         //Debug.Log(PhotonNetwork.playerList.Length.ToString());
-        if (data.GetComponent<RoomData>().pNum != 77)
-        {
-                pNum = data.GetComponent<RoomData>().pNum;
-        }
+        
         pNum = PhotonNetwork.playerList.Length;
         spawnPoint = ships[pNum - 1];
         if (PhotonNetwork.playerList.Length == roomDetails.MaxPlayers)
@@ -118,8 +112,6 @@ public class PhotonNetCode : Photon.PunBehaviour {
     {
         if (SceneManager.GetActiveScene().name == "MainScene-Recovered")
         {
-            ships = GameObject.FindGameObjectsWithTag("Ship");
-            spawnPoint = ships[pNum - 1];
             SpawnPlayer();
         }
     }
@@ -141,25 +133,21 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     void SpawnPlayer()
     {
-        GameObject uiHandler = GameObject.FindGameObjectWithTag("UIHandler");
-        voteCards = uiHandler.GetComponent<UIMainGameHandler>().voteCards;
-        voteLoss = uiHandler.GetComponent<UIMainGameHandler>().voteLoss;
-        lobbyWait = uiHandler.GetComponent<UIMainGameHandler>().lobbyWait;
+       // GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
 
-
-        // GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
-        lobbyWait.SetActive(false);
-        GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, spawnPoint.transform.position, spawnPoint.transform.rotation, 0);
-        controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, pNum);
+            GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, spawnPoint.transform.position, spawnPoint.transform.rotation, 0);
+        //for (int i = 0; i < ships.Length; i++)
+        //{
+        //    if (spawnPoint == ships[i])
+        //    {
+                controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, pNum);
+        //    }
+        //}
+        //controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, controlledPlayer.GetComponent<MovementScript>().photonView.ownerId);
+       // timer.enabled = true;
     }
 
-    void SetPlayerNums()
-    {
-        for (int i = 0; i < PhotonNetwork.room.playerCount; i++)
-        {
-            GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<MovementScript>().playerNum = i;
-        }
-    }
+    
 
     
 }
