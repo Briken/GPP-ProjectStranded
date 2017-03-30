@@ -36,7 +36,7 @@ public class UIMainGameHandler : MonoBehaviour {
         {
             foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
             {
-                if (n.GetComponent<MovementScript>().playerNum == 1)
+                if (n.GetComponent<MovementScript>().photonView.isMine)
                 {
                     mainPlayer = n;
                     noMain = false;

@@ -11,7 +11,7 @@ public class GameTimer : Photon.PunBehaviour {
     
     public GameObject resourceDepot;
     public float timer;
-    public Text UITimer;
+    
     bool called;
     // Use this for initialization
     List<GameObject> timeCheck;
@@ -24,47 +24,21 @@ public class GameTimer : Photon.PunBehaviour {
         gameData = GameObject.FindGameObjectWithTag("GameData");
         resourceDepot = GameObject.Find("ResourceDepot");
         timer = 30;
-        foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
-        {
-            if (n.GetComponent<MovementScript>().playerNum == 1)
-            {
-                Debug.Log("player" + n.GetComponent<MovementScript>().playerNum.ToString() + "time being used");
-                roomOwner = n;
-               // timer = n.GetComponent<GameTimer>().timer;
-            }
-            
-        }
+      
         //mainTime = timeCheck.GetComponent<GameTimer>();
         //gameTime = mainTime.timer;
         Debug.Log("time left: " + timer.ToString());
 
      //   photonView.RPC("SetTimer", PhotonTargets.All, timer);
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-        if (this.gameObject == roomOwner)
-        {
-            timer -= Time.deltaTime;
-        }
-        if (roomOwner == null)
-        {
-            roomOwner = GameObject.Find("NetworkManager");
-            //foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
-            //{
-            //    if (n.GetComponent<MovementScript>().playerNum == 1)
-            //    {
-            //        roomOwner = n;
-            //    }
-            //}
-        }
-        if (this.gameObject != roomOwner && roomOwner !=null)
-        {
-            timer = roomOwner.GetComponent<GameTimer>().timer;
-          //  Debug.Log(timer.ToString());
-        }
-        //photonView.RPC("SetTimer", PhotonTargets.All);
+
+        timer -= Time.deltaTime;
+
+
         if (timer <= 0 && called == false)
         {
             Debug.Log("time is less that or equal to 0");
