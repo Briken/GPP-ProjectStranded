@@ -53,7 +53,7 @@ public class PlayerResource : MonoBehaviour
             {
                 Debug.Log("button down");
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                //Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit hit = new RaycastHit();
 
                 if (Physics.Raycast(ray, out hit))
