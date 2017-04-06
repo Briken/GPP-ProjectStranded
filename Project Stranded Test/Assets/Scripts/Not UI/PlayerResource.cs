@@ -69,7 +69,7 @@ public class PlayerResource : MonoBehaviour
                         // Let the player know how much they have deposited if they have anything to deposit
                         if (resource > 0)
                         {
-                            hit.collider.gameObject.GetComponent<ShipScript>().photonView.RPC("DepositFuel", PhotonTargets.All);
+                            hit.collider.gameObject.GetComponent<ShipScript>().photonView.RPC("DepositFuel", PhotonTargets.All, resource);
                             informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You deposited " + resource.ToString(), 3.0f);
                             depositParticleObject.GetComponent<ParticleSystem>().Play();
                             resource = 0;
