@@ -94,7 +94,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
     void OnJoinedRoom()
     {
         //Debug.Log(PhotonNetwork.playerList.Length.ToString());
-        Debug.Log("This has been called" + PhotonPlayer.Find(this.photonView.ownerId).ToString());
+        //Debug.Log("This has been called" + PhotonPlayer.Find(this.photonView.ownerId).ToString());
         pNum = PhotonNetwork.playerList.Length;
         spawnPoint = ships[pNum - 1];
         if (PhotonNetwork.playerList.Length == roomDetails.MaxPlayers)
