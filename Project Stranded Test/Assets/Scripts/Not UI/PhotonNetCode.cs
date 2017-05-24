@@ -54,7 +54,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
         roomDetails.MaxPlayers = (byte)lobbyMax;
         typedLobby = new TypedLobby();
 
-        ships = GameObject.FindGameObjectsWithTag("Ship");
+        //ships = GameObject.FindGameObjectsWithTag("Ship");
         
         GameObject netmanager = this.gameObject;
         //timer = netmanager.GetComponent<GameTimer>();
