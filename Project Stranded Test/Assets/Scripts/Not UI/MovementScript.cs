@@ -63,13 +63,17 @@ public class MovementScript : Photon.PunBehaviour
 
         for (int n = 0; n < ships.Length; n++)// GameObject n in ships)
         {
+            foreach (GameObject playerColouredPart in playerColouredParts)
+            {
+                playerColouredPart.GetComponent<SpriteRenderer>().color = colours[playerNum - 1];
+            }
             if (ships[n].GetComponent<ShipScript>().claimed != true && hasClaimed == false)
             {
                 ships[n].GetComponent<ShipScript>().claimed = true;
                 hasClaimed = true;
                 ships[n].GetComponent<ShipScript>().player = this.gameObject;
                 ships[n].GetComponent<ShipScript>().shipNum = playerNum;
-                ships[n].GetComponent<SpriteRenderer>().color = colours[playerNum];
+                ships[n].GetComponent<SpriteRenderer>().color = playerColouredParts[0].GetComponent<SpriteRenderer>().color;
             }
             //if (ships[n].transform.position == shipPos && ships[n].GetComponent<ShipScript>().claimed == false)
             //{
@@ -86,10 +90,7 @@ public class MovementScript : Photon.PunBehaviour
             //if (n == 4 && !hasClaimed) n = 0;
         }
 
-        foreach (GameObject playerColouredPart in playerColouredParts)
-        { 
-            playerColouredPart.GetComponent<SpriteRenderer>().color = colours[playerNum-1];
-        }
+        
 
 
 #if UNITY_EDITOR
