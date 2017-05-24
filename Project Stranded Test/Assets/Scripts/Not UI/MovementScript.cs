@@ -135,6 +135,8 @@ public class MovementScript : Photon.PunBehaviour
                 //    moving = true;
                 //}
 
+                
+
                 // Adjust player sprite depending on what vertical direction they are moving in
                 if (Input.mousePosition.x > Screen.width/2)
                 {
@@ -159,7 +161,10 @@ public class MovementScript : Photon.PunBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    //    debug.text = "rayhit";
+                    if (hit.collider.gameObject.tag == "Player")
+                    {
+                        Debug.Log(hit.collider.gameObject.GetComponent<PhotonView>().ownerId + " is this objects owner ID");
+                    }
                     if (/*hit.collider.gameObject.GetComponent<MovementScript>().playerNum == playerNum*/ hit.collider.gameObject == this.gameObject)
                     {
                         currentSpeed = 0;
