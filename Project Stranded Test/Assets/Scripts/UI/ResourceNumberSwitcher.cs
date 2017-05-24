@@ -9,7 +9,7 @@ public class ResourceNumberSwitcher : MonoBehaviour {
     public Sprite timeSprite;
     public Sprite voteSprite;
     public GameObject spriteNumber;
-    public int initialNumber;
+    public int initialNumber = 0;
     public int currentNumber;
     ResourceScript attachedResourceScript;
 
