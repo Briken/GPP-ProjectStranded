@@ -52,7 +52,7 @@ Temporary Items
 [Tt]emp/
 [Oo]bj/
 [Bb]uild
-/[Ll]ibrary/
+/[L]ibrary/
 sysinfo.txt
 *.stackdump
  
@@ -88,4 +88,10 @@ Project Stranded Test/Library/shadercompiler-UnityShaderCompiler.exe0.log
 >>>>>>> 2e34cadc01d349465c318f3003fe181af474cefd
 *.mdb
 *.mdb
+<<<<<<< HEAD
 *.log
+=======
+*.dll
+*.bin
+*.dll
+>>>>>>> 6b9a49c0d4b02e43c31caa8a235fb901c02a779a
