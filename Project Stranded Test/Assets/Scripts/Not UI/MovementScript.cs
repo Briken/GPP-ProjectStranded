@@ -50,7 +50,7 @@ public class MovementScript : Photon.PunBehaviour
         pv = PhotonView.Get(this.gameObject);
         tempMgr = GameObject.Find("TeamManager");
 
-        ships = GameObject.FindGameObjectsWithTag("Ship");
+        ships = GameObject.FindGameObjectWithTag("NetManager").GetComponent<PhotonNetCode>().ships;
 
         if (pv.isMine)
         {
@@ -73,6 +73,7 @@ public class MovementScript : Photon.PunBehaviour
                 hasClaimed = true;
                 ships[n].GetComponent<ShipScript>().player = this.gameObject;
                 ships[n].GetComponent<ShipScript>().shipNum = playerNum;
+                myShip = ships[n];
                // ships[n].GetComponent<SpriteRenderer>().color = playerColouredParts[0].GetComponent<SpriteRenderer>().color;
             }
             //if (ships[n].transform.position == shipPos && ships[n].GetComponent<ShipScript>().claimed == false)
