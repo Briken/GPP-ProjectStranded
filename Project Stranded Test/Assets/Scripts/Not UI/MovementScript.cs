@@ -40,6 +40,7 @@ public class MovementScript : Photon.PunBehaviour
     // Use this for initialization
     void Start()
     {
+
         shipPos = transform.position;
         colours = new Color[5];
         SetColours();
@@ -60,7 +61,7 @@ public class MovementScript : Photon.PunBehaviour
 
         }
 
-        foreach (GameObject n in ships)
+        for (int n = 0; n < ships.Length; n++)// GameObject n in ships)
         {
             //if (n.GetComponent<ShipScript>().claimed != true && hasClaimed == false)
             //{
@@ -70,14 +71,19 @@ public class MovementScript : Photon.PunBehaviour
             //    n.GetComponent<ShipScript>().shipNum = playerNum;
             //    n.GetComponent<SpriteRenderer>().color = colours[playerNum];
             //}
-            if (n.transform.position == shipPos)
+            if (ships[n].transform.position == shipPos && ships[n].GetComponent<ShipScript>().claimed == false)
             {
-                n.GetComponent<ShipScript>().claimed = true;
+                ships[n].GetComponent<ShipScript>().claimed = true;
                    hasClaimed = true;
-                   n.GetComponent<ShipScript>().player = this.gameObject;
-                   n.GetComponent<ShipScript>().shipNum = playerNum;
-                   n.GetComponent<SpriteRenderer>().color = colours[playerNum-1];
+                   ships[n].GetComponent<ShipScript>().player = this.gameObject;
+                   ships[n].GetComponent<ShipScript>().shipNum = playerNum;
+                   ships[n].GetComponent<SpriteRenderer>().color = colours[playerNum-1];
             }
+            if (ships[n].transform.position == shipPos && ships[n].GetComponent<ShipScript>().claimed == true)
+            {
+                shipPos = ships[n + 1].transform.position;
+            }
+            if (n == 4 && !hasClaimed) n = 0;
         }
 
         foreach (GameObject playerColouredPart in playerColouredParts)
@@ -225,13 +231,13 @@ public class MovementScript : Photon.PunBehaviour
         {
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
-            //stream.SendNext(rBody.velocity);
+           
         }
         else
         {
             this.transform.position = (Vector3)stream.ReceiveNext();
             this.transform.rotation = (Quaternion)stream.ReceiveNext();
-           // this.rBody.velocity = (Vector3)stream.ReceiveNext();
+        
 
         }
     }

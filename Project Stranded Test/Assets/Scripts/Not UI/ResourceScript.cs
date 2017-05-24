@@ -85,20 +85,7 @@ public class ResourceScript : PunBehaviour {
                 StartCoroutine(ResourceTime(waitTimer, n));
             }
         }
-        //if (nearby.Count == small && this.gameObject.tag == "Small")
-        //{
-        //    foreach (GameObject n in nearby)
-        //    {
-        //        AddResource(n);
-        //    }
-        //}
-        //if (nearby.Count == large && this.gameObject.tag == "Large")
-        //{
-        //    foreach (GameObject n in nearby)
-        //    {
-        //        AddResource(n);
-        //    }
-        //}
+      
     }
 
     public void AddResource(GameObject player)
