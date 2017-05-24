@@ -63,27 +63,27 @@ public class MovementScript : Photon.PunBehaviour
 
         for (int n = 0; n < ships.Length; n++)// GameObject n in ships)
         {
-            //if (n.GetComponent<ShipScript>().claimed != true && hasClaimed == false)
-            //{
-            //    n.GetComponent<ShipScript>().claimed = true;
-            //    hasClaimed = true;
-            //    n.GetComponent<ShipScript>().player = this.gameObject;
-            //    n.GetComponent<ShipScript>().shipNum = playerNum;
-            //    n.GetComponent<SpriteRenderer>().color = colours[playerNum];
-            //}
-            if (ships[n].transform.position == shipPos && ships[n].GetComponent<ShipScript>().claimed == false)
+            if (ships[n].GetComponent<ShipScript>().claimed != true && hasClaimed == false)
             {
                 ships[n].GetComponent<ShipScript>().claimed = true;
-                   hasClaimed = true;
-                   ships[n].GetComponent<ShipScript>().player = this.gameObject;
-                   ships[n].GetComponent<ShipScript>().shipNum = playerNum;
-                   ships[n].GetComponent<SpriteRenderer>().color = colours[playerNum-1];
+                hasClaimed = true;
+                ships[n].GetComponent<ShipScript>().player = this.gameObject;
+                ships[n].GetComponent<ShipScript>().shipNum = playerNum;
+                ships[n].GetComponent<SpriteRenderer>().color = colours[playerNum];
             }
-            if (ships[n].transform.position == shipPos && ships[n].GetComponent<ShipScript>().claimed == true)
-            {
-                shipPos = ships[n + 1].transform.position;
-            }
-            if (n == 4 && !hasClaimed) n = 0;
+            //if (ships[n].transform.position == shipPos && ships[n].GetComponent<ShipScript>().claimed == false)
+            //{
+            //    ships[n].GetComponent<ShipScript>().claimed = true;
+            //       hasClaimed = true;
+            //       ships[n].GetComponent<ShipScript>().player = this.gameObject;
+            //       ships[n].GetComponent<ShipScript>().shipNum = playerNum;
+            //       ships[n].GetComponent<SpriteRenderer>().color = colours[playerNum-1];
+            //}
+            //if (ships[n].transform.position == shipPos && ships[n].GetComponent<ShipScript>().claimed == true)
+            //{
+            //    shipPos = ships[n + 1].transform.position;
+            //}
+            //if (n == 4 && !hasClaimed) n = 0;
         }
 
         foreach (GameObject playerColouredPart in playerColouredParts)
