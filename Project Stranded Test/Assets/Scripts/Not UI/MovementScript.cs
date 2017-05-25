@@ -67,13 +67,13 @@ public class MovementScript : Photon.PunBehaviour
             {
                 playerColouredPart.GetComponent<SpriteRenderer>().color = colours[playerNum - 1];
             }
-            if (ships[playerNum].GetComponent<ShipScript>().claimed != true && hasClaimed == false)
+            if (ships[playerNum - 1].GetComponent<ShipScript>().claimed != true && hasClaimed == false)
             {
-                ships[playerNum].GetComponent<ShipScript>().claimed = true;
+                ships[playerNum - 1].GetComponent<ShipScript>().claimed = true;
                 hasClaimed = true;
-                ships[playerNum].GetComponent<ShipScript>().player = this.gameObject;
-                ships[playerNum].GetComponent<ShipScript>().shipNum = playerNum;
-                myShip = ships[playerNum];
+                ships[playerNum - 1].GetComponent<ShipScript>().player = this.gameObject;
+                ships[playerNum - 1].GetComponent<ShipScript>().shipNum = playerNum;
+                myShip = ships[playerNum - 1];
                // ships[n].GetComponent<SpriteRenderer>().color = playerColouredParts[0].GetComponent<SpriteRenderer>().color;
             }
             //if (ships[n].transform.position == shipPos && ships[n].GetComponent<ShipScript>().claimed == false)
