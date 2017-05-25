@@ -126,7 +126,6 @@
      <Compile Include="Assets\Scripts\Not UI\DestroyAfterTime.cs" />
      <Compile Include="Assets\Scripts\Not UI\GameTimer.cs" />
      <Compile Include="Assets\Scripts\Not UI\GrowthCircle.cs" />
-     <Compile Include="Assets\Scripts\Not UI\KillScript.cs" />
      <Compile Include="Assets\Scripts\Not UI\MovementScript.cs" />
      <Compile Include="Assets\Scripts\Not UI\NetworkMovement.cs" />
      <Compile Include="Assets\Scripts\Not UI\NetworkingCode.cs" />
