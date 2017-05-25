@@ -17,7 +17,7 @@ public class NetworkMovement : Photon.MonoBehaviour {
         if (!photonView.isMine)
         {
             transform.position = Vector3.Lerp(transform.position, this.correctPPos, Time.deltaTime*5);
-            transform.rotation = Quaternion.Lerp(transform.rotation, this.correctPRot, Time.deltaTime*5);
+            //transform.rotation = Quaternion.Lerp(transform.rotation, this.correctPRot, Time.deltaTime*5);
         }
     }
 
@@ -27,14 +27,14 @@ public class NetworkMovement : Photon.MonoBehaviour {
         if (stream.isWriting)
         {
             stream.SendNext(transform.position);
-            stream.SendNext(transform.rotation);
-            stream.SendNext(transform.localScale);
+            //stream.SendNext(transform.rotation);
+            //stream.SendNext(transform.localScale);
         }
         else
         {
             this.transform.position = (Vector3) stream.ReceiveNext();
-            this.transform.rotation = (Quaternion)stream.ReceiveNext();
-            this.transform.localScale = (Vector3)stream.ReceiveNext();
+            //this.transform.rotation = (Quaternion)stream.ReceiveNext();
+            //this.transform.localScale = (Vector3)stream.ReceiveNext();
         }
     }
 }

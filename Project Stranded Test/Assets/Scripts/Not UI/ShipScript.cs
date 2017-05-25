@@ -43,9 +43,9 @@ public class ShipScript : Photon.PunBehaviour
     //}
 
     [PunRPC]
-    public void DepositFuel()
+    public void DepositFuel(int pResource)
     {
-        currentFuel += player.gameObject.GetComponent<PlayerResource>().resource;
+        currentFuel += pResource;
         totalFuel += currentFuel;
     }
 }
