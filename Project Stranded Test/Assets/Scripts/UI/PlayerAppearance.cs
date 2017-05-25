@@ -15,6 +15,8 @@ public class PlayerAppearance : MonoBehaviour {
     public int playerHeadNumber;
     public int playerBodyNumber;
 
+    public GameObject mainMenuUsernameDisplay;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -103,5 +105,8 @@ public class PlayerAppearance : MonoBehaviour {
         
         // Manually reloads the username after saving
         GameObject.FindGameObjectWithTag("GameData").GetComponent<RoomData>().ManualUsernameLoad();
+
+        // Quick workaround for updating the username string on main menu following UI merge
+        mainMenuUsernameDisplay.gameObject.GetComponent<Text>().text = PlayerPrefs.GetString("Username");
     }
 }
