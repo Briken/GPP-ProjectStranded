@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon;
@@ -92,7 +93,9 @@ public class VotingSystem : Photon.PunBehaviour
 
         else
         {
-            return (int)Random.Range(1, 5);
+            //return (int)System.Random();
+            System.Random random = new System.Random(0);
+            return random.Next(1, 6);
         }
 
     }

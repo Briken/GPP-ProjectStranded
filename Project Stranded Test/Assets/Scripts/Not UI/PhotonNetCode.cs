@@ -9,8 +9,8 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     public GameObject voteCards;
     public GameObject voteLoss;
-    
 
+    bool isMasterServer = false;
     GameObject spawnPoint;
     bool isActive = false;
     public GameObject gData;
@@ -93,10 +93,8 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     void OnJoinedRoom()
     {
-        //Debug.Log(PhotonNetwork.playerList.Length.ToString());
-        //Debug.Log("This has been called" + PhotonPlayer.Find(this.photonView.ownerId).ToString());
-        
-        
+        isMasterServer = PhotonNetwork.playerList.Length == 1;
+
         if (PhotonNetwork.playerList.Length == roomDetails.MaxPlayers)
         {
          
@@ -126,29 +124,24 @@ public class PhotonNetCode : Photon.PunBehaviour {
         
     }
 
-    void CreateRoom()
-    {
-        
-    }
 
     void SpawnPlayer()
     {
         GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
-        pNum = controlledPlayer.GetComponent<PhotonView>().ownerId;
+        if (isMasterServer)
+        {
+            foreach(ResourceScript n in FindObjectsOfType<ResourceScript>())
+            {
+                int seed = Random.Range(0, int.MaxValue);
+                n.photonView.RPC("ReceiveSeed", PhotonTargets.All, seed);
+            }
+        }
 
+        pNum = controlledPlayer.GetComponent<PhotonView>().ownerId;
         Vector3 moveTo = ships[pNum - 1].transform.position;
         controlledPlayer.transform.position = moveTo;
-
-        //GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, spawnPoint.transform.position, spawnPoint.transform.rotation, 0);
-        //for (int i = 0; i < ships.Length; i++)
-        //{
-        //    if (spawnPoint == ships[i])
-        //    {
-                controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, pNum);
-        //    }
-        //}
-        //controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, controlledPlayer.GetComponent<MovementScript>().photonView.ownerId);
-       // timer.enabled = true;
+        controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, pNum);
+       
     }
 
     

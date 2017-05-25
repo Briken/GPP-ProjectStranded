@@ -7,6 +7,8 @@ public class ResourceScript : PunBehaviour {
 
     bool debug = false;
 
+    public int seed;
+
     public float waitTimer = 10.0f;
     public GameObject particleEffectPrefab; 
 
@@ -84,21 +86,21 @@ public class ResourceScript : PunBehaviour {
             {
                 StartCoroutine(ResourceTime(waitTimer, n));
             }
+            // photonView.RPC("DestroyThis", PhotonTargets.All);
+            DestroyThis();
         }
       
     }
 
     public void AddResource(GameObject player)
     {
-        
+
         //Debug.Log(player.name);
+        Debug.Log("player " + player.GetComponent<MovementScript>().playerNum + " has recieved " + amount);
         playerResource = player.GetComponent<PlayerResource>();
-        GameObject informationBar = GameObject.FindGameObjectWithTag("Information Bar");
-        
         playerResource.resource += amount;
-        //informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You picked up " + large.ToString() + " fuel!", 4.0f);
-        photonView.RPC("DestroyThis", PhotonTargets.All);
-        
+  
+           
     }
 
     
@@ -145,8 +147,9 @@ public class ResourceScript : PunBehaviour {
             foreach (GameObject n in nearby)
             {
                 AddResource(n);
-                //StartCoroutine(ResourceTime(waitTimer, n));
+                
             }
+            DestroyThis();
         }
     }
 
@@ -155,10 +158,17 @@ public class ResourceScript : PunBehaviour {
         yield return new WaitForSeconds(6);
         votedOut.SetActive(false);
     }
+
     [PunRPC]
+    public void ReceiveSeed(int recieved)
+    {
+        seed = recieved;
+        Debug.Log("Seed for this crate " + name + " is " + seed);
+    }
+
     public void DestroyThis()
     {
        
-        Destroy(this.gameObject);
+       PhotonNetwork.Destroy(this.gameObject);
     }
 }
