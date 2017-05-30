@@ -134,6 +134,7 @@
      <Compile Include="Assets\Scripts\Not UI\PhotonNetCode.cs" />
      <Compile Include="Assets\Scripts\Not UI\PlayerColourChanger.cs" />
      <Compile Include="Assets\Scripts\Not UI\PlayerResource.cs" />
+     <Compile Include="Assets\Scripts\Not UI\PulseColourChange.cs" />
      <Compile Include="Assets\Scripts\Not UI\ResourceRightingScript.cs" />
      <Compile Include="Assets\Scripts\Not UI\ResourceScript.cs" />
      <Compile Include="Assets\Scripts\Not UI\ResourceSpawnScript.cs" />
