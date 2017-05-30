@@ -77,9 +77,10 @@ public class CommScript : PunBehaviour {
         }
         if (canComm == true && thisPlayer != null)
         {
-            PhotonNetwork.Instantiate(pulse.name, thisPlayer.transform.position, Quaternion.identity, 0);
+            GameObject commObj = PhotonNetwork.Instantiate(pulse.name, thisPlayer.transform.position, Quaternion.identity, 0);
             canComm = false;
-            gameObject.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.2f);
+            Debug.Log(commObj.name);
+            commObj.GetComponent<SpriteRenderer>().color = thisPlayer.gameObject.GetComponent<MovementScript>().myColour;
             StartCoroutine(CommCooldown(silenceTime));
         }
     }

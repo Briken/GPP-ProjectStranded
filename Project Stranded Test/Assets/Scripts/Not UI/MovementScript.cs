@@ -28,6 +28,7 @@ public class MovementScript : Photon.PunBehaviour
     GameObject tempMgr;
     Vector3 shipPos;
     Color[] colours;
+    public Color myColour;
 
     float currentSpeed = 10;
     bool moving = false;
@@ -65,7 +66,9 @@ public class MovementScript : Photon.PunBehaviour
         {
             foreach (GameObject playerColouredPart in playerColouredParts)
             {
+
                 playerColouredPart.GetComponent<SpriteRenderer>().color = colours[playerNum - 1];
+                myColour = colours[playerNum - 1];
             }
             if (ships[playerNum - 1].GetComponent<ShipScript>().claimed != true && hasClaimed == false)
             {

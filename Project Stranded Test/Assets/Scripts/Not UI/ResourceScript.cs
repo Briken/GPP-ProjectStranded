@@ -76,10 +76,10 @@ public class ResourceScript : PunBehaviour {
 
 
         
-        if (nearby.Count == requirement /*&& called == false*/)
+        if (nearby.Count == requirement)
         {
             called = true;
-            //StartCoroutine(Wait());
+            
             waitTimer -= Time.deltaTime;
             if (waitTimer <= 0)
             {
@@ -152,19 +152,7 @@ public class ResourceScript : PunBehaviour {
             }
         }
     }
-    IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(waitTimer);
-        if (nearby.Count == requirement)
-        {
-            foreach (GameObject n in nearby)
-            {
-                AddResource(n);
-                
-            }
-            DestroyThis();
-        }
-    }
+  
 
     IEnumerator VotedOut()
     {
