@@ -11,13 +11,17 @@ public class ResourceNumberSwitcher : MonoBehaviour {
     public GameObject spriteNumber;
     public int initialNumber = 0;
     public int currentNumber;
+    public GameObject fillBarImage;
+    
     ResourceScript attachedResourceScript;
+    float initialWaitTime;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
 
         attachedResourceScript = gameObject.GetComponent<ResourceScript>();
+        initialWaitTime = attachedResourceScript.waitTimer;
 		
 	}
 	
@@ -29,6 +33,7 @@ public class ResourceNumberSwitcher : MonoBehaviour {
             if (initialNumber - attachedResourceScript.nearby.Count == 0)
             {
                 spriteNumber.GetComponent<SpriteRenderer>().sprite = timeSprite;
+                fillBarImage.GetComponent<Image>().fillAmount = 1 - (attachedResourceScript.waitTimer / initialWaitTime);
             }
             else if (initialNumber - attachedResourceScript.nearby.Count < 0)
             {
