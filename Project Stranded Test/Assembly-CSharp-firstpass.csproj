@@ -71,10 +71,10 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="Photon3Unity3D">
- <HintPath>C:/Users/dheske200/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Plugins/Photon3Unity3D.dll</HintPath>
+ <HintPath>C:/Users/DHeske200/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Plugins/Photon3Unity3D.dll</HintPath>
  </Reference>
  <Reference Include="websocket-sharp">
- <HintPath>C:/Users/dheske200/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Plugins/WebSocket/websocket-sharp.dll</HintPath>
+ <HintPath>C:/Users/DHeske200/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Plugins/WebSocket/websocket-sharp.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

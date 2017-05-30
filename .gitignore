@@ -98,3 +98,5 @@ Project Stranded Test/Library/shadercompiler-UnityShaderCompiler.exe0.log
 *.log
 *.dll
 *.mdb
+*.info
+*.dll

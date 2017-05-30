@@ -9,7 +9,7 @@ public class ResourceScript : PunBehaviour {
 
     public int seed;
 
-    public float waitTimer = 10.0f;
+    public float waitTimer = 5.0f;
     public GameObject particleEffectPrefab; 
 
     PlayerResource playerResource;

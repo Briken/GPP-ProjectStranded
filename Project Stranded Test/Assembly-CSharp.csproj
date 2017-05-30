@@ -152,9 +152,11 @@
      <Compile Include="Assets\Scripts\UI\SpawnUI.cs" />
      <Compile Include="Assets\Scripts\UI\UIBarScript.cs" />
      <Compile Include="Assets\Scripts\UI\UICanvasSwitching.cs" />
+     <Compile Include="Assets\Scripts\UI\UIErrorMessage.cs" />
      <Compile Include="Assets\Scripts\UI\UIFunctionsScript.cs" />
      <Compile Include="Assets\Scripts\UI\UIHelpCanvasSwitcher.cs" />
      <Compile Include="Assets\Scripts\UI\UIInformationBar.cs" />
+     <Compile Include="Assets\Scripts\UI\UIInternetConnection.cs" />
      <Compile Include="Assets\Scripts\UI\UILerpMovement.cs" />
      <Compile Include="Assets\Scripts\UI\UIMainGameHandler.cs" />
      <Compile Include="Assets\Scripts\UI\UIMainMenuUsername.cs" />
@@ -188,10 +190,10 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="Photon3Unity3D">
- <HintPath>C:/Users/dheske200/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Plugins/Photon3Unity3D.dll</HintPath>
+ <HintPath>C:/Users/DHeske200/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Plugins/Photon3Unity3D.dll</HintPath>
  </Reference>
  <Reference Include="websocket-sharp">
- <HintPath>C:/Users/dheske200/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Plugins/WebSocket/websocket-sharp.dll</HintPath>
+ <HintPath>C:/Users/DHeske200/Documents/GitHub/GPP-ProjectStranded/Project Stranded Test/Assets/Plugins/WebSocket/websocket-sharp.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
