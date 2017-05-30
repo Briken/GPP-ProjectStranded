@@ -19,8 +19,15 @@ public class CommScript : PunBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        
-	}
+        foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            if (n.GetPhotonView().isMine)
+            {
+                thisPlayer = n;
+            }
+        }
+        pulse.GetComponent<SpriteRenderer>().color =  thisPlayer.gameObject.GetComponent<MovementScript>().myColour;
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -68,19 +75,13 @@ public class CommScript : PunBehaviour {
 
     public void Alert()
     {
-        foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
-        {
-            if (n.GetPhotonView().isMine)
-            {
-                thisPlayer = n;
-            } 
-        }
+        
         if (canComm == true && thisPlayer != null)
         {
             GameObject commObj = PhotonNetwork.Instantiate(pulse.name, thisPlayer.transform.position, Quaternion.identity, 0);
             canComm = false;
             Debug.Log(commObj.name);
-            commObj.GetComponent<SpriteRenderer>().color = thisPlayer.gameObject.GetComponent<MovementScript>().myColour;
+            
             StartCoroutine(CommCooldown(silenceTime));
         }
     }
