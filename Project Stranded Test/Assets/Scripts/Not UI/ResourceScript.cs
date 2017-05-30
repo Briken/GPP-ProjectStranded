@@ -73,12 +73,26 @@ public class ResourceScript : PunBehaviour {
                 }
             }
         }
+
+
         
-        if (nearby.Count == requirement && called == false)
+        if (nearby.Count == requirement /*&& called == false*/)
         {
             called = true;
-            StartCoroutine(Wait());
+            //StartCoroutine(Wait());
+            waitTimer -= Time.deltaTime;
+            if (waitTimer <= 0)
+            {
+
+                foreach (GameObject n in nearby)
+                {
+                    AddResource(n);
+                }
+            }
         }
+
+
+
         if (nearby.Count > requirement && called == false)
         {
             called = true;
@@ -86,16 +100,14 @@ public class ResourceScript : PunBehaviour {
             {
                 StartCoroutine(ResourceTime(waitTimer, n));
             }
-            // photonView.RPC("DestroyThis", PhotonTargets.All);
             DestroyThis();
         }
-      
     }
 
     public void AddResource(GameObject player)
     {
 
-        //Debug.Log(player.name);
+       
         Debug.Log("player " + player.GetComponent<MovementScript>().playerNum + " has recieved " + amount);
         playerResource = player.GetComponent<PlayerResource>();
         playerResource.resource += amount;
