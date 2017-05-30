@@ -8,6 +8,7 @@ public class UIInternetConnection : MonoBehaviour {
     public GameObject connectionWarningText;
     public GameObject startGameButton;
     public GameObject startGameText;
+    public GameObject playerCountText;
 
     public GameObject errorScreenHandler;
     public GameObject startGameScreen;
@@ -32,12 +33,14 @@ public class UIInternetConnection : MonoBehaviour {
             }
 
             connectionWarningText.SetActive(true);
+            playerCountText.SetActive(false);
             startGameButton.GetComponent<Button>().interactable = false;
             startGameText.GetComponent<Text>().color = new Color(0.3f, 0.3f, 0.3f, 0.3f);
         }
         else
         {
             connectionWarningText.SetActive(false);
+            playerCountText.SetActive(true);
             startGameButton.GetComponent<Button>().interactable = true;
             startGameText.GetComponent<Text>().color = Color.white;
         }
