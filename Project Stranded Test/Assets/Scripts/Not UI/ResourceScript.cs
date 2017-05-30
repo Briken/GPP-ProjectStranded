@@ -88,6 +88,7 @@ public class ResourceScript : PunBehaviour {
                 {
                     AddResource(n);
                 }
+                DestroyThis();
             }
         }
 
