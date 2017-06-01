@@ -31,47 +31,40 @@ public class VoteTally : MonoBehaviour {
 		
 	}
 
-    public void IncrementP1()
+    private void IncrementPlayer(int index)
     {
         foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
         {
-            n.GetComponent<VotingSystem>().photonView.RPC("IncrementP1RPC", PhotonTargets.All);
+            n.GetComponent<VotingSystem>().photonView.RPC("IncrementPlayerRPC", PhotonTargets.All, index);
         }
+    }
+
+    public void IncrementP1()
+    {
+        IncrementPlayer(0);
     }
 
 
     public void IncrementP2()
     {
-        foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
-        {
-            n.GetComponent<VotingSystem>().photonView.RPC("IncrementP2RPC", PhotonTargets.All);
-        }
+        IncrementPlayer(1);
     }
 
    
     public void IncrementP3()
     {
-        foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
-        {
-            n.GetComponent<VotingSystem>().photonView.RPC("IncrementP3RPC", PhotonTargets.All);
-        }
+        IncrementPlayer(2);
     }
 
   
     public void IncrementP4()
     {
-        foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
-        {
-            n.GetComponent<VotingSystem>().photonView.RPC("IncrementP4RPC", PhotonTargets.All);
-        }
+        IncrementPlayer(3);
     }
     
     public void IncrementP5()
     {
-        foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
-        {
-            n.GetComponent<VotingSystem>().photonView.RPC("IncrementP5RPC", PhotonTargets.All);
-        }
+        IncrementPlayer(4);
     }
 
    

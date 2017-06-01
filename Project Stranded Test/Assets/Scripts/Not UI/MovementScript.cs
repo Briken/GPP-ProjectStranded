@@ -119,7 +119,7 @@ public class MovementScript : Photon.PunBehaviour
         if (!photonView.isMine)
         {
             transform.position = Vector3.Lerp(transform.position, this.correctPPos, Time.deltaTime * 5);
-            transform.rotation = Quaternion.Lerp(transform.rotation, this.correctPRot, Time.deltaTime * 5);
+         //   transform.rotation = Quaternion.Lerp(transform.rotation, this.correctPRot, Time.deltaTime * 5);
         }
         //squareloc.text = transform.position.ToString();
         if (pv.isMine)
@@ -259,7 +259,7 @@ public class MovementScript : Photon.PunBehaviour
         colours[1] = Color.blue;
         colours[2] = Color.green;
         colours[3] = Color.yellow;
-        colours[4] = Color.white;
+        colours[4] = new Color(1, 0.5f, 0);
     }
 
     [PunRPC]

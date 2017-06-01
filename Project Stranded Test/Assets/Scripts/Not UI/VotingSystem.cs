@@ -11,6 +11,8 @@ public class VotingSystem : Photon.PunBehaviour
     public GameObject voteCount;
     public GameObject voteCard;
 
+    public int[] playerTotals;
+
     public int player1Total;
     public int player1Current;
 
@@ -30,6 +32,7 @@ public class VotingSystem : Photon.PunBehaviour
     // Use this for initialization
     void Start()
     {
+        playerTotals = new int[GameObject.FindGameObjectsWithTag("Player").Length];
         voteCount = GameObject.FindGameObjectWithTag("VoteObj");
         voteCard = GameObject.Find("NetworkManager").GetComponent<PhotonNetCode>().voteCards;
     }
@@ -49,88 +52,37 @@ public class VotingSystem : Photon.PunBehaviour
 
     }
 
-    public int CheckVote()
+    public int CheckVote(int seed)
     {
-       if ( player1Current > player2Current &&
-           player1Current > player3Current &&
-           player1Current > player4Current && 
-           player1Current > player5Current)
+        int maxTotal = 0;
+        List<int> playersVoted = new List<int>();
+        for(int index = 0; index < playerTotals.Length; index++)
         {
-            return 1;
+            if (playerTotals[index] > maxTotal)
+            {
+                maxTotal = playerTotals[index];
+            }
         }
 
-        if (player2Current >player1Current &&
-          player2Current >player3Current &&
-          player2Current >player4Current &&
-          player2Current >player5Current)
+        for(int index = 0; index < playerTotals.Length; index++)
         {
-            return 2;
+            if (playerTotals[index] == maxTotal)
+            {
+                playersVoted.Add(index + 1);
+            }
+            Debug.Log("player with number: " + (index + 1) + " has " + playersVoted[index] + " votes");
         }
 
-        if (player3Current >player2Current &&
-          player3Current >player1Current &&
-          player3Current >player4Current &&
-          player3Current >player5Current)
         {
-            return 3;
-        }
-
-        if (player4Current >player2Current &&
-          player4Current >player3Current &&
-          player4Current >player1Current &&
-          player4Current >player5Current)
-        {
-            return 4;
-        }
-
-        if (player5Current >player2Current &&
-          player5Current >player3Current &&
-          player5Current >player4Current &&
-          player5Current >player1Current)
-        {
-            return 5;
-        }
-
-        else
-        {
-            //return (int)System.Random();
-            System.Random random = new System.Random(0);
-            return random.Next(1, 6);
+            System.Random random = new System.Random(seed);
+            return playersVoted[random.Next(0, playersVoted.Count)];
         }
 
     }
 
     [PunRPC]
-    public void IncrementP1RPC()
+    public void IncrementPlayerRPC(int index)
     {
-        player1Total++;
-        player1Current++;
-    }
-
-    [PunRPC]
-    public void IncrementP2RPC()
-    {
-        player2Total++;
-        player2Current++;
-    }
-
-    [PunRPC]
-    public void IncrementP3RPC()
-    {
-        player3Total++;
-        player3Current++;
-    }
-
-    [PunRPC]
-    public void IncrementP4RPC()
-    {
-        player4Total++;
-        player4Current++;
-    }
-    [PunRPC]
-    public void IncrementP5RPC()
-    {
-        player5Total++;
-        player5Current++;
+        playerTotals[index]++;
     }
 }
