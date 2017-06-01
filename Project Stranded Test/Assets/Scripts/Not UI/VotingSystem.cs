@@ -26,7 +26,7 @@ public class VotingSystem : Photon.PunBehaviour
             string buttonName = n.gameObject.name;
             char num = buttonName[6];
             
-            if (num >=playerTotals.Length)
+            if (num > playerTotals.Length)
             {
                 n.gameObject.SetActive(false);
             }
