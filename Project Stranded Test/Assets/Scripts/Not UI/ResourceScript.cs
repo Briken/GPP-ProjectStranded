@@ -8,12 +8,13 @@ public class ResourceScript : PunBehaviour {
     bool debug = false;
 
     public int seed;
+    bool isGifted = false:
 
     public float waitTimer = 5.0f;
     public GameObject particleEffectPrefab; 
 
     PlayerResource playerResource;
-    bool called = false;
+    bool voteIsCalled = false;
     public GameObject votedOut;
 
     public List<GameObject> nearby = new List<GameObject>();
@@ -76,14 +77,14 @@ public class ResourceScript : PunBehaviour {
 
 
         
-        if (nearby.Count == requirement)
+        if (nearby.Count == requirement && voteIsCalled == false)
         {
-            called = true;
+            
             
             waitTimer -= Time.deltaTime;
-            if (waitTimer <= 0)
+            if (waitTimer <= 0 && !isGifted)
             {
-
+                isGifted = true;
                 foreach (GameObject n in nearby)
                 {
                     AddResource(n);
@@ -94,9 +95,9 @@ public class ResourceScript : PunBehaviour {
 
 
 
-        if (nearby.Count > requirement && called == false)
+        if (nearby.Count > requirement && voteIsCalled == false)
         {
-            called = true;
+            voteIsCalled = true;
             foreach (GameObject n in nearby)
             {
                 StartCoroutine(ResourceTime(waitTimer, n));
