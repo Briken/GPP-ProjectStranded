@@ -35,7 +35,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        
+        Debug.Log(PhotonNetwork.connectionState);
         if (GameObject.FindGameObjectWithTag("GameData") == null)
         {
             Instantiate(gData);
@@ -48,7 +48,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
         PhotonNetwork.sendRate = 20; 
         PhotonNetwork.logLevel = PhotonLogLevel.Full;
-        if (!PhotonNetwork.connected)
+        if (PhotonNetwork.connectionState == ConnectionState.Disconnected)
         {
             PhotonNetwork.ConnectUsingSettings("0.1");
         }

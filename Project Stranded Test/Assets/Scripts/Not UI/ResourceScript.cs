@@ -100,7 +100,10 @@ public class ResourceScript : PunBehaviour {
             voteIsCalled = true;
             foreach (GameObject n in nearby)
             {
-                StartCoroutine(ResourceTime(waitTimer, n));
+                if (n.GetPhotonView().isMine)
+                {
+                    StartCoroutine(ResourceTime(waitTimer, n));
+                }
             }
             DestroyThis();
         }
