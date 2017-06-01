@@ -2,26 +2,36 @@
 using System.Collections;
 using UnityEngine.UI;
 using Photon;
+using System;
 
 public class UIBarScript : PunBehaviour {
 
     public GameObject fuelCarriedText;
     public GameObject fuelCarriedBar;
+    public GameObject fuelShipText;
+    public GameObject fuelShipBar;
     public float barMaxValue = 20.0f;
     public float barValue = 0.0f;
+    float currentPlayerFuel;
+    float currentShipFuel;
+    float maxShipFuel;
+
     // Use this for initialization
-    void Start () {
-        fuelCarriedText = GameObject.Find("Text - Fuel");
+    void Start ()
+    {
+        fuelCarriedText = GameObject.Find("Text - Carried Fuel");
         fuelCarriedBar = GameObject.Find("Slider - Fuel");
-	}
+        fuelShipText = GameObject.Find("Text - Ship Fuel");
+        fuelShipBar = GameObject.Find("Slider - Ship Fuel");
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
         if (photonView.isMine)
         {
-            fuelCarriedText.GetComponent<Text>().text = "FUEL: " + GetComponent<PlayerResource>().resource.ToString();
-
+            
+            /*
             // Fuel bar handling:
             if (barValue > this.gameObject.GetComponent<PlayerResource>().resource / barMaxValue)
             {
@@ -31,8 +41,23 @@ public class UIBarScript : PunBehaviour {
             {
                 barValue = Mathf.Clamp(barValue + (0.15f * Time.deltaTime), 0.0f, 1.0f);
             }
+            */
 
-            fuelCarriedBar.GetComponent<Slider>().value = barValue;
+            // Convert player fuel int value to float so we can divide properly
+            currentPlayerFuel = gameObject.GetComponent<PlayerResource>().resource;
+
+            fuelCarriedBar.GetComponent<Slider>().value = currentPlayerFuel / barMaxValue;
+
+            fuelCarriedText.GetComponent<Text>().text = Mathf.Round((currentPlayerFuel / barMaxValue)*100).ToString() + "%";
+
+
+            // Convert ship fuel int values to float so we can divide properly
+            currentShipFuel = gameObject.GetComponent<MovementScript>().myShip.GetComponent<ShipScript>().currentFuel;
+            maxShipFuel = gameObject.GetComponent<MovementScript>().myShip.GetComponent<ShipScript>().maxFuel;
+
+            fuelShipBar.GetComponent<Slider>().value = currentShipFuel / maxShipFuel;
+
+            fuelShipText.GetComponent<Text>().text = ((currentShipFuel / maxShipFuel) * 100).ToString() + "%";          
         }
     }
 }
