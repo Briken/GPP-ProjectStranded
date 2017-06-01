@@ -105,7 +105,7 @@ public class ResourceScript : PunBehaviour {
                     StartCoroutine(ResourceTime(waitTimer, n));
                 }
             }
-            DestroyThis();
+            
         }
     }
 
@@ -137,6 +137,7 @@ public class ResourceScript : PunBehaviour {
     {
         player.GetComponent<VotingSystem>().CallVote();
         yield return new WaitForSeconds(waitTime);
+        Debug.Log("Timer Waited for, votecard should shut down now");
         player.GetComponent<VotingSystem>().voteCard.SetActive(false);
         int boot = player.GetComponent<VotingSystem>().CheckVote();
         foreach (GameObject n in nearby)
@@ -144,17 +145,19 @@ public class ResourceScript : PunBehaviour {
             if (boot == n.GetComponent<MovementScript>().playerNum && photonView.isMine)
             {
                 votedOut.SetActive(true);
-                yield return new WaitForSeconds(5);
+                
             }
             if (nearby.Count == requirement && boot != n.GetComponent<MovementScript>().playerNum)
             {
                 AddResource(player);
+                
             }
             else if (nearby.Count > requirement)
             {
                 StartCoroutine(ResourceTime(waitTime, player));
             }
         }
+        DestroyThis();
     }
   
 
