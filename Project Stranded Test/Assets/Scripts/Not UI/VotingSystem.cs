@@ -70,7 +70,7 @@ public class VotingSystem : Photon.PunBehaviour
             {
                 playersVoted.Add(index + 1);
             }
-            Debug.Log("player with number: " + (index + 1) + " has " + playersVoted[index] + " votes");
+            Debug.Log("player with number: " + (index + 1) + " has " + playerTotals[index] + " votes");
         }
 
         {
