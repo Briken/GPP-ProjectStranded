@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon;
 
 
@@ -10,31 +11,27 @@ public class VotingSystem : Photon.PunBehaviour
 
     public GameObject voteCount;
     public GameObject voteCard;
-
     public int[] playerTotals;
-
-    public int player1Total;
-    public int player1Current;
-
-    public int player2Total;
-    public int player2Current;
-
-    public int player3Total;
-    public int player3Current;
-
-    public int player4Total;
-    public int player4Current;
-
-    public int player5Total;
-    public int player5Current;
-
 
     // Use this for initialization
     void Start()
     {
+
         playerTotals = new int[GameObject.FindGameObjectsWithTag("Player").Length];
         voteCount = GameObject.FindGameObjectWithTag("VoteObj");
         voteCard = GameObject.Find("NetworkManager").GetComponent<PhotonNetCode>().voteCards;
+        Button[] tempButtons = voteCard.GetComponentsInChildren<Button>();
+        foreach (Button n in tempButtons)
+        {
+            string buttonName = n.gameObject.name;
+            char num = buttonName[6];
+            
+            if (num >=playerTotals.Length)
+            {
+                n.gameObject.SetActive(false);
+            }
+        }
+
     }
 
     // Update is called once per frame
@@ -46,9 +43,7 @@ public class VotingSystem : Photon.PunBehaviour
     public void CallVote()
     {
         voteCard.SetActive(true);
-        // on button press incrememnt the vote count dependant on the button presser
-        // rpc to ensure all buttons are synced
-        //send the highest vote cvount away from the other players
+        
 
     }
 
