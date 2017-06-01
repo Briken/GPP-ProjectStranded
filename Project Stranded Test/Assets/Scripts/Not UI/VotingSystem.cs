@@ -24,7 +24,7 @@ public class VotingSystem : Photon.PunBehaviour
         foreach (Button n in tempButtons)
         {
             string buttonName = n.gameObject.name;
-            char num = buttonName[6];
+            int num = buttonName[6] - '0';
             
             if (num > playerTotals.Length)
             {
