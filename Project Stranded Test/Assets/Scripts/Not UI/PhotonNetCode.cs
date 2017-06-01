@@ -48,7 +48,10 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
         PhotonNetwork.sendRate = 20; 
         PhotonNetwork.logLevel = PhotonLogLevel.Full;
-        PhotonNetwork.ConnectUsingSettings("0.1");
+        if (!PhotonNetwork.connected)
+        {
+            PhotonNetwork.ConnectUsingSettings("0.1");
+        }
         roomDetails = new RoomOptions();
         roomDetails.IsVisible = false;
         roomDetails.MaxPlayers = (byte)lobbyMax;
