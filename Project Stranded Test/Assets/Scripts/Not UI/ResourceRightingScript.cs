@@ -8,20 +8,20 @@ public class ResourceRightingScript : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        if (this.gameObject.tag == "Small")
-        {
-            template = GameObject.Find("S_Template");
-        }
-        if (this.gameObject.tag == "Medium")
-        {
-            template = GameObject.Find("M_Template");
-        }
-        if (this.gameObject.tag == "Large")
-        {
-            template = GameObject.Find("L_Template");
-        }
+        //if (this.gameObject.tag == "Small")
+        //{
+        //    template = GameObject.Find("S_Template");
+        //}
+        //if (this.gameObject.tag == "Medium")
+        //{
+        //    template = GameObject.Find("M_Template");
+        //}
+        //if (this.gameObject.tag == "Large")
+        //{
+        //    template = GameObject.Find("L_Template");
+        //}
 
-        this.gameObject.transform.rotation = template.gameObject.transform.rotation;
+        //this.gameObject.transform.rotation = template.gameObject.transform.rotation;
 	}
 	
 	// Update is called once per frame
