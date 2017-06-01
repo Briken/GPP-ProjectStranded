@@ -36,6 +36,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
 	void Start ()
     {
         Debug.Log(PhotonNetwork.connectionState);
+        PhotonNetwork.Disconnect();
         if (GameObject.FindGameObjectWithTag("GameData") == null)
         {
             Instantiate(gData);
@@ -48,10 +49,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
         PhotonNetwork.sendRate = 20; 
         PhotonNetwork.logLevel = PhotonLogLevel.Full;
-        if (PhotonNetwork.connectionState == ConnectionState.Disconnected)
-        {
-            PhotonNetwork.ConnectUsingSettings("0.1");
-        }
+        PhotonNetwork.ConnectUsingSettings("0.1");
         roomDetails = new RoomOptions();
         roomDetails.IsVisible = false;
         roomDetails.MaxPlayers = (byte)lobbyMax;
