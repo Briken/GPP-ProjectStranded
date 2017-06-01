@@ -8,7 +8,7 @@ public class ResourceScript : PunBehaviour {
     bool debug = false;
 
     public int seed;
-    bool isGifted = false:
+	bool isGifted = false;
 
     public float waitTimer = 5.0f;
     public GameObject particleEffectPrefab; 
