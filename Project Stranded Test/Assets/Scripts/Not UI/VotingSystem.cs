@@ -30,23 +30,25 @@ public class VotingSystem : Photon.PunBehaviour
 
     public void CallVote()
     {
-        voteCard.SetActive(true);
+		voteCard.SetActive (true);
 
-        if (playerTotals == null)
-        {
-            playerTotals = new int[GameObject.FindGameObjectsWithTag("Player").Length];
-        }
-
+		if (playerTotals == null || playerTotals.Length == 0)
+		{
+			playerTotals = new int[GameObject.FindGameObjectsWithTag ("Player").Length];
+		}
         Button[] tempButtons = voteCard.GetComponentsInChildren<Button>();
         foreach (Button n in tempButtons)
         {
             string buttonName = n.gameObject.name;
-            int num = buttonName[6] - '0';
+            int num = buttonName[6] - 48;
 
-            if (num > playerTotals.Length)
-            {
-                n.gameObject.SetActive(false);
-            }
+			if (num > playerTotals.Length) {
+				n.gameObject.SetActive (false);
+			} 
+			else 
+			{
+				n.gameObject.SetActive (true);
+			}
         }
     }
 
@@ -81,6 +83,10 @@ public class VotingSystem : Photon.PunBehaviour
     [PunRPC]
     public void IncrementPlayerRPC(int index)
     {
+		if (playerTotals.Length == 0)
+		{
+			playerTotals = new int[GameObject.FindGameObjectsWithTag ("Player").Length];
+		}
         playerTotals[index]++;
     }
 }
