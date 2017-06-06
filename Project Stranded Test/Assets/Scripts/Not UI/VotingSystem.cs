@@ -77,7 +77,6 @@ public class VotingSystem : Photon.PunBehaviour
             System.Random random = new System.Random(seed);
             return playersVoted[random.Next(0, playersVoted.Count)];
         }
-
     }
 
     [PunRPC]
@@ -88,5 +87,6 @@ public class VotingSystem : Photon.PunBehaviour
 			playerTotals = new int[GameObject.FindGameObjectsWithTag ("Player").Length];
 		}
         playerTotals[index]++;
+        voteCard.SetActive(false);
     }
 }
