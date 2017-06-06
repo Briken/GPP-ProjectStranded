@@ -146,6 +146,7 @@ public class ResourceScript : PunBehaviour {
             {
                 votedOut.SetActive(true);
                 
+                
             }
             if (nearby.Count == requirement && boot != n.GetComponent<MovementScript>().playerNum)
             {
@@ -176,7 +177,7 @@ public class ResourceScript : PunBehaviour {
 
     public void DestroyThis()
     {
-       
+        votedOut.SetActive(false);
        PhotonNetwork.Destroy(this.gameObject);
     }
 }
