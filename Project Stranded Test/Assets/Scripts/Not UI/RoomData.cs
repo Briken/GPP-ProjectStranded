@@ -97,13 +97,13 @@ public class RoomData : Photon.PunBehaviour {
 
     void RecordNames()
     {
-        foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
-        {
-            if (n.GetComponent<UserName>() != null)
-            {
-                userNames[n.GetComponent<MovementScript>().playerNum] = GetComponent<UserName>().myName;
-            }
-        }
+        //foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
+        //{
+        //    if (n.GetComponent<UserName>() != null)
+        //    {
+        //        userNames[n.GetComponent<MovementScript>().playerNum] = GetComponent<UserName>().myName;
+        //    }
+        //}
         
     }
    
