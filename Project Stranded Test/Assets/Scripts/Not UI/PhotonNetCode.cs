@@ -9,6 +9,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     public GameObject voteCards;
     public GameObject voteLoss;
+    public GameObject connectionStatusOverlay;
 
     bool isMasterServer = false;
     GameObject spawnPoint;
@@ -142,7 +143,8 @@ public class PhotonNetCode : Photon.PunBehaviour {
         Vector3 moveTo = ships[pNum - 1].transform.position;
         controlledPlayer.transform.position = moveTo;
         controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, pNum);
-       
+
+        connectionStatusOverlay.SetActive(false);
     }
 
     
