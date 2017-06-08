@@ -33,7 +33,7 @@ public class ResourceNumberSwitcher : MonoBehaviour {
             if (initialNumber - attachedResourceScript.nearby.Count == 0)
             {
                 spriteNumber.GetComponent<SpriteRenderer>().sprite = timeSprite;
-                fillBarImage.GetComponent<Image>().fillAmount = 1 - (attachedResourceScript.waitTimer / initialWaitTime);
+                fillBarImage.GetComponent<Image>().fillAmount = attachedResourceScript.waitTimer / initialWaitTime;
             }
             else if (initialNumber - attachedResourceScript.nearby.Count < 0)
             {
