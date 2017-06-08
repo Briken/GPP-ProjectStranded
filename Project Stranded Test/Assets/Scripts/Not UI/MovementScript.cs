@@ -257,7 +257,7 @@ public class MovementScript : Photon.PunBehaviour
         
         colours[0] = Color.red;
         colours[1] = Color.blue;
-        colours[2] = Color.green;
+        colours[2] = new Color(0, 0.80f, 0); // Minor adjustment to green colour
         colours[3] = Color.yellow;
         colours[4] = new Color(1, 0.5f, 0);
     }
