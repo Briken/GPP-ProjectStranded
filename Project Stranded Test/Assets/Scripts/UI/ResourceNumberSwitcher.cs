@@ -12,9 +12,13 @@ public class ResourceNumberSwitcher : MonoBehaviour {
     public int initialNumber = 0;
     public int currentNumber;
     public GameObject fillBarImage;
+    public GameObject fillBarOuterLight;
+    float fillBarOuterScale;
     
     ResourceScript attachedResourceScript;
     float initialWaitTime;
+
+    public GameObject[] lightBeams;
 
     // Use this for initialization
     void Start ()
@@ -32,8 +36,12 @@ public class ResourceNumberSwitcher : MonoBehaviour {
         {
             if (initialNumber - attachedResourceScript.nearby.Count == 0)
             {
+                fillBarOuterScale = (1 - (attachedResourceScript.waitTimer / initialWaitTime)) * 0.06f + 0.005f;
+
                 spriteNumber.GetComponent<SpriteRenderer>().sprite = timeSprite;
-                fillBarImage.GetComponent<Image>().fillAmount = attachedResourceScript.waitTimer / initialWaitTime;
+                fillBarImage.GetComponent<Image>().fillAmount = 1 - (attachedResourceScript.waitTimer / initialWaitTime);
+                fillBarOuterLight.GetComponent<Image>().fillAmount = 1 - (attachedResourceScript.waitTimer / initialWaitTime);
+                fillBarOuterLight.GetComponent<RectTransform>().localScale = new Vector3(fillBarOuterScale, fillBarOuterScale, fillBarOuterScale);
             }
             else if (initialNumber - attachedResourceScript.nearby.Count < 0)
             {
@@ -42,6 +50,24 @@ public class ResourceNumberSwitcher : MonoBehaviour {
             else
             {
                 spriteNumber.GetComponent<SpriteRenderer>().sprite = numberSprites[initialNumber - attachedResourceScript.nearby.Count];
+            }
+
+            // Change light beam colour based on nearby player count
+            foreach (GameObject lightBeam in lightBeams)
+            {
+                if (initialNumber - attachedResourceScript.nearby.Count < 0 == true)
+                {
+                    lightBeam.GetComponent<FuelCrateLightBeam>().voteStarted = true;
+                }
+
+                if (System.Array.IndexOf(lightBeams, lightBeam) < attachedResourceScript.nearby.Count)
+                {
+                    lightBeam.GetComponent<FuelCrateLightBeam>().isActive = true;
+                }
+                else
+                {
+                    lightBeam.GetComponent<FuelCrateLightBeam>().isActive = false;
+                }
             }
         }       
 	}
