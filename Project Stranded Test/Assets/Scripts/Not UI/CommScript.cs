@@ -81,6 +81,7 @@ public class CommScript : PunBehaviour {
             GameObject commObj = PhotonNetwork.Instantiate(pulse.name, thisPlayer.transform.position, Quaternion.identity, 0);
             commObj.GetPhotonView().RPC("ChangeColour", PhotonTargets.All, thisPlayer.GetComponent<MovementScript>().playerNum);
             canComm = false;
+            gameObject.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.2f);
             Debug.Log(commObj.name);
             
             StartCoroutine(CommCooldown(silenceTime));
