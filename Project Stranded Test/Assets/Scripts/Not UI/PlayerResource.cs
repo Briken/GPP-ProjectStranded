@@ -70,8 +70,8 @@ public class PlayerResource : MonoBehaviour
                         if (resource > 0)
                         {
                             hit.collider.gameObject.GetComponent<ShipScript>().photonView.RPC("DepositFuel", PhotonTargets.All, resource);
-                            informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You deposited " + resource.ToString(), 3.0f);
-                            depositParticleObject.GetComponent<ParticleSystem>().Play();
+                            informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You deposited +" + resource.ToString() + "% fuel", 5.0f);
+                            // depositParticleObject.GetComponent<ParticleSystem>().Play();
                             resource = 0;
                         }
                     }

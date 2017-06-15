@@ -177,7 +177,8 @@ public class ResourceScript : PunBehaviour {
 
     public void DestroyThis()
     {
-        votedOut.SetActive(false);
+       GameObject particleEffectObject = (GameObject)Instantiate(particleEffectPrefab, gameObject.transform.position, Random.rotation);
+       votedOut.SetActive(false);
        PhotonNetwork.Destroy(this.gameObject);
     }
 }

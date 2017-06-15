@@ -102,7 +102,7 @@ public class ScoreCount : MonoBehaviour {
             {
                 foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
                 {
-                    if (n.GetComponent<MovementScript>().pv.isMine && n.GetComponent<MovementScript>().playerNum == 0)
+                    if (n.GetComponent<MovementScript>().pv.isMine && n.GetComponent<MovementScript>().playerNum == 1)
                     {
                         winScreen.SetActive(true);
                     }
@@ -116,7 +116,7 @@ public class ScoreCount : MonoBehaviour {
             {
                 foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
                 {
-                    if (n.GetPhotonView().isMine && n.GetComponent<MovementScript>().playerNum == 1)
+                    if (n.GetPhotonView().isMine && n.GetComponent<MovementScript>().playerNum == 2)
                     {
                         winScreen.SetActive(true);
                     }
@@ -130,7 +130,7 @@ public class ScoreCount : MonoBehaviour {
             {
                 foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
                 {
-                    if (n.GetPhotonView().isMine && n.GetComponent<MovementScript>().playerNum == 2)
+                    if (n.GetPhotonView().isMine && n.GetComponent<MovementScript>().playerNum == 3)
                     {
                         winScreen.SetActive(true);
                     }
@@ -144,7 +144,7 @@ public class ScoreCount : MonoBehaviour {
             {
                 foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
                 {
-                    if (n.GetPhotonView().isMine && n.GetComponent<MovementScript>().playerNum == 3)
+                    if (n.GetPhotonView().isMine && n.GetComponent<MovementScript>().playerNum == 4)
                     {
                         winScreen.SetActive(true);
                     }
@@ -158,7 +158,7 @@ public class ScoreCount : MonoBehaviour {
             {
                 foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
                 {
-                    if (n.GetPhotonView().isMine && n.GetComponent<MovementScript>().playerNum == 4)
+                    if (n.GetPhotonView().isMine && n.GetComponent<MovementScript>().playerNum == 5)
                     {
                         winScreen.SetActive(true);
                     }
@@ -187,7 +187,8 @@ public class ScoreCount : MonoBehaviour {
         {
 
             PhotonNetwork.LeaveRoom();
-            SceneManager.LoadScene("MainScene-Recovered");
+            // SceneManager.LoadScene("MainScene-Recovered");
+            SceneManager.LoadScene("UI-MainMenu");
             counted = false;
         }
 
