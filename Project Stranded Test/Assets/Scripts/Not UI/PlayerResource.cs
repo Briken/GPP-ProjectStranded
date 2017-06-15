@@ -18,6 +18,10 @@ public class PlayerResource : MonoBehaviour
 
     GameObject informationBar;
 
+    public float timeSinceLastPickup = 0.0f;
+    public float timeSinceLastFuelCrateProximity = 0.0f;
+    public float timeSinceLastDeposit = 0.0f;
+
     // Use this for initialization
     void Start()
     {
@@ -70,16 +74,21 @@ public class PlayerResource : MonoBehaviour
                         if (resource > 0)
                         {
                             hit.collider.gameObject.GetComponent<ShipScript>().photonView.RPC("DepositFuel", PhotonTargets.All, resource);
-                            informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You deposited +" + resource.ToString() + "% fuel", 5.0f);
+                            // informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You deposited +" + resource.ToString() + "% fuel", 5.0f);
                             // depositParticleObject.GetComponent<ParticleSystem>().Play();
+                            GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL DEPOSITED!", "YOU DEPOSITED \n" + resource.ToString() + "% OF FUEL \nTO YOUR SHIP!", 5.0f);
                             resource = 0;
+                            timeSinceLastDeposit = 0.0f;
                         }
                     }
                 }
             }
+
+            timeSinceLastPickup += Time.deltaTime;
+            timeSinceLastFuelCrateProximity += Time.deltaTime;
+            timeSinceLastDeposit += Time.deltaTime;
         }
     
     }
 
-    
 }

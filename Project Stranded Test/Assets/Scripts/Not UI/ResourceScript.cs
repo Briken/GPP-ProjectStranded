@@ -71,6 +71,7 @@ public class ResourceScript : PunBehaviour {
                 {
                     nearby.Add(p);
                     Debug.Log(nearby);
+                    p.GetComponent<PlayerResource>().timeSinceLastFuelCrateProximity = 0.0f;
                 }
             }
         }
@@ -116,6 +117,8 @@ public class ResourceScript : PunBehaviour {
         Debug.Log("player " + player.GetComponent<MovementScript>().playerNum + " has recieved " + amount);
         playerResource = player.GetComponent<PlayerResource>();
         playerResource.resource += amount;
+        GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL RECEIVED!", "YOU COLLECTED \n" + amount.ToString() + " FUEL \nDEPOSIT OR COLLECT MORE!", 5.0f);
+        playerResource.timeSinceLastPickup = 0.0f;
   
            
     }
