@@ -10,6 +10,8 @@ public class PhotonNetCode : Photon.PunBehaviour {
     public GameObject voteCards;
     public GameObject voteLoss;
     public GameObject connectionStatusOverlay;
+    public GameObject connectionStatusPlayerCount;
+    public GameObject connectionStatusRoomName;
 
     bool isMasterServer = false;
     GameObject spawnPoint;
@@ -29,12 +31,12 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     public GameObject[] ships;
 
-    
-    //public GameObject mainCamera;
-    
 
-	// Use this for initialization
-	void Start ()
+    //public GameObject mainCamera;
+
+
+    // Use this for initialization
+    void Start ()
     {
         Debug.Log(PhotonNetwork.connectionState);
         PhotonNetwork.Disconnect();
@@ -60,11 +62,24 @@ public class PhotonNetCode : Photon.PunBehaviour {
         
         GameObject netmanager = this.gameObject;
         //timer = netmanager.GetComponent<GameTimer>();
-	}
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        // Display the amount of connected players
+        connectionStatusPlayerCount.GetComponent<Text>().text = "PLAYERS CONNECTED: " + PhotonNetwork.playerList.Length.ToString() + " / 5";
+        
+        // Display the room name if valid
+        if (PhotonNetwork.room != null)
+        {
+            connectionStatusRoomName.GetComponent<Text>().text = "ROOM NAME: " + PhotonNetwork.room.name;
+        }
+        else
+        {
+            // Display temporary message until player connects to a room via Photon
+            connectionStatusRoomName.GetComponent<Text>().text = "CONNECTING TO ROOM...";
+        }
         
         //Debug.Log(PhotonNetwork.connectionStateDetailed.ToString());
         //debug.text = PhotonNetwork.connectionStateDetailed.ToString();
@@ -86,6 +101,8 @@ public class PhotonNetCode : Photon.PunBehaviour {
         {
             PhotonNetwork.JoinRandomRoom();
         }
+
+        
     }
 
     void OnPhotonRandomJoinFailed()

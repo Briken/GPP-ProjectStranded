@@ -2,8 +2,9 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Photon;
 
-public class UIFunctionsScript : MonoBehaviour {
+public class UIFunctionsScript : Photon.PunBehaviour{
 
     string newTextObjectTextString;
 
@@ -45,5 +46,10 @@ public class UIFunctionsScript : MonoBehaviour {
     public void ClearSavedData()
     {
         PlayerPrefs.DeleteAll();
+    }
+
+    public void DisconnectFromPhotonNetwork()
+    {
+        PhotonNetwork.Disconnect();
     }
 }
