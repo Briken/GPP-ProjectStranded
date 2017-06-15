@@ -24,10 +24,6 @@ public class UIMainGameHandler : MonoBehaviour {
 
     bool noMain = true;
 
-    [Header("Power-up Indicators")]
-    
-    Color powerUpIndicatorInactiveColour = new Color (1.0f, 1.0f, 1.0f, 0.2f);
-    Color powerUpIndicatorActiveColour = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     // Use this for initialization
     void Start()
     {
