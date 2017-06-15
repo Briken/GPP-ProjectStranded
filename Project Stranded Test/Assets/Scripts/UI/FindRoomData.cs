@@ -26,4 +26,10 @@ public class FindRoomData : MonoBehaviour {
         // Set room name and convert to upper due to font being uppercase
         roomData.GetComponent<RoomData>().roomName = roomDataInputField.text.ToUpper();
     }
+
+    public void ManualFindRoomDataAndSetRoom(string roomName)
+    {
+        roomData = GameObject.FindGameObjectWithTag("GameData");
+        roomData.GetComponent<RoomData>().roomName = roomName;
+    }
 }
