@@ -177,6 +177,7 @@
     <Compile Include="Assets\Scripts\Not UI\CommScript.cs" />
     <Compile Include="Assets\Scripts\Not UI\DebugInfo.cs" />
     <Compile Include="Assets\Scripts\Not UI\DestroyAfterTime.cs" />
+    <Compile Include="Assets\Scripts\Not UI\FreezePlayer.cs" />
     <Compile Include="Assets\Scripts\Not UI\GameTimer.cs" />
     <Compile Include="Assets\Scripts\Not UI\GrowthCircle.cs" />
     <Compile Include="Assets\Scripts\Not UI\MovementScript.cs" />
@@ -210,6 +211,7 @@
     <Compile Include="Assets\Scripts\UI\UIErrorMessage.cs" />
     <Compile Include="Assets\Scripts\UI\UIFunctionsScript.cs" />
     <Compile Include="Assets\Scripts\UI\UIHelpCanvasSwitcher.cs" />
+    <Compile Include="Assets\Scripts\UI\UIHintBox.cs" />
     <Compile Include="Assets\Scripts\UI\UIInformationBar.cs" />
     <Compile Include="Assets\Scripts\UI\UIInternetConnection.cs" />
     <Compile Include="Assets\Scripts\UI\UILerpMovement.cs" />

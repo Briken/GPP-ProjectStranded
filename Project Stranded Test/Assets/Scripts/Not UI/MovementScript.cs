@@ -20,7 +20,8 @@ public class MovementScript : Photon.PunBehaviour
     public float maxSpeed = 50;
 
     bool hasClaimed = false;
-    
+    bool stopHasBeenCalled = false;
+
     private Vector3 correctPPos;    
     private Quaternion correctPRot;
 
@@ -58,7 +59,7 @@ public class MovementScript : Photon.PunBehaviour
 
             Debug.Log(cam.name);
             Camera.main.gameObject.transform.SetParent(this.transform);
-            Camera.main.gameObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -5);
+            Camera.main.gameObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -50);
 
         }
 
@@ -79,19 +80,6 @@ public class MovementScript : Photon.PunBehaviour
                 myShip = ships[playerNum - 1];
                // ships[n].GetComponent<SpriteRenderer>().color = playerColouredParts[0].GetComponent<SpriteRenderer>().color;
             }
-            //if (ships[n].transform.position == shipPos && ships[n].GetComponent<ShipScript>().claimed == false)
-            //{
-            //    ships[n].GetComponent<ShipScript>().claimed = true;
-            //       hasClaimed = true;
-            //       ships[n].GetComponent<ShipScript>().player = this.gameObject;
-            //       ships[n].GetComponent<ShipScript>().shipNum = playerNum;
-            //       ships[n].GetComponent<SpriteRenderer>().color = colours[playerNum-1];
-            //}
-            //if (ships[n].transform.position == shipPos && ships[n].GetComponent<ShipScript>().claimed == true)
-            //{
-            //    shipPos = ships[n + 1].transform.position;
-            //}
-            //if (n == 4 && !hasClaimed) n = 0;
         }
 
         
@@ -131,16 +119,6 @@ public class MovementScript : Photon.PunBehaviour
                 Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit hit = new RaycastHit();
 
-                //if (Physics.Raycast(ray, out hit))
-                //{
-                //    Debug.Log("Raycast Hit, movement to begin now");
-                //    Vector2 currentVelocity = rBody.velocity;
-                //    currentVelocity += MoveFromTouch(target, currentVelocity);   //using arrive function
-                //    rBody.velocity = currentVelocity;
-                //    moving = true;
-                //}
-
-                
 
                 // Adjust player sprite depending on what vertical direction they are moving in
                 if (Input.mousePosition.x > Screen.width/2)
@@ -164,20 +142,18 @@ public class MovementScript : Photon.PunBehaviour
                 Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit hit = new RaycastHit();
 
+                
+
                 if (Physics.Raycast(ray, out hit))
                 {
                     if (hit.collider.gameObject.tag == "Player")
                     {
                         Debug.Log(hit.collider.gameObject.GetComponent<PhotonView>().ownerId + " is this objects owner ID");
                     }
-                    if (/*hit.collider.gameObject.GetComponent<MovementScript>().playerNum == playerNum*/ hit.collider.gameObject == this.gameObject)
+                    if (hit.collider.gameObject == this.gameObject)
                     {
-                        currentSpeed = 0;
-                       // menu.ToggleSpiderButtons();
-                        currentVelocity = rBody.velocity;
-                        currentVelocity += MoveFromTouch(currentVelocity, currentVelocity);   //using arrive function
-                        rBody.velocity = currentVelocity;
-                        moving = false;
+                        Stop();
+                        
                     }
                     else
                     {
@@ -266,6 +242,22 @@ public class MovementScript : Photon.PunBehaviour
     public void SetNum(int pNum)
     {
         playerNum = pNum;
+    }
+
+    public void Stop()
+    {
+        Debug.Log("Stop has been called");
+        stopHasBeenCalled = true;
+        Vector2 currentVelocity = rBody.velocity;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        currentSpeed = 0;
+        currentVelocity = rBody.velocity;
+        currentVelocity += MoveFromTouch(currentVelocity, currentVelocity);   //using arrive function
+        rBody.velocity = currentVelocity;
+        stopHasBeenCalled = false;
+        moving = false;
     }
 
     public void Quit()
