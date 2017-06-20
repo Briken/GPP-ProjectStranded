@@ -10,6 +10,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
     public GameObject voteCards;
     public GameObject voteLoss;
     public GameObject connectionStatusOverlay;
+    public GameObject connectionStatusHeader;
     public GameObject connectionStatusPlayerCount;
     public GameObject connectionStatusRoomName;
 
@@ -30,6 +31,11 @@ public class PhotonNetCode : Photon.PunBehaviour {
     int pNum;
 
     public GameObject[] ships;
+
+    public float roundStartTimer = 10.0f;
+    float defaultRoundStartTimer;
+    bool roundStarted = false;
+    ScoreCount scoreData;
 
 
     //public GameObject mainCamera;
@@ -62,25 +68,59 @@ public class PhotonNetCode : Photon.PunBehaviour {
         
         GameObject netmanager = this.gameObject;
         //timer = netmanager.GetComponent<GameTimer>();
+
+        defaultRoundStartTimer = roundStartTimer;
+
+        scoreData = GameObject.FindGameObjectWithTag("ScoreData").GetComponent<ScoreCount>();
+
+        if (scoreData == null)
+        {
+            Debug.Log("SCORE DATA: Data could not be found! Is there a Score Data object in the scene?");
+        }
     }
 	
 	// Update is called once per frame
 	void Update ()
-    {
-        // Display the amount of connected players
-        connectionStatusPlayerCount.GetComponent<Text>().text = "PLAYERS CONNECTED: " + PhotonNetwork.playerList.Length.ToString() + " / 5";
-        
-        // Display the room name if valid
-        if (PhotonNetwork.room != null)
+    {     
+        // Start the round timer when the player count has been met
+        if (PhotonNetwork.playerList.Length == roomDetails.MaxPlayers && !roundStarted)
         {
-            connectionStatusRoomName.GetComponent<Text>().text = "ROOM NAME: " + PhotonNetwork.room.name;
+            if (roundStartTimer >= 0.0f)
+            {
+                roundStartTimer -= Time.deltaTime;
+            }
+            else
+            {
+                SpawnPlayer();
+                roundStarted = true;
+            }
+
+            // Display round start information
+            connectionStatusHeader.GetComponent<Text>().text = "ROUND " + (scoreData.roundCount + 1).ToString();
+            connectionStatusPlayerCount.GetComponent<Text>().text = "ROUND STARTING IN " + Mathf.Round(roundStartTimer).ToString() + " SECONDS!";
+            connectionStatusRoomName.GetComponent<Text>().text = "";
         }
         else
         {
-            // Display temporary message until player connects to a room via Photon
-            connectionStatusRoomName.GetComponent<Text>().text = "CONNECTING TO ROOM...";
+            // Reset the timer if the player count is not met
+            roundStartTimer = defaultRoundStartTimer;
+
+            // Display the amount of connected players
+            connectionStatusHeader.GetComponent<Text>().text = "WAITING FOR PLAYERS...";
+            connectionStatusPlayerCount.GetComponent<Text>().text = "PLAYERS CONNECTED: " + PhotonNetwork.playerList.Length.ToString() + " / " + lobbyMax.ToString();
+
+            // Display the room name if valid
+            if (PhotonNetwork.room != null)
+            {
+                connectionStatusRoomName.GetComponent<Text>().text = "ROOM NAME: " + PhotonNetwork.room.name;
+            }
+            else
+            {
+                // Display temporary message until player connects to a room via Photon
+                connectionStatusRoomName.GetComponent<Text>().text = "CONNECTING TO ROOM...";
+            }
         }
-        
+
         //Debug.Log(PhotonNetwork.connectionStateDetailed.ToString());
         //debug.text = PhotonNetwork.connectionStateDetailed.ToString();
     }
@@ -117,7 +157,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
         if (PhotonNetwork.playerList.Length == roomDetails.MaxPlayers)
         {
          
-            SpawnPlayer();
+            // SpawnPlayer();
       //      timer.enabled = true;
             SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         }
@@ -138,7 +178,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
         
         if (PhotonNetwork.playerList.Length == roomDetails.MaxPlayers)
         {
-            SpawnPlayer();
+            // SpawnPlayer();
         }
         
     }
