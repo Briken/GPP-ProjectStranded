@@ -23,31 +23,14 @@ public class ResourceScript : PunBehaviour {
 
     public float resourceDistance = 10.0f;
 
-    int requirement;
-    public int large = 10;
-    public int medium = 5;
-    public int small = 1;
+    public int requirement;
 
     public int amount;
     
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         votedOut = GameObject.Find("NetworkManager").GetComponent<PhotonNetCode>().voteLoss;
-        if (tag == "Small")
-        {
-            requirement = small;
-            amount = 3;
-        }
-        if (tag == "Medium")
-        {
-            requirement = medium;
-            amount = 6;
-        }
-        if (tag == "Large")
-        {
-            requirement = large;
-            amount = 12;
-        }
                 
         players = new GameObject[7];
 	}
