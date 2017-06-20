@@ -58,8 +58,10 @@ public class MovementScript : Photon.PunBehaviour
         {
 
             Debug.Log(cam.name);
+            Camera.main.gameObject.GetComponent<Animator>().Stop();
             Camera.main.gameObject.transform.SetParent(this.transform);
             Camera.main.gameObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -50);
+            Camera.main.orthographicSize = 6.0f;
 
         }
 
