@@ -117,7 +117,7 @@ public class ResourceScript : PunBehaviour {
         Debug.Log("player " + player.GetComponent<MovementScript>().playerNum + " has recieved " + amount);
         playerResource = player.GetComponent<PlayerResource>();
         playerResource.resource += amount;
-        GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL RECEIVED!", "YOU COLLECTED \n" + amount.ToString() + " FUEL \nDEPOSIT OR COLLECT MORE!", 5.0f);
+        GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL RECEIVED!", "YOU COLLECTED " + amount.ToString() + " FUEL \nFROM THIS CRATE\nDEPOSIT OR COLLECT MORE!", 6.0f);
         playerResource.timeSinceLastPickup = 0.0f;
   
            

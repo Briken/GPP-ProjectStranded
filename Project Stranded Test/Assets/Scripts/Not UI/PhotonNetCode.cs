@@ -93,6 +93,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
             {
                 SpawnPlayer();
                 roundStarted = true;
+                GameObject.FindGameObjectWithTag("HintBox").GetComponent<UIHintBox>().DisplayHint("REFUEL YOUR SHIP", "COLLECT FUEL BY OPENING NEARBY FUEL CRATES AND RETURN IT TO YOUR COLOURED SHIP!", 8.0f);
             }
 
             // Display round start information
