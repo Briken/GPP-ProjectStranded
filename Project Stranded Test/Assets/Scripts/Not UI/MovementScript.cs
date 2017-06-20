@@ -265,4 +265,22 @@ public class MovementScript : Photon.PunBehaviour
      
         Application.Quit();
     }
+
+    // Level boundaries handling
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "LevelBoundaries")
+        {
+            // Stop and move the player to 0, 0 if they attempt to leave
+            Stop();
+            currentSpeed = 10;
+            Vector2 currentVelocity = rBody.velocity;
+            currentVelocity += MoveFromTouch(new Vector3(0.0f, 0.0f, 0.0f), currentVelocity);  //using arrive function
+            rBody.velocity = currentVelocity;
+            moving = true;
+
+            // Flip the player's sprite direction so they don't fly backwards
+            playerBody.gameObject.transform.localScale = new Vector3(playerBody.gameObject.gameObject.transform.localScale.x*-1.0f, playerBody.gameObject.gameObject.transform.localScale.y, playerBody.gameObject.gameObject.transform.localScale.z);
+        }
+    }
 }
