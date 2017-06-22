@@ -97,9 +97,9 @@ public class ScoreCount : MonoBehaviour {
         else
         {
             EventManager.ResetObjects();
-            PhotonNetwork.LeaveRoom();
+            //PhotonNetwork.LeaveRoom();
             // SceneManager.LoadScene("MainScene-Recovered");
-            SceneManager.LoadScene("UI-MainMenu");
+            //SceneManager.LoadScene("UI-MainMenu");
             counted = false;
         }
 

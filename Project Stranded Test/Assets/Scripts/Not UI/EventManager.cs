@@ -4,11 +4,14 @@ using System.Collections.Generic;
 
 static public class EventManager {
 
-    public delegate void Reset();
-    static public event Reset reset;
+    public delegate void ResetDelegate();
+    static public event ResetDelegate Reset;
 
     static public void ResetObjects()
     {
-        reset();
+        if (Reset != null)
+        {
+            Reset();
+        }
     }
 }

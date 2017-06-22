@@ -23,7 +23,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
     bool isActive = false;
     GameObject spawnPoint;
 
-    //GameTimer timer;
+    public GameTimer timer;
     
     
     RoomOptions roomDetails;
@@ -69,9 +69,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
         typedLobby = new TypedLobby();
 
         //ships = GameObject.FindGameObjectsWithTag("Ship");
-        
-        GameObject netmanager = this.gameObject;
-        //timer = netmanager.GetComponent<GameTimer>();
+       
 
         defaultRoundStartTimer = roundStartTimer;
 
@@ -163,7 +161,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
         {
          
             // SpawnPlayer();
-      //      timer.enabled = true;
+      //   timer.enabled = true;
             SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         }
         
@@ -192,6 +190,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
     void SpawnPlayer()
     {
         GameObject controlledPlayer = PhotonNetwork.Instantiate(player.name, Vector3.zero, Quaternion.identity, 0);
+        timer.enabled = true;
         if (isMasterServer)
         {
             foreach(ResourceScript n in FindObjectsOfType<ResourceScript>())

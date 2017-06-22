@@ -23,8 +23,8 @@ public class GameTimer : Photon.PunBehaviour {
 
     void Start ()
     {
-        timer = 300;
-        EventManager.reset += MyReset;
+        timer = startTime;
+        EventManager.Reset += Reset;
         scoreData = GameObject.FindGameObjectWithTag("ScoreData");
         resourceDepot = GameObject.Find("ResourceDepot");
         timerSet = true; 
@@ -42,7 +42,7 @@ public class GameTimer : Photon.PunBehaviour {
         {
             timer -= Time.deltaTime;
 
-            if (timer <= -0.3 && called == false)
+            if (timer <= 0 && called == false)
             {
                 Debug.Log("time is less that or equal to 0");
                 called = true;
@@ -59,27 +59,26 @@ public class GameTimer : Photon.PunBehaviour {
         {
             scoreData.GetComponent<ScoreCount>().RecordScores(n.GetComponent<ShipScript>().shipNum, n.GetComponent<ShipScript>().totalFuel);
         }
-        timer = 300;
         scoreData.GetComponent<ScoreCount>().LoadNextRound();
     }
 
-    [PunRPC]
-    float SetTimer(float masterTime)
-    {
-        if (PhotonNetwork.player.ID == 0)
-        {
-            masterTime = timer;
-        }
-        else
-        {
-            timer = masterTime;
-        }
+    //[PunRPC]
+    //float SetTimer(float masterTime)
+    //{
+    //    if (PhotonNetwork.player.ID == 0)
+    //    {
+    //        masterTime = timer;
+    //    }
+    //    else
+    //    {
+    //        timer = masterTime;
+    //    }
 
-        Debug.Log(timer.ToString());
+    //    Debug.Log(timer.ToString());
 
-        return timer;
+    //    return timer;
         
-    }
+    //}
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -92,9 +91,10 @@ public class GameTimer : Photon.PunBehaviour {
             this.timer = (float)stream.ReceiveNext();
         }
     }
-    private void MyReset()
+    private void Reset()
     {
         timer = startTime;
+        Debug.Log("RESETR CALLED");
     }
     
 }

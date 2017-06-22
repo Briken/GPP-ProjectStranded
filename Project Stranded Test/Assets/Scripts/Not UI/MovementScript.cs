@@ -42,7 +42,7 @@ public class MovementScript : Photon.PunBehaviour
     // Use this for initialization
     void Start()
     {
-        EventManager.reset += MyReset;
+        EventManager.Reset += Reset;
 
         shipPos = transform.position;
         colours = new Color[5];
@@ -287,6 +287,8 @@ public class MovementScript : Photon.PunBehaviour
         }
     }
 
-    private void MyReset()
-    { }
+    private void Reset()
+    {
+        Debug.Log("reset Called");
+    }
 }

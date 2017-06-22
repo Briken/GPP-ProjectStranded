@@ -33,17 +33,22 @@ public class UIMainGameHandler : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (noMain)
+        if (noMain && GameObject.FindGameObjectWithTag("NetManager").GetComponent<GameTimer>() != null)
         {
-            foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
-            {
-                if (n.GetComponent<MovementScript>().photonView.isMine)
-                {
-                    mainPlayer = n;
-                    noMain = false;
-                }
-            }
+           mainPlayer = GameObject.FindGameObjectWithTag("NetManager");
+           noMain = false;
         }
+        //if (noMain)
+        //{
+        //    foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
+        //    {
+        //        if (n.GetComponent<MovementScript>().photonView.isMine)
+        //        {
+        //            mainPlayer = n;
+        //            noMain = false;
+        //        }
+        //    }
+        //}
         // Game time handling:
         //   mainPlayer = GameObject.FindGameObjectWithTag("Player");
         if (mainPlayer != null)
