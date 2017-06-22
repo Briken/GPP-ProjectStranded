@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Photon;
+using UnityEngine.UI;
 
 public class ResourceScript : PunBehaviour {
 
@@ -26,6 +27,10 @@ public class ResourceScript : PunBehaviour {
     public int requirement;
 
     public int amount;
+
+    public float totalVoteTime = 10.0f;
+    public float remainingVoteTime = 0.0f;
+    public bool voteConcluded = false;
     
 	// Use this for initialization
 	void Start ()
@@ -49,7 +54,9 @@ public class ResourceScript : PunBehaviour {
                 {
                     continue;
                 }
+
                 float distance = GetDistance(p.transform.position);
+
                 if (distance <= resourceDistance)
                 {
                     nearby.Add(p);
@@ -62,17 +69,19 @@ public class ResourceScript : PunBehaviour {
 
         
         if (nearby.Count == requirement && voteIsCalled == false)
-        {
-            
-            
+        {      
             waitTimer -= Time.deltaTime;
+
             if (waitTimer <= 0 && !isGifted)
             {
                 isGifted = true;
+
                 foreach (GameObject n in nearby)
                 {
                     AddResource(n);
+                    Debug.Log("FUEL CRATE: Giving fuel to " + nearby.Count.ToString() + " players!");
                 }
+
                 DestroyThis();
             }
         }
@@ -82,28 +91,36 @@ public class ResourceScript : PunBehaviour {
         if (nearby.Count > requirement && voteIsCalled == false)
         {
             voteIsCalled = true;
+
             foreach (GameObject n in nearby)
             {
                 if (n.GetPhotonView().isMine)
                 {
-                    StartCoroutine(ResourceTime(waitTimer, n, seed));
+                    // StartCoroutine(ResourceTime(10.0f, n, seed));
+
+                    InitiateNewVote(totalVoteTime, n, seed);
                 }
             }
             
         }
+
+        // Constantly check the vote state
+        CheckVoteState();
     }
 
     public void AddResource(GameObject player)
     {
-
-       
+  
         Debug.Log("player " + player.GetComponent<MovementScript>().playerNum + " has recieved " + amount);
         playerResource = player.GetComponent<PlayerResource>();
         playerResource.resource += amount;
-        GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL RECEIVED!", "YOU COLLECTED " + amount.ToString() + " FUEL \nFROM THIS CRATE\nDEPOSIT OR COLLECT MORE!", 6.0f);
-        playerResource.timeSinceLastPickup = 0.0f;
-  
-           
+
+        if (player.GetPhotonView().isMine)
+        {
+            GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL RECEIVED!", "YOU COLLECTED " + amount.ToString() + " FUEL \nFROM THIS CRATE\nDEPOSIT OR COLLECT MORE!", 6.0f);
+        }
+        
+        playerResource.timeSinceLastPickup = 0.0f;           
     }
 
     
@@ -119,6 +136,76 @@ public class ResourceScript : PunBehaviour {
         players = GameObject.FindGameObjectsWithTag("Player");
     }
 
+    // Activate vote and start timer
+    void InitiateNewVote(float voteLengthTime, GameObject player, int thisSeed)
+    {
+        // Call the vote via the voting system
+        player.GetComponent<VotingSystem>().CallVote();
+        remainingVoteTime = voteLengthTime;
+        voteIsCalled = true;
+
+        Debug.Log("NEW VOTING SYSTEM: Vote Initiated Successfully!");
+    }
+
+    // Check for vote timer expiration or if other circumstances require vote to end
+    void CheckVoteState()
+    {
+        if (remainingVoteTime > 0.0f && voteIsCalled)
+        {
+            remainingVoteTime -= Time.deltaTime;
+            GameObject.Find("Text - Vote Time Remaining").GetComponent<Text>().text = "TIME REMAINING: " + remainingVoteTime.ToString("0.0") + "s";
+        }
+
+        if (remainingVoteTime <= 0.0f && voteIsCalled)
+        {
+            ConcludeVote();
+        }
+
+    }
+
+    void ConcludeVote()
+    {
+        if (!voteConcluded)
+        {
+                // Do stuff
+                // Random player boot seed
+            foreach (GameObject n in nearby)
+            {
+                // Determine what player to randomly vote out (if required)
+                int boot = n.GetComponent<VotingSystem>().CheckVote(seed);
+
+                // Display voted out screen to voted out player
+                if (boot == n.GetComponent<MovementScript>().playerNum && photonView.isMine)
+                {
+                    votedOut.SetActive(true);
+                    votedOut.GetComponent<UIVotedOutHider>().DisplayVotedOut(4.0f);
+                }
+
+                // Give fuel to all players not voted out
+                if (nearby.Count > requirement && boot != n.GetComponent<MovementScript>().playerNum)
+                {
+                    AddResource(n);
+                }
+                /*
+                else if (nearby.Count > requirement)
+                {
+                    StartCoroutine(ResourceTime(waitTime, player, thisSeed));
+                }
+                */
+
+                // Hide voting screen now that voting has concluded
+                n.GetComponent<VotingSystem>().voteCard.SetActive(false);
+            }
+
+            voteConcluded = true;
+
+            Debug.Log("NEW VOTING SYSTEM: Vote Concluded Successfully!");
+
+            DestroyThis();
+        }
+    }
+
+    /*
     IEnumerator ResourceTime(float waitTime, GameObject player, int thisSeed)
     {
         player.GetComponent<VotingSystem>().CallVote();
@@ -146,11 +233,11 @@ public class ResourceScript : PunBehaviour {
         }
         DestroyThis();
     }
-  
+    */  
 
     IEnumerator VotedOut()
     {
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(4);
         votedOut.SetActive(false);
     }
 
@@ -164,7 +251,7 @@ public class ResourceScript : PunBehaviour {
     public void DestroyThis()
     {
        GameObject particleEffectObject = (GameObject)Instantiate(particleEffectPrefab, gameObject.transform.position, Random.rotation);
-       votedOut.SetActive(false);
+       // votedOut.SetActive(false);
        PhotonNetwork.Destroy(this.gameObject);
     }
 }

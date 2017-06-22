@@ -37,7 +37,7 @@ public class GameTimer : Photon.PunBehaviour {
     void Update()
     {
 
-        Debug.Log(timer + " is the amoutn left");
+        // Debug.Log(timer + " is the amoutn left");
         if (timerSet)
         {
             timer -= Time.deltaTime;

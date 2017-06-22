@@ -23,13 +23,14 @@ public class VoteTally : MonoBehaviour {
     public int player5Current;
 
     public GameObject[] votingCards;
-    GameObject votingInstructionsText;
+    public GameObject votingInstructionsText;
     public Color[] votingColours;
+
+    public bool hasPlayerVoted = false;
 
     // Use this for initialization
     void Start ()
     {
-        votingInstructionsText = GameObject.Find("Text - Vote Instructions");
 	}
 	
 	// Update is called once per frame
@@ -48,8 +49,12 @@ public class VoteTally : MonoBehaviour {
     // Used for button cards
     public void IncrementPlayerVote(int playerNumber)
     {
-        IncrementPlayer(playerNumber);
-        UpdateVoteCards(playerNumber);
+        if (!hasPlayerVoted)
+        {
+            IncrementPlayer(playerNumber);
+            UpdateVoteCards(playerNumber);
+            hasPlayerVoted = true;
+        }
     }
 
     void UpdateVoteCards(int playerCardNumber)
