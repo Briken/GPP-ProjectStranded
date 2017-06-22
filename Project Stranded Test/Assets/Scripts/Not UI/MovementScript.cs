@@ -42,6 +42,7 @@ public class MovementScript : Photon.PunBehaviour
     // Use this for initialization
     void Start()
     {
+        EventManager.reset += MyReset;
 
         shipPos = transform.position;
         colours = new Color[5];
@@ -285,4 +286,7 @@ public class MovementScript : Photon.PunBehaviour
             playerBody.gameObject.transform.localScale = new Vector3(playerBody.gameObject.gameObject.transform.localScale.x*-1.0f, playerBody.gameObject.gameObject.transform.localScale.y, playerBody.gameObject.gameObject.transform.localScale.z);
         }
     }
+
+    private void MyReset()
+    { }
 }

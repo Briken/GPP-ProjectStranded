@@ -10,8 +10,9 @@ public class GameTimer : Photon.PunBehaviour {
 
     
     public GameObject resourceDepot;
-    public float timer;
-    
+    float timer;
+    public float startTime;
+
     bool called;
     // Use this for initialization
     List<GameObject> timeCheck;
@@ -21,9 +22,10 @@ public class GameTimer : Photon.PunBehaviour {
 
     void Start ()
     {
+        EventManager.reset += MyReset;
         scoreData = GameObject.FindGameObjectWithTag("ScoreData");
         resourceDepot = GameObject.Find("ResourceDepot");
-        timer = 300;
+        timer = startTime;   
         //mainTime = timeCheck.GetComponent<GameTimer>();
         //gameTime = mainTime.timer;
         Debug.Log("time left: " + timer.ToString());
@@ -87,6 +89,9 @@ public class GameTimer : Photon.PunBehaviour {
             this.timer = (float)stream.ReceiveNext();
         }
     }
-
+    private void MyReset()
+    {
+        timer = startTime;
+    }
     
 }

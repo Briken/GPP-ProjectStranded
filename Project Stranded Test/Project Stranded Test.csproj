@@ -177,6 +177,7 @@
     <Compile Include="Assets\Scripts\Not UI\CommScript.cs" />
     <Compile Include="Assets\Scripts\Not UI\DebugInfo.cs" />
     <Compile Include="Assets\Scripts\Not UI\DestroyAfterTime.cs" />
+    <Compile Include="Assets\Scripts\Not UI\EventManager.cs" />
     <Compile Include="Assets\Scripts\Not UI\FreezePlayer.cs" />
     <Compile Include="Assets\Scripts\Not UI\GameTimer.cs" />
     <Compile Include="Assets\Scripts\Not UI\GrowthCircle.cs" />
