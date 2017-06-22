@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 //using Photon;
 
 public class VoteTally : MonoBehaviour {
@@ -21,9 +22,14 @@ public class VoteTally : MonoBehaviour {
     public int player5Total;
     public int player5Current;
 
+    public GameObject[] votingCards;
+    GameObject votingInstructionsText;
+    public Color[] votingColours;
+
     // Use this for initialization
-    void Start () {
-		
+    void Start ()
+    {
+        votingInstructionsText = GameObject.Find("Text - Vote Instructions");
 	}
 	
 	// Update is called once per frame
@@ -39,34 +45,54 @@ public class VoteTally : MonoBehaviour {
         }
     }
 
-    public void IncrementP1()
+    // Used for button cards
+    public void IncrementPlayerVote(int playerNumber)
     {
-        IncrementPlayer(0);
+        IncrementPlayer(playerNumber);
+        UpdateVoteCards(playerNumber);
     }
 
-
-    public void IncrementP2()
+    void UpdateVoteCards(int playerCardNumber)
     {
-        IncrementPlayer(1);
-    }
+        foreach(GameObject votingCard in votingCards)
+        {
+            // Make non-selected cards transparent
+            if (votingCard == votingCards[playerCardNumber])
+            {
+                votingCard.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            }
+            else
+            {
+                votingCard.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.2f);
+            }
+        }
 
-   
-    public void IncrementP3()
-    {
-        IncrementPlayer(2);
-    }
+        // Update instructions text to display what player the player voted for
+        switch (playerCardNumber)
+        {
+            case 0:
+                votingInstructionsText.GetComponent<Text>().text = "YOU VOTED RED PLAYER";
+                break;
 
-  
-    public void IncrementP4()
-    {
-        IncrementPlayer(3);
-    }
-    
-    public void IncrementP5()
-    {
-        IncrementPlayer(4);
-    }
+            case 1:
+                votingInstructionsText.GetComponent<Text>().text = "YOU VOTED BLUE PLAYER";
+                break;
 
-   
+            case 2:
+                votingInstructionsText.GetComponent<Text>().text = "YOU VOTED GREEN PLAYER";
+                break;
+
+            case 3:
+                votingInstructionsText.GetComponent<Text>().text = "YOU VOTED YELLOW PLAYER";
+                break;
+
+            case 4:
+                votingInstructionsText.GetComponent<Text>().text = "YOU VOTED ORANGE PLAYER";
+                break;
+        }
+
+        // Change voting card colour text to colour of voted player
+        votingInstructionsText.GetComponent<Text>().color = votingColours[playerCardNumber];
+    }
 
 }
