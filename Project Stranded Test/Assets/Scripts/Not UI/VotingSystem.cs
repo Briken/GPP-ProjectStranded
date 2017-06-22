@@ -19,7 +19,7 @@ public class VotingSystem : Photon.PunBehaviour
     {
         voteCount = GameObject.FindGameObjectWithTag("VoteObj");
         voteCard = GameObject.Find("NetworkManager").GetComponent<PhotonNetCode>().voteCards;
-        votingInstructionsText = GameObject.Find("Text - Vote Instructions");
+        //votingInstructionsText = GameObject.Find("Text - Vote Instructions");
     }
 
     // Update is called once per frame
@@ -33,8 +33,8 @@ public class VotingSystem : Photon.PunBehaviour
 		voteCard.SetActive (true);
 
         // Set voting instructions text to default text and colour
-        votingInstructionsText.GetComponent<Text>().text = "TAP ONE CARD TO VOTE";
-        votingInstructionsText.GetComponent<Text>().color = new Color(1.0f, 1.0f, 0.0f, 1.0f);
+        //votingInstructionsText.GetComponent<Text>().text = "TAP ONE CARD TO VOTE";
+        //votingInstructionsText.GetComponent<Text>().color = new Color(1.0f, 1.0f, 0.0f, 1.0f);
 
         if (playerTotals == null || playerTotals.Length == 0)
 		{
