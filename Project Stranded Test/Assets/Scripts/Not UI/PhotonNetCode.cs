@@ -13,17 +13,21 @@ public class PhotonNetCode : Photon.PunBehaviour {
     public GameObject connectionStatusHeader;
     public GameObject connectionStatusPlayerCount;
     public GameObject connectionStatusRoomName;
+    public GameObject gData;
+    public GameObject player;
+
+    public int lobbyMax;
+    public int playerNum;
 
     bool isMasterServer = false;
-    GameObject spawnPoint;
     bool isActive = false;
-    public GameObject gData;
-    public int lobbyMax;
+    GameObject spawnPoint;
+
     //GameTimer timer;
-    public GameObject player;
-    public int playerNum;
+    
+    
     RoomOptions roomDetails;
-    public bool radBound = false;
+   
     TypedLobby typedLobby;
     int currentPlayers;
     string roomName;

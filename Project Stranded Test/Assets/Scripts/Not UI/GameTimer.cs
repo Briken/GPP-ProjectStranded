@@ -10,8 +10,9 @@ public class GameTimer : Photon.PunBehaviour {
 
     
     public GameObject resourceDepot;
-    float timer;
+    public float timer = 300;
     public float startTime;
+    bool timerSet= false;
 
     bool called;
     // Use this for initialization
@@ -22,12 +23,11 @@ public class GameTimer : Photon.PunBehaviour {
 
     void Start ()
     {
+        timer = 300;
         EventManager.reset += MyReset;
         scoreData = GameObject.FindGameObjectWithTag("ScoreData");
         resourceDepot = GameObject.Find("ResourceDepot");
-        timer = startTime;   
-        //mainTime = timeCheck.GetComponent<GameTimer>();
-        //gameTime = mainTime.timer;
+        timerSet = true; 
         Debug.Log("time left: " + timer.ToString());
 
      //   photonView.RPC("SetTimer", PhotonTargets.All, timer);
@@ -37,15 +37,18 @@ public class GameTimer : Photon.PunBehaviour {
     void Update()
     {
 
-        timer -= Time.deltaTime;
-
-
-        if (timer <= 0 && called == false)
+        Debug.Log(timer + " is the amoutn left");
+        if (timerSet)
         {
-            Debug.Log("time is less that or equal to 0");
-            called = true;
-            timeEnds();
-        }
+            timer -= Time.deltaTime;
+
+            if (timer <= -0.3 && called == false)
+            {
+                Debug.Log("time is less that or equal to 0");
+                called = true;
+                timeEnds();
+            }
+        }      
     }
 
 
