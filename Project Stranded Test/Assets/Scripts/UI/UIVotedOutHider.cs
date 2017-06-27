@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon;
 
-public class UIVotedOutHider : MonoBehaviour {
+public class UIVotedOutHider : Photon.PunBehaviour
+{
 
     float remainingDisplayTime;
 
@@ -21,6 +23,15 @@ public class UIVotedOutHider : MonoBehaviour {
 
 		if (remainingDisplayTime <= 0.0f)
         {
+            // Temporary work around for players getting frozen due to vote not appearing / ending properly
+            foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                if (photonView.isMine)
+                {
+                    player.GetComponent<MovementScript>().canMove = true;
+                }
+            }
+
             gameObject.SetActive(false);
         }
 	}

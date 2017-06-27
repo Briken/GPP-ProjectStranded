@@ -7,20 +7,8 @@ using UnityEngine.UI;
 public class VoteTally : MonoBehaviour {
 
 
-    public int player1Total;
-    public int player1Current;
-
-    public int player2Total;
-    public int player2Current;
-
-    public int player3Total;
-    public int player3Current;
-
-    public int player4Total;
-    public int player4Current;
-
-    public int player5Total;
-    public int player5Current;
+    public int[] playerTotalVotes;
+    public int[] playerCurrentVotes;
 
     public GameObject[] votingCards;
     public GameObject votingInstructionsText;
@@ -31,6 +19,8 @@ public class VoteTally : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        playerTotalVotes = new int[5];
+        playerCurrentVotes = new int[5];
 	}
 	
 	// Update is called once per frame

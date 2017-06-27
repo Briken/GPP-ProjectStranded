@@ -105,6 +105,9 @@ public class ResourceScript : PunBehaviour {
                 if (n.GetPhotonView().isMine)
                 {
                     // StartCoroutine(ResourceTime(10.0f, n, seed));
+                    
+                    // Lock player position to prevent them flying away during a vote
+                    n.GetComponent<MovementScript>().canMove = false;
 
                     InitiateNewVote(totalVoteTime, n, seed);
                 }
@@ -191,11 +194,13 @@ public class ResourceScript : PunBehaviour {
                 if (playersCurrentlyVoting.Count > requirement && boot != n.GetComponent<MovementScript>().playerNum)
                 {
                     AddResource(n);
-
                 }
 
                 // Hide voting screen now that voting has concluded
                 n.GetComponent<VotingSystem>().voteCard.SetActive(false);
+
+                // Allow the player to move again
+                n.GetComponent<MovementScript>().canMove = true;
             }
 
             voteConcluded = true;

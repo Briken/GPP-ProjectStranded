@@ -87,15 +87,9 @@ public class VotingSystem : Photon.PunBehaviour
             for (int index = 0; index < playerTotals.Length; index++)
             {
                 votingPlayer.GetComponent<VotingSystem>().playerTotals[index] = 0;
+                voteTally.GetComponent<VoteTally>().playerCurrentVotes[index] = 0;
             }
         }
-
-        // Reset vote values on the separate vote tally in case it is required (?)
-        voteTally.GetComponent<VoteTally>().player1Current = 0;
-        voteTally.GetComponent<VoteTally>().player2Current = 0;
-        voteTally.GetComponent<VoteTally>().player3Current = 0;
-        voteTally.GetComponent<VoteTally>().player4Current = 0;
-        voteTally.GetComponent<VoteTally>().player5Current = 0;
 
         // Set voting instructions text to default text and colour
         votingInstructionsText.GetComponent<Text>().text = "TAP ONE CARD TO VOTE";
@@ -171,35 +165,12 @@ public class VotingSystem : Photon.PunBehaviour
     { 
         // Increment the value based on the player voted for
         playerTotals[index]++;
-        
-        // Increment the value on the separate vote tally object (unused)
-        // BUG: Seems to increment by the value of players in the game
-        switch (index)
+
+        // Increment the values on the separate vote tally
+        if (photonView.isMine)
         {
-            case 0:
-                voteTally.GetComponent<VoteTally>().player1Total++;
-                voteTally.GetComponent<VoteTally>().player1Current++;
-                break;
-
-            case 1:
-                voteTally.GetComponent<VoteTally>().player2Total++;
-                voteTally.GetComponent<VoteTally>().player2Current++;
-                break;
-
-            case 2:
-                voteTally.GetComponent<VoteTally>().player3Total++;
-                voteTally.GetComponent<VoteTally>().player3Current++;
-                break;
-
-            case 3:
-                voteTally.GetComponent<VoteTally>().player4Total++;
-                voteTally.GetComponent<VoteTally>().player4Current++;
-                break;
-
-            case 4:
-                voteTally.GetComponent<VoteTally>().player5Total++;
-                voteTally.GetComponent<VoteTally>().player5Current++;
-                break;
+            voteTally.GetComponent<VoteTally>().playerCurrentVotes[index]++;
+            voteTally.GetComponent<VoteTally>().playerTotalVotes[index]++;
         }
     }
 

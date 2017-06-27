@@ -19,6 +19,10 @@ public class MovementScript : Photon.PunBehaviour
     public float maxSteering = 50.0f;
     public float maxSpeed = 50;
 
+    public bool canMove = true;
+    bool hasLockedPosition = false;
+    Vector3 lockedPosition;
+
     bool hasClaimed = false;
     bool stopHasBeenCalled = false;
 
@@ -115,6 +119,22 @@ public class MovementScript : Photon.PunBehaviour
         //squareloc.text = transform.position.ToString();
         if (pv.isMine)
         {
+            // If the player is not allowed to move, lock their position
+            if (!canMove)
+            {
+                if (!hasLockedPosition)
+                {
+                    lockedPosition = gameObject.transform.position;
+                    hasLockedPosition = true;
+                }
+
+                gameObject.transform.position = lockedPosition;
+            }
+            else
+            {
+                hasLockedPosition = false;
+            }
+
             if (Input.GetButton("Fire1"))
             {
                 Debug.Log("Button Pressed");
