@@ -28,9 +28,10 @@ public class ResourceScript : PunBehaviour {
 
     public int amount;
 
-    public float totalVoteTime = 10.0f;
+    public float totalVoteTime = 5.0f;
     public float remainingVoteTime = 0.0f;
     public bool voteConcluded = false;
+    public List<GameObject> playersCurrentlyVoting = new List<GameObject>();
     
 	// Use this for initialization
 	void Start ()
@@ -87,11 +88,18 @@ public class ResourceScript : PunBehaviour {
         }
 
 
-
+        // Start a new vote if the player count is exceeded and there is not currently an ongoing vote
         if (nearby.Count > requirement && voteIsCalled == false)
         {
             voteIsCalled = true;
 
+            // Create a list of players that will be voting
+            foreach (GameObject n in nearby)
+            {
+                playersCurrentlyVoting.Add(n);
+            }
+
+            // Initiate a new vote on each nearby player's end
             foreach (GameObject n in nearby)
             {
                 if (n.GetPhotonView().isMine)
@@ -115,6 +123,7 @@ public class ResourceScript : PunBehaviour {
         playerResource = player.GetComponent<PlayerResource>();
         playerResource.resource += amount;
 
+        // Display hint box on players that receive fuel from the crate
         if (player.GetPhotonView().isMine)
         {
             GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL RECEIVED!", "YOU COLLECTED " + amount.ToString() + " FUEL \nFROM THIS CRATE\nDEPOSIT OR COLLECT MORE!", 6.0f);
@@ -140,7 +149,7 @@ public class ResourceScript : PunBehaviour {
     void InitiateNewVote(float voteLengthTime, GameObject player, int thisSeed)
     {
         // Call the vote via the voting system
-        player.GetComponent<VotingSystem>().CallVote();
+        player.GetComponent<VotingSystem>().CallVote(playersCurrentlyVoting, voteLengthTime + 5.0f);
         remainingVoteTime = voteLengthTime;
         voteIsCalled = true;
 
@@ -167,39 +176,30 @@ public class ResourceScript : PunBehaviour {
     {
         if (!voteConcluded)
         {
-                // Do stuff
-                // Random player boot seed
-            foreach (GameObject n in nearby)
+            foreach (GameObject n in playersCurrentlyVoting)
             {
-                // Determine what player to randomly vote out (if required)
+                // Fetch the number of the player to vote out
                 int boot = n.GetComponent<VotingSystem>().CheckVote(seed);
 
                 // Display voted out screen to voted out player
-                if (boot == n.GetComponent<MovementScript>().playerNum && photonView.isMine)
+                if (boot == n.GetComponent<MovementScript>().playerNum)
                 {
-                    votedOut.SetActive(true);
-                    votedOut.GetComponent<UIVotedOutHider>().DisplayVotedOut(4.0f);
+                    n.GetComponent<VotingSystem>().DisplayVotedOutScreen();
                 }
 
                 // Give fuel to all players not voted out
-                if (nearby.Count > requirement && boot != n.GetComponent<MovementScript>().playerNum)
+                if (playersCurrentlyVoting.Count > requirement && boot != n.GetComponent<MovementScript>().playerNum)
                 {
                     AddResource(n);
+
                 }
-                /*
-                else if (nearby.Count > requirement)
-                {
-                    StartCoroutine(ResourceTime(waitTime, player, thisSeed));
-                }
-                */
 
                 // Hide voting screen now that voting has concluded
                 n.GetComponent<VotingSystem>().voteCard.SetActive(false);
             }
 
             voteConcluded = true;
-
-            Debug.Log("NEW VOTING SYSTEM: Vote Concluded Successfully!");
+            playersCurrentlyVoting.Clear();
 
             DestroyThis();
         }
@@ -234,12 +234,6 @@ public class ResourceScript : PunBehaviour {
         DestroyThis();
     }
     */  
-
-    IEnumerator VotedOut()
-    {
-        yield return new WaitForSeconds(4);
-        votedOut.SetActive(false);
-    }
 
     [PunRPC]
     public void ReceiveSeed(int recieved)
