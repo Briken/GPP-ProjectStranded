@@ -45,6 +45,8 @@ public class ResourceScript : PunBehaviour {
         votedOut = GameObject.Find("NetworkManager").GetComponent<PhotonNetCode>().voteLoss;
                 
         players = new GameObject[7];
+
+        isRunning = true;
 	}
 
 	// Update is called once per frame
