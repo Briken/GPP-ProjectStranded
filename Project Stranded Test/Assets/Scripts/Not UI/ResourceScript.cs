@@ -62,7 +62,7 @@ public class ResourceScript : PunBehaviour {
                 {
                     nearby.Add(p);
                     Debug.Log(nearby);
-                    p.GetComponent<PlayerResource>().timeSinceLastFuelCrateProximity = 0.0f;
+                    p.GetComponent<PlayerStatTracker>().timeSinceLastNearFuelCrate = 0.0f;
                 }
             }
         }
@@ -110,6 +110,8 @@ public class ResourceScript : PunBehaviour {
                     n.GetComponent<MovementScript>().canMove = false;
 
                     InitiateNewVote(totalVoteTime, n, seed);
+
+                    n.GetComponent<PlayerStatTracker>().timesInVote += 1;
                 }
             }
             
@@ -131,8 +133,11 @@ public class ResourceScript : PunBehaviour {
         {
             GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL RECEIVED!", "YOU COLLECTED " + amount.ToString() + " FUEL \nFROM THIS CRATE\nDEPOSIT OR COLLECT MORE!", 6.0f);
         }
-        
-        playerResource.timeSinceLastPickup = 0.0f;           
+
+        player.GetComponent<PlayerStatTracker>().timeSinceLastFuelCratePickup = 0.0f;
+        player.GetComponent<PlayerStatTracker>().overallCollectedFuel += amount;
+        player.GetComponent<PlayerStatTracker>().fuelCratesOpened += 1;
+        player.GetComponent<PlayerStatTracker>().fuelCratesOpenedBySize[requirement] += 1;           
     }
 
     

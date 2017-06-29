@@ -208,6 +208,15 @@ public class MovementScript : Photon.PunBehaviour
                     moving = true;
                 }
             }
+
+            if (moving)
+            {
+                gameObject.GetComponent<PlayerStatTracker>().timeSpentMoving += Time.deltaTime;
+            }
+            else
+            {
+                gameObject.GetComponent<PlayerStatTracker>().timeSpentNotMoving += Time.deltaTime;
+            }
         }
     }
      

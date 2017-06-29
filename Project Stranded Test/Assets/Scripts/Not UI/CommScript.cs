@@ -83,9 +83,13 @@ public class CommScript : PunBehaviour {
             canComm = false;
             gameObject.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.2f);
             Debug.Log(commObj.name);
-            
+
+            thisPlayer.GetComponent<PlayerStatTracker>().timesActivatingComms += 1;
+
             StartCoroutine(CommCooldown(silenceTime));
         }
+
+        thisPlayer.GetComponent<PlayerStatTracker>().timesPressingCommsButton += 1;
     }
 
     IEnumerator CommCooldown(float coolTime)
