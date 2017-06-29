@@ -45,6 +45,9 @@ public class MovementScript : Photon.PunBehaviour
     public GameObject movementParticleSystem;
 
     protected Rigidbody rBody;
+
+    public float cameraSize = 9.0f;
+
     // Use this for initialization
     void Start()
     {
@@ -68,7 +71,7 @@ public class MovementScript : Photon.PunBehaviour
             Camera.main.gameObject.GetComponent<Animator>().Stop();
             Camera.main.gameObject.transform.SetParent(this.transform);
             Camera.main.gameObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -50);
-            Camera.main.orthographicSize = 6.0f;
+            Camera.main.orthographicSize = cameraSize;
 
         }
 
