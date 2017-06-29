@@ -22,6 +22,8 @@ public class MovementScript : Photon.PunBehaviour
     public bool canMove = true;
     bool hasLockedPosition = false;
     Vector3 lockedPosition;
+    public float lockOverrideTime = 6.0f; // Used to manually unfreeze the player in the event that they are not unlocked elsewhere (ideally use vote time)
+    float defaultLockOverrideTime;
 
     bool hasClaimed = false;
     bool stopHasBeenCalled = false;
@@ -89,7 +91,7 @@ public class MovementScript : Photon.PunBehaviour
             }
         }
 
-        
+        defaultLockOverrideTime = lockOverrideTime;
 
 
 #if UNITY_EDITOR
@@ -122,13 +124,24 @@ public class MovementScript : Photon.PunBehaviour
             // If the player is not allowed to move, lock their position
             if (!canMove)
             {
+                // Store the player's last location prior to locking their position
                 if (!hasLockedPosition)
                 {
                     lockedPosition = gameObject.transform.position;
                     hasLockedPosition = true;
                 }
 
-                gameObject.transform.position = lockedPosition;
+                // Lock the player's movement to the set position until unlocked or override time expires
+                if (lockOverrideTime >= 0.0f)
+                {
+                    gameObject.transform.position = lockedPosition;
+                    lockOverrideTime -= Time.deltaTime;
+                }
+                else
+                {
+                    canMove = true;
+                    lockOverrideTime = defaultLockOverrideTime;
+                }     
             }
             else
             {
