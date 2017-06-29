@@ -19,8 +19,8 @@ public class ShipScript : Photon.PunBehaviour
 	// Use this for initialization
 	void Start ()
     {
-		
-	}
+        EventManager.Reset += ResetThis;
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -33,19 +33,15 @@ public class ShipScript : Photon.PunBehaviour
 
 	}
 
-    //public void OnCollisionEnter2D(Collision2D playerCol)
-    //{
-    //    if (playerCol.gameObject.GetComponent<MovementScript>().playerNum == shipNum)
-    //    {
-    //        currentFuel += player.gameObject.GetComponent<PlayerResource>().resource;
-    //        totalFuel += currentFuel;
-    //    }
-    //}
-
     [PunRPC]
     public void DepositFuel(int pResource)
     {
         currentFuel += pResource;
         totalFuel += currentFuel;
+    }
+
+    public void ResetThis()
+    {
+        currentFuel = 0;
     }
 }

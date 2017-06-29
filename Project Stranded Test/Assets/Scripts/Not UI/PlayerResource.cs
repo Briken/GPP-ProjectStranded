@@ -21,6 +21,7 @@ public class PlayerResource : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        EventManager.Reset += ResetThis;
         //DontDestroyOnLoad(this);
         pv = PhotonView.Get(this.gameObject);
         largeResources = GameObject.FindGameObjectsWithTag("Large");
@@ -89,6 +90,11 @@ public class PlayerResource : MonoBehaviour
             gameObject.GetComponent<PlayerStatTracker>().timeSinceLastFuelDeposit += Time.deltaTime;
         }
     
+    }
+
+    public void ResetThis()
+    {
+        resource = 0;
     }
 
 }

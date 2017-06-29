@@ -24,7 +24,7 @@ public class GameTimer : Photon.PunBehaviour {
     void Start ()
     {
         timer = startTime;
-        EventManager.Reset += Reset;
+        EventManager.Reset += ResetThis;
         scoreData = GameObject.FindGameObjectWithTag("ScoreData");
         resourceDepot = GameObject.Find("ResourceDepot");
         timerSet = true; 
@@ -62,24 +62,6 @@ public class GameTimer : Photon.PunBehaviour {
         scoreData.GetComponent<ScoreCount>().LoadNextRound();
     }
 
-    //[PunRPC]
-    //float SetTimer(float masterTime)
-    //{
-    //    if (PhotonNetwork.player.ID == 0)
-    //    {
-    //        masterTime = timer;
-    //    }
-    //    else
-    //    {
-    //        timer = masterTime;
-    //    }
-
-    //    Debug.Log(timer.ToString());
-
-    //    return timer;
-        
-    //}
-
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.isWriting)
@@ -91,7 +73,7 @@ public class GameTimer : Photon.PunBehaviour {
             this.timer = (float)stream.ReceiveNext();
         }
     }
-    private void Reset()
+    private void ResetThis()
     {
         timer = startTime;
         Debug.Log("RESETR CALLED");

@@ -8,6 +8,10 @@ public class ResourceScript : PunBehaviour {
 
     bool debug = false;
 
+    SpriteRenderer thisSprite;
+    bool isRunning;
+
+
     public int seed;
 	bool isGifted = false;
 
@@ -36,6 +40,8 @@ public class ResourceScript : PunBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        EventManager.Reset += ResetThis;
+
         votedOut = GameObject.Find("NetworkManager").GetComponent<PhotonNetCode>().voteLoss;
                 
         players = new GameObject[7];
@@ -44,81 +50,84 @@ public class ResourceScript : PunBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-        players = GameObject.FindGameObjectsWithTag("Player");
-        
-        if (players != null)
+        if (isRunning)
         {
-            nearby.Clear();
-            foreach (GameObject p in players)
-            {   
-                if (p == null)
-                {
-                    continue;
-                }
+            players = GameObject.FindGameObjectsWithTag("Player");
 
-                float distance = GetDistance(p.transform.position);
-
-                if (distance <= resourceDistance)
+            if (players != null)
+            {
+                nearby.Clear();
+                foreach (GameObject p in players)
                 {
-                    nearby.Add(p);
-                    Debug.Log(nearby);
-                    p.GetComponent<PlayerStatTracker>().timeSinceLastNearFuelCrate = 0.0f;
+                    if (p == null)
+                    {
+                        continue;
+                    }
+
+                    float distance = GetDistance(p.transform.position);
+
+                    if (distance <= resourceDistance)
+                    {
+                        nearby.Add(p);
+                        Debug.Log(nearby);
+                        p.GetComponent<PlayerStatTracker>().timeSinceLastNearFuelCrate = 0.0f;
+                    }
                 }
             }
-        }
 
 
-        
-        if (nearby.Count == requirement && voteIsCalled == false)
-        {      
-            waitTimer -= Time.deltaTime;
 
-            if (waitTimer <= 0 && !isGifted)
+            if (nearby.Count == requirement && voteIsCalled == false)
             {
-                isGifted = true;
+                waitTimer -= Time.deltaTime;
 
+                if (waitTimer <= 0 && !isGifted)
+                {
+                    isGifted = true;
+
+                    foreach (GameObject n in nearby)
+                    {
+                        AddResource(n);
+                        Debug.Log("FUEL CRATE: Giving fuel to " + nearby.Count.ToString() + " players!");
+                    }
+
+                    DestroyThis();
+                }
+            }
+
+
+            // Start a new vote if the player count is exceeded and there is not currently an ongoing vote
+            if (nearby.Count > requirement && voteIsCalled == false)
+            {
+                voteIsCalled = true;
+
+                // Create a list of players that will be voting
                 foreach (GameObject n in nearby)
                 {
-                    AddResource(n);
-                    Debug.Log("FUEL CRATE: Giving fuel to " + nearby.Count.ToString() + " players!");
+                    playersCurrentlyVoting.Add(n);
                 }
 
-                DestroyThis();
-            }
-        }
-
-
-        // Start a new vote if the player count is exceeded and there is not currently an ongoing vote
-        if (nearby.Count > requirement && voteIsCalled == false)
-        {
-            voteIsCalled = true;
-
-            // Create a list of players that will be voting
-            foreach (GameObject n in nearby)
-            {
-                playersCurrentlyVoting.Add(n);
-            }
-
-            // Initiate a new vote on each nearby player's end
-            foreach (GameObject n in nearby)
-            {
-                if (n.GetPhotonView().isMine)
+                // Initiate a new vote on each nearby player's end
+                foreach (GameObject n in nearby)
                 {
-                    // StartCoroutine(ResourceTime(10.0f, n, seed));
-                    
-                    // Lock player position to prevent them flying away during a vote
-                    n.GetComponent<MovementScript>().canMove = false;
+                    if (n.GetPhotonView().isMine)
+                    {
+                        // StartCoroutine(ResourceTime(10.0f, n, seed));
 
-                    InitiateNewVote(totalVoteTime, n, seed);
+                        // Lock player position to prevent them flying away during a vote
+                        n.GetComponent<MovementScript>().canMove = false;
 
-                    n.GetComponent<PlayerStatTracker>().timesInVote += 1;
+                        InitiateNewVote(totalVoteTime, n, seed);
+
+                        n.GetComponent<PlayerStatTracker>().timesInVote += 1;
+                    }
                 }
-            }
-            
-        }
 
-        // Constantly check the vote state
-        CheckVoteState();
+            }
+
+            // Constantly check the vote state
+            CheckVoteState();
+        }
     }
 
     public void AddResource(GameObject player)
@@ -255,7 +264,14 @@ public class ResourceScript : PunBehaviour {
     public void DestroyThis()
     {
        GameObject particleEffectObject = (GameObject)Instantiate(particleEffectPrefab, gameObject.transform.position, Random.rotation);
-       // votedOut.SetActive(false);
-       PhotonNetwork.Destroy(this.gameObject);
+        // votedOut.SetActive(false);
+        //PhotonNetwork.Destroy(this.gameObject);
+        isRunning = false;
+        thisSprite.enabled = false;
+    }
+    public void ResetThis()
+    {
+        thisSprite.enabled = true;
+        isRunning = true;
     }
 }
