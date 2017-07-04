@@ -201,7 +201,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
         }
 
         pNum = controlledPlayer.GetComponent<PhotonView>().ownerId;
-        Vector3 moveTo = ships[pNum - 1].transform.position;
+        Vector3 moveTo = ships[pNum - 1].GetComponent<PlayerShipDocking>().dockObject.transform.position;
         controlledPlayer.transform.position = moveTo;
         controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, pNum);
 
