@@ -204,6 +204,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
         Vector3 moveTo = ships[pNum - 1].GetComponent<PlayerShipDocking>().dockObject.transform.position;
         controlledPlayer.transform.position = moveTo;
         controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, pNum);
+        controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetUsername", PhotonTargets.All, PlayerPrefs.GetString("Username"));
 
         connectionStatusOverlay.SetActive(false);
     }

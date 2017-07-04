@@ -49,6 +49,8 @@ public class MovementScript : Photon.PunBehaviour
 
     public float cameraSize = 9.0f;
 
+    public string publicUsername;
+
     // Use this for initialization
     void Start()
     {
@@ -299,6 +301,12 @@ public class MovementScript : Photon.PunBehaviour
     public void SetNum(int pNum)
     {
         playerNum = pNum;
+    }
+
+    [PunRPC]
+    public void SetUsername(string username)
+    {
+        publicUsername = username;
     }
 
     public void Stop()
