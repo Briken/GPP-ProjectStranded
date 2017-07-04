@@ -8,8 +8,8 @@ public class FuelCrateLightBeam : MonoBehaviour {
     public bool isActive = false;
     public bool voteStarted = false;
 
-    Color activeColour = Color.green;
-    Color inactiveColour = Color.red;
+    public Color activeColour = Color.green;
+    Color inactiveColour = Color.white;
     Color voteColour = Color.white;
 
 	// Use this for initialization
