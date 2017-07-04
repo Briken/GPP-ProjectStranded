@@ -103,6 +103,7 @@ public class PlayerResource : MonoBehaviour
                 gameObject.GetComponent<MovementScript>().myShip.GetComponent<PlayerShipDocking>().dockPrompt.SetActive(true);
                 gameObject.GetComponent<MovementScript>().myShip.gameObject.GetComponent<PlayerShipDocking>().dockTextObjects[0].GetComponent<Text>().text = "DEPOSITING FUEL...";
                 gameObject.GetComponent<MovementScript>().myShip.gameObject.GetComponent<PlayerShipDocking>().dockTextObjects[1].GetComponent<Text>().text = depositTime.ToString("0.0") + "s";
+                gameObject.GetComponent<MovementScript>().myShip.gameObject.GetComponent<PlayerShipDocking>().ChangePromptColour(new Color(1.0f, 0.68f, 0.0f, 1.0f));
 
                 if (depositTime >= 0.0f)
                 {
@@ -128,7 +129,7 @@ public class PlayerResource : MonoBehaviour
                 }
                 else
                 {
-                    if (resource > 0 && distanceFromShip < maximumDistanceForDepositing + 7.0f)
+                    if (resource > 0 && distanceFromShip < maximumDistanceForDepositing + 7.5f)
                     {
                         gameObject.GetComponent<MovementScript>().myShip.GetComponent<PlayerShipDocking>().dockPrompt.SetActive(true);
 
@@ -158,6 +159,7 @@ public class PlayerResource : MonoBehaviour
         if (!isDepositing)
         {
             isDepositing = true;
+            gameObject.GetComponent<MovementScript>().myShip.GetComponent<PlayerShipDocking>().dockFuelPipe.SetActive(true);
         }
     }
 
@@ -177,6 +179,10 @@ public class PlayerResource : MonoBehaviour
         resource = 0;
 
         depositTime = defaultDepositTime;
+
+        gameObject.GetComponent<MovementScript>().myShip.GetComponent<PlayerShipDocking>().dockFuelPipe.SetActive(false);
+        gameObject.GetComponent<MovementScript>().myShip.gameObject.GetComponent<PlayerShipDocking>().ChangePromptColour(Color.white);
+
         gameObject.GetComponent<MovementScript>().canMove = true;
         isDepositing = false;
     }

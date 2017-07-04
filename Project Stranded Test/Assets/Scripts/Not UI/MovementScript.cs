@@ -218,13 +218,16 @@ public class MovementScript : Photon.PunBehaviour
                 }
             }
 
-            if (moving)
+            if (moving && canMove)
             {
-                gameObject.GetComponent<PlayerStatTracker>().timeSpentMoving += Time.deltaTime;      
+                gameObject.GetComponent<PlayerStatTracker>().timeSpentMoving += Time.deltaTime;
+                movementParticleSystem.GetComponent<ParticleSystem>().time = 0.0f;
+                movementParticleSystem.GetComponent<ParticleSystem>().Play();
             }
             else
             {
                 gameObject.GetComponent<PlayerStatTracker>().timeSpentNotMoving += Time.deltaTime;
+                movementParticleSystem.GetComponent<ParticleSystem>().Stop();
             }
         }
     }
