@@ -43,6 +43,7 @@ public class MovementScript : Photon.PunBehaviour
     public GameObject playerBody;
     public GameObject[] playerColouredParts;
     public GameObject movementParticleSystem;
+    public GameObject movementParticleSystemSmall;
 
     protected Rigidbody rBody;
 
@@ -131,13 +132,14 @@ public class MovementScript : Photon.PunBehaviour
                 if (!hasLockedPosition)
                 {
                     lockedPosition = gameObject.transform.position;
+                    playerBody.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                     hasLockedPosition = true;
                 }
 
                 // Lock the player's movement to the set position until unlocked or override time expires
                 if (lockOverrideTime >= 0.0f)
                 {
-                    gameObject.transform.position = lockedPosition;
+                    gameObject.transform.position = lockedPosition;   
                     lockOverrideTime -= Time.deltaTime;
                 }
                 else
@@ -160,15 +162,19 @@ public class MovementScript : Photon.PunBehaviour
 
 
                 // Adjust player sprite depending on what vertical direction they are moving in
-                if (Input.mousePosition.x > Screen.width/2)
+                if (canMove)
                 {
-                    playerBody.gameObject.transform.localScale = new Vector3(-1.0f, playerBody.gameObject.gameObject.transform.localScale.y, playerBody.gameObject.gameObject.transform.localScale.z);
+                    if (Input.mousePosition.x > Screen.width / 2)
+                    {
+                        playerBody.gameObject.transform.localScale = new Vector3(-1.0f, playerBody.gameObject.gameObject.transform.localScale.y, playerBody.gameObject.gameObject.transform.localScale.z);
+                    }
+
+                    if (Input.mousePosition.x < Screen.width / 2)
+                    {
+                        playerBody.gameObject.transform.localScale = new Vector3(1.0f, playerBody.gameObject.gameObject.transform.localScale.y, playerBody.gameObject.gameObject.transform.localScale.z);
+                    }
                 }
 
-                if (Input.mousePosition.x < Screen.width / 2)
-                {
-                    playerBody.gameObject.transform.localScale = new Vector3(1.0f, playerBody.gameObject.gameObject.transform.localScale.y, playerBody.gameObject.gameObject.transform.localScale.z);
-                }
 
                 // movementParticleSystem.transform.LookAt(target);
             }
@@ -214,7 +220,7 @@ public class MovementScript : Photon.PunBehaviour
 
             if (moving)
             {
-                gameObject.GetComponent<PlayerStatTracker>().timeSpentMoving += Time.deltaTime;
+                gameObject.GetComponent<PlayerStatTracker>().timeSpentMoving += Time.deltaTime;      
             }
             else
             {

@@ -18,6 +18,13 @@ public class PlayerResource : MonoBehaviour
 
     GameObject informationBar;
 
+    public bool isDepositing = false;
+    public float depositTime = 3.0f;
+    float defaultDepositTime;
+
+    float distanceFromShip;
+    public float maximumDistanceForDepositing = 5.0f;
+
     // Use this for initialization
     void Start()
     {
@@ -43,6 +50,8 @@ public class PlayerResource : MonoBehaviour
         {
             r.GetComponent<ResourceScript>().SetPlayers();
         }
+
+        defaultDepositTime = depositTime;
     }
 
     // Update is called once per frame
@@ -50,6 +59,9 @@ public class PlayerResource : MonoBehaviour
     {
         if (pv.isMine)
         {
+
+            distanceFromShip = Vector3.Distance(gameObject.transform.position, gameObject.GetComponent<MovementScript>().myShip.gameObject.transform.position);
+
             if (Input.GetButton("Fire1"))
             {
                 Debug.Log("button down");
@@ -67,20 +79,12 @@ public class PlayerResource : MonoBehaviour
                         //hit.collider.gameObject.GetComponent<ResourceDepot>().AddTeamResource(this.gameObject);
 
                         Debug.Log("hit ship");
-                        // Let the player know how much they have deposited if they have anything to deposit
-                        if (resource > 0)
+
+                        if (resource > 0 && (distanceFromShip < maximumDistanceForDepositing))
                         {
-                            hit.collider.gameObject.GetComponent<ShipScript>().photonView.RPC("DepositFuel", PhotonTargets.All, resource);
-                            // informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You deposited +" + resource.ToString() + "% fuel", 5.0f);
-                            // depositParticleObject.GetComponent<ParticleSystem>().Play();
-                            GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL DEPOSITED!", "YOU DEPOSITED \n" + resource.ToString() + "% OF FUEL \nTO YOUR SHIP!", 5.0f);
-
-                            gameObject.GetComponent<PlayerStatTracker>().overallFuelDeposited += resource;
-                            gameObject.GetComponent<PlayerStatTracker>().timesDepositingFuel += 1;
-                            gameObject.GetComponent<PlayerStatTracker>().timeSinceLastFuelDeposit = 0;
-
-                            resource = 0;
+                            StartFuelDeposit();
                         }
+
                     }
                 }
             }
@@ -88,6 +92,58 @@ public class PlayerResource : MonoBehaviour
             gameObject.GetComponent<PlayerStatTracker>().timeSinceLastNearFuelCrate += Time.deltaTime;
             gameObject.GetComponent<PlayerStatTracker>().timeSinceLastFuelCratePickup += Time.deltaTime;
             gameObject.GetComponent<PlayerStatTracker>().timeSinceLastFuelDeposit += Time.deltaTime;
+
+            // Change player state if they are depositing
+            if (isDepositing)
+            {
+                gameObject.transform.position = gameObject.GetComponent<MovementScript>().myShip.GetComponent<PlayerShipDocking>().dockObject.transform.position;
+                gameObject.GetComponent<MovementScript>().canMove = false;
+
+                // Update ship text prompts
+                gameObject.GetComponent<MovementScript>().myShip.GetComponent<PlayerShipDocking>().dockPrompt.SetActive(true);
+                gameObject.GetComponent<MovementScript>().myShip.gameObject.GetComponent<PlayerShipDocking>().dockTextObjects[0].GetComponent<Text>().text = "DEPOSITING FUEL...";
+                gameObject.GetComponent<MovementScript>().myShip.gameObject.GetComponent<PlayerShipDocking>().dockTextObjects[1].GetComponent<Text>().text = depositTime.ToString("0.0") + "s";
+
+                if (depositTime >= 0.0f)
+                {
+                    depositTime -= Time.deltaTime;
+                }
+                else
+                {
+                    FinishFuelDeposit();
+                }
+            }
+            else
+            {     
+                // Display deposit prompt if the player has fuel and is close enough to their ship
+                if (resource > 0 && distanceFromShip < maximumDistanceForDepositing)
+                {
+                    gameObject.GetComponent<MovementScript>().myShip.GetComponent<PlayerShipDocking>().dockPrompt.SetActive(true);
+
+                    foreach (GameObject dockPromptTextObject in gameObject.GetComponent<MovementScript>().myShip.gameObject.GetComponent<PlayerShipDocking>().dockTextObjects)
+                    {
+                        dockPromptTextObject.GetComponent<Text>().text = "TAP TO DEPOSIT";
+                        dockPromptTextObject.GetComponent<Text>().resizeTextForBestFit = false;
+                    }
+                }
+                else
+                {
+                    if (resource > 0 && distanceFromShip < maximumDistanceForDepositing + 7.0f)
+                    {
+                        gameObject.GetComponent<MovementScript>().myShip.GetComponent<PlayerShipDocking>().dockPrompt.SetActive(true);
+
+                        foreach (GameObject dockPromptTextObject in gameObject.GetComponent<MovementScript>().myShip.gameObject.GetComponent<PlayerShipDocking>().dockTextObjects)
+                        {
+                            dockPromptTextObject.GetComponent<Text>().text = "MOVE CLOSER TO DEPOSIT";
+                            dockPromptTextObject.GetComponent<Text>().resizeTextForBestFit = true;
+                        }
+                    }
+                    else
+                    {
+                        gameObject.GetComponent<MovementScript>().myShip.GetComponent<PlayerShipDocking>().dockPrompt.SetActive(false);
+                    }           
+                }
+            }
         }
     
     }
@@ -97,4 +153,31 @@ public class PlayerResource : MonoBehaviour
         resource = 0;
     }
 
+    void StartFuelDeposit()
+    {
+        if (!isDepositing)
+        {
+            isDepositing = true;
+        }
+    }
+
+    void FinishFuelDeposit()
+    {
+        gameObject.GetComponent<MovementScript>().myShip.gameObject.GetComponent<ShipScript>().photonView.RPC("DepositFuel", PhotonTargets.All, resource);
+        // informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You deposited +" + resource.ToString() + "% fuel", 5.0f);
+        // depositParticleObject.GetComponent<ParticleSystem>().Play();
+
+        // Let the player know how much they have deposited via a hint (temporary)
+        GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL DEPOSITED!", "YOU DEPOSITED \n" + resource.ToString() + "% OF FUEL \nTO YOUR SHIP!", 5.0f);
+
+        gameObject.GetComponent<PlayerStatTracker>().overallFuelDeposited += resource;
+        gameObject.GetComponent<PlayerStatTracker>().timesDepositingFuel += 1;
+        gameObject.GetComponent<PlayerStatTracker>().timeSinceLastFuelDeposit = 0;
+
+        resource = 0;
+
+        depositTime = defaultDepositTime;
+        gameObject.GetComponent<MovementScript>().canMove = true;
+        isDepositing = false;
+    }
 }
