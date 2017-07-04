@@ -16,15 +16,30 @@ public class CommScript : PunBehaviour {
     bool canComm = true;
     public float silenceTime = 5.0f;
 
+    public float colourChangeTimer = 2.0f;
+    public float colourBlinkTime = 0.25f;
+    float defaultColourChangeTimer;
+    bool isPlayerColour = false;
+
 	// Use this for initialization
 	void Start ()
     {
-       
+        defaultColourChangeTimer = colourChangeTimer;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        if (canComm && colourChangeTimer >= 0.0f)
+        {
+            colourChangeTimer -= Time.deltaTime;
+        }
+
+        if (canComm && colourChangeTimer <= 0.0f)
+        {
+            ChangeButtonColour();
+        }
+
         //if (Input.GetButton("Fire1") && canComm)
         //{
         //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -97,5 +112,29 @@ public class CommScript : PunBehaviour {
         yield return new WaitForSeconds(coolTime);
         canComm = true;
         gameObject.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        isPlayerColour = false;
+        colourChangeTimer = defaultColourChangeTimer;
+    }
+
+    void ChangeButtonColour()
+    {
+        foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            if (n.GetPhotonView().isMine)
+            {
+                if (isPlayerColour)
+                {
+                    gameObject.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                    isPlayerColour = false;
+                    colourChangeTimer = defaultColourChangeTimer;
+                }
+                else
+                {
+                    gameObject.GetComponent<Image>().color = n.GetComponent<MovementScript>().myColour;
+                    isPlayerColour = true;
+                    colourChangeTimer = colourBlinkTime;
+                }
+            }
+        }
     }
 }
