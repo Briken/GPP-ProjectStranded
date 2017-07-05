@@ -40,6 +40,7 @@ public class ResourceScript : PunBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        thisSprite = this.GetComponent<SpriteRenderer>();
         EventManager.Reset += ResetThis;
 
         votedOut = GameObject.Find("NetworkManager").GetComponent<PhotonNetCode>().voteLoss;
