@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.UI;
 //using Photon;
 
@@ -63,8 +64,19 @@ public class VoteTally : MonoBehaviour {
         }
 
         // Update instructions text to display what player the player voted for
-        switch (playerCardNumber)
+        foreach (MovementScript n in FindObjectsOfType<MovementScript>())
         {
+            if (n.pv.isMine)
+            {
+                Analytics.CustomEvent("PlayerVoted", new Dictionary<string, object>
+                {
+                    { "player " + n.playerNum.ToString(), n.playerNum},
+                    { "voted out " + playerCardNumber.ToString(), playerCardNumber}
+                });
+            }
+        }
+        switch (playerCardNumber)
+        {   
             case 0:
                 votingInstructionsText.GetComponent<Text>().text = "YOU VOTED RED PLAYER";
                 break;
