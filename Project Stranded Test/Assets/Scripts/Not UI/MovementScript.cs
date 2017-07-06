@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
 using Photon;
 
 
@@ -65,6 +67,11 @@ public class MovementScript : Photon.PunBehaviour
         pv = PhotonView.Get(this.gameObject);
         tempMgr = GameObject.Find("TeamManager");
 
+        Analytics.CustomEvent("PlayerVoted", new Dictionary<string, object>
+        {
+             { "player " + publicUsername, playerNum},
+        });
+        
         ships = GameObject.FindGameObjectWithTag("NetManager").GetComponent<PhotonNetCode>().ships;
 
         if (pv.isMine)

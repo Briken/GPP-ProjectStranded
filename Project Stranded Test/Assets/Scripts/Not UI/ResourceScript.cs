@@ -8,7 +8,9 @@ public class ResourceScript : PunBehaviour {
 
     bool debug = false;
 
-    SpriteRenderer thisSprite;
+    SpriteRenderer thisMainSprite;
+    Image[] attachedImages;
+    SpriteRenderer[] attachedSprites;
     bool isRunning;
 
 
@@ -40,7 +42,7 @@ public class ResourceScript : PunBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        thisSprite = this.GetComponent<SpriteRenderer>();
+        thisMainSprite = this.GetComponent<SpriteRenderer>();
         EventManager.Reset += ResetThis;
 
         votedOut = GameObject.Find("NetworkManager").GetComponent<PhotonNetCode>().voteLoss;
@@ -269,12 +271,30 @@ public class ResourceScript : PunBehaviour {
        GameObject particleEffectObject = (GameObject)Instantiate(particleEffectPrefab, gameObject.transform.position, Random.rotation);
         // votedOut.SetActive(false);
         //PhotonNetwork.Destroy(this.gameObject);
+        attachedImages = this.GetComponentsInChildren<Image>();
+        attachedSprites = this.GetComponentsInChildren<SpriteRenderer>();
         isRunning = false;
-        thisSprite.enabled = false;
+        thisMainSprite.enabled = false;
+        foreach (Image n in attachedImages)
+        {
+            n.enabled = false;
+        }
+        foreach (SpriteRenderer n in attachedSprites)
+        {
+            n.enabled = false;
+        }
     }
     public void ResetThis()
     {
-        thisSprite.enabled = true;
+        thisMainSprite.enabled = true;
+        foreach (Image n in attachedImages)
+        {
+            n.enabled = true;
+        }
+        foreach (SpriteRenderer n in attachedSprites)
+        {
+            n.enabled = true;
+        }
         isRunning = true;
     }
 }
