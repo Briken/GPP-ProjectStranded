@@ -69,7 +69,7 @@ public class MovementScript : Photon.PunBehaviour
 
         Analytics.CustomEvent("PlayerVoted", new Dictionary<string, object>
         {
-             { "player " + publicUsername, playerNum},
+             { "player username", publicUsername},
         });
         
         ships = GameObject.FindGameObjectWithTag("NetManager").GetComponent<PhotonNetCode>().ships;
