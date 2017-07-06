@@ -76,6 +76,7 @@ public class GameTimer : Photon.PunBehaviour {
     private void ResetThis()
     {
         timer = startTime;
+        called = false;
         Debug.Log("RESETR CALLED");
     }
     
