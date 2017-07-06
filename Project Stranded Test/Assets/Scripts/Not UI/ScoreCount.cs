@@ -25,6 +25,7 @@ public class ScoreCount : MonoBehaviour {
     // public GameObject winScreen;
 
     public GameObject roundOverScreen;
+    public GameObject matchOverScreen;
 
     // Use this for initialization
     void Start ()
@@ -98,7 +99,7 @@ public class ScoreCount : MonoBehaviour {
         yield return new WaitForSeconds(7);
         if (roundCount == 4)
         {
-            SceneManager.LoadScene("EndScene");
+            matchOverScreen.SetActive(true);
         }
         else
         {
@@ -106,9 +107,10 @@ public class ScoreCount : MonoBehaviour {
             // winScreen.SetActive(false);
             // lossScreen.SetActive(false);
 
-            roundOverScreen.SetActive(false);
             counted = false;
         }
+
+        roundOverScreen.SetActive(false);
 
     }
 }
