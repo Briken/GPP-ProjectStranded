@@ -42,6 +42,8 @@ public class ResourceScript : PunBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        attachedImages = this.GetComponentsInChildren<Image>();
+        attachedSprites = this.GetComponentsInChildren<SpriteRenderer>();
         thisMainSprite = this.GetComponent<SpriteRenderer>();
         EventManager.Reset += ResetThis;
 
@@ -229,36 +231,6 @@ public class ResourceScript : PunBehaviour {
         }
     }
 
-    /*
-    IEnumerator ResourceTime(float waitTime, GameObject player, int thisSeed)
-    {
-        player.GetComponent<VotingSystem>().CallVote();
-        yield return new WaitForSeconds(waitTime);
-        Debug.Log("Timer Waited for, votecard should shut down now");
-        player.GetComponent<VotingSystem>().voteCard.SetActive(false);
-        int boot = player.GetComponent<VotingSystem>().CheckVote(thisSeed);
-        foreach (GameObject n in nearby)
-        {
-            if (boot == n.GetComponent<MovementScript>().playerNum && photonView.isMine)
-            {
-                votedOut.SetActive(true);
-                
-                
-            }
-            if (nearby.Count == requirement && boot != n.GetComponent<MovementScript>().playerNum)
-            {
-                AddResource(player);
-                
-            }
-            else if (nearby.Count > requirement)
-            {
-                StartCoroutine(ResourceTime(waitTime, player, thisSeed));
-            }
-        }
-        DestroyThis();
-    }
-    */  
-
     [PunRPC]
     public void ReceiveSeed(int recieved)
     {
@@ -271,8 +243,7 @@ public class ResourceScript : PunBehaviour {
        GameObject particleEffectObject = (GameObject)Instantiate(particleEffectPrefab, gameObject.transform.position, Random.rotation);
         // votedOut.SetActive(false);
         //PhotonNetwork.Destroy(this.gameObject);
-        attachedImages = this.GetComponentsInChildren<Image>();
-        attachedSprites = this.GetComponentsInChildren<SpriteRenderer>();
+        
         isRunning = false;
         thisMainSprite.enabled = false;
         foreach (Image n in attachedImages)
@@ -286,6 +257,8 @@ public class ResourceScript : PunBehaviour {
     }
     public void ResetThis()
     {
+        isGifted = false;
+        waitTimer = 7.0f;
         thisMainSprite.enabled = true;
         foreach (Image n in attachedImages)
         {

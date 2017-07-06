@@ -23,7 +23,7 @@ public class ResourceNumberSwitcher : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-
+        EventManager.Reset += ResetThis;
         attachedResourceScript = gameObject.GetComponent<ResourceScript>();
         initialWaitTime = attachedResourceScript.waitTimer;
 		
@@ -72,4 +72,9 @@ public class ResourceNumberSwitcher : MonoBehaviour {
             }
         }       
 	}
+
+    public void ResetThis()
+    {
+
+    }
 }
