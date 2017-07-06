@@ -61,7 +61,7 @@ public class UIMainGameHandler : MonoBehaviour {
 
         string gameTimeString = System.Math.Round(gameTimeRemaining, 2).ToString();
 
-        if (gameTimeRemaining > 60.0f || gameTimeRemaining == 0.0f)
+        if (gameTimeRemaining > 60.0f || gameTimeRemaining <= 0.0f)
         {
             timeRemainingText.GetComponent<Text>().text = "";
             timeRemainingText.SetActive(false);         

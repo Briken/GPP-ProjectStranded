@@ -21,8 +21,10 @@ public class ScoreCount : MonoBehaviour {
     public int roundCount;
     bool counted = false;
 
-    public GameObject lossScreen;
-    public GameObject winScreen;
+    // public GameObject lossScreen;
+    // public GameObject winScreen;
+
+    public GameObject roundOverScreen;
 
     // Use this for initialization
     void Start ()
@@ -30,11 +32,13 @@ public class ScoreCount : MonoBehaviour {
         playerScores = new int[5];
         winCounts = new int[5];
 
+        /*
         if (SceneManager.GetActiveScene().name == "MainScene-Recovered")
         {
             winScreen = GameObject.Find("Main Game UI Handler").GetComponent<UIMainGameHandler>().winScreen;
             lossScreen = GameObject.Find("Main Game UI Handler").GetComponent<UIMainGameHandler>().lossScreen;
         }
+        */
     }
 	
 	// Update is called once per frame
@@ -82,23 +86,27 @@ public class ScoreCount : MonoBehaviour {
         {
             if (n.GetComponent<MovementScript>().playerNum == roundWinner && n.GetPhotonView().isMine)
             {
-                winScreen.SetActive(true);
+                roundOverScreen.SetActive(true);
+                roundOverScreen.GetComponent<UIRoundVictoryText>().DisplayRoundOverScreen(7.0f, true);
             }
             else
             {
-                lossScreen.SetActive(true);
+                roundOverScreen.SetActive(true);
+                roundOverScreen.GetComponent<UIRoundVictoryText>().DisplayRoundOverScreen(7.0f, false);
             }
         }
         yield return new WaitForSeconds(7);
-        if (roundCount == 5)
+        if (roundCount == 4)
         {
             SceneManager.LoadScene("EndScene");
         }
         else
         {
             EventManager.ResetObjects();
-            winScreen.SetActive(false);
-            lossScreen.SetActive(false);
+            // winScreen.SetActive(false);
+            // lossScreen.SetActive(false);
+
+            roundOverScreen.SetActive(false);
             counted = false;
         }
 
