@@ -54,11 +54,7 @@ public class GameTimer : Photon.PunBehaviour {
 
     public void timeEnds()
     {
-        
-        foreach (GameObject n in GameObject.FindGameObjectsWithTag("Ship"))
-        {
-            scoreData.GetComponent<ScoreCount>().RecordScores(n.GetComponent<ShipScript>().shipNum, n.GetComponent<ShipScript>().totalFuel);
-        }
+        scoreData.GetComponent<ScoreCount>().RecordScores();
         scoreData.GetComponent<ScoreCount>().LoadNextRound();
     }
 

@@ -63,7 +63,11 @@ public class ResourceNumberSwitcher : MonoBehaviour {
                 if (System.Array.IndexOf(lightBeams, lightBeam) < attachedResourceScript.nearby.Count)
                 {
                     lightBeam.GetComponent<FuelCrateLightBeam>().isActive = true;
-                    lightBeam.GetComponent<FuelCrateLightBeam>().activeColour = attachedResourceScript.nearby[System.Array.IndexOf(lightBeams, lightBeam)].GetComponent<MovementScript>().myColour;
+
+                    if (attachedResourceScript.nearby[System.Array.IndexOf(lightBeams, lightBeam)].GetComponent<MovementScript>() != null)
+                    {
+                        lightBeam.GetComponent<FuelCrateLightBeam>().activeColour = attachedResourceScript.nearby[System.Array.IndexOf(lightBeams, lightBeam)].GetComponent<MovementScript>().myColour;
+                    }                 
                 }
                 else
                 {

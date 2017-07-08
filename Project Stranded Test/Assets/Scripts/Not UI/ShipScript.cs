@@ -38,6 +38,12 @@ public class ShipScript : Photon.PunBehaviour
     {
         currentFuel += pResource;
         totalFuel += currentFuel;
+
+        // End the round for every player if fuel total reached
+        if (currentFuel >= maxFuel)
+        {
+            GameObject.FindGameObjectWithTag("NetManager").GetComponent<GameTimer>().timer = 0.0f;
+        }
     }
 
     public void ResetThis()

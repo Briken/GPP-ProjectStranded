@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIRoundVictoryText : MonoBehaviour {
 
     public GameObject roundStateTextBox;
+    public GameObject roundNumberTextBox;
     public GameObject newRoundStateTextBox;
     public bool playerWon;
 
@@ -28,9 +29,11 @@ public class UIRoundVictoryText : MonoBehaviour {
             {
                 timeUntilNewRound -= Time.deltaTime;
 
-                if (scoreDataObject.GetComponent<ScoreCount>().roundCount != 4)
+                roundNumberTextBox.GetComponent<Text>().text = "ROUND " + scoreDataObject.GetComponent<ScoreCount>().roundCount.ToString();
+
+                if (scoreDataObject.GetComponent<ScoreCount>().roundCount != 5)
                 {
-                    newRoundStateTextBox.GetComponent<Text>().text = "ROUND " + (scoreDataObject.GetComponent<ScoreCount>().roundCount + 1).ToString() + " STARTING IN " + timeUntilNewRound.ToString("0.0") + "s";
+                    newRoundStateTextBox.GetComponent<Text>().text = "ROUND " + (scoreDataObject.GetComponent<ScoreCount>().roundCount + 1).ToString() + " OF 5 STARTING IN " + timeUntilNewRound.ToString("0.0") + "s";
                 }
                 else
                 {

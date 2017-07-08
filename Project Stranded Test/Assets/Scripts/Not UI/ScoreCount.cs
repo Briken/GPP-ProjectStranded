@@ -2,22 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon;
 
-public class ScoreCount : MonoBehaviour {
-    public int[] playerScores;
+public class ScoreCount : Photon.PunBehaviour
+{
+    public int[] playerCurrentScores;
+    public int[] playerTotalScores;
     public int[] winCounts;
+
     public int roundWinner;
 
-    public int player1Score;
-    public int player2Score;
-    public int player3Score;
-    public int player4Score;
-    public int player5Score;
-    public bool p1Win;
-    public bool p2Win;
-    public bool p3Win;
-    public bool p4Win;
-    public bool p5Win;
     public int roundCount;
     bool counted = false;
 
@@ -27,10 +21,13 @@ public class ScoreCount : MonoBehaviour {
     public GameObject roundOverScreen;
     public GameObject matchOverScreen;
 
+    public float timeUntilNextRound = 8.0f;
+
     // Use this for initialization
     void Start ()
     {
-        playerScores = new int[5];
+        playerCurrentScores = new int[5];
+        playerTotalScores = new int[5];
         winCounts = new int[5];
 
         /*
@@ -47,59 +44,85 @@ public class ScoreCount : MonoBehaviour {
 		
 	}
 
-    public void RecordScores(int playerNum, int score)
+    public void RecordScores()
     {
-        for(int x = 0; x < playerScores.Length; x++ )
+        // Record and update fuel values at end of round
+        foreach (GameObject playerShip in GameObject.FindGameObjectsWithTag("Ship"))
         {
-            if (x == playerNum - 1)
+            playerCurrentScores[playerShip.GetComponent<ShipScript>().shipNum - 1] = playerShip.GetComponent<ShipScript>().currentFuel;
+            playerTotalScores[playerShip.GetComponent<ShipScript>().shipNum - 1] += playerShip.GetComponent<ShipScript>().currentFuel;
+        }
+  
+        // Determine what player has the highest score
+        int currentHighestScore = 0;
+        roundWinner = 0;
+
+        for (int y = 0; y < playerCurrentScores.Length; y++)
+        {
+            if (currentHighestScore < playerCurrentScores[y])
             {
-                playerScores[x] += score;
-            }
-        }   
+                currentHighestScore = playerCurrentScores[y];
+                roundWinner = y + 1;
+
+                // NEED TO ADD FUNCTIONALITY FOR DRAWS
+            }          
+        }
+
+        // Store the win to the winner's total
+        if (roundWinner >= 1 && roundWinner <= 5)
+        {
+            winCounts[roundWinner - 1] += 1;
+        }
+
+        // Finish recording score and increase round number
         if (counted == false)
         {
             counted = true;
             roundCount++;
         }
-
-        int currentLead = 0;
-        for (int y = 0; y < playerScores.Length; y++)
-        {
-            if (currentLead < playerScores[y])
-            {
-                currentLead = playerScores[y];
-                roundWinner = y + 1;
-            }
-        }
-
-        
-
     }
+
     public void LoadNextRound()
     {
-
         StartCoroutine(LoadLevel());
-
     }
     IEnumerator LoadLevel()
     {
         foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
         {
-            if (n.GetComponent<MovementScript>().playerNum == roundWinner && n.GetPhotonView().isMine)
+            if (n.GetPhotonView().isMine)
             {
-                roundOverScreen.SetActive(true);
-                roundOverScreen.GetComponent<UIRoundVictoryText>().DisplayRoundOverScreen(7.0f, true);
-            }
-            else
-            {
-                roundOverScreen.SetActive(true);
-                roundOverScreen.GetComponent<UIRoundVictoryText>().DisplayRoundOverScreen(7.0f, false);
+                if (n.GetComponent<MovementScript>().playerNum == roundWinner)
+                {
+                    roundOverScreen.SetActive(true);
+                    roundOverScreen.GetComponent<UIRoundVictoryText>().DisplayRoundOverScreen(timeUntilNextRound, true);
+                }
+                else
+                {
+                    roundOverScreen.SetActive(true);
+                    roundOverScreen.GetComponent<UIRoundVictoryText>().DisplayRoundOverScreen(timeUntilNextRound, false);
+                }
             }
         }
-        yield return new WaitForSeconds(7);
-        if (roundCount == 4)
+
+        yield return new WaitForSeconds(timeUntilNextRound);
+
+        if (roundCount == 5)
         {
             matchOverScreen.SetActive(true);
+
+            // Determine what the max amount of rounds won was
+            int currentMaxRoundsWon = 0;
+
+            for (int x = 0; x < winCounts.Length; x++)
+            {
+                if (currentMaxRoundsWon < winCounts[x])
+                {
+                    currentMaxRoundsWon = winCounts[x];
+                }
+            }
+
+            matchOverScreen.GetComponent<UIEndGameScreen>().UpdateEndMatchInfo(winCounts, currentMaxRoundsWon);
         }
         else
         {
