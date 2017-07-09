@@ -24,10 +24,13 @@ public class UIMainGameHandler : MonoBehaviour {
 
     bool noMain = true;
 
+    public GameObject startMovementPrompt;
+
     // Use this for initialization
     void Start()
     {
         timeRemainingText.SetActive(false);
+        startMovementPrompt.SetActive(false);
     }
 
     // Update is called once per frame

@@ -106,6 +106,9 @@ public class MovementScript : Photon.PunBehaviour
 
         defaultLockOverrideTime = lockOverrideTime;
 
+        // Display tap to move prompt via main UI handler
+        GameObject.FindGameObjectWithTag("UIHandler").GetComponent<UIMainGameHandler>().startMovementPrompt.SetActive(true);
+
 
 #if UNITY_EDITOR
         {
@@ -225,6 +228,9 @@ public class MovementScript : Photon.PunBehaviour
                     rBody.velocity = currentVelocity;
                     moving = true;
                 }
+
+                // Hide tap to move prompt via main UI handler
+                GameObject.FindGameObjectWithTag("UIHandler").GetComponent<UIMainGameHandler>().startMovementPrompt.SetActive(false);
             }
 
             if (moving && canMove)
