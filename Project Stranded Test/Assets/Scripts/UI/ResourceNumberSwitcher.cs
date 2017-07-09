@@ -55,11 +55,6 @@ public class ResourceNumberSwitcher : MonoBehaviour {
             // Change light beam colour based on nearby player count
             foreach (GameObject lightBeam in lightBeams)
             {
-                if (initialNumber - attachedResourceScript.nearby.Count < 0 == true)
-                {
-                    lightBeam.GetComponent<FuelCrateLightBeam>().voteStarted = true;
-                }
-
                 if (System.Array.IndexOf(lightBeams, lightBeam) < attachedResourceScript.nearby.Count)
                 {
                     lightBeam.GetComponent<FuelCrateLightBeam>().isActive = true;
@@ -79,6 +74,12 @@ public class ResourceNumberSwitcher : MonoBehaviour {
 
     public void ResetThis()
     {
+        fillBarImage.GetComponent<Image>().fillAmount = 0;
+        fillBarOuterLight.GetComponent<Image>().fillAmount = 0;
 
+        foreach (GameObject lightBeam in lightBeams)
+        {
+            lightBeam.GetComponent<FuelCrateLightBeam>().isActive = false;
+        }
     }
 }

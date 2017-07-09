@@ -260,14 +260,22 @@ public class ResourceScript : PunBehaviour {
         isGifted = false;
         waitTimer = 7.0f;
         thisMainSprite.enabled = true;
+
         foreach (Image n in attachedImages)
         {
             n.enabled = true;
         }
+
         foreach (SpriteRenderer n in attachedSprites)
         {
             n.enabled = true;
         }
+
         isRunning = true;
+
+        voteIsCalled = false;
+        voteConcluded = false;
+
+        gameObject.GetComponent<ResourceNumberSwitcher>().ResetThis();
     }
 }
