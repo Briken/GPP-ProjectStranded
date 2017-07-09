@@ -27,8 +27,8 @@ public class PlayerAppearance : Photon.PunBehaviour {
         playerHeadNumber = PlayerPrefs.GetInt("Player Head");
         playerBodyNumber = PlayerPrefs.GetInt("Player Body"); 
 
-        randomPlayerHeadNumber = Random.Range(0, playerHeadSprites.Length);
-        randomPlayerBodyNumber = Random.Range(0, playerBodySprites.Length);
+        randomPlayerHeadNumber = Random.Range(0, playerHeadSprites.Length - 1);
+        randomPlayerBodyNumber = Random.Range(0, playerBodySprites.Length - 1);
 
         // Adjust values if player parts match same value
         if (playerHeadNumber == randomPlayerHeadNumber)
