@@ -103,6 +103,14 @@ public class ScoreCount : Photon.PunBehaviour
                     roundOverScreen.GetComponent<UIRoundVictoryText>().DisplayRoundOverScreen(timeUntilNextRound, false);
                 }
             }
+
+            // Reset player's fuel to prevent depositing when positioned at ship
+            n.GetComponent<PlayerResource>().resource = 0;
+
+            // Position player at their ship and lock their movement until round starts
+            n.transform.position = n.GetComponent<MovementScript>().myShip.GetComponent<PlayerShipDocking>().dockObject.transform.position;
+            n.GetComponent<MovementScript>().canMove = false;
+            n.GetComponent<MovementScript>().lockOverrideTime = timeUntilNextRound;
         }
 
         yield return new WaitForSeconds(timeUntilNextRound);
@@ -123,6 +131,17 @@ public class ScoreCount : Photon.PunBehaviour
             }
 
             matchOverScreen.GetComponent<UIEndGameScreen>().UpdateEndMatchInfo(winCounts, currentMaxRoundsWon);
+
+            // Lock players position and movement to prevent anything from happening behind the endgame overlay
+            foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                if (player.GetPhotonView().isMine)
+                {
+                    player.transform.position = new Vector3(0.0f, 10.0f, 0.0f);
+                    player.GetComponent<MovementScript>().canMove = false;
+                    player.GetComponent<MovementScript>().lockOverrideTime = 9999.9f;
+                }
+            }
         }
         else
         {

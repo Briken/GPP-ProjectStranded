@@ -105,7 +105,7 @@ public class PlayerResource : MonoBehaviour
                 gameObject.GetComponent<MovementScript>().myShip.gameObject.GetComponent<PlayerShipDocking>().dockTextObjects[1].GetComponent<Text>().text = depositTime.ToString("0.0") + "s";
                 gameObject.GetComponent<MovementScript>().myShip.gameObject.GetComponent<PlayerShipDocking>().ChangePromptColour(new Color(1.0f, 0.68f, 0.0f, 1.0f));
 
-                if (depositTime >= 0.0f)
+                if (depositTime >= 0.0f && GameObject.FindGameObjectWithTag("NetManager").GetComponent<GameTimer>().timer >= 0.0f)
                 {
                     depositTime -= Time.deltaTime;
                 }
@@ -165,25 +165,33 @@ public class PlayerResource : MonoBehaviour
 
     void FinishFuelDeposit()
     {
-        gameObject.GetComponent<MovementScript>().myShip.gameObject.GetComponent<ShipScript>().photonView.RPC("DepositFuel", PhotonTargets.All, resource);
-        // informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You deposited +" + resource.ToString() + "% fuel", 5.0f);
-        // depositParticleObject.GetComponent<ParticleSystem>().Play();
+        // Check if the time has expired before allowing deposit
+        if (GameObject.FindGameObjectWithTag("NetManager").GetComponent<GameTimer>().timer >= 0.0f)
+        {
+            gameObject.GetComponent<MovementScript>().myShip.gameObject.GetComponent<ShipScript>().photonView.RPC("DepositFuel", PhotonTargets.All, resource);
+            // informationBar.GetComponent<UIInformationBar>().DisplayInformationForSetTime("You deposited +" + resource.ToString() + "% fuel", 5.0f);
+            // depositParticleObject.GetComponent<ParticleSystem>().Play();
 
-        // Let the player know how much they have deposited via a hint (temporary)
-        GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL DEPOSITED!", "YOU DEPOSITED \n" + resource.ToString() + "% OF FUEL \nTO YOUR SHIP!", 5.0f);
+            // Let the player know how much they have deposited via a hint (temporary)
+            GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL DEPOSITED!", "YOU DEPOSITED \n" + resource.ToString() + "% OF FUEL \nTO YOUR SHIP!", 5.0f);
 
-        gameObject.GetComponent<PlayerStatTracker>().overallFuelDeposited += resource;
-        gameObject.GetComponent<PlayerStatTracker>().timesDepositingFuel += 1;
-        gameObject.GetComponent<PlayerStatTracker>().timeSinceLastFuelDeposit = 0;
+            gameObject.GetComponent<PlayerStatTracker>().overallFuelDeposited += resource;
+            gameObject.GetComponent<PlayerStatTracker>().timesDepositingFuel += 1;
+            gameObject.GetComponent<PlayerStatTracker>().timeSinceLastFuelDeposit = 0;
 
-        resource = 0;
+            resource = 0;
 
-        depositTime = defaultDepositTime;
+            gameObject.GetComponent<MovementScript>().canMove = true;
+        }
+        else // Prevent deposit behaviour and don't unfreeze player if time has expired
+        {
+            gameObject.GetComponent<MovementScript>().canMove = false;
+        }
 
         gameObject.GetComponent<MovementScript>().myShip.GetComponent<PlayerShipDocking>().dockFuelPipe.SetActive(false);
         gameObject.GetComponent<MovementScript>().myShip.gameObject.GetComponent<PlayerShipDocking>().ChangePromptColour(Color.white);
 
-        gameObject.GetComponent<MovementScript>().canMove = true;
+        depositTime = defaultDepositTime;
         isDepositing = false;
     }
 }

@@ -359,6 +359,8 @@ public class MovementScript : Photon.PunBehaviour
     private void ResetThis()
     {
         transform.position = shipPos;
+        canMove = true;
+        lockOverrideTime = defaultLockOverrideTime;
         Debug.Log("reset Called");
     }
 }
