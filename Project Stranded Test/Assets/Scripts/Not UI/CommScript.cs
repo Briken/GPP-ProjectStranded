@@ -122,17 +122,17 @@ public class CommScript : PunBehaviour {
         {
             if (n.GetPhotonView().isMine)
             {
-                if (isPlayerColour)
-                {
-                    gameObject.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-                    isPlayerColour = false;
-                    colourChangeTimer = defaultColourChangeTimer;
-                }
-                else
+                if (!isPlayerColour && n.GetComponent<PlayerStatTracker>().timeSinceLastNearFuelCrate < 1.0f)
                 {
                     gameObject.GetComponent<Image>().color = n.GetComponent<MovementScript>().myColour;
                     isPlayerColour = true;
                     colourChangeTimer = colourBlinkTime;
+                }
+                else
+                {
+                    gameObject.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+                    isPlayerColour = false;
+                    colourChangeTimer = defaultColourChangeTimer;
                 }
             }
         }
