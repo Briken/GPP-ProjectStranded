@@ -34,12 +34,21 @@ public class PlayerStatTracker : MonoBehaviour {
     public int timesActivatingComms;
     public int timesPressingCommsButton;
 
+    [Header("Player Proximity")]
+    public float[] timeSpentNearPlayer;
+
+    [Space(30)]
+    [Header("Config & Debug")]
+    public GameObject[] inGamePlayers;
+    public float playerCloseProximity = 13.0f;
+
     float gameTimeElapsed = 0.0f;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         fuelCratesOpenedBySize = new int[6];
+        timeSpentNearPlayer = new float[5];
 	}
 	
 	// Update is called once per frame
@@ -47,5 +56,23 @@ public class PlayerStatTracker : MonoBehaviour {
     {
         gameTimeElapsed += Time.deltaTime;
         votesNotPlaced = timesInVote - votesPlaced;
+
+        TrackProximityToPlayers();
+    }
+
+    void TrackProximityToPlayers()
+    {
+        inGamePlayers = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject player in inGamePlayers)
+        {
+            if (player.GetComponent<MovementScript>().playerNum != gameObject.GetComponent<MovementScript>().playerNum)
+            {
+                if (Vector3.Distance(gameObject.transform.position, player.gameObject.transform.position) < playerCloseProximity)
+                {
+                    timeSpentNearPlayer[player.GetComponent<MovementScript>().playerNum - 1] += Time.deltaTime;
+                }
+            }
+        }
     }
 }
