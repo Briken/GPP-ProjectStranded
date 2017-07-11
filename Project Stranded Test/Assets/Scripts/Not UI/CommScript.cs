@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using Photon;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
 
 public class CommScript : PunBehaviour {
 
@@ -39,46 +41,6 @@ public class CommScript : PunBehaviour {
         {
             ChangeButtonColour();
         }
-
-        //if (Input.GetButton("Fire1") && canComm)
-        //{
-        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //    Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //    RaycastHit hit = new RaycastHit();
-
-        //    if (Physics.Raycast(ray, out hit))
-        //    {
-
-        //        if (hit.collider.gameObject.tag == "Ellipsis")
-        //        {
-        //            GameObject elips = PhotonNetwork.Instantiate(pulse.name, hit.collider.gameObject.transform.position, Quaternion.identity, 0);
-        //            elips.GetComponent<SpriteRenderer>().color = Color.green;
-        //            canComm = false;
-        //            StartCoroutine(CommCooldown(silenceTime));
-        //            elips.transform.SetParent(this.transform);
-        //            menu.ToggleSpiderButtons();
-        //        }
-
-        //        if (hit.collider.gameObject.tag == "Exclamation")
-        //        {
-        //            GameObject excl = PhotonNetwork.Instantiate(pulse.name, hit.collider.gameObject.transform.position, Quaternion.identity, 0);
-        //            excl.GetComponent<SpriteRenderer>().color = Color.red;
-        //            canComm = false;
-        //            StartCoroutine(CommCooldown(silenceTime));
-        //            excl.transform.SetParent(this.transform);
-        //            menu.ToggleSpiderButtons();
-        //        }
-        //        if (hit.collider.gameObject.tag == "Question Mark")
-        //        {
-        //            GameObject ques = PhotonNetwork.Instantiate(pulse.name, hit.collider.gameObject.transform.position, Quaternion.identity, 0);
-        //            ques.GetComponent<SpriteRenderer>().color = Color.blue;
-        //            canComm = false;
-        //            StartCoroutine(CommCooldown(silenceTime));
-        //            ques.transform.SetParent(this.transform);
-        //            menu.ToggleSpiderButtons();
-        //        }
-        //    }
-        //}
     }
 
     public void Alert()
@@ -136,5 +98,13 @@ public class CommScript : PunBehaviour {
                 }
             }
         }
+    }
+
+    public void PlayerTagged(int playerID)
+    {
+        Analytics.CustomEvent("Player Seen Comm", new Dictionary<string, object>
+        {
+             { "player " + thisPlayer.GetComponent<MovementScript>().publicUsername, "player with ID " + playerID.ToString() + " has seen" },
+        });
     }
 }
