@@ -150,10 +150,16 @@ public class ResourceScript : PunBehaviour {
             GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL RECEIVED!", "YOU COLLECTED " + amount.ToString() + " FUEL \nFROM THIS CRATE\nDEPOSIT OR COLLECT MORE!", 6.0f);
         }
 
+        // Player stats
         player.GetComponent<PlayerStatTracker>().timeSinceLastFuelCratePickup = 0.0f;
         player.GetComponent<PlayerStatTracker>().overallCollectedFuel += amount;
         player.GetComponent<PlayerStatTracker>().fuelCratesOpened += 1;
-        player.GetComponent<PlayerStatTracker>().fuelCratesOpenedBySize[requirement] += 1;           
+        player.GetComponent<PlayerStatTracker>().fuelCratesOpenedBySize[requirement] += 1;    
+        
+        if (playerResource.resource > player.GetComponent<PlayerStatTracker>().maxFuelCarriedAtOnce)
+        {
+            player.GetComponent<PlayerStatTracker>().maxFuelCarriedAtOnce = playerResource.resource;
+        }       
     }
 
     

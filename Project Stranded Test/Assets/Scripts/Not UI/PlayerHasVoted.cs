@@ -20,6 +20,11 @@ public class PlayerHasVoted : MonoBehaviour {
         {
             if (n.GetPhotonView().isMine)
             {
+                if (n.GetComponent<VotingSystem>().hasVoted == false)
+                {
+                    n.GetComponent<PlayerStatTracker>().votesPlaced += 1;
+                }
+
                 n.GetComponent<VotingSystem>().hasVoted = true;
             }
         }

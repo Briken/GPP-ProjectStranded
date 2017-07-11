@@ -179,6 +179,11 @@ public class PlayerResource : MonoBehaviour
             gameObject.GetComponent<PlayerStatTracker>().timesDepositingFuel += 1;
             gameObject.GetComponent<PlayerStatTracker>().timeSinceLastFuelDeposit = 0;
 
+            if (resource > gameObject.GetComponent<PlayerStatTracker>().maxFuelDepositedAtOnce)
+            {
+                gameObject.GetComponent<PlayerStatTracker>().maxFuelDepositedAtOnce = resource;
+            }
+
             resource = 0;
 
             gameObject.GetComponent<MovementScript>().canMove = true;

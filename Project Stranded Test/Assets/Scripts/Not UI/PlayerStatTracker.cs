@@ -14,6 +14,8 @@ public class PlayerStatTracker : MonoBehaviour {
     public int overallCollectedFuel;
     public int overallFuelDeposited;
     public int timesDepositingFuel;
+    public int maxFuelCarriedAtOnce;
+    public int maxFuelDepositedAtOnce;
 
     [Header("Fuel Crate Stats")]
     public int fuelCratesOpened;
@@ -25,6 +27,8 @@ public class PlayerStatTracker : MonoBehaviour {
 
     [Header("Voting")]
     public int timesInVote;
+    public int votesPlaced;
+    public int votesNotPlaced;
 
     [Header("Comms")]
     public int timesActivatingComms;
@@ -42,5 +46,6 @@ public class PlayerStatTracker : MonoBehaviour {
 	void Update ()
     {
         gameTimeElapsed += Time.deltaTime;
+        votesNotPlaced = timesInVote - votesPlaced;
     }
 }
