@@ -184,6 +184,16 @@ public class PlayerResource : MonoBehaviour
                 gameObject.GetComponent<PlayerStatTracker>().maxFuelDepositedAtOnce = resource;
             }
 
+            if (GameObject.FindGameObjectWithTag("NetManager").GetComponent<GameTimer>().timer > gameObject.GetComponent<PlayerStatTracker>().earliestDepositTimeRemaining)
+            {
+                gameObject.GetComponent<PlayerStatTracker>().earliestDepositTimeRemaining = GameObject.FindGameObjectWithTag("NetManager").GetComponent<GameTimer>().timer;
+            }
+
+            if (GameObject.FindGameObjectWithTag("NetManager").GetComponent<GameTimer>().timer < gameObject.GetComponent<PlayerStatTracker>().latestDepositTimeRemaining)
+            {
+                gameObject.GetComponent<PlayerStatTracker>().latestDepositTimeRemaining = GameObject.FindGameObjectWithTag("NetManager").GetComponent<GameTimer>().timer;
+            }
+
             resource = 0;
 
             gameObject.GetComponent<MovementScript>().canMove = true;

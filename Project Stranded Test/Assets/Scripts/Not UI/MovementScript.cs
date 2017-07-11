@@ -53,6 +53,9 @@ public class MovementScript : Photon.PunBehaviour
 
     public string publicUsername;
 
+    // Environment checks
+    bool isNearPlanet = false;
+
     // Use this for initialization
     void Start()
     {
@@ -209,8 +212,12 @@ public class MovementScript : Photon.PunBehaviour
                     }
                     if (hit.collider.gameObject == this.gameObject)
                     {
-                        Stop();
-                        
+                        if (moving == true)
+                        {
+                            gameObject.GetComponent<PlayerStatTracker>().timesManuallyStoppedMoving += 1;
+                        }
+
+                        Stop();                
                     }
                     else
                     {
@@ -243,6 +250,11 @@ public class MovementScript : Photon.PunBehaviour
             {
                 gameObject.GetComponent<PlayerStatTracker>().timeSpentNotMoving += Time.deltaTime;
                 movementParticleSystem.GetComponent<ParticleSystem>().Stop();
+            }
+
+            if (isNearPlanet)
+            {
+                gameObject.GetComponent<PlayerStatTracker>().timeSpentNearPlanets += Time.deltaTime;
             }
         }
     }
@@ -344,9 +356,9 @@ public class MovementScript : Photon.PunBehaviour
         Application.Quit();
     }
 
-    // Level boundaries handling
     void OnTriggerExit(Collider other)
     {
+        // Level boundaries handling
         if (other.tag == "LevelBoundaries")
         {
             // Stop and move the player to 0, 0 if they attempt to leave
@@ -360,6 +372,20 @@ public class MovementScript : Photon.PunBehaviour
             // Flip the player's sprite direction so they don't fly backwards
             playerBody.gameObject.transform.localScale = new Vector3(playerBody.gameObject.gameObject.transform.localScale.x*-1.0f, playerBody.gameObject.gameObject.transform.localScale.y, playerBody.gameObject.gameObject.transform.localScale.z);
         }
+
+        if (other.tag == "POI Planet")
+        {
+            isNearPlanet = false;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        // Level boundaries handling
+        if (other.tag == "POI Planet")
+        {
+            isNearPlanet = true;
+        }
     }
 
     private void ResetThis()
@@ -367,6 +393,7 @@ public class MovementScript : Photon.PunBehaviour
         transform.position = shipPos;
         canMove = true;
         lockOverrideTime = defaultLockOverrideTime;
+        isNearPlanet = false;
         Debug.Log("reset Called");
     }
 }

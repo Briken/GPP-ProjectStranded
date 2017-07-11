@@ -9,6 +9,8 @@ public class PlayerStatTracker : MonoBehaviour {
     public float timeSinceLastNearFuelCrate;
     public float timeSinceLastFuelCratePickup;
     public float timeSinceLastFuelDeposit;
+    public float timeSpentNearFuelCrates;
+    public float timeSpentOpeningFuelCrates;
 
     [Header("Fuel Stats")]
     public int overallCollectedFuel;
@@ -16,6 +18,8 @@ public class PlayerStatTracker : MonoBehaviour {
     public int timesDepositingFuel;
     public int maxFuelCarriedAtOnce;
     public int maxFuelDepositedAtOnce;
+    public float earliestDepositTimeRemaining = 0;
+    public float latestDepositTimeRemaining = 9999;
 
     [Header("Fuel Crate Stats")]
     public int fuelCratesOpened;
@@ -24,6 +28,7 @@ public class PlayerStatTracker : MonoBehaviour {
     [Header("Movement")]
     public float timeSpentMoving;
     public float timeSpentNotMoving;
+    public int timesManuallyStoppedMoving;
 
     [Header("Voting")]
     public int timesInVote;
@@ -36,6 +41,10 @@ public class PlayerStatTracker : MonoBehaviour {
 
     [Header("Player Proximity")]
     public float[] timeSpentNearPlayer;
+    public float timeSpentNearPlayers;
+
+    [Header("Environment")]
+    public float timeSpentNearPlanets;
 
     [Space(30)]
     [Header("Config & Debug")]
@@ -71,6 +80,7 @@ public class PlayerStatTracker : MonoBehaviour {
                 if (Vector3.Distance(gameObject.transform.position, player.gameObject.transform.position) < playerCloseProximity)
                 {
                     timeSpentNearPlayer[player.GetComponent<MovementScript>().playerNum - 1] += Time.deltaTime;
+                    timeSpentNearPlayers += Time.deltaTime;
                 }
             }
         }

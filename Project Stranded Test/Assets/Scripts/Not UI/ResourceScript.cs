@@ -78,6 +78,7 @@ public class ResourceScript : PunBehaviour {
                         nearby.Add(p);
                         Debug.Log(nearby);
                         p.GetComponent<PlayerStatTracker>().timeSinceLastNearFuelCrate = 0.0f;
+                        p.GetComponent<PlayerStatTracker>().timeSpentNearFuelCrates += Time.deltaTime;
                     }
                 }
             }
@@ -87,6 +88,11 @@ public class ResourceScript : PunBehaviour {
             if (nearby.Count == requirement && voteIsCalled == false)
             {
                 waitTimer -= Time.deltaTime;
+
+                foreach (GameObject n in nearby)
+                {
+                    n.GetComponent<PlayerStatTracker>().timeSpentOpeningFuelCrates += Time.deltaTime;
+                }
 
                 if (waitTimer <= 0 && !isGifted)
                 {
