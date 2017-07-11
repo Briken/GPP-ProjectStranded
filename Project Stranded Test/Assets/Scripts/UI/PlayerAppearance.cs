@@ -21,6 +21,8 @@ public class PlayerAppearance : Photon.PunBehaviour {
     public int randomPlayerHeadNumber;
     public int randomPlayerBodyNumber;
 
+    public Component[] playerAppearanceSprites; 
+
 	// Use this for initialization
 	void Start ()
     {
@@ -60,6 +62,17 @@ public class PlayerAppearance : Photon.PunBehaviour {
         {
             player.GetComponent<PlayerAppearance>().randomPlayerBodyNumber = randomPlayerBodyNumber;
             player.GetComponent<PlayerAppearance>().randomPlayerHeadNumber = randomPlayerHeadNumber;
+        }
+
+        // Get all sprites on the player and increase layer order value with player number to prevent strange overlapping
+        playerAppearanceSprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
+
+        foreach (SpriteRenderer sprite in playerAppearanceSprites)
+        {
+            if (gameObject.GetComponent<MovementScript>() != null)
+            {
+                sprite.sortingOrder += gameObject.GetComponent<MovementScript>().playerNum * 4;
+            }     
         }
 
     }
