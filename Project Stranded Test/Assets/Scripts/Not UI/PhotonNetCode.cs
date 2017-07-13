@@ -175,6 +175,11 @@ public class PhotonNetCode : Photon.PunBehaviour {
             // SpawnPlayer();
       //   timer.enabled = true;
             SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+
+            if (GameObject.FindGameObjectWithTag("BackgroundMusic") != null)
+            {
+                GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<GameMusicHandler>().BeginMatchPlay();
+            }
         }
         
        
@@ -218,7 +223,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
         controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, pNum);
         controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetUsername", PhotonTargets.All, PlayerPrefs.GetString("Username"));
 
-        connectionStatusOverlay.SetActive(false);
+        connectionStatusOverlay.SetActive(false);     
     }
 
     
