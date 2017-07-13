@@ -31,7 +31,7 @@ public class UIRoundVictoryText : MonoBehaviour {
 
                 roundNumberTextBox.GetComponent<Text>().text = "ROUND " + scoreDataObject.GetComponent<ScoreCount>().roundCount.ToString();
 
-                if (scoreDataObject.GetComponent<ScoreCount>().roundCount != 5)
+                if (scoreDataObject.GetComponent<ScoreCount>().roundCount != scoreDataObject.GetComponent<ScoreCount>().maxGameRounds)
                 {
                     newRoundStateTextBox.GetComponent<Text>().text = "ROUND " + (scoreDataObject.GetComponent<ScoreCount>().roundCount + 1).ToString() + " OF 5 STARTING IN " + timeUntilNewRound.ToString("0.0") + "s";
                 }

@@ -111,7 +111,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
             }
 
             // Display round start information
-            connectionStatusHeader.GetComponent<Text>().text = "ROUND " + (scoreData.roundCount + 1).ToString();
+            connectionStatusHeader.GetComponent<Text>().text = "ROUND " + (scoreData.roundCount + 1).ToString() + " OF " + scoreData.maxGameRounds;
             connectionStatusPlayerCount.GetComponent<Text>().text = "ROUND STARTING IN " + Mathf.Round(roundStartTimer).ToString() + " SECONDS!";
             connectionStatusRoomName.GetComponent<Text>().text = "";
         }
