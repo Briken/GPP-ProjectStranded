@@ -121,6 +121,7 @@
      <Compile Include="Assets\PhotonChatApi\IChatClientListener.cs" />
      <Compile Include="Assets\Scripts\Environment\EnvRotator.cs" />
      <Compile Include="Assets\Scripts\GameDataSpawner.cs" />
+     <Compile Include="Assets\Scripts\Not UI\CommInfo.cs" />
      <Compile Include="Assets\Scripts\Not UI\CommScript.cs" />
      <Compile Include="Assets\Scripts\Not UI\DebugInfo.cs" />
      <Compile Include="Assets\Scripts\Not UI\DestroyAfterTime.cs" />
@@ -159,6 +160,7 @@
      <Compile Include="Assets\Scripts\UI\SpawnUI.cs" />
      <Compile Include="Assets\Scripts\UI\UIBarScript.cs" />
      <Compile Include="Assets\Scripts\UI\UICanvasSwitching.cs" />
+     <Compile Include="Assets\Scripts\UI\UIEndGameScreen.cs" />
      <Compile Include="Assets\Scripts\UI\UIErrorMessage.cs" />
      <Compile Include="Assets\Scripts\UI\UIFunctionsScript.cs" />
      <Compile Include="Assets\Scripts\UI\UIHelpCanvasSwitcher.cs" />
