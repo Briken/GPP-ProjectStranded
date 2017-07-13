@@ -16,6 +16,8 @@ public class PhotonNetCode : Photon.PunBehaviour {
     public GameObject gData;
     public GameObject player;
 
+    public bool overrideLobbyMax = false;
+
     public int lobbyMax;
     public int playerNum;
 
@@ -54,10 +56,20 @@ public class PhotonNetCode : Photon.PunBehaviour {
         {
             Instantiate(gData);
             data = GameObject.FindGameObjectWithTag("GameData").GetComponent<RoomData>();
+
+            if (!overrideLobbyMax)
+            {
+                lobbyMax = data.numberOfPlayers;
+            }       
         }
         else
         {
             data = GameObject.FindGameObjectWithTag("GameData").GetComponent<RoomData>();
+
+            if (!overrideLobbyMax)
+            {
+                lobbyMax = data.numberOfPlayers;
+            }
         }
 
         PhotonNetwork.sendRate = 20; 

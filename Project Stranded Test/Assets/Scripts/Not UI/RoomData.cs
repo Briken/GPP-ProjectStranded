@@ -22,7 +22,8 @@ public class RoomData : Photon.PunBehaviour {
     public GameObject lossScreen;
     public GameObject winScreen;
 
-    
+    public int numberOfPlayers = 5;
+
     bool filled = false;
 
 	// Use this for initialization
