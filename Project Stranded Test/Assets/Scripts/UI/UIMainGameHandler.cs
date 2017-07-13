@@ -26,6 +26,8 @@ public class UIMainGameHandler : MonoBehaviour {
 
     public GameObject startMovementPrompt;
 
+    public float timeToDisplayCountdown = 60.0f;
+
     // Use this for initialization
     void Start()
     {
@@ -64,7 +66,7 @@ public class UIMainGameHandler : MonoBehaviour {
 
         string gameTimeString = System.Math.Round(gameTimeRemaining, 2).ToString();
 
-        if (gameTimeRemaining > 60.0f || gameTimeRemaining <= 0.0f)
+        if (gameTimeRemaining > timeToDisplayCountdown || gameTimeRemaining <= 0.0f)
         {
             timeRemainingText.GetComponent<Text>().text = "";
             timeRemainingText.SetActive(false);         
