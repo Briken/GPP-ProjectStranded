@@ -155,7 +155,9 @@
      <Compile Include="Assets\Scripts\Not UI\minitest.cs" />
      <Compile Include="Assets\Scripts\UI\FindRoomData.cs" />
      <Compile Include="Assets\Scripts\UI\FuelCrateLightBeam.cs" />
+     <Compile Include="Assets\Scripts\UI\GameMusicHandler.cs" />
      <Compile Include="Assets\Scripts\UI\PlayerAppearance.cs" />
+     <Compile Include="Assets\Scripts\UI\PlayerLobbyMaxChanger.cs" />
      <Compile Include="Assets\Scripts\UI\ResourceNumberSwitcher.cs" />
      <Compile Include="Assets\Scripts\UI\SpawnUI.cs" />
      <Compile Include="Assets\Scripts\UI\UIBarScript.cs" />
