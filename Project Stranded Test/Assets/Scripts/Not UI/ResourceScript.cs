@@ -38,6 +38,11 @@ public class ResourceScript : PunBehaviour {
     public float remainingVoteTime = 0.0f;
     public bool voteConcluded = false;
     public List<GameObject> playersCurrentlyVoting = new List<GameObject>();
+
+    public AudioClip votedOutSound;
+    public AudioClip voteInitiatedSound;
+    public AudioClip fuelPickupSound;
+    public AudioClip playerEnteredSound;
     
 	// Use this for initialization
 	void Start ()
@@ -154,6 +159,11 @@ public class ResourceScript : PunBehaviour {
         if (player.GetPhotonView().isMine)
         {
             GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL RECEIVED!", "YOU COLLECTED " + amount.ToString() + " FUEL \nFROM THIS CRATE\nDEPOSIT OR COLLECT MORE!", 6.0f);
+
+            if (player.GetComponent<AudioSource>() != null)
+            {
+                player.GetComponent<AudioSource>().PlayOneShot(fuelPickupSound);
+            }
         }
 
         // Player stats
@@ -189,6 +199,12 @@ public class ResourceScript : PunBehaviour {
         remainingVoteTime = voteLengthTime;
         voteIsCalled = true;
 
+        if (player.GetComponent<AudioSource>() != null && player.GetPhotonView().isMine)
+        {
+            player.GetComponent<AudioSource>().PlayOneShot(voteInitiatedSound);
+            Debug.Log("AUDIO: Playing vote initiated sound");
+        }
+
         Debug.Log("NEW VOTING SYSTEM: Vote Initiated Successfully!");
     }
 
@@ -221,6 +237,13 @@ public class ResourceScript : PunBehaviour {
                 if (boot == n.GetComponent<MovementScript>().playerNum)
                 {
                     n.GetComponent<VotingSystem>().DisplayVotedOutScreen();
+
+                    if (n.GetComponent<AudioSource>() != null && n.GetPhotonView().isMine)
+                    {
+                        n.GetComponent<AudioSource>().PlayOneShot(votedOutSound);
+
+                        Debug.Log("AUDIO: Playing voted out sound");
+                    }
                 }
 
                 // Give fuel to all players not voted out

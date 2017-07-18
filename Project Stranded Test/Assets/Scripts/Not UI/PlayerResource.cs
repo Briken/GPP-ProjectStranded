@@ -25,6 +25,8 @@ public class PlayerResource : MonoBehaviour
     float distanceFromShip;
     public float maximumDistanceForDepositing = 5.0f;
 
+    public AudioClip depositSound;
+
     // Use this for initialization
     void Start()
     {
@@ -174,6 +176,11 @@ public class PlayerResource : MonoBehaviour
 
             // Let the player know how much they have deposited via a hint (temporary)
             GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL DEPOSITED!", "YOU DEPOSITED \n" + resource.ToString() + "% OF FUEL \nTO YOUR SHIP!", 5.0f);
+
+            if (gameObject.GetComponent<AudioSource>() != null && gameObject.GetPhotonView().isMine)
+            {
+                gameObject.GetComponent<AudioSource>().PlayOneShot(depositSound);
+            }
 
             gameObject.GetComponent<PlayerStatTracker>().overallFuelDeposited += resource;
             gameObject.GetComponent<PlayerStatTracker>().timesDepositingFuel += 1;

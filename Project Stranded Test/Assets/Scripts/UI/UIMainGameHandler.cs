@@ -28,6 +28,8 @@ public class UIMainGameHandler : MonoBehaviour {
 
     public float timeToDisplayCountdown = 60.0f;
 
+    bool playingCountdownSound = false;
+
     // Use this for initialization
     void Start()
     {
@@ -69,13 +71,20 @@ public class UIMainGameHandler : MonoBehaviour {
         if (gameTimeRemaining > timeToDisplayCountdown || gameTimeRemaining <= 0.0f)
         {
             timeRemainingText.GetComponent<Text>().text = "";
-            timeRemainingText.SetActive(false);         
+            timeRemainingText.SetActive(false);
+
+            playingCountdownSound = false;
         }
         else
         {
             timeRemainingText.SetActive(true);
             timeRemainingText.GetComponent<Text>().text = "ROUND ENDS IN " + gameTimeString + "s";
-        }
-        
+
+            if (playingCountdownSound == false && gameTimeRemaining <= 10.0f)
+            {
+                gameObject.GetComponent<AudioSource>().PlayOneShot(gameObject.GetComponent<AudioSource>().clip);
+                playingCountdownSound = true;
+            }
+        }      
     }
 }
