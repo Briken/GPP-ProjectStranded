@@ -175,7 +175,9 @@ public class PlayerResource : MonoBehaviour
             // depositParticleObject.GetComponent<ParticleSystem>().Play();
 
             // Let the player know how much they have deposited via a hint (temporary)
-            GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL DEPOSITED!", "YOU DEPOSITED \n" + resource.ToString() + "% OF FUEL \nTO YOUR SHIP!", 5.0f);
+            // GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL DEPOSITED!", "YOU DEPOSITED \n" + resource.ToString() + "% OF FUEL \nTO YOUR SHIP!", 5.0f);
+
+            GameObject.FindGameObjectWithTag("UIHandler").GetComponent<UIFuelCollected>().DisplayFuelDeposited(resource);
 
             if (gameObject.GetComponent<AudioSource>() != null && gameObject.GetPhotonView().isMine)
             {

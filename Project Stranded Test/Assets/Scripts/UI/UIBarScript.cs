@@ -66,8 +66,8 @@ public class UIBarScript : PunBehaviour {
             fuelShipText.GetComponent<Text>().text = ((currentShipFuel / maxShipFuel) * 100).ToString() + "%";
 
             // Display raw fuel values
-            tempCarriedFuelText.GetComponent<Text>().text = currentPlayerFuel.ToString();
-            tempShipFuelText.GetComponent<Text>().text = currentShipFuel.ToString() + " / " + maxShipFuel.ToString();         
+            // tempCarriedFuelText.GetComponent<Text>().text = currentPlayerFuel.ToString();
+            // tempShipFuelText.GetComponent<Text>().text = currentShipFuel.ToString() + " / " + maxShipFuel.ToString();         
         }
     }
 }

@@ -158,12 +158,15 @@ public class ResourceScript : PunBehaviour {
         // Display hint box on players that receive fuel from the crate
         if (player.GetPhotonView().isMine)
         {
-            GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL RECEIVED!", "YOU COLLECTED " + amount.ToString() + " FUEL \nFROM THIS CRATE\nDEPOSIT OR COLLECT MORE!", 6.0f);
+            // GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL RECEIVED!", "YOU COLLECTED " + amount.ToString() + " FUEL \nFROM THIS CRATE\nDEPOSIT OR COLLECT MORE!", 6.0f);
+
+            GameObject.FindGameObjectWithTag("UIHandler").GetComponent<UIFuelCollected>().DisplayFuelCollected(amount);
 
             if (player.GetComponent<AudioSource>() != null)
             {
                 player.GetComponent<AudioSource>().PlayOneShot(fuelPickupSound);
             }
+
         }
 
         // Player stats
