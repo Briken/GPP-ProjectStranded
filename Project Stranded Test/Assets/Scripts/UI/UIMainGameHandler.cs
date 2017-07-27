@@ -7,6 +7,7 @@ public class UIMainGameHandler : MonoBehaviour {
     public GameObject timeRemainingText;
     public GameObject playerTeamText;
     public GameObject fuelCarriedText;
+    public GameObject fuelDepositWarningText;
     public GameObject fuelCarriedBar;
     public float barMaxValue = 20.0f;
     public float barValue = 0.0f;
@@ -66,12 +67,15 @@ public class UIMainGameHandler : MonoBehaviour {
         int seconds = Mathf.FloorToInt(gameTimeRemaining - (minutes * 60));
         // string gameTimeString = string.Format("{0:0}:{1:00}", minutes, seconds);
 
-        string gameTimeString = System.Math.Round(gameTimeRemaining, 2).ToString();
+        // string gameTimeString = System.Math.Round(gameTimeRemaining, 1).ToString();
+        string gameTimeString = gameTimeRemaining.ToString("0.0");
 
         if (gameTimeRemaining > timeToDisplayCountdown || gameTimeRemaining <= 0.0f)
         {
             timeRemainingText.GetComponent<Text>().text = "";
             timeRemainingText.SetActive(false);
+
+            fuelDepositWarningText.SetActive(false);
 
             playingCountdownSound = false;
         }
@@ -85,6 +89,22 @@ public class UIMainGameHandler : MonoBehaviour {
                 gameObject.GetComponent<AudioSource>().PlayOneShot(gameObject.GetComponent<AudioSource>().clip);
                 playingCountdownSound = true;
             }
-        }      
+
+            // Display fuel deposit warning if the player has fuel
+            foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                if (n.GetPhotonView().isMine)
+                {
+                    if (n.GetComponent<PlayerResource>().resource > 0 && !n.GetComponent<PlayerResource>().isDepositing)
+                    {
+                        fuelDepositWarningText.SetActive(true);
+                    }
+                    else
+                    {
+                        fuelDepositWarningText.SetActive(false);
+                    }
+                }
+            }
+        }
     }
 }
