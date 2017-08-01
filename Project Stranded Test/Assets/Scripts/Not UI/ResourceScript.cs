@@ -81,7 +81,7 @@ public class ResourceScript : PunBehaviour {
                     if (distance <= resourceDistance)
                     {
                         nearby.Add(p);
-                        Debug.Log(nearby);
+                        // Debug.Log(nearby);
                         p.GetComponent<PlayerStatTracker>().timeSinceLastNearFuelCrate = 0.0f;
                         p.GetComponent<PlayerStatTracker>().timeSpentNearFuelCrates += Time.deltaTime;
                     }

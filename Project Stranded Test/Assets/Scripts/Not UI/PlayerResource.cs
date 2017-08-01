@@ -66,14 +66,14 @@ public class PlayerResource : MonoBehaviour
 
             if (Input.GetButton("Fire1"))
             {
-                Debug.Log("button down");
+                // Debug.Log("button down");
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 //Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit hit = new RaycastHit();
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    Debug.Log("ray hit");
+                    // Debug.Log("ray hit");
                     if (hit.collider.gameObject.tag == "Ship" && hit.collider.gameObject.GetComponent<ShipScript>().shipNum ==
                         this.GetComponent<MovementScript>().playerNum)
                     {

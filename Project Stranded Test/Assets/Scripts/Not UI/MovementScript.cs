@@ -80,7 +80,7 @@ public class MovementScript : Photon.PunBehaviour
         if (pv.isMine)
         {
 
-            Debug.Log(cam.name);
+            // Debug.Log(cam.name);
             Camera.main.gameObject.GetComponent<Animator>().Stop();
             Camera.main.gameObject.transform.SetParent(this.transform);
             Camera.main.gameObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -50);
@@ -171,7 +171,7 @@ public class MovementScript : Photon.PunBehaviour
 
             if (Input.GetButton("Fire1"))
             {
-                Debug.Log("Button Pressed");
+                // Debug.Log("Button Pressed");
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit hit = new RaycastHit();
@@ -209,7 +209,7 @@ public class MovementScript : Photon.PunBehaviour
                 {
                     if (hit.collider.gameObject.tag == "Player")
                     {
-                        Debug.Log(hit.collider.gameObject.GetComponent<PhotonView>().ownerId + " is this objects owner ID");
+                        // Debug.Log(hit.collider.gameObject.GetComponent<PhotonView>().ownerId + " is this objects owner ID");
                     }
                     if (hit.collider.gameObject == this.gameObject)
                     {
@@ -337,7 +337,7 @@ public class MovementScript : Photon.PunBehaviour
 
     public void Stop()
     {
-        Debug.Log("Stop has been called");
+        // Debug.Log("Stop has been called");
         stopHasBeenCalled = true;
         Vector2 currentVelocity = rBody.velocity;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -395,6 +395,6 @@ public class MovementScript : Photon.PunBehaviour
         canMove = true;
         lockOverrideTime = defaultLockOverrideTime;
         isNearPlanet = false;
-        Debug.Log("reset Called");
+        // Debug.Log("reset Called");
     }
 }

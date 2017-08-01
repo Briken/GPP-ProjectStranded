@@ -68,7 +68,7 @@ public class VotingSystem : Photon.PunBehaviour
             }
             else
             {
-                debugVoteCountText[index].GetComponent<Text>().text = "";
+                debugVoteCountText[index].GetComponent<Text>().text = System.String.Empty;
             }
         }
     }

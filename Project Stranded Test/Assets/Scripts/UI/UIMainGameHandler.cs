@@ -31,11 +31,16 @@ public class UIMainGameHandler : MonoBehaviour {
 
     bool playingCountdownSound = false;
 
+    public bool displayFrameRate = false;
+    public GameObject frameRateText;
+
     // Use this for initialization
     void Start()
     {
         timeRemainingText.SetActive(false);
         startMovementPrompt.SetActive(false);
+
+        frameRateText.SetActive(displayFrameRate);
     }
 
     // Update is called once per frame
@@ -72,7 +77,7 @@ public class UIMainGameHandler : MonoBehaviour {
 
         if (gameTimeRemaining > timeToDisplayCountdown || gameTimeRemaining <= 0.0f)
         {
-            timeRemainingText.GetComponent<Text>().text = "";
+            timeRemainingText.GetComponent<Text>().text = System.String.Empty;
             timeRemainingText.SetActive(false);
 
             fuelDepositWarningText.SetActive(false);
@@ -105,6 +110,11 @@ public class UIMainGameHandler : MonoBehaviour {
                     }
                 }
             }
+        }
+
+        if (displayFrameRate)
+        {
+            frameRateText.GetComponent<Text>().text = "FPS: " + (1.0f / Time.deltaTime).ToString("0");
         }
     }
 }

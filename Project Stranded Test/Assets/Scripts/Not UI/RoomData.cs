@@ -42,19 +42,22 @@ public class RoomData : Photon.PunBehaviour {
         {
             userName = PlayerPrefs.GetString("Username");
         }
-        
+
+        // LOCKED FRAMERATE
+        Application.targetFrameRate = 60;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        /*
         if (GameObject.FindGameObjectsWithTag("Player").Length >= 5 && filled == false)
         {
             RecordNames();
             filled = true;
         }
-        
+        */    
+
         //if (SceneManager.GetActiveScene().name == "EndScene")
         //{
         //    for (int n = 0; n < GameObject.FindGameObjectsWithTag("Username").Length; n++)
@@ -62,7 +65,7 @@ public class RoomData : Photon.PunBehaviour {
         //        userNames[n] = GameObject.FindGameObjectsWithTag("Username")[n].GetComponent<Text>().text;
         //    }
         //}
-        SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+        // SceneManager.sceneLoaded += SceneManager_sceneLoaded;
     }
 
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
