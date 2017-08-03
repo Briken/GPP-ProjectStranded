@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Photon;
 
@@ -148,6 +149,16 @@ public class ScoreCount : Photon.PunBehaviour
         else
         {
             EventManager.ResetObjects();
+
+            foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                if (player.GetPhotonView().isMine)
+                {
+                    GameObject.FindGameObjectWithTag("UIHandler").GetComponent<UIFuelCollected>().fuelCarriedFuelText.GetComponent<Text>().text = "0";
+                    GameObject.FindGameObjectWithTag("UIHandler").GetComponent<UIFuelCollected>().fuelShipAmountText.GetComponent<Text>().text = "0 / 100";
+                }
+            }
+
             // winScreen.SetActive(false);
             // lossScreen.SetActive(false);
 
