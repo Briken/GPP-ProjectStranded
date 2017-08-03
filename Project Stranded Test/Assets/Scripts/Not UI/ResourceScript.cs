@@ -185,7 +185,7 @@ public class ResourceScript : PunBehaviour {
     void InitiateNewVote(float voteLengthTime, GameObject player, int thisSeed)
     {
         // Call the vote via the voting system
-        player.GetComponent<VotingSystem>().CallVote(playersCurrentlyVoting, voteLengthTime + 5.0f);
+        player.GetComponent<VotingSystem>().CallVote(playersCurrentlyVoting, voteLengthTime + 5.0f, seed);
         remainingVoteTime = voteLengthTime;
         voteIsCalled = true;
 

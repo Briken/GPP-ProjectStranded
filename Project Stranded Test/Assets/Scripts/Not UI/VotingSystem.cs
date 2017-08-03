@@ -18,6 +18,7 @@ public class VotingSystem : Photon.PunBehaviour
     public Button[] tempButtons;
     GameObject votedOutScreen;
 
+    public int crateID;
     public bool hasVoted = false;
     public bool displayDebugVoteValues = false;
 
@@ -73,8 +74,9 @@ public class VotingSystem : Photon.PunBehaviour
         }
     }
 
-    public void CallVote(List<GameObject> votingPlayers, float votingCardErrorTimeout)
+    public void CallVote(List<GameObject> votingPlayers, float votingCardErrorTimeout, int crate)
     {
+        crateID = crate;
         hasVoted = false;
         voteTally.GetComponent<VoteTally>().hasPlayerVoted = false;
         voteCard.SetActive(true);
@@ -182,6 +184,11 @@ public class VotingSystem : Photon.PunBehaviour
         {
             votedOutScreen.SetActive(true);
             votedOutScreen.GetComponent<UIVotedOutHider>().DisplayVotedOut(4.0f);
+
+            Analytics.CustomEvent("PlayerVotedOut", new Dictionary<string, object>
+        {
+             { "Player Voted Out", "vote for crate ID: " + crateID.ToString() + " player " + GetComponent<MovementScript>().publicUsername + " was voted out"},
+        });
         }
     }
 }

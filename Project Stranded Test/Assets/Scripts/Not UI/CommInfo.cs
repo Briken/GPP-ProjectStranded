@@ -26,7 +26,7 @@ public class CommInfo : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player" && other.gameObject.GetComponent<MovementScript>().playerNum != myPlayer.gameObject.GetComponent<MovementScript>().playerNum)
         {
-            Object.FindObjectOfType<CommScript>().PlayerTagged(other.gameObject.GetComponent<MovementScript>().playerNum);
+            Object.FindObjectOfType<CommScript>().PlayerTagged(other.gameObject.GetComponent<MovementScript>().publicUsername);
         }
     }
 }

@@ -100,11 +100,11 @@ public class CommScript : PunBehaviour {
         }
     }
 
-    public void PlayerTagged(int playerID)
+    public void PlayerTagged(string playerUsername)
     {
         Analytics.CustomEvent("Player Seen Comm", new Dictionary<string, object>
         {
-             { "player " + thisPlayer.GetComponent<MovementScript>().publicUsername, "player with ID " + playerID.ToString() + " has seen" },
+             { "player " + thisPlayer.GetComponent<MovementScript>().publicUsername + " voted", "player " + playerUsername + " has seen" },
         });
     }
 }

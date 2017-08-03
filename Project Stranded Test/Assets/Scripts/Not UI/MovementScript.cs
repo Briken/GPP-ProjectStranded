@@ -70,10 +70,6 @@ public class MovementScript : Photon.PunBehaviour
         pv = PhotonView.Get(this.gameObject);
         tempMgr = GameObject.Find("TeamManager");
 
-        Analytics.CustomEvent("PlayerVoted", new Dictionary<string, object>
-        {
-             { "player username", publicUsername},
-        });
         
         ships = GameObject.FindGameObjectWithTag("NetManager").GetComponent<PhotonNetCode>().ships;
 
