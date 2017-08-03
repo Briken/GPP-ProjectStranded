@@ -22,6 +22,8 @@ public class UIPointOfInterest : MonoBehaviour {
 
     float lineGradient;
 
+    public bool positionAtPlayerShip = true;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -37,6 +39,21 @@ public class UIPointOfInterest : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        // Adjust position to player's ship if required
+        if (positionAtPlayerShip)
+        {
+            foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                if (player.GetPhotonView().isMine)
+                {
+                    if (player.GetComponent<MovementScript>().myShip != null)
+                    {
+                        gameObject.transform.position = player.GetComponent<MovementScript>().myShip.transform.position;
+                    }                    
+                }
+            }
+        }
+
         screenSpacePosition = cameraObject.WorldToScreenPoint(gameObject.transform.position);
         correctedScreenSpacePosition = new Vector3(screenSpacePosition.x - (Screen.width / 2), screenSpacePosition.y - (Screen.height / 2));
 

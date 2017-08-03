@@ -69,7 +69,7 @@ public class VotingSystem : Photon.PunBehaviour
             }
             else
             {
-                debugVoteCountText[index].GetComponent<Text>().text = "";
+                debugVoteCountText[index].GetComponent<Text>().text = System.String.Empty;
             }
         }
     }
@@ -107,8 +107,11 @@ public class VotingSystem : Photon.PunBehaviour
         // Activate and show the button if its index value matches the associated player number
         foreach (GameObject votingPlayer in votingPlayers)
         {
-            tempButtons[votingPlayer.GetComponent<MovementScript>().playerNum - 1].gameObject.SetActive(true);
-            tempButtons[votingPlayer.GetComponent<MovementScript>().playerNum - 1].gameObject.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            if (!votingPlayer.GetPhotonView().isMine)
+            {
+                tempButtons[votingPlayer.GetComponent<MovementScript>().playerNum - 1].gameObject.SetActive(true);
+                tempButtons[votingPlayer.GetComponent<MovementScript>().playerNum - 1].gameObject.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            }
         }
     }
 

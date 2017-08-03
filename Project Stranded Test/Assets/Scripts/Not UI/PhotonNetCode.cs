@@ -16,6 +16,8 @@ public class PhotonNetCode : Photon.PunBehaviour {
     public GameObject gData;
     public GameObject player;
 
+    public bool overrideLobbyMax = false;
+
     public int lobbyMax;
     public int playerNum;
 
@@ -54,10 +56,20 @@ public class PhotonNetCode : Photon.PunBehaviour {
         {
             Instantiate(gData);
             data = GameObject.FindGameObjectWithTag("GameData").GetComponent<RoomData>();
+
+            if (!overrideLobbyMax)
+            {
+                lobbyMax = data.numberOfPlayers;
+            }       
         }
         else
         {
             data = GameObject.FindGameObjectWithTag("GameData").GetComponent<RoomData>();
+
+            if (!overrideLobbyMax)
+            {
+                lobbyMax = data.numberOfPlayers;
+            }
         }
 
         PhotonNetwork.sendRate = 20; 
@@ -99,7 +111,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
             }
 
             // Display round start information
-            connectionStatusHeader.GetComponent<Text>().text = "ROUND " + (scoreData.roundCount + 1).ToString();
+            connectionStatusHeader.GetComponent<Text>().text = "ROUND " + (scoreData.roundCount + 1).ToString() + " OF " + scoreData.maxGameRounds;
             connectionStatusPlayerCount.GetComponent<Text>().text = "ROUND STARTING IN " + Mathf.Round(roundStartTimer).ToString() + " SECONDS!";
             connectionStatusRoomName.GetComponent<Text>().text = "";
         }
@@ -163,6 +175,11 @@ public class PhotonNetCode : Photon.PunBehaviour {
             // SpawnPlayer();
       //   timer.enabled = true;
             SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+
+            if (GameObject.FindGameObjectWithTag("BackgroundMusic") != null)
+            {
+                GameObject.FindGameObjectWithTag("BackgroundMusic").GetComponent<GameMusicHandler>().BeginMatchPlay();
+            }
         }
         
        
@@ -206,7 +223,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
         controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, pNum);
         controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetUsername", PhotonTargets.All, PlayerPrefs.GetString("Username"));
 
-        connectionStatusOverlay.SetActive(false);
+        connectionStatusOverlay.SetActive(false);     
     }
 
     

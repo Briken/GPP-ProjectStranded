@@ -16,6 +16,10 @@ public class UIBarScript : PunBehaviour {
     float currentShipFuel;
     float maxShipFuel;
 
+    // Temp UI
+    public GameObject tempCarriedFuelText;
+    public GameObject tempShipFuelText;
+
     // Use this for initialization
     void Start ()
     {
@@ -23,6 +27,8 @@ public class UIBarScript : PunBehaviour {
         fuelCarriedBar = GameObject.Find("Slider - Fuel");
         fuelShipText = GameObject.Find("Text - Ship Fuel");
         fuelShipBar = GameObject.Find("Slider - Ship Fuel");
+        tempCarriedFuelText = GameObject.Find("Text - Fuel Amount");
+        tempShipFuelText = GameObject.Find("Text - Ship Fuel Amount");
     }
 	
 	// Update is called once per frame
@@ -57,7 +63,11 @@ public class UIBarScript : PunBehaviour {
 
             fuelShipBar.GetComponent<Slider>().value = currentShipFuel / maxShipFuel;
 
-            fuelShipText.GetComponent<Text>().text = ((currentShipFuel / maxShipFuel) * 100).ToString() + "%";          
+            fuelShipText.GetComponent<Text>().text = ((currentShipFuel / maxShipFuel) * 100).ToString() + "%";
+
+            // Display raw fuel values
+            // tempCarriedFuelText.GetComponent<Text>().text = currentPlayerFuel.ToString();
+            // tempShipFuelText.GetComponent<Text>().text = currentShipFuel.ToString() + " / " + maxShipFuel.ToString();         
         }
     }
 }

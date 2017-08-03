@@ -12,6 +12,8 @@ public class ScoreCount : Photon.PunBehaviour
 
     public int roundWinner;
 
+    public int maxGameRounds = 5;
+
     public int roundCount;
     bool counted = false;
 
@@ -115,7 +117,7 @@ public class ScoreCount : Photon.PunBehaviour
 
         yield return new WaitForSeconds(timeUntilNextRound);
 
-        if (roundCount == 5)
+        if (roundCount == maxGameRounds)
         {
             matchOverScreen.SetActive(true);
 

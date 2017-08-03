@@ -70,8 +70,7 @@ public class VoteTally : MonoBehaviour {
             {
                 Analytics.CustomEvent("PlayerVoted", new Dictionary<string, object>
                 {
-                    { "player " + n.playerNum.ToString(), n.playerNum},
-                    { "voted out " + playerCardNumber.ToString(), playerCardNumber}
+                    { "player " + n.playerNum.ToString(), "voted out " + playerCardNumber+1.ToString()},
                 });
             }
         }

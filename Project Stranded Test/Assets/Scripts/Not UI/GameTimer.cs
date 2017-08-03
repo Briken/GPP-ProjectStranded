@@ -28,7 +28,6 @@ public class GameTimer : Photon.PunBehaviour {
         scoreData = GameObject.FindGameObjectWithTag("ScoreData");
         resourceDepot = GameObject.Find("ResourceDepot");
         timerSet = true; 
-        Debug.Log("time left: " + timer.ToString());
 
      //   photonView.RPC("SetTimer", PhotonTargets.All, timer);
 	}
@@ -44,7 +43,6 @@ public class GameTimer : Photon.PunBehaviour {
 
             if (timer <= 0 && called == false)
             {
-                Debug.Log("time is less that or equal to 0");
                 called = true;
                 timeEnds();
             }
@@ -73,7 +71,6 @@ public class GameTimer : Photon.PunBehaviour {
     {
         timer = startTime;
         called = false;
-        Debug.Log("RESETR CALLED");
     }
     
 }

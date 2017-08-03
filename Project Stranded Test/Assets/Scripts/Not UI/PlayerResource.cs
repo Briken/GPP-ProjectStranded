@@ -25,6 +25,8 @@ public class PlayerResource : MonoBehaviour
     float distanceFromShip;
     public float maximumDistanceForDepositing = 5.0f;
 
+    public AudioClip depositSound;
+
     // Use this for initialization
     void Start()
     {
@@ -64,14 +66,14 @@ public class PlayerResource : MonoBehaviour
 
             if (Input.GetButton("Fire1"))
             {
-                Debug.Log("button down");
+                // Debug.Log("button down");
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 //Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit hit = new RaycastHit();
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    Debug.Log("ray hit");
+                    // Debug.Log("ray hit");
                     if (hit.collider.gameObject.tag == "Ship" && hit.collider.gameObject.GetComponent<ShipScript>().shipNum ==
                         this.GetComponent<MovementScript>().playerNum)
                     {
@@ -173,7 +175,14 @@ public class PlayerResource : MonoBehaviour
             // depositParticleObject.GetComponent<ParticleSystem>().Play();
 
             // Let the player know how much they have deposited via a hint (temporary)
-            GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL DEPOSITED!", "YOU DEPOSITED \n" + resource.ToString() + "% OF FUEL \nTO YOUR SHIP!", 5.0f);
+            // GameObject.Find("HintBox").GetComponent<UIHintBox>().DisplayHint("FUEL DEPOSITED!", "YOU DEPOSITED \n" + resource.ToString() + "% OF FUEL \nTO YOUR SHIP!", 5.0f);
+
+            GameObject.FindGameObjectWithTag("UIHandler").GetComponent<UIFuelCollected>().DisplayFuelDeposited(resource);
+
+            if (gameObject.GetComponent<AudioSource>() != null && gameObject.GetPhotonView().isMine)
+            {
+                gameObject.GetComponent<AudioSource>().PlayOneShot(depositSound);
+            }
 
             gameObject.GetComponent<PlayerStatTracker>().overallFuelDeposited += resource;
             gameObject.GetComponent<PlayerStatTracker>().timesDepositingFuel += 1;

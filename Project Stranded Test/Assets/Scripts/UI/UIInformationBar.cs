@@ -17,7 +17,7 @@ public class UIInformationBar : MonoBehaviour {
 
         defaultBarColour = gameObject.GetComponent<Image>().color;
         gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
-        informationBarText.GetComponent<Text>().text = "";
+        informationBarText.GetComponent<Text>().text = System.String.Empty;
     }
 	
 	// Update is called once per frame
@@ -33,7 +33,7 @@ public class UIInformationBar : MonoBehaviour {
         {
             // gameObject.GetComponent<UILerpMovement>().ReverseLerp();
             gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
-            informationBarText.GetComponent<Text>().text = "";
+            informationBarText.GetComponent<Text>().text = System.String.Empty;
             isActive = false;
         }
 	}
