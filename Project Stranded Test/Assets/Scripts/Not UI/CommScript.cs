@@ -105,6 +105,7 @@ public class CommScript : PunBehaviour {
         Analytics.CustomEvent("Player Seen Comm", new Dictionary<string, object>
         {
              { "player " + thisPlayer.GetComponent<MovementScript>().publicUsername + " voted", "player " + playerUsername + " has seen" },
+             { "Timestamp: ", Time.time.ToString()},
         });
     }
 }

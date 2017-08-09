@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
 
 public class ResourceScript : PunBehaviour {
 
@@ -106,6 +107,7 @@ public class ResourceScript : PunBehaviour {
                     foreach (GameObject n in nearby)
                     {
                         AddResource(n);
+
                         Debug.Log("FUEL CRATE: Giving fuel to " + nearby.Count.ToString() + " players!");
                     }
 
@@ -154,7 +156,11 @@ public class ResourceScript : PunBehaviour {
         Debug.Log("player " + player.GetComponent<MovementScript>().playerNum + " has recieved " + amount);
         playerResource = player.GetComponent<PlayerResource>();
         playerResource.resource += amount;
-
+        Analytics.CustomEvent("PlayerReceived Fuel", new Dictionary<string, object>
+        {
+             { "Player Received Fuel", player.GetComponent<MovementScript>().publicUsername + " Received " + amount.ToString() + " fuel"},
+            { "Timestamp: ", Time.time.ToString()},
+        });
         // Display hint box on players that receive fuel from the crate
         if (player.GetPhotonView().isMine)
         {
