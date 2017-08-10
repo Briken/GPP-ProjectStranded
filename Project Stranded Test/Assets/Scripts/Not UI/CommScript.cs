@@ -55,6 +55,7 @@ public class CommScript : PunBehaviour {
     
         if (canComm == true && thisPlayer != null)
         {
+
             GameObject commObj = PhotonNetwork.Instantiate(pulse.name, thisPlayer.transform.position, Quaternion.identity, 0);
             commObj.GetPhotonView().RPC("ChangeColour", PhotonTargets.All, thisPlayer.GetComponent<MovementScript>().playerNum);
             canComm = false;
@@ -62,7 +63,11 @@ public class CommScript : PunBehaviour {
             Debug.Log(commObj.name);
 
             thisPlayer.GetComponent<PlayerStatTracker>().timesActivatingComms += 1;
-
+            Analytics.CustomEvent("Player Seen Comm", new Dictionary<string, object>
+        {
+             { "player communicated", "player username: " + thisPlayer.GetComponent<MovementScript>().publicUsername },
+             { "Timestamp: ", Time.time.ToString()},
+        });
             StartCoroutine(CommCooldown(silenceTime));
         }
 
@@ -104,7 +109,7 @@ public class CommScript : PunBehaviour {
     {
         Analytics.CustomEvent("Player Seen Comm", new Dictionary<string, object>
         {
-             { "player " + thisPlayer.GetComponent<MovementScript>().publicUsername + " voted", "player " + playerUsername + " has seen" },
+             { "player " + thisPlayer.GetComponent<MovementScript>().publicUsername + " communicated", "player " + playerUsername + " has seen" },
              { "Timestamp: ", Time.time.ToString()},
         });
     }
