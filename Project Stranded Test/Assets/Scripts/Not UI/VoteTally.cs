@@ -71,7 +71,7 @@ public class VoteTally : MonoBehaviour {
                 Analytics.CustomEvent("PlayerVoted", new Dictionary<string, object>
                 {
                     { "player " + n.playerNum.ToString(), "voted out " + playerCardNumber+1.ToString()},
-                    { "Timestamp: ", Time.time.ToString()},
+                    { "Timestamp: ", System.DateTime.Now.ToString()},
                 });
             }
         }

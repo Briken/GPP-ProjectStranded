@@ -191,7 +191,7 @@ public class VotingSystem : Photon.PunBehaviour
             Analytics.CustomEvent("PlayerVotedOut", new Dictionary<string, object>
         {
              { "Player Voted Out", "vote for crate ID: " + crateID.ToString() + " player " + GetComponent<MovementScript>().publicUsername + " was voted out"},
-             { "Timestamp: ", Time.time.ToString()},
+             { "Timestamp: ", System.DateTime.Now.ToString()},
         });
         }
     }

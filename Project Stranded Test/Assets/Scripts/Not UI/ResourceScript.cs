@@ -159,7 +159,7 @@ public class ResourceScript : PunBehaviour {
         Analytics.CustomEvent("PlayerReceived Fuel", new Dictionary<string, object>
         {
              { "Player Received Fuel", player.GetComponent<MovementScript>().publicUsername + " Received " + amount.ToString() + " fuel"},
-            { "Timestamp: ", Time.time.ToString()},
+            { "Timestamp: ", System.DateTime.Now.ToString()},
         });
         // Display hint box on players that receive fuel from the crate
         if (player.GetPhotonView().isMine)

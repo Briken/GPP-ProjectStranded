@@ -66,7 +66,7 @@ public class CommScript : PunBehaviour {
             Analytics.CustomEvent("Player Seen Comm", new Dictionary<string, object>
         {
              { "player communicated", "player username: " + thisPlayer.GetComponent<MovementScript>().publicUsername },
-             { "Timestamp: ", Time.time.ToString()},
+             { "Timestamp: ", System.DateTime.Now.ToString()},
         });
             StartCoroutine(CommCooldown(silenceTime));
         }
@@ -110,7 +110,7 @@ public class CommScript : PunBehaviour {
         Analytics.CustomEvent("Player Seen Comm", new Dictionary<string, object>
         {
              { "player " + thisPlayer.GetComponent<MovementScript>().publicUsername + " communicated", "player " + playerUsername + " has seen" },
-             { "Timestamp: ", Time.time.ToString()},
+             { "Timestamp: ", System.DateTime.Now.ToString()},
         });
     }
 }
