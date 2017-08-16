@@ -27,7 +27,7 @@ public class ScoreCount : Photon.PunBehaviour
     public float timeUntilNextRound = 8.0f;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         playerCurrentScores = new int[5];
         playerTotalScores = new int[5];
@@ -41,11 +41,11 @@ public class ScoreCount : Photon.PunBehaviour
         }
         */
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+    }
 
     public void RecordScores()
     {
@@ -55,7 +55,7 @@ public class ScoreCount : Photon.PunBehaviour
             playerCurrentScores[playerShip.GetComponent<ShipScript>().shipNum - 1] = playerShip.GetComponent<ShipScript>().currentFuel;
             playerTotalScores[playerShip.GetComponent<ShipScript>().shipNum - 1] += playerShip.GetComponent<ShipScript>().currentFuel;
         }
-  
+
         // Determine what player has the highest score
         int currentHighestScore = 0;
         roundWinner = 0;
@@ -68,7 +68,7 @@ public class ScoreCount : Photon.PunBehaviour
                 roundWinner = y + 1;
 
                 // NEED TO ADD FUNCTIONALITY FOR DRAWS
-            }          
+            }
         }
 
         // Store the win to the winner's total
@@ -89,6 +89,7 @@ public class ScoreCount : Photon.PunBehaviour
     {
         StartCoroutine(LoadLevel());
     }
+
     IEnumerator LoadLevel()
     {
         foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
@@ -105,6 +106,13 @@ public class ScoreCount : Photon.PunBehaviour
                     roundOverScreen.SetActive(true);
                     roundOverScreen.GetComponent<UIRoundVictoryText>().DisplayRoundOverScreen(timeUntilNextRound, false);
                 }
+
+                // Begin accolade check when last round has finished
+                if (roundCount == maxGameRounds)
+                {
+                    n.GetComponent<PlayerStatTracker>().InitiateAccoladeCheck();
+                }
+                
             }
 
             // Reset player's fuel to prevent depositing when positioned at ship
@@ -166,6 +174,5 @@ public class ScoreCount : Photon.PunBehaviour
         }
 
         roundOverScreen.SetActive(false);
-
     }
 }
