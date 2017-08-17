@@ -245,6 +245,6 @@ public class PlayerStatTracker : Photon.PunBehaviour
     {
         playersAccoladeList[playerNumber][accoladeIndex].currentValue = accoladeValue;
 
-        Debug.Log("Received value of " + accoladeValue.ToString() + " for Accolade " + accoladeIndex.ToString() + "for Player " + playerNumber.ToString());
+        Debug.Log("Received value of " + accoladeValue.ToString() + " for Accolade " + accoladeIndex.ToString() + " for Player " + playerNumber.ToString());
     }
 }
