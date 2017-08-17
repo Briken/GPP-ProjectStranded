@@ -28,6 +28,12 @@ public class PlayerStatTracker : Photon.PunBehaviour
     [Reorderable]
     public AccoladeStatList[] playersAccoladeList;
 
+    public AccoladeStatList playerFinalAccolade;
+
+    public bool[] playerHasFinalAccolade;
+
+    public List<float> receivedValues = new List<float>();
+
     // Statistics to track for accolades or other uses
     [Header("Time-based Fuel Stats")]
     public float timeSinceLastNearFuelCrate;
@@ -91,10 +97,10 @@ public class PlayerStatTracker : Photon.PunBehaviour
                 playersAccoladeList[playerNum][i].statBeingUsed = accoladeList[i].statBeingUsed;
                 playersAccoladeList[playerNum][i].accoladeName = accoladeList[i].accoladeName;
                 playersAccoladeList[playerNum][i].accoladeDescription = accoladeList[i].accoladeDescription;
-                playersAccoladeList[playerNum][i].currentValue = accoladeList[i].currentValue;
+                playersAccoladeList[playerNum][i].currentValue = 0;
                 playersAccoladeList[playerNum][i].significanceValue = accoladeList[i].significanceValue;
             }
-        }   
+        }
     }
 	
 	// Update is called once per frame
@@ -109,8 +115,9 @@ public class PlayerStatTracker : Photon.PunBehaviour
     public void InitiateAccoladeCheck()
     {
         int thisPlayerNum = gameObject.GetComponent<MovementScript>().playerNum - 1;
-        // Set our local stats
+        playerHasFinalAccolade = new bool[GameObject.FindGameObjectsWithTag("Player").Length];
 
+        // Set our local stats
         AssignStatsToAccoladeList(playersAccoladeList[thisPlayerNum]);
 
         // Send our accolade values to other players if it's above the significance value
@@ -119,9 +126,11 @@ public class PlayerStatTracker : Photon.PunBehaviour
             //if (accoladeList[i].currentValue > accoladeList[i].significanceValue)
             if (gameObject.GetPhotonView().isMine)
             {
-                gameObject.GetPhotonView().RPC("SendAccoladeData", PhotonTargets.All, thisPlayerNum, i, playersAccoladeList[thisPlayerNum][i].currentValue);
+                gameObject.GetPhotonView().RPC("SendAccoladeData", PhotonTargets.Others, thisPlayerNum, i, playersAccoladeList[thisPlayerNum][i].currentValue);
             }
-        }        
+        }
+
+        StartCoroutine(CheckHighestAccoladeValues());               
     }
 
     void TrackProximityToPlayers()
@@ -240,11 +249,83 @@ public class PlayerStatTracker : Photon.PunBehaviour
         }
     }
 
+    // OTHER PLAYER VALUES NOT RECORDING PROPERLY
+    IEnumerator CheckHighestAccoladeValues()
+    {
+        if (gameObject.GetPhotonView().isMine)
+        {
+            // Wait 4 seconds before checking our data
+            yield return new WaitForSeconds(4);
+
+            for (int currentAccoladeIndex = 0; currentAccoladeIndex < accoladeList.Length; currentAccoladeIndex++)
+            {
+                float currentHighest = 0;
+                int currentHighestPlayerNum = 0;
+                bool hasFoundWinnerOfAccolade = false;
+
+                // Check the values for each player
+                for (int playerNum = 0; playerNum < GameObject.FindGameObjectsWithTag("Player").Length; playerNum++)
+                {
+                    Debug.Log("ACCOLADE CHECK: " + playersAccoladeList[0][currentAccoladeIndex].accoladeName + " - Player " + (playerNum + 1).ToString() + " has value of " + playersAccoladeList[playerNum][currentAccoladeIndex].currentValue.ToString());
+
+                    // Check if the player's value for this accolade beats the current highest
+                    if (playersAccoladeList[playerNum][currentAccoladeIndex].currentValue > currentHighest)
+                    {
+                        // currentHighest = playersAccoladeList[playerNum][currentAccoladeIndex].currentValue;
+                        currentHighestPlayerNum = playerNum;
+                        hasFoundWinnerOfAccolade = true;
+
+                        Debug.Log("HIGHEST FOR ACCOLADE: Player " + (currentHighestPlayerNum + 1).ToString() + " for " + playersAccoladeList[0][currentAccoladeIndex].accoladeName + " with value of " + currentHighest.ToString());
+                    }
+                }
+
+                // Set the final accolade for the player if we have a winner and they don't currently have an accolade
+                if (hasFoundWinnerOfAccolade && !playerHasFinalAccolade[currentHighestPlayerNum])
+                {
+                    playerFinalAccolade[currentHighestPlayerNum] = playersAccoladeList[currentHighestPlayerNum][currentAccoladeIndex];
+                    playerHasFinalAccolade[currentHighestPlayerNum] = true;
+
+                    Debug.Log("AWARDED ACCOLADE: " + playerFinalAccolade[currentHighestPlayerNum].accoladeName + " to Player " + (currentHighestPlayerNum + 1).ToString());
+                }
+
+                // Check if every player has an accolade based on our bool array
+
+                /*
+                bool everyPlayerHasFinalAccolade = true;
+
+                for (int x = 0; x < playerHasFinalAccolade.Length; x++)
+                {
+                    if (playerHasFinalAccolade[x] == false)
+                    {
+                        everyPlayerHasFinalAccolade = false;
+                        break;
+                    }
+                }
+
+                // If every player has an accolade, break the loop.
+                if (everyPlayerHasFinalAccolade)
+                {
+                    break;
+                }
+                */
+            }
+        }
+
+        Debug.Log("FINAL ACCOLADE FOR PLAYER 1: " + playerFinalAccolade[0].accoladeName);
+        Debug.Log("FINAL ACCOLADE FOR PLAYER 2: " + playerFinalAccolade[1].accoladeName);
+        Debug.Log("FINAL ACCOLADE FOR PLAYER 3: " + playerFinalAccolade[2].accoladeName);
+        Debug.Log("FINAL ACCOLADE FOR PLAYER 4: " + playerFinalAccolade[3].accoladeName);
+        Debug.Log("FINAL ACCOLADE FOR PLAYER 5: " + playerFinalAccolade[4].accoladeName);
+    }
+
     [PunRPC]
-    public void SendAccoladeData(int playerNumber, int accoladeIndex, float accoladeValue)
+    void SendAccoladeData(int playerNumber, int accoladeIndex, float accoladeValue)
     {
         playersAccoladeList[playerNumber][accoladeIndex].currentValue = accoladeValue;
 
-        Debug.Log("Received value of " + accoladeValue.ToString() + " for Accolade " + accoladeIndex.ToString() + " for Player " + playerNumber.ToString());
+        Debug.Log("UPDATE VALUE: " + playersAccoladeList[playerNumber][accoladeIndex].accoladeName + " for Player " + (playerNumber + 1).ToString() + " now " + playersAccoladeList[playerNumber][accoladeIndex].currentValue.ToString());
+        // Debug.Log("Received value of " + accoladeValue.ToString() + " for Accolade " + accoladeIndex.ToString() + " for Player " + playerNumber.ToString());
+
+        receivedValues.Add(accoladeValue);
     }
 }
