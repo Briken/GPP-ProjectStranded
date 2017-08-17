@@ -14,7 +14,8 @@ public class ResourceScript : PunBehaviour {
     SpriteRenderer[] attachedSprites;
     bool isRunning;
 
-
+    GameObject lastPlayer;
+    bool localPlayerHere;
     public int seed;
 	bool isGifted = false;
 
@@ -89,12 +90,32 @@ public class ResourceScript : PunBehaviour {
                 }
             }
 
+            foreach(GameObject d in nearby)
+            {
+                if (d.GetComponent<MovementScript>().photonView.isMine)
+                {
+                    lastPlayer = d;
+                    GameObject button = GameObject.Find("CommsButton");
+                    button.GetComponent<CommScript>().crateID = seed;
+                    localPlayerHere = true;
+                }
+            }
 
+            if (localPlayerHere)
+            {
+                if (GetDistance(lastPlayer.transform.position) > resourceDistance)
+                {
+                    localPlayerHere = false;
+                    GameObject button = GameObject.Find("CommsButton");
+                    button.GetComponent<CommScript>().crateID = 0;
+
+                }
+            }
+          
 
             if (nearby.Count == requirement && voteIsCalled == false)
             {
                 waitTimer -= Time.deltaTime;
-
                 foreach (GameObject n in nearby)
                 {
                     n.GetComponent<PlayerStatTracker>().timeSpentOpeningFuelCrates += Time.deltaTime;

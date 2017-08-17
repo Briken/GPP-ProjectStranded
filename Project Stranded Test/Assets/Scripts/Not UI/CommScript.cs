@@ -10,8 +10,11 @@ public class CommScript : PunBehaviour {
     public GameObject ellipsisPrefab;
     public GameObject exclamationPrefab;
     public GameObject thisPlayer;
-
+    public GameObject resourceTemp;
     public GameObject pulse;
+
+    float crateResetDist;
+    public float crateID;
 
     UISpiderButton menu;
 
@@ -26,6 +29,7 @@ public class CommScript : PunBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        crateResetDist = resourceTemp.GetComponent<ResourceScript>().resourceDistance;
         defaultColourChangeTimer = colourChangeTimer;
     }
 	
@@ -63,9 +67,10 @@ public class CommScript : PunBehaviour {
             Debug.Log(commObj.name);
 
             thisPlayer.GetComponent<PlayerStatTracker>().timesActivatingComms += 1;
-            Analytics.CustomEvent("Player Seen Comm", new Dictionary<string, object>
+            Analytics.CustomEvent("Player Communicated", new Dictionary<string, object>
         {
              { "player communicated", "player username: " + thisPlayer.GetComponent<MovementScript>().publicUsername },
+             { "Crate ID: ", crateID.ToString() },
              { "Timestamp: ", System.DateTime.Now.ToString()},
         });
             StartCoroutine(CommCooldown(silenceTime));
