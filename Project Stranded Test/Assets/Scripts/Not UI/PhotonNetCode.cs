@@ -226,7 +226,10 @@ public class PhotonNetCode : Photon.PunBehaviour {
         connectionStatusOverlay.SetActive(false);     
     }
 
+    public void OnPhotonPlayerDisconnected(PhotonPlayer player)
+    {
+        SceneManager.LoadScene("UI-MainMenu");
+    }
     
-
     
 }
