@@ -6,7 +6,6 @@ using Malee;
 
 public class PlayerStatTracker : Photon.PunBehaviour
 {
-
     [System.Serializable]
     public class AccoladeStat
     {
@@ -23,18 +22,16 @@ public class PlayerStatTracker : Photon.PunBehaviour
     }
 
     [Reorderable]
-    public AccoladeStatList accoladeList;
+    public AccoladeStatList accoladeList; // The list we use to adjust the order of accolades
 
     [Reorderable]
-    public AccoladeStatList[] playersAccoladeList;
+    public AccoladeStatList[] playersAccoladeList; // Accolade list per player (5 in total)
 
-    public AccoladeStatList playerFinalAccolade;
+    public AccoladeStatList playerFinalAccolade; // Final accolade per player (based on player count)
 
     public bool[] playerHasFinalAccolade;
 
-    public List<float> receivedValues = new List<float>();
-
-    // Statistics to track for accolades or other uses
+    // Live tracked statistics, later transferred to accolade list
     [Header("Time-based Fuel Stats")]
     public float timeSinceLastNearFuelCrate;
     public float timeSinceLastFuelCratePickup;
@@ -94,6 +91,7 @@ public class PlayerStatTracker : Photon.PunBehaviour
         {
             for (int i = 0; i < accoladeList.Length; i++)
             {
+                // Copy array information rather than array object
                 playersAccoladeList[playerNum][i].statBeingUsed = accoladeList[i].statBeingUsed;
                 playersAccoladeList[playerNum][i].accoladeName = accoladeList[i].accoladeName;
                 playersAccoladeList[playerNum][i].accoladeDescription = accoladeList[i].accoladeDescription;
@@ -123,7 +121,6 @@ public class PlayerStatTracker : Photon.PunBehaviour
         // Send our accolade values to other players if it's above the significance value
         for (int i = 0; i < accoladeList.Length; i++)
         {
-            //if (accoladeList[i].currentValue > accoladeList[i].significanceValue)
             if (gameObject.GetPhotonView().isMine)
             {
                 gameObject.GetPhotonView().RPC("SendAccoladeData", PhotonTargets.Others, thisPlayerNum, i, playersAccoladeList[thisPlayerNum][i].currentValue);
@@ -249,83 +246,154 @@ public class PlayerStatTracker : Photon.PunBehaviour
         }
     }
 
-    // OTHER PLAYER VALUES NOT RECORDING PROPERLY
     IEnumerator CheckHighestAccoladeValues()
     {
         if (gameObject.GetPhotonView().isMine)
         {
-            // Wait 4 seconds before checking our data
-            yield return new WaitForSeconds(4);
+            // Give data 2 seconds to arrive before determining accolade winners
+            yield return new WaitForSeconds(2);
 
-            for (int currentAccoladeIndex = 0; currentAccoladeIndex < accoladeList.Length; currentAccoladeIndex++)
+            // Begin check with default significance values
+            DetermineAccoladeWinners(1.0f);
+        }
+    }
+
+    [PunRPC]
+    void SendAccoladeData(int playerNumber, int accoladeIndex, float accoladeValue)
+    {
+        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            if (player.GetPhotonView().isMine)
             {
-                float currentHighest = 0;
-                int currentHighestPlayerNum = 0;
-                bool hasFoundWinnerOfAccolade = false;
+                player.GetComponent<PlayerStatTracker>().playersAccoladeList[playerNumber][accoladeIndex].currentValue = accoladeValue;
+            }
+        }       
+    }
 
-                // Check the values for each player
-                for (int playerNum = 0; playerNum < GameObject.FindGameObjectsWithTag("Player").Length; playerNum++)
+    void DetermineAccoladeWinners(float significanceValueAdjust)
+    {
+        Debug.Log("INITIATED ACCOLADE CHECK OF SIGNIFICANCE VALUE: " + significanceValueAdjust.ToString());
+
+        bool everyPlayerHasFinalAccolade = true;
+        float currentSignificanceValueAdjust = significanceValueAdjust;
+
+        for (int currentAccoladeIndex = 0; currentAccoladeIndex < accoladeList.Length; currentAccoladeIndex++)
+        {
+            float currentHighest = 0;
+            int currentHighestPlayerNum = 0;
+            bool hasFoundWinnerOfAccolade = false;
+
+            // Check the values for each player
+            for (int playerNum = 0; playerNum < GameObject.FindGameObjectsWithTag("Player").Length; playerNum++)
+            {
+                // Debug.Log("ACCOLADE CHECK: " + playersAccoladeList[0][currentAccoladeIndex].accoladeName + " - Player " + (playerNum + 1).ToString() + " has value of " + playersAccoladeList[playerNum][currentAccoladeIndex].currentValue.ToString());
+
+                if (playersAccoladeList[playerNum][currentAccoladeIndex].currentValue > (playersAccoladeList[playerNum][currentAccoladeIndex].significanceValue * currentSignificanceValueAdjust))
                 {
-                    Debug.Log("ACCOLADE CHECK: " + playersAccoladeList[0][currentAccoladeIndex].accoladeName + " - Player " + (playerNum + 1).ToString() + " has value of " + playersAccoladeList[playerNum][currentAccoladeIndex].currentValue.ToString());
-
                     // Check if the player's value for this accolade beats the current highest
                     if (playersAccoladeList[playerNum][currentAccoladeIndex].currentValue > currentHighest)
                     {
-                        // currentHighest = playersAccoladeList[playerNum][currentAccoladeIndex].currentValue;
+                        currentHighest = playersAccoladeList[playerNum][currentAccoladeIndex].currentValue;
                         currentHighestPlayerNum = playerNum;
                         hasFoundWinnerOfAccolade = true;
 
                         Debug.Log("HIGHEST FOR ACCOLADE: Player " + (currentHighestPlayerNum + 1).ToString() + " for " + playersAccoladeList[0][currentAccoladeIndex].accoladeName + " with value of " + currentHighest.ToString());
                     }
                 }
+            }
 
-                // Set the final accolade for the player if we have a winner and they don't currently have an accolade
-                if (hasFoundWinnerOfAccolade && !playerHasFinalAccolade[currentHighestPlayerNum])
+            // Set the final accolade for the player if we have a winner and they don't currently have an accolade
+            if (hasFoundWinnerOfAccolade && !playerHasFinalAccolade[currentHighestPlayerNum])
+            {
+                playerFinalAccolade[currentHighestPlayerNum] = playersAccoladeList[currentHighestPlayerNum][currentAccoladeIndex];
+                playerHasFinalAccolade[currentHighestPlayerNum] = true;
+
+                Debug.Log("AWARDED ACCOLADE: " + playerFinalAccolade[currentHighestPlayerNum].accoladeName + " to Player " + (currentHighestPlayerNum + 1).ToString());
+            }
+
+            // Check if every player has an accolade based on our bool array
+            everyPlayerHasFinalAccolade = true;
+
+            for (int x = 0; x < playerHasFinalAccolade.Length; x++)
+            {
+                if (playerHasFinalAccolade[x] == false)
                 {
-                    playerFinalAccolade[currentHighestPlayerNum] = playersAccoladeList[currentHighestPlayerNum][currentAccoladeIndex];
-                    playerHasFinalAccolade[currentHighestPlayerNum] = true;
-
-                    Debug.Log("AWARDED ACCOLADE: " + playerFinalAccolade[currentHighestPlayerNum].accoladeName + " to Player " + (currentHighestPlayerNum + 1).ToString());
-                }
-
-                // Check if every player has an accolade based on our bool array
-
-                /*
-                bool everyPlayerHasFinalAccolade = true;
-
-                for (int x = 0; x < playerHasFinalAccolade.Length; x++)
-                {
-                    if (playerHasFinalAccolade[x] == false)
-                    {
-                        everyPlayerHasFinalAccolade = false;
-                        break;
-                    }
-                }
-
-                // If every player has an accolade, break the loop.
-                if (everyPlayerHasFinalAccolade)
-                {
+                    everyPlayerHasFinalAccolade = false;
                     break;
                 }
-                */
             }
+
+            // If every player has an accolade, break the loop.
+            if (everyPlayerHasFinalAccolade)
+            {
+                break;
+            }
+
         }
 
-        Debug.Log("FINAL ACCOLADE FOR PLAYER 1: " + playerFinalAccolade[0].accoladeName);
-        Debug.Log("FINAL ACCOLADE FOR PLAYER 2: " + playerFinalAccolade[1].accoladeName);
-        Debug.Log("FINAL ACCOLADE FOR PLAYER 3: " + playerFinalAccolade[2].accoladeName);
-        Debug.Log("FINAL ACCOLADE FOR PLAYER 4: " + playerFinalAccolade[3].accoladeName);
-        Debug.Log("FINAL ACCOLADE FOR PLAYER 5: " + playerFinalAccolade[4].accoladeName);
-    }
+        if (everyPlayerHasFinalAccolade)
+        {
+            /*
+            Debug.Log("FINAL ACCOLADE FOR PLAYER 1: " + playerFinalAccolade[0].accoladeName);
+            Debug.Log("FINAL ACCOLADE FOR PLAYER 2: " + playerFinalAccolade[1].accoladeName);
+            Debug.Log("FINAL ACCOLADE FOR PLAYER 3: " + playerFinalAccolade[2].accoladeName);
+            Debug.Log("FINAL ACCOLADE FOR PLAYER 4: " + playerFinalAccolade[3].accoladeName);
+            Debug.Log("FINAL ACCOLADE FOR PLAYER 5: " + playerFinalAccolade[4].accoladeName);
+            */
+        }
+        else if (currentSignificanceValueAdjust > 0) // Do another check with lower significance values
+        {
+            DetermineAccoladeWinners(currentSignificanceValueAdjust - 0.22f);
+        }
+        else // Give the player a fake accolade (shouldn't happen... but just a precaution)
+        {
+            int fakeAccoladesGiven = 0;
 
-    [PunRPC]
-    void SendAccoladeData(int playerNumber, int accoladeIndex, float accoladeValue)
-    {
-        playersAccoladeList[playerNumber][accoladeIndex].currentValue = accoladeValue;
+            for (int x = 0; x < playerHasFinalAccolade.Length; x++)
+            {
+                if (playerHasFinalAccolade[x] == false)
+                {
+                    switch (fakeAccoladesGiven)
+                    {
+                        case 0:
+                            playerFinalAccolade[x].accoladeName = "Rocky";
+                            playerFinalAccolade[x].accoladeDescription = "Most time near meteors";
+                            fakeAccoladesGiven += 1;
+                            break;
 
-        Debug.Log("UPDATE VALUE: " + playersAccoladeList[playerNumber][accoladeIndex].accoladeName + " for Player " + (playerNumber + 1).ToString() + " now " + playersAccoladeList[playerNumber][accoladeIndex].currentValue.ToString());
-        // Debug.Log("Received value of " + accoladeValue.ToString() + " for Accolade " + accoladeIndex.ToString() + " for Player " + playerNumber.ToString());
+                        case 1:
+                            playerFinalAccolade[x].accoladeName = "World Tour";
+                            playerFinalAccolade[x].accoladeDescription = "Most planets visited";
+                            fakeAccoladesGiven += 1;
+                            break;
 
-        receivedValues.Add(accoladeValue);
+                        case 2:
+                            playerFinalAccolade[x].accoladeName = "What Way?";
+                            playerFinalAccolade[x].accoladeDescription = "Most changes in direction";
+                            fakeAccoladesGiven += 1;
+                            break;
+
+                        case 3:
+                            playerFinalAccolade[x].accoladeName = "Explorer";
+                            playerFinalAccolade[x].accoladeDescription = "Most area explored";
+                            fakeAccoladesGiven += 1;
+                            break;
+
+                        case 4:
+                            playerFinalAccolade[x].accoladeName = "Technician";
+                            playerFinalAccolade[x].accoladeDescription = "Most time near space tech";
+                            break;
+                    }
+                }
+            }
+
+            /*
+            Debug.Log("FINAL ACCOLADE FOR PLAYER 1: " + playerFinalAccolade[0].accoladeName);
+            Debug.Log("FINAL ACCOLADE FOR PLAYER 2: " + playerFinalAccolade[1].accoladeName);
+            Debug.Log("FINAL ACCOLADE FOR PLAYER 3: " + playerFinalAccolade[2].accoladeName);
+            Debug.Log("FINAL ACCOLADE FOR PLAYER 4: " + playerFinalAccolade[3].accoladeName);
+            Debug.Log("FINAL ACCOLADE FOR PLAYER 5: " + playerFinalAccolade[4].accoladeName);
+            */
+        }
     }
 }
