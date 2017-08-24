@@ -26,16 +26,33 @@ public class CommScript : PunBehaviour {
     float defaultColourChangeTimer;
     bool isPlayerColour = false;
 
+    bool hasFoundThisPlayer = false;
+
 	// Use this for initialization
 	void Start ()
     {
-        crateResetDist = resourceTemp.GetComponent<ResourceScript>().resourceDistance;
+        // (Unused?)
+        // crateResetDist = resourceTemp.GetComponent<ResourceScript>().resourceDistance;
         defaultColourChangeTimer = colourChangeTimer;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        // Search for the local player until we find them
+        if (!hasFoundThisPlayer)
+        {
+            foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
+            {
+                if (n.GetPhotonView().isMine)
+                {
+                    thisPlayer = n;
+                    hasFoundThisPlayer = true;
+                    Debug.Log("Found the player!");
+                }
+            }
+        }
+
         if (canComm && colourChangeTimer >= 0.0f)
         {
             colourChangeTimer -= Time.deltaTime;
@@ -48,15 +65,7 @@ public class CommScript : PunBehaviour {
     }
 
     public void Alert()
-    {
-        foreach (GameObject n in GameObject.FindGameObjectsWithTag("Player"))
-        {
-            if (n.GetPhotonView().isMine)
-            {
-                thisPlayer = n;
-            }
-        }
-    
+    {    
         if (canComm == true && thisPlayer != null)
         {
 
