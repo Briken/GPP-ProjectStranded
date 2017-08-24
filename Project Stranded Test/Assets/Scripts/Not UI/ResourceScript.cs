@@ -138,7 +138,7 @@ public class ResourceScript : PunBehaviour {
 
 
             // Start a new vote if the player count is exceeded and there is not currently an ongoing vote
-            if (nearby.Count > requirement && voteIsCalled == false)
+            if (nearby.Count > requirement && voteIsCalled == false && (GameObject.FindGameObjectWithTag("NetManager").GetComponent<GameTimer>().timer > totalVoteTime))
             {
                 voteIsCalled = true;
 
