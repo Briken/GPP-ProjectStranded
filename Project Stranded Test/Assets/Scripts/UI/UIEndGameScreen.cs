@@ -56,7 +56,16 @@ public class UIEndGameScreen : Photon.PunBehaviour
                 usernameTextObjects[x].GetComponent<Text>().text = "--USERNAME ERROR--";
             }
             
-            roundsWonTextObjects[x].GetComponent<Text>().text = roundsWon[x].ToString() + " ROUNDS WON";
+            // Quick check for when to use the plural for round
+            if (roundsWon[x] == 1)
+            {
+                roundsWonTextObjects[x].GetComponent<Text>().text = roundsWon[x].ToString() + " ROUND WON";
+            }
+            else
+            {
+                roundsWonTextObjects[x].GetComponent<Text>().text = roundsWon[x].ToString() + " ROUNDS WON";
+            }
+            
             accoladeNameTextObjects[x].GetComponent<Text>().text = localPlayer.GetComponent<PlayerStatTracker>().playerFinalAccolade[x].accoladeName;
             accoladeDescriptionTextObjects[x].GetComponent<Text>().text = localPlayer.GetComponent<PlayerStatTracker>().playerFinalAccolade[x].accoladeDescription;
 
