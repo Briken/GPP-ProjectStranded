@@ -228,8 +228,13 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     public void OnPhotonPlayerDisconnected(PhotonPlayer player)
     {
-        SceneManager.LoadScene("UI-MainMenu");
+        // SceneManager.LoadScene("UI-MainMenu");
+
+        // Display error message when a player disconnects providing the match has not ended
+        if (scoreData.roundCount != scoreData.maxGameRounds)
+        {
+            GameObject.FindGameObjectWithTag("UIHandler").GetComponent<UIErrorMessage>().DisplayErrorMessage("MATCH ERROR", "A PLAYER DISCONNECTED FROM THE GAME");
+        }     
     }
-    
     
 }
