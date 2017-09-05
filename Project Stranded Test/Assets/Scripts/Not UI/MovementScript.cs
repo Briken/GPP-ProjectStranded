@@ -30,8 +30,9 @@ public class MovementScript : Photon.PunBehaviour
     bool hasClaimed = false;
     bool stopHasBeenCalled = false;
 
-    private Vector3 correctPPos;    
-    private Quaternion correctPRot;
+    private Vector3 correctPPos = Vector3.zero;
+    private Quaternion correctPRot = Quaternion.identity;
+    private Vector3 correctPScale;
 
     public PhotonView pv;
     GameObject tempMgr;
@@ -70,7 +71,10 @@ public class MovementScript : Photon.PunBehaviour
         pv = PhotonView.Get(this.gameObject);
         tempMgr = GameObject.Find("TeamManager");
 
-        
+        this.correctPScale = playerBody.gameObject.transform.localScale;
+
+        // photonView.observed = this;
+
         ships = GameObject.FindGameObjectWithTag("NetManager").GetComponent<PhotonNetCode>().ships;
 
         if (pv.isMine)
@@ -131,8 +135,50 @@ public class MovementScript : Photon.PunBehaviour
     {
         if (!photonView.isMine)
         {
-            transform.position = Vector3.Lerp(transform.position, this.correctPPos, Time.deltaTime * 5);
-         //   transform.rotation = Quaternion.Lerp(transform.rotation, this.correctPRot, Time.deltaTime * 5);
+            playerBody.gameObject.transform.localScale = this.correctPScale;
+
+            if (moving && canMove)
+            {
+                transform.position = Vector3.Lerp(transform.position, this.correctPPos, Time.deltaTime * 2);
+                // transform.rotation = Quaternion.Lerp(transform.rotation, this.correctPRot, Time.deltaTime * 2);
+                movementParticleSystem.GetComponent<ParticleSystem>().time = 0.0f;
+                movementParticleSystem.GetComponent<ParticleSystem>().Play();
+            }
+            else
+            {
+                if (!canMove)
+                {
+                    // Store the player's last location prior to locking their position
+                    if (!hasLockedPosition)
+                    {
+                        lockedPosition = gameObject.transform.position;
+                        this.correctPPos = lockedPosition;
+                        playerBody.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                        hasLockedPosition = true;
+                    }
+
+                    // Lock the player's movement to the set position until unlocked or override time expires
+                    if (lockOverrideTime >= 0.0f)
+                    {
+                        gameObject.transform.position = lockedPosition;
+                        this.correctPPos = lockedPosition;
+                        lockOverrideTime -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        canMove = true;
+                        lockOverrideTime = defaultLockOverrideTime;
+                    }
+                }
+                else
+                {
+                    hasLockedPosition = false;
+                    transform.position = this.correctPPos;
+                }
+
+                // transform.position = this.correctPPos;
+                movementParticleSystem.GetComponent<ParticleSystem>().Stop();
+            }
         }
         //squareloc.text = transform.position.ToString();
         if (pv.isMine)
@@ -144,6 +190,7 @@ public class MovementScript : Photon.PunBehaviour
                 if (!hasLockedPosition)
                 {
                     lockedPosition = gameObject.transform.position;
+                    this.correctPPos = lockedPosition;
                     playerBody.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                     hasLockedPosition = true;
                 }
@@ -151,7 +198,8 @@ public class MovementScript : Photon.PunBehaviour
                 // Lock the player's movement to the set position until unlocked or override time expires
                 if (lockOverrideTime >= 0.0f)
                 {
-                    gameObject.transform.position = lockedPosition;   
+                    gameObject.transform.position = lockedPosition;
+                    this.correctPPos = lockedPosition;
                     lockOverrideTime -= Time.deltaTime;
                 }
                 else
@@ -291,24 +339,6 @@ public class MovementScript : Photon.PunBehaviour
         return SteeringVelocity;
     }
 
-
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.isWriting)
-        {
-            stream.SendNext(transform.position);
-            stream.SendNext(transform.rotation);
-           
-        }
-        else
-        {
-            this.transform.position = (Vector3)stream.ReceiveNext();
-            this.transform.rotation = (Quaternion)stream.ReceiveNext();
-        
-
-        }
-    }
-
     void SetColours()
     {
         
@@ -387,10 +417,31 @@ public class MovementScript : Photon.PunBehaviour
 
     private void ResetThis()
     {
+        Stop();
         transform.position = shipPos;
         canMove = true;
         lockOverrideTime = defaultLockOverrideTime;
         isNearPlanet = false;
         // Debug.Log("reset Called");
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            stream.SendNext(moving);
+            stream.SendNext(canMove);
+            stream.SendNext(transform.position);
+            // stream.SendNext(transform.rotation);
+            stream.SendNext(playerBody.gameObject.transform.localScale);
+        }
+        else
+        {
+            this.moving = (bool)stream.ReceiveNext();
+            this.canMove = (bool)stream.ReceiveNext();
+            this.correctPPos = (Vector3)stream.ReceiveNext();
+            // this.correctPRot = (Quaternion)stream.ReceiveNext();
+            this.correctPScale = (Vector3)stream.ReceiveNext();
+        }
     }
 }

@@ -226,6 +226,12 @@ public class ResourceScript : PunBehaviour {
     {
         // Call the vote via the voting system
         player.GetComponent<VotingSystem>().CallVote(playersCurrentlyVoting, voteLengthTime + 5.0f, seed);
+
+        // Stop player movement when a vote is initiated
+        player.GetComponent<MovementScript>().Stop();
+        player.GetComponent<MovementScript>().canMove = false;
+        player.GetComponent<MovementScript>().lockOverrideTime = voteLengthTime;
+
         remainingVoteTime = voteLengthTime;
         voteIsCalled = true;
 
@@ -286,6 +292,7 @@ public class ResourceScript : PunBehaviour {
                 n.GetComponent<VotingSystem>().voteCard.SetActive(false);
 
                 // Allow the player to move again
+                n.GetComponent<MovementScript>().Stop();
                 n.GetComponent<MovementScript>().canMove = true;
             }
 
