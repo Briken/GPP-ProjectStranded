@@ -147,14 +147,14 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     public override void OnJoinedLobby()
     {
-        if (data.roomName != null || data.roomName != "")
+        if (data.roomName != null)
         {
             roomName = data.roomName;
             PhotonNetwork.JoinOrCreateRoom(roomName, roomDetails, typedLobby);
         }
         else
         {
-            Debug.Log("Joining Room");
+            // Debug.Log("Joining Room");
             PhotonNetwork.JoinRandomRoom();
         }
 
@@ -163,7 +163,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
 
     void OnPhotonRandomJoinFailed()
     {
-        Debug.Log("Failed to Join Room, creating room");
+        // Debug.Log("Failed to Join Room, creating room");
         PhotonNetwork.CreateRoom(null, roomDetails, typedLobby);
     }
 
