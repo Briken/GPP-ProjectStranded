@@ -224,6 +224,7 @@ public class PhotonNetCode : Photon.PunBehaviour {
         controlledPlayer.transform.position = moveTo;
         controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetNum", PhotonTargets.All, pNum);
         controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetUsername", PhotonTargets.All, PlayerPrefs.GetString("Username"));
+        controlledPlayer.GetComponent<MovementScript>().photonView.RPC("SetAppearance", PhotonTargets.All, PlayerPrefs.GetInt("Player Head"), PlayerPrefs.GetInt("Player Body"));
 
         connectionStatusOverlay.SetActive(false);     
     }

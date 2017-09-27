@@ -26,9 +26,23 @@ public class PlayerAppearance : Photon.PunBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        playerHeadNumber = PlayerPrefs.GetInt("Player Head");
-        playerBodyNumber = PlayerPrefs.GetInt("Player Body"); 
+        if (photonView != null)
+        {
+            if (photonView.isMine)
+            {
+                playerHeadNumber = PlayerPrefs.GetInt("Player Head");
+                playerBodyNumber = PlayerPrefs.GetInt("Player Body");
+            }
+        }
+        else
+        {
+            playerHeadNumber = PlayerPrefs.GetInt("Player Head");
+            playerBodyNumber = PlayerPrefs.GetInt("Player Body");
+        }
 
+
+        // Not synced / same appearance code
+        /*
         randomPlayerHeadNumber = Random.Range(0, playerHeadSprites.Length - 1);
         randomPlayerBodyNumber = Random.Range(0, playerBodySprites.Length - 1);
 
@@ -63,6 +77,7 @@ public class PlayerAppearance : Photon.PunBehaviour {
             player.GetComponent<PlayerAppearance>().randomPlayerBodyNumber = randomPlayerBodyNumber;
             player.GetComponent<PlayerAppearance>().randomPlayerHeadNumber = randomPlayerHeadNumber;
         }
+        */
 
         // Get all sprites on the player and increase layer order value with player number to prevent strange overlapping
         playerAppearanceSprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
@@ -84,6 +99,19 @@ public class PlayerAppearance : Photon.PunBehaviour {
 
         if (photonView != null)
         {
+            playerHead.gameObject.GetComponent<SpriteRenderer>().sprite = playerHeadSprites[playerHeadNumber];
+
+            // In the case that the script is attached to the root sprite
+            if (playerBody == null)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = playerBodySprites[playerBodyNumber];
+            }
+            else
+            {
+                playerBody.GetComponent<SpriteRenderer>().sprite = playerBodySprites[playerBodyNumber];
+            }
+
+            /*
             // Update networked player appearance based on player ownership
             if (photonView.isMine)
             {
@@ -114,6 +142,7 @@ public class PlayerAppearance : Photon.PunBehaviour {
                 }
 
             }
+            */
         }
         else
         {

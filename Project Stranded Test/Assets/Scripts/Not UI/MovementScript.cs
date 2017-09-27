@@ -361,6 +361,13 @@ public class MovementScript : Photon.PunBehaviour
         publicUsername = username;
     }
 
+    [PunRPC]
+    public void SetAppearance(int headNum, int bodyNum)
+    {
+        gameObject.GetComponent<PlayerAppearance>().playerHeadNumber = headNum;
+        gameObject.GetComponent<PlayerAppearance>().playerBodyNumber = bodyNum;
+    }
+
     public void Stop()
     {
         // Debug.Log("Stop has been called");
