@@ -28,7 +28,7 @@ desktop: 1920x1080 60Hz; virtual: 3360x1145 at -1440,-65
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.899935 ms
+UnloadTime: 0.893673 ms
 Can't execute Disconnect() while not connected. Nothing changed. State: PeerCreated
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
@@ -47,14 +47,10 @@ Did you #ifdef UNITY_EDITOR a section of your serialized properties in any of yo
 (Filename:  Line: 1808)
 
 Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.691718 ms
+UnloadTime: 1.900622 ms
 
 Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 4195.
-Total: 1.520668 ms (FindLiveObjects: 0.171904 ms CreateObjectMapping: 0.065175 ms MarkObjects: 1.215282 ms  DeleteObjects: 0.066883 ms)
-
-The screen size is: 720 x 480
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+Total: 1.283588 ms (FindLiveObjects: 0.103028 ms CreateObjectMapping: 0.064321 ms MarkObjects: 1.050209 ms  DeleteObjects: 0.064606 ms)
 
 this network manager's user id is 0
  
@@ -69,6 +65,10 @@ Can't execute Disconnect() while not connected. Nothing changed. State: PeerCrea
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 SwitchToProtocol: Udp PhotonNetwork.connected: False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+The screen size is: 720 x 480
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
@@ -88,7 +88,7 @@ OperationResponse 230: ReturnCode: 0.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Received your UserID from server. Updating local value to: a8c5f5f1-1676-464c-822b-b7b9c6eb6d73
+Received your UserID from server. Updating local value to: 688b1a92-5177-4ed0-986f-7003197af202
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
@@ -148,7 +148,15 @@ OperationResponse 230: ReturnCode: 0.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
+OperationResponse 226: ReturnCode: 0.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+OnEvent: Event 255.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
 Setting up 3 worker threads for Enlighten.
-  Thread -> id: 18bc -> priority: 1 
-  Thread -> id: 4df8 -> priority: 1 
-  Thread -> id: 45e0 -> priority: 1 
+  Thread -> id: 4650 -> priority: 1 
+  Thread -> id: 13f0 -> priority: 1 
+  Thread -> id: 5370 -> priority: 1 

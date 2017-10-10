@@ -69,9 +69,13 @@ public class PhotonNetCode : Photon.PunBehaviour {
         else
         {
             data = GameObject.FindGameObjectWithTag("GameData").GetComponent<RoomData>();
-            if (data.roomName == "T3STROOM")
+            if (data.roomName == "T3STROOM1")
             {
-                overrideLobbyMax = true;
+                data.numberOfPlayers = 1;
+            }
+            if (data.roomName == "T3STROOM2")
+            {
+                data.numberOfPlayers = 2;
             }
             if (!overrideLobbyMax)
             {
