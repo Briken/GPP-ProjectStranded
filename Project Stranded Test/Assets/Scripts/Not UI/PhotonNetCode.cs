@@ -56,7 +56,11 @@ public class PhotonNetCode : Photon.PunBehaviour {
         {
             Instantiate(gData);
             data = GameObject.FindGameObjectWithTag("GameData").GetComponent<RoomData>();
-
+            if (data.roomName == "T3STROOM")
+            {
+                
+                overrideLobbyMax = true;
+            }
             if (!overrideLobbyMax)
             {
                 lobbyMax = data.numberOfPlayers;
@@ -65,11 +69,15 @@ public class PhotonNetCode : Photon.PunBehaviour {
         else
         {
             data = GameObject.FindGameObjectWithTag("GameData").GetComponent<RoomData>();
-
+            if (data.roomName == "T3STROOM")
+            {
+                overrideLobbyMax = true;
+            }
             if (!overrideLobbyMax)
             {
                 lobbyMax = data.numberOfPlayers;
             }
+            
         }
 
         PhotonNetwork.sendRate = 20; 
